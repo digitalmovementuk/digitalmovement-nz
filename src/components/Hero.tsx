@@ -15,10 +15,6 @@ export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [paused, setPaused] = useState(false);
-  // Hero video is deferred until *after* first paint — the gradient backdrop
-  // is what greets the user, the video fades in behind it on the next idle
-  // tick. Keeps the video out of LCP / Speed-Index calculations entirely.
-  const [videoMounted, setVideoMounted] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -26,31 +22,23 @@ export function Hero() {
   });
   const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
 
+  // iOS Safari autoplay is finicky — needs muted + playsInline set on the
+  // element *before* the first play() call, plus a fallback first-gesture
+  // listener since Low-Power Mode silently rejects autoplay. We also retry
+  // on canplay / loadeddata / visibilitychange so flaky networks recover.
   useEffect(() => {
     if (reduce) return;
-    type RIC = (cb: () => void, opts?: { timeout: number }) => number;
-    const ric = (window as unknown as { requestIdleCallback?: RIC }).requestIdleCallback;
-    const handle = ric
-      ? ric(() => setVideoMounted(true), { timeout: 1500 })
-      : (window.setTimeout(() => setVideoMounted(true), 700) as unknown as number);
-    return () => {
-      const cic = (window as unknown as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
-      if (cic) cic(handle);
-      else window.clearTimeout(handle);
-    };
-  }, [reduce]);
-
-  // iOS Safari autoplay is finicky — needs muted+playsInline set on the element
-  // *before* the first play() call, plus a fallback first-touch listener since
-  // Low-Power Mode silently rejects autoplay. We also re-attempt on `canplay`
-  // so flaky networks recover gracefully.
-  useEffect(() => {
-    if (reduce || !videoMounted) return;
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
     v.defaultMuted = true;
     v.setAttribute("muted", "");
+    // Force-load so iOS at least decodes the first frame even when autoplay
+    // is blocked. Without this the <video> can render as an opaque black
+    // box on Low-Power-Mode iPhones.
+    try {
+      v.load();
+    } catch {}
     const tryPlay = () => v.play().catch(() => {});
     tryPlay();
     const onFirstGesture = () => {
@@ -61,12 +49,19 @@ export function Hero() {
     document.addEventListener("touchstart", onFirstGesture, { once: true, passive: true });
     document.addEventListener("pointerdown", onFirstGesture, { once: true, passive: true });
     v.addEventListener("canplay", tryPlay, { once: true });
+    v.addEventListener("loadeddata", tryPlay, { once: true });
+    const onVis = () => {
+      if (!document.hidden) tryPlay();
+    };
+    document.addEventListener("visibilitychange", onVis);
     return () => {
       document.removeEventListener("touchstart", onFirstGesture);
       document.removeEventListener("pointerdown", onFirstGesture);
+      document.removeEventListener("visibilitychange", onVis);
       v.removeEventListener("canplay", tryPlay);
+      v.removeEventListener("loadeddata", tryPlay);
     };
-  }, [reduce, videoMounted]);
+  }, [reduce]);
 
   const togglePlay = () => {
     const v = videoRef.current;
@@ -106,7 +101,10 @@ export function Hero() {
               "radial-gradient(ellipse at 60% 35%, rgba(154,47,198,0.45) 0%, rgba(27,14,46,1) 55%, #100620 100%)",
           }}
         />
-        {videoMounted && (
+        {/* Video mounts immediately so iOS decodes the first frame even
+            when Low-Power-Mode blocks autoplay. preload="metadata" keeps
+            the eager byte cost minimal. */}
+        {!reduce && (
           <video
             ref={videoRef}
             autoPlay
@@ -118,7 +116,11 @@ export function Hero() {
             fetchPriority="low"
             className="absolute inset-0 h-full w-full object-cover scale-105"
             src={`${import.meta.env.BASE_URL}video/dm-color-theme.mp4`}
-            {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
+            {...({
+              "webkit-playsinline": "true",
+              "x5-playsinline": "true",
+              "disableremoteplayback": "true",
+            } as Record<string, string>)}
           />
         )}
 
@@ -157,40 +159,30 @@ export function Hero() {
           <div className="flex flex-col items-center text-center gap-6 md:flex-row md:items-end md:justify-between md:text-left md:gap-8">
             <div className="max-w-[920px] md:max-w-[920px]">
               {/* Mobile-only Google rating badge (inline). Desktop renders
-                  the sticky variant globally from App.tsx. */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.15 }}
-                className="md:hidden inline-flex mb-4"
-              >
+                  the sticky variant globally from App.tsx. The Hero block
+                  used to fade everything in with staggered opacity 0→1
+                  animations — on real mobile devices that reads as content
+                  "popping in" rather than appearing. All elements now render
+                  static so the hero is immediately complete on first paint. */}
+              <div className="md:hidden inline-flex mb-4">
                 <GoogleRatingCard />
-              </motion.div>
+              </div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-                className="inline-flex items-center justify-center md:justify-start gap-2 text-white/85"
-              >
+              <p className="inline-flex items-center justify-center md:justify-start gap-2 text-white/85">
                 <img
                   src={`${import.meta.env.BASE_URL}brand/logo-color-negative.svg`}
                   alt=""
                   aria-hidden
+                  width="16"
+                  height="16"
                   className="h-4 w-auto opacity-90"
                 />
                 <span className="uppercase tracking-[0.18em] text-[11px] sm:text-[12px] font-bold text-white/75">
                   Digital&nbsp;Movement — NZ
                 </span>
-              </motion.p>
+              </p>
 
-              <motion.h1
-                // No opacity fade — this element is the LCP candidate. Keeping
-                // it visible from first commit cuts ~300 ms off LCP without
-                // losing the gentle settle from the y-translate.
-                initial={{ y: 10 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+              <h1
                 className="mt-3 sm:mt-4 max-w-[16ch] mx-auto md:mx-0 balance text-white"
                 style={{
                   fontSize: "clamp(36px, 6.4vw, 92px)",
@@ -200,15 +192,10 @@ export function Hero() {
                 }}
               >
                 Page 1 Google in as&nbsp;little as 60 days.
-              </motion.h1>
+              </h1>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
-              className="flex flex-col items-center md:flex-row md:items-center gap-3 md:gap-4"
-            >
+            <div className="flex flex-col items-center md:flex-row md:items-center gap-3 md:gap-4">
               <p className="text-white/80 text-[13px] sm:text-[14px] font-medium leading-tight text-center md:text-left">
                 Free proposal{" "}
                 <span className="text-white/65">· 24h reply</span>
@@ -219,7 +206,7 @@ export function Hero() {
               >
                 Start
               </a>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
