@@ -157,17 +157,22 @@ export function Reviews() {
 
       {/* Apple-style controls */}
       <div className="container-v3 mt-8 sm:mt-10 flex items-center justify-center gap-2.5 sm:gap-3">
-        <div className="flex items-center gap-2 sm:gap-2.5 rounded-full bg-ink/[0.10] backdrop-blur-md px-4 py-3 sm:px-5 sm:py-3.5">
+        <div className="flex items-center gap-1 sm:gap-1.5 rounded-full bg-ink/[0.10] backdrop-blur-md px-2.5 py-1.5 sm:px-3 sm:py-2">
           {testimonials.map((r, i) => (
             <button
               key={r.name}
               type="button"
               onClick={() => goTo(i)}
               aria-label={`Go to review by ${r.name}`}
-              className={`h-2.5 rounded-full transition-all ${
-                activeIdx === i ? "w-8 bg-ink/80" : "w-2.5 bg-ink/35 hover:bg-ink/55"
-              }`}
-            />
+              className="grid h-7 w-auto min-w-7 place-items-center px-1.5"
+            >
+              <span
+                aria-hidden
+                className={`block h-2.5 rounded-full transition-all ${
+                  activeIdx === i ? "w-8 bg-ink/80" : "w-2.5 bg-ink/35 hover:bg-ink/55"
+                }`}
+              />
+            </button>
           ))}
         </div>
         <button

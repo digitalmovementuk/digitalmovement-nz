@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#FAF7F2" />
+    <meta name="theme-color" content="#1B0E2E" />
+    <!-- Pre-paint backdrop matches the hero so the address bar + first frame
+         don't flash white before the stylesheet arrives. -->
+    <style>
+      html, body { background: #1B0E2E; color-scheme: dark; margin: 0; }
+    </style>
 
     <title>DIGITAL MOVEMENT | The People's Agency</title>
     <meta
@@ -12,7 +17,10 @@
     />
     <link rel="canonical" href="https://www.digitalmovement.co.nz/" />
 
-    <link rel="icon" type="image/png" href="brand/motif-positive.png" />
+    <!-- SVG favicon ships in ~6 KB instead of the 252 KB raster. Modern
+         browsers prefer SVG; older ones fall back to the .png. -->
+    <link rel="icon" type="image/svg+xml" href="brand/logo-mono-negative.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="brand/motif-positive.png" />
     <link rel="apple-touch-icon" href="brand/motif-positive.png" />
     <meta name="apple-mobile-web-app-title" content="Digital Movement" />
     <meta name="application-name" content="Digital Movement" />
@@ -55,10 +63,27 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Non-blocking font load. The print → all swap delivers the CSS but
+         doesn't gate first paint on it. SF Pro Display is the primary face
+         on Apple devices so Kiwi mobile traffic mostly never waits for this
+         at all. Trimmed to four weights we actually use. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
 
     <script type="application/ld+json">
       {

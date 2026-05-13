@@ -39,13 +39,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: auto;
+    /* Match the dark hero so the very first paint doesn't flash white before
+       React mounts. Sections explicitly opt into surface-light below. */
+    background: var(--surface-dark);
+    color-scheme: dark;
   }
 
   body {
     margin: 0;
     font-family: "SF Pro Display", "SF Pro Text", "Manrope", -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
-    background: var(--surface-light);
+    background: var(--surface-dark);
     color: var(--ink);
     overflow-x: hidden;
     letter-spacing: -0.003em;

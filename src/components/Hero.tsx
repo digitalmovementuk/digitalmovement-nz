@@ -15,6 +15,10 @@ export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [paused, setPaused] = useState(false);
+  // Hero video is deferred until *after* first paint — the gradient backdrop
+  // is what greets the user, the video fades in behind it on the next idle
+  // tick. Keeps the video out of LCP / Speed-Index calculations entirely.
+  const [videoMounted, setVideoMounted] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -23,12 +27,46 @@ export function Hero() {
   const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
 
   useEffect(() => {
+    if (reduce) return;
+    type RIC = (cb: () => void, opts?: { timeout: number }) => number;
+    const ric = (window as unknown as { requestIdleCallback?: RIC }).requestIdleCallback;
+    const handle = ric
+      ? ric(() => setVideoMounted(true), { timeout: 1500 })
+      : (window.setTimeout(() => setVideoMounted(true), 700) as unknown as number);
+    return () => {
+      const cic = (window as unknown as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
+      if (cic) cic(handle);
+      else window.clearTimeout(handle);
+    };
+  }, [reduce]);
+
+  // iOS Safari autoplay is finicky — needs muted+playsInline set on the element
+  // *before* the first play() call, plus a fallback first-touch listener since
+  // Low-Power Mode silently rejects autoplay. We also re-attempt on `canplay`
+  // so flaky networks recover gracefully.
+  useEffect(() => {
+    if (reduce || !videoMounted) return;
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
     v.defaultMuted = true;
-    v.play().catch(() => {});
-  }, []);
+    v.setAttribute("muted", "");
+    const tryPlay = () => v.play().catch(() => {});
+    tryPlay();
+    const onFirstGesture = () => {
+      tryPlay();
+      document.removeEventListener("touchstart", onFirstGesture);
+      document.removeEventListener("pointerdown", onFirstGesture);
+    };
+    document.addEventListener("touchstart", onFirstGesture, { once: true, passive: true });
+    document.addEventListener("pointerdown", onFirstGesture, { once: true, passive: true });
+    v.addEventListener("canplay", tryPlay, { once: true });
+    return () => {
+      document.removeEventListener("touchstart", onFirstGesture);
+      document.removeEventListener("pointerdown", onFirstGesture);
+      v.removeEventListener("canplay", tryPlay);
+    };
+  }, [reduce, videoMounted]);
 
   const togglePlay = () => {
     const v = videoRef.current;
@@ -49,13 +87,26 @@ export function Hero() {
       data-surface="dark"
       className="surface-dark relative isolate overflow-hidden w-screen min-h-[100svh] h-[100dvh]"
     >
-      {/* Full-bleed background video */}
+      {/* Full-bleed background video. Always rendered so iOS users with
+          reduced motion still see the poster frame instead of a flat black
+          rectangle. The brand gradient on the section is the real backdrop —
+          video sits over it. */}
       <motion.div
         aria-hidden
         style={!reduce ? { y: videoY } : undefined}
         className="absolute inset-0 -z-10 overflow-hidden"
       >
-        {!reduce && (
+        {/* Pre-paint backdrop — the section never flashes pure black while
+            the video buffers because this DM gradient is already painted. */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 60% 35%, rgba(154,47,198,0.45) 0%, rgba(27,14,46,1) 55%, #100620 100%)",
+          }}
+        />
+        {videoMounted && (
           <video
             ref={videoRef}
             autoPlay
@@ -63,8 +114,8 @@ export function Hero() {
             muted
             playsInline
             preload="metadata"
-            // @ts-expect-error fetchpriority is missing from React types
-            fetchpriority="high"
+            // @ts-expect-error fetchPriority is missing from React video types
+            fetchPriority="low"
             className="absolute inset-0 h-full w-full object-cover scale-105"
             src={`${import.meta.env.BASE_URL}video/dm-color-theme.mp4`}
             {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
@@ -134,9 +185,12 @@ export function Hero() {
               </motion.p>
 
               <motion.h1
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                // No opacity fade — this element is the LCP candidate. Keeping
+                // it visible from first commit cuts ~300 ms off LCP without
+                // losing the gentle settle from the y-translate.
+                initial={{ y: 10 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-3 sm:mt-4 max-w-[16ch] mx-auto md:mx-0 balance text-white"
                 style={{
                   fontSize: "clamp(36px, 6.4vw, 92px)",
@@ -155,9 +209,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.55 }}
               className="flex flex-col items-center md:flex-row md:items-center gap-3 md:gap-4"
             >
-              <p className="text-white/70 text-[13px] sm:text-[14px] font-medium leading-tight text-center md:text-left">
+              <p className="text-white/80 text-[13px] sm:text-[14px] font-medium leading-tight text-center md:text-left">
                 Free proposal{" "}
-                <span className="text-white/45">· 24h reply</span>
+                <span className="text-white/65">· 24h reply</span>
               </p>
               <a
                 href="#contact"

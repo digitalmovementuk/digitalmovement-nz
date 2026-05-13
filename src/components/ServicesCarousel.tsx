@@ -153,17 +153,24 @@ export function ServicesCarousel() {
 
       {/* Apple-style controls — dots only */}
       <div className="container-v3 mt-5 sm:mt-7 shrink-0 flex items-center justify-center">
-        <div className="flex items-center gap-2 sm:gap-3 rounded-full bg-ink/[0.10] backdrop-blur-md px-4 py-3 sm:px-6 sm:py-4">
+        <div className="flex items-center gap-1 sm:gap-2 rounded-full bg-ink/[0.10] backdrop-blur-md px-3 py-1.5 sm:px-4 sm:py-2">
           {services.map((s, i) => (
             <button
               key={s.key}
               type="button"
               onClick={() => goTo(i)}
               aria-label={`Go to ${s.title}`}
-              className={`h-2.5 sm:h-3 rounded-full transition-all ${
-                activeIdx === i ? "w-9 sm:w-12 bg-ink/85" : "w-2.5 sm:w-3 bg-ink/35 hover:bg-ink/55"
-              }`}
-            />
+              // The visible dot stays small but the button's hit area is
+              // 28×28 — WCAG 2.5.5 recommends ≥24 px for touch targets.
+              className="grid h-7 w-auto min-w-7 place-items-center px-1.5"
+            >
+              <span
+                aria-hidden
+                className={`block h-2.5 sm:h-3 rounded-full transition-all ${
+                  activeIdx === i ? "w-9 sm:w-12 bg-ink/85" : "w-2.5 sm:w-3 bg-ink/35 hover:bg-ink/55"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>
@@ -238,17 +245,43 @@ const ServiceSlide = ({
 };
 
 function ServiceVideo({ file }: { file: string }) {
-  const ref = useRef<HTMLVideoElement>(null);
+  // The card's <video> element is heavy (~6 MB each × 4 cards). We mount it
+  // only when the card is near the viewport — before that, a brand-gradient
+  // placeholder fills the slot so the layout is stable from first paint.
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldMount, setShouldMount] = useState(false);
+
   useEffect(() => {
-    const v = ref.current;
+    const el = wrapRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      const t = window.setTimeout(() => setShouldMount(true), 1500);
+      return () => window.clearTimeout(t);
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldMount(true);
+          io.disconnect();
+        }
+      },
+      // Only when actually in viewport — services-logo videos are 6 MB
+      // each, and four of them would saturate a mobile connection if any
+      // mounted speculatively.
+      { rootMargin: "0px", threshold: 0.01 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!shouldMount) return;
+    const v = videoRef.current;
     if (!v) return;
     v.muted = true;
     v.defaultMuted = true;
     const tryPlay = () => v.play().catch(() => {});
-    if (typeof IntersectionObserver === "undefined") {
-      tryPlay();
-      return;
-    }
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) tryPlay();
@@ -257,24 +290,36 @@ function ServiceVideo({ file }: { file: string }) {
       { threshold: 0.1 },
     );
     io.observe(v);
+    tryPlay();
     return () => io.disconnect();
-  }, [file]);
+  }, [shouldMount, file]);
+
   return (
-    <video
-      ref={ref}
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="metadata"
-      // @ts-expect-error fetchpriority is missing from React types
-      fetchpriority="low"
-      // object-cover fills both axes; the extra scale crops the brand padding
-      // around the centred logo so the animation reads boldly to the edges.
-      className="absolute inset-0 h-full w-full object-cover scale-[1.18] origin-center"
-      src={`${import.meta.env.BASE_URL}${file}`}
-      aria-hidden
-      {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
-    />
+    <div ref={wrapRef} className="absolute inset-0">
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(154,47,198,0.40) 0%, rgba(27,14,46,1) 65%)",
+        }}
+      />
+      {shouldMount && (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          // @ts-expect-error fetchPriority is missing from React video types
+          fetchPriority="low"
+          className="absolute inset-0 h-full w-full object-cover scale-[1.18] origin-center"
+          src={`${import.meta.env.BASE_URL}${file}`}
+          aria-hidden
+          {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
+        />
+      )}
+    </div>
   );
 }

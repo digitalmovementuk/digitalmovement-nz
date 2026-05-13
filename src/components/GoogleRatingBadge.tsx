@@ -45,10 +45,12 @@ export function StickyGoogleRatingBadge() {
 export function GoogleRatingCard() {
   return (
     <a
-      href="https://www.google.com/search?q=digital+movement+uk+reviews"
+      href="https://www.google.com/search?q=digital+movement+new+zealand+reviews"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="See our Google reviews — 5.0 average from over 100 verified reviews"
+      // Match the visible text in the card so screen-reader output and the
+      // visual content read identically (label-content-name-mismatch a11y).
+      aria-label="Google Rating 5.0 — Based on +100 reviews"
       className="inline-flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur px-3.5 py-2.5 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.45)] hover:bg-white transition"
     >
       <GoogleGIcon />

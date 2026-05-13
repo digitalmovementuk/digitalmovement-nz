@@ -1,19 +1,36 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight } from "lucide-react";
-import { business, navLinks } from "../content";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { business } from "../content";
 
 type Surface = "dark" | "light";
 
-// Primary navigation. The NZ launch keeps subpages on disk for direct-URL
-// access but the nav surfaces in-page anchors only — Link to="/#hash" jumps
-// home and Layout's hash-scroll effect picks up the rest.
+// Primary navigation. Mixes in-page anchors (`/#cases`) with real subpage
+// routes (`/about`, `/services/*`) — Link to="/#hash" jumps home and
+// Layout's hash-scroll effect handles the rest.
+const subpageLinks = [
+  { label: "Cases", to: "/#cases" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/#contact" },
+];
+
+const serviceLinks = [
+  { label: "Overview", to: "/#services" },
+  { label: "SEO", to: "/services/seo" },
+  { label: "Google Ads", to: "/services/google-ads" },
+  { label: "Social Media", to: "/services/social-media" },
+  { label: "Websites", to: "/services/websites" },
+];
+
 export function Nav() {
   const [surface, setSurface] = useState<Surface>("dark");
   const [scrolled, setScrolled] = useState(false);
   const [compact, setCompact] = useState(false);
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const closeTimer = useRef<number | undefined>(undefined);
   const { pathname } = useLocation();
 
   const onHome = pathname === "/" || pathname === "";
@@ -49,12 +66,12 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [onHome, pathname]);
 
-  // Close the drawer whenever the route changes.
   useEffect(() => {
     setOpen(false);
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
-  // Lock body scroll while drawer is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -73,7 +90,15 @@ export function Nav() {
   const barHeightCls = compact ? "h-[48px] md:h-[56px]" : "h-[88px] md:h-[104px]";
   const logoHeightCls = compact ? "h-6 sm:h-7" : "h-11 sm:h-14";
   const linkSizeCls = compact ? "text-[13px]" : "text-[17px]";
-  const linkGapCls = compact ? "gap-6 lg:gap-8" : "gap-9 lg:gap-12";
+  const linkGapCls = compact ? "gap-5 lg:gap-7" : "gap-7 lg:gap-9";
+
+  const onServicesEnter = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    setServicesOpen(true);
+  };
+  const onServicesLeave = () => {
+    closeTimer.current = window.setTimeout(() => setServicesOpen(false), 140);
+  };
 
   return (
     <>
@@ -89,16 +114,75 @@ export function Nav() {
                 onDark ? "logo-color-negative" : "logo-color-positive"
               }.svg`}
               alt="Digital Movement"
+              width="160"
+              height="40"
               className={`w-auto transition-all duration-300 ${logoHeightCls}`}
               draggable={false}
             />
           </Link>
 
           <nav className={`hidden md:flex items-center transition-all duration-300 ${linkGapCls}`}>
-            {navLinks.map((l) => (
+            <div
+              className="relative"
+              onMouseEnter={onServicesEnter}
+              onMouseLeave={onServicesLeave}
+            >
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={servicesOpen}
+                onClick={() => setServicesOpen((v) => !v)}
+                className={`inline-flex items-center gap-1.5 font-semibold tracking-tight transition-all duration-300 ${linkSizeCls} ${linkCls}`}
+              >
+                Services
+                <ChevronDown
+                  size={compact ? 13 : 15}
+                  strokeWidth={2.2}
+                  className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute left-1/2 top-full -translate-x-1/2 pt-3"
+                  >
+                    <div
+                      className={`min-w-[220px] rounded-2xl p-2 border shadow-soft ${
+                        onDark
+                          ? "bg-[#1B0E2E]/90 border-white/10 backdrop-blur-xl"
+                          : "bg-white/95 border-ink/8 backdrop-blur-xl"
+                      }`}
+                      role="menu"
+                    >
+                      {serviceLinks.map((s) => (
+                        <Link
+                          key={s.to}
+                          to={s.to}
+                          role="menuitem"
+                          onClick={() => setServicesOpen(false)}
+                          className={`block rounded-xl px-4 py-2.5 text-[14px] font-medium transition-colors ${
+                            onDark
+                              ? "text-white/85 hover:bg-white/10 hover:text-white"
+                              : "text-ink-soft hover:bg-ink/[0.04] hover:text-ink"
+                          }`}
+                        >
+                          {s.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {subpageLinks.map((l) => (
               <Link
-                key={l.href}
-                to={`/${l.href}`}
+                key={l.to}
+                to={l.to}
                 className={`font-semibold tracking-tight transition-all duration-300 ${linkSizeCls} ${linkCls}`}
               >
                 {l.label}
@@ -135,7 +219,7 @@ export function Nav() {
             />
             <motion.aside
               key="drawer"
-              className="fixed inset-y-0 right-0 z-[70] w-[88%] max-w-[420px] surface-dark p-6"
+              className="fixed inset-y-0 right-0 z-[70] w-[88%] max-w-[420px] surface-dark p-6 overflow-y-auto"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -146,6 +230,8 @@ export function Nav() {
                   <img
                     src={`${import.meta.env.BASE_URL}brand/logo-color-negative.svg`}
                     alt="Digital Movement"
+                    width="120"
+                    height="28"
                     className="h-7 w-auto"
                   />
                 </Link>
@@ -159,15 +245,56 @@ export function Nav() {
               </div>
 
               <nav className="mt-12 flex flex-col">
-                {navLinks.map((l, i) => (
+                <motion.button
+                  type="button"
+                  onClick={() => setMobileServicesOpen((v) => !v)}
+                  className="flex items-center justify-between py-4 text-[26px] font-bold tracking-tight border-b border-white/10 text-white"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.08 }}
+                >
+                  Services
+                  <ChevronDown
+                    size={20}
+                    strokeWidth={2.2}
+                    className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                  />
+                </motion.button>
+                <AnimatePresence initial={false}>
+                  {mobileServicesOpen && (
+                    <motion.div
+                      key="m-services"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      <div className="pl-3 border-b border-white/10">
+                        {serviceLinks.map((s) => (
+                          <Link
+                            key={s.to}
+                            to={s.to}
+                            onClick={() => setOpen(false)}
+                            className="block py-3 text-[18px] font-semibold text-white/80 hover:text-white"
+                          >
+                            {s.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {subpageLinks.map((l, i) => (
                   <motion.div
-                    key={l.href}
+                    key={l.to}
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.06 * i + 0.08 }}
+                    transition={{ delay: 0.06 * (i + 1) + 0.08 }}
                   >
                     <Link
-                      to={`/${l.href}`}
+                      to={l.to}
                       onClick={() => setOpen(false)}
                       className="block py-4 text-[26px] font-bold tracking-tight border-b border-white/10 text-white"
                     >

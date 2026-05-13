@@ -1,19 +1,45 @@
+import { lazy, Suspense, type ComponentType } from "react";
 import { Hero } from "../components/Hero";
 import { ServicesCarousel } from "../components/ServicesCarousel";
-import { ClientCases } from "../components/ClientCases";
-import { Metrics } from "../components/Metrics";
-import { Reviews } from "../components/Reviews";
-import { Contact } from "../components/Contact";
+
+// Below-the-fold homepage sections are lazy-loaded. The initial paint only
+// needs Hero + ServicesCarousel; everything that lives further down the page
+// arrives in a second chunk so it doesn't block first content paint on
+// mobile.
+const ClientCases = lazy(() =>
+  import("../components/ClientCases").then((m) => ({ default: m.ClientCases })),
+);
+const Metrics = lazy(() =>
+  import("../components/Metrics").then((m) => ({ default: m.Metrics })),
+);
+const Reviews = lazy(() =>
+  import("../components/Reviews").then((m) => ({ default: m.Reviews })),
+);
+const Contact = lazy(() =>
+  import("../components/Contact").then((m) => ({ default: m.Contact })),
+);
+
+function SectionFallback() {
+  return <div className="min-h-[40vh] surface-light" aria-hidden />;
+}
+
+function defer(Component: ComponentType) {
+  return (
+    <Suspense fallback={<SectionFallback />}>
+      <Component />
+    </Suspense>
+  );
+}
 
 export function HomePage() {
   return (
     <>
       <Hero />
       <ServicesCarousel />
-      <ClientCases />
-      <Metrics />
-      <Reviews />
-      <Contact />
+      {defer(ClientCases)}
+      {defer(Metrics)}
+      {defer(Reviews)}
+      {defer(Contact)}
     </>
   );
 }

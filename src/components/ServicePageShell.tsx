@@ -92,8 +92,8 @@ function Hero({ content }: { content: ServiceContent }) {
             playsInline
             preload="auto"
             poster={`${base}brand/og-cover.jpg`}
-            // @ts-expect-error fetchpriority is missing from React types
-            fetchpriority="high"
+            // @ts-expect-error fetchPriority is missing from React video types
+            fetchPriority="high"
             className="absolute inset-0 h-full w-full object-cover scale-105"
             src={`${base}${content.hero.video}#t=0.1`}
             {...({

@@ -177,10 +177,13 @@ function MobileCaseStories() {
     return () => window.clearTimeout(t);
   }, [activeIdx]);
 
-  // Explicit play / pause + rewind on the active slide's video. Removes
-  // the dependence on each video's intrinsic IntersectionObserver, which
-  // wasn't always firing when slides came into the horizontal track.
+  // Explicit play / pause + rewind on the active slide's video. We only
+  // call play() once the IG-story section has actually entered the
+  // viewport — otherwise the first slide's video starts downloading
+  // immediately on mount, which on mobile is a ~10 MB head-of-page tax for
+  // content the user may never scroll to.
   useEffect(() => {
+    if (!storiesVisible) return;
     slideVideoRefs.current.forEach((v, i) => {
       if (!v) return;
       v.muted = true;
@@ -193,7 +196,7 @@ function MobileCaseStories() {
         v.pause();
       }
     });
-  }, [activeIdx]);
+  }, [activeIdx, storiesVisible]);
 
   // Slide tracker — keeps activeIdx aligned with manual swipes. Skips
   // intermediate states during programmatic (smooth) scroll.
@@ -377,15 +380,16 @@ function StoryVideo({
   return (
     <video
       ref={videoRef}
-      autoPlay
       loop
       muted
       playsInline
-      preload="auto"
-      // @ts-expect-error fetchpriority is missing from React types
-      fetchpriority="low"
-      // pointer-events-none — keeps the video purely visual so iOS can't
-      // intercept taps; the slide-local "Next" button beneath catches them.
+      // `preload="none"` — the parent IG-story controller calls play() on the
+      // active slide, which is the moment we want bytes to start flowing. With
+      // `preload="auto"` all five case videos would each download eagerly on
+      // mount, costing tens of MB before the user even reached the section.
+      preload="none"
+      // @ts-expect-error fetchPriority is missing from React video types
+      fetchPriority="low"
       className="absolute inset-0 h-full w-full object-cover pointer-events-none"
       src={`${import.meta.env.BASE_URL}${file}`}
       aria-hidden
@@ -395,17 +399,46 @@ function StoryVideo({
 }
 
 function CaseVideo({ file, poster }: { file: string; poster?: string }) {
-  const ref = useRef<HTMLVideoElement>(null);
+  // Don't even mount the <video> until the card is approaching the viewport.
+  // Five case videos × ~6 MB each is the largest single payload on the page,
+  // and ClientCases sits well below the fold — there's no reason for them to
+  // exist in the DOM before the user scrolls towards them.
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldMount, setShouldMount] = useState(false);
+
   useEffect(() => {
-    const v = ref.current;
+    const el = wrapRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      // Antique browser fallback — defer to an idle moment instead of
+      // mounting all five videos in lockstep with the hero.
+      const t = window.setTimeout(() => setShouldMount(true), 1500);
+      return () => window.clearTimeout(t);
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldMount(true);
+          io.disconnect();
+        }
+      },
+      // Only mount once the card actually enters the viewport. Case videos
+      // are 3–28 MB each — a generous rootMargin causes the first one to
+      // start downloading immediately, which is exactly what we're avoiding.
+      { rootMargin: "0px", threshold: 0.01 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!shouldMount) return;
+    const v = videoRef.current;
     if (!v) return;
     v.muted = true;
     v.defaultMuted = true;
     const tryPlay = () => v.play().catch(() => {});
-    if (typeof IntersectionObserver === "undefined") {
-      tryPlay();
-      return;
-    }
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) tryPlay();
@@ -414,27 +447,39 @@ function CaseVideo({ file, poster }: { file: string; poster?: string }) {
       { threshold: 0.15 },
     );
     io.observe(v);
+    tryPlay();
     return () => io.disconnect();
-  }, [file]);
+  }, [shouldMount, file]);
+
   return (
-    <video
-      ref={ref}
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="metadata"
-      poster={poster}
-      // @ts-expect-error fetchpriority is missing from React types
-      fetchpriority="low"
-      // pointer-events-none — keeps the video purely visual so iOS Safari
-      // can't intercept taps (which would toggle native playback / restart
-      // the loop). All taps reach the slide's "Next case" button beneath.
-      className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-      src={`${import.meta.env.BASE_URL}${file}`}
-      aria-hidden
-      {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
-    />
+    <div ref={wrapRef} className="absolute inset-0">
+      {/* Brand-tinted placeholder while the video is pending. */}
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(154,47,198,0.32) 0%, rgba(27,14,46,1) 70%)",
+        }}
+      />
+      {shouldMount && (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster={poster}
+          // @ts-expect-error fetchPriority is missing from React video types
+          fetchPriority="low"
+          className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+          src={`${import.meta.env.BASE_URL}${file}`}
+          aria-hidden
+          {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
+        />
+      )}
+    </div>
   );
 }
 

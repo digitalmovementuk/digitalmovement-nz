@@ -1,14 +1,20 @@
 import { Phone, Mail, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { business, services } from "../content";
+import { business } from "../content";
 
-// Footer sitemap — NZ launch keeps everything anchored to the homepage:
-// service links jump to the in-page services section, company links to the
-// other homepage sections. No subpage promotion in the nav surface.
+// Footer sitemap — services link to their dedicated subpages, company links
+// span the About route and the in-page anchors.
+const footerServices = [
+  { label: "SEO", to: "/services/seo" },
+  { label: "Google Ads", to: "/services/google-ads" },
+  { label: "Social Media", to: "/services/social-media" },
+  { label: "Websites", to: "/services/websites" },
+];
+
 const footerCompany = [
+  { label: "About", to: "/about" },
   { label: "Client cases", to: "/#cases" },
   { label: "Numbers", to: "/#metrics" },
-  { label: "Reviews", to: "/#reviews" },
   { label: "Contact", to: "/#contact" },
 ];
 
@@ -72,10 +78,10 @@ export function Footer() {
         <div className="grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-3 pt-12 sm:pt-14 text-center sm:text-left">
           <Column heading="Services">
             <ul className="space-y-2.5">
-              {services.map((s) => (
-                <li key={s.key}>
-                  <Link to="/#services" className={linkCls}>
-                    {s.title}
+              {footerServices.map((s) => (
+                <li key={s.to}>
+                  <Link to={s.to} className={linkCls}>
+                    {s.label}
                   </Link>
                 </li>
               ))}
