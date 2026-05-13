@@ -8,10 +8,10 @@ export const business = {
   // E.164 form (e.g. tel:+649XXXXXXX).
   phone: "+64 9 XXX XXXX",
   phoneHref: "tel:+6490000000",
-  email: "office@digitalmovement.com.nz",
-  emailHref: "mailto:office@digitalmovement.com.nz",
+  email: "office@digitalmovement.co.nz",
+  emailHref: "mailto:office@digitalmovement.co.nz",
   whatsapp: "+64 9 XXX XXXX",
-  whatsappHref: "mailto:office@digitalmovement.com.nz",
+  whatsappHref: "mailto:office@digitalmovement.co.nz",
   socials: [
     { label: "Instagram", href: "https://www.instagram.com/digitalmovementnz" },
     { label: "Facebook", href: "https://www.facebook.com/digitalmovementnz" },
