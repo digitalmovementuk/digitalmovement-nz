@@ -1,0 +1,14 @@
+node_modules
+dist
+.DS_Store
+.vite
+*.log
+
+# Source video assets — already mirrored into public/video for the build
+Assets/
+
+# TS build cache
+tsconfig.tsbuildinfo
+
+# Workflow folder is local only — deploy is done from a gh-pages branch
+.github/
