@@ -101,9 +101,9 @@ export function Hero() {
               "radial-gradient(ellipse at 60% 35%, rgba(154,47,198,0.45) 0%, rgba(27,14,46,1) 55%, #100620 100%)",
           }}
         />
-        {/* Video mounts immediately so iOS decodes the first frame even
-            when Low-Power-Mode blocks autoplay. preload="metadata" keeps
-            the eager byte cost minimal. */}
+        {/* Video mounts immediately and preloads aggressively so the hero
+            never shows a flat gradient — bytes start flowing on first paint
+            and the first frame paints as soon as the network allows. */}
         {!reduce && (
           <video
             ref={videoRef}
@@ -111,9 +111,9 @@ export function Hero() {
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="auto"
             // @ts-expect-error fetchPriority is missing from React video types
-            fetchPriority="low"
+            fetchPriority="high"
             className="absolute inset-0 h-full w-full object-cover scale-105"
             src={`${import.meta.env.BASE_URL}video/dm-color-theme.mp4`}
             {...({

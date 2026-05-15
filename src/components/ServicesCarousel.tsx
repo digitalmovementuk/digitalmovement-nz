@@ -245,38 +245,11 @@ const ServiceSlide = ({
 };
 
 function ServiceVideo({ file }: { file: string }) {
-  // The card's <video> element is heavy (~6 MB each × 4 cards). We mount it
-  // only when the card is near the viewport — before that, a brand-gradient
-  // placeholder fills the slot so the layout is stable from first paint.
-  const wrapRef = useRef<HTMLDivElement>(null);
+  // Videos mount immediately and preload eagerly so each card paints its
+  // footage as soon as it scrolls into view — no blank gradient delay.
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [shouldMount, setShouldMount] = useState(false);
 
   useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      const t = window.setTimeout(() => setShouldMount(true), 1500);
-      return () => window.clearTimeout(t);
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldMount(true);
-          io.disconnect();
-        }
-      },
-      // Only when actually in viewport — services-logo videos are 6 MB
-      // each, and four of them would saturate a mobile connection if any
-      // mounted speculatively.
-      { rootMargin: "0px", threshold: 0.01 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!shouldMount) return;
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
@@ -292,10 +265,10 @@ function ServiceVideo({ file }: { file: string }) {
     io.observe(v);
     tryPlay();
     return () => io.disconnect();
-  }, [shouldMount, file]);
+  }, [file]);
 
   return (
-    <div ref={wrapRef} className="absolute inset-0">
+    <div className="absolute inset-0">
       <div
         aria-hidden
         className="absolute inset-0"
@@ -304,22 +277,18 @@ function ServiceVideo({ file }: { file: string }) {
             "radial-gradient(ellipse at center, rgba(154,47,198,0.40) 0%, rgba(27,14,46,1) 65%)",
         }}
       />
-      {shouldMount && (
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          // @ts-expect-error fetchPriority is missing from React video types
-          fetchPriority="low"
-          className="absolute inset-0 h-full w-full object-cover scale-[1.18] origin-center"
-          src={`${import.meta.env.BASE_URL}${file}`}
-          aria-hidden
-          {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
-        />
-      )}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 h-full w-full object-cover scale-[1.18] origin-center"
+        src={`${import.meta.env.BASE_URL}${file}`}
+        aria-hidden
+        {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
+      />
     </div>
   );
 }

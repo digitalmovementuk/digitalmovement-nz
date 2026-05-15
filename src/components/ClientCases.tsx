@@ -383,13 +383,9 @@ function StoryVideo({
       loop
       muted
       playsInline
-      // `preload="none"` — the parent IG-story controller calls play() on the
-      // active slide, which is the moment we want bytes to start flowing. With
-      // `preload="auto"` all five case videos would each download eagerly on
-      // mount, costing tens of MB before the user even reached the section.
-      preload="none"
-      // @ts-expect-error fetchPriority is missing from React video types
-      fetchPriority="low"
+      // Preload eagerly so the active story's first frame is ready the
+      // moment the section enters the viewport — no waiting for buffer.
+      preload="auto"
       className="absolute inset-0 h-full w-full object-cover pointer-events-none"
       src={`${import.meta.env.BASE_URL}${file}`}
       aria-hidden
@@ -399,41 +395,11 @@ function StoryVideo({
 }
 
 function CaseVideo({ file, poster }: { file: string; poster?: string }) {
-  // Don't even mount the <video> until the card is approaching the viewport.
-  // Five case videos × ~6 MB each is the largest single payload on the page,
-  // and ClientCases sits well below the fold — there's no reason for them to
-  // exist in the DOM before the user scrolls towards them.
-  const wrapRef = useRef<HTMLDivElement>(null);
+  // Videos mount on first paint and preload eagerly so each card already
+  // has its footage ready when the user scrolls to it.
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [shouldMount, setShouldMount] = useState(false);
 
   useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      // Antique browser fallback — defer to an idle moment instead of
-      // mounting all five videos in lockstep with the hero.
-      const t = window.setTimeout(() => setShouldMount(true), 1500);
-      return () => window.clearTimeout(t);
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldMount(true);
-          io.disconnect();
-        }
-      },
-      // Only mount once the card actually enters the viewport. Case videos
-      // are 3–28 MB each — a generous rootMargin causes the first one to
-      // start downloading immediately, which is exactly what we're avoiding.
-      { rootMargin: "0px", threshold: 0.01 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!shouldMount) return;
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
@@ -449,11 +415,10 @@ function CaseVideo({ file, poster }: { file: string; poster?: string }) {
     io.observe(v);
     tryPlay();
     return () => io.disconnect();
-  }, [shouldMount, file]);
+  }, [file]);
 
   return (
-    <div ref={wrapRef} className="absolute inset-0">
-      {/* Brand-tinted placeholder while the video is pending. */}
+    <div className="absolute inset-0">
       <div
         aria-hidden
         className="absolute inset-0"
@@ -462,23 +427,19 @@ function CaseVideo({ file, poster }: { file: string; poster?: string }) {
             "radial-gradient(ellipse at center, rgba(154,47,198,0.32) 0%, rgba(27,14,46,1) 70%)",
         }}
       />
-      {shouldMount && (
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster={poster}
-          // @ts-expect-error fetchPriority is missing from React video types
-          fetchPriority="low"
-          className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-          src={`${import.meta.env.BASE_URL}${file}`}
-          aria-hidden
-          {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
-        />
-      )}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster={poster}
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+        src={`${import.meta.env.BASE_URL}${file}`}
+        aria-hidden
+        {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
+      />
     </div>
   );
 }
