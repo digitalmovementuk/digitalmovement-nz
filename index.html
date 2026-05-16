@@ -61,6 +61,26 @@
     />
     <meta name="twitter:image:alt" content="Digital Movement — The People's Agency" />
 
+    <!-- Hero first-slide poster + mobile/desktop video preloads. The poster
+         paints the moment the HTML parses (well before React boots), so the
+         hero never shows a flat gradient on first paint. The video preload
+         hints kick off the bytes in parallel with the JS bundle. -->
+    <link rel="preload" as="image" href="/video/hero/mountain-poster.jpg" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="video"
+      type="video/mp4"
+      href="/video/hero/mobile/mountain.mp4"
+      media="(max-width: 767px)"
+    />
+    <link
+      rel="preload"
+      as="video"
+      type="video/mp4"
+      href="/video/hero/desktop/mountain.mp4"
+      media="(min-width: 768px)"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Non-blocking font load. The print → all swap delivers the CSS but

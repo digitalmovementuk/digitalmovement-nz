@@ -4,10 +4,21 @@ import { Pause, Play } from "lucide-react";
 import { GoogleRatingCard } from "./GoogleRatingBadge";
 
 const HERO_SLIDES = [
-  { src: "video/hero/mountain.mp4", label: "Mount Aoraki" },
-  { src: "video/hero/beach.mp4", label: "NZ Beach Life" },
+  {
+    label: "Mount Aoraki",
+    mobile: "video/hero/mobile/mountain.mp4",
+    desktop: "video/hero/desktop/mountain.mp4",
+    poster: "video/hero/mountain-poster.jpg",
+  },
+  {
+    label: "NZ Beach Life",
+    mobile: "video/hero/mobile/beach.mp4",
+    desktop: "video/hero/desktop/beach.mp4",
+    poster: "video/hero/beach-poster.jpg",
+  },
 ];
 const SLIDE_INTERVAL_MS = 4000;
+const DESKTOP_BREAKPOINT = "(min-width: 768px)";
 
 /**
  * Hero — Apple Watch Series 11 blueprint with a 2-slide auto-rotating
@@ -26,30 +37,33 @@ export function Hero() {
   });
   const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
 
-  // iOS Safari autoplay is finicky — needs muted + playsInline set on the
-  // element *before* the first play() call, plus a fallback first-gesture
-  // listener since Low-Power Mode silently rejects autoplay.
+  // Play only the currently-active video. iOS Safari autoplay is finicky —
+  // needs muted + playsInline set on the element *before* the first play()
+  // call, plus a first-gesture fallback since Low-Power Mode rejects
+  // autoplay. By playing only the active video, the second (~470KB on
+  // mobile) doesn't compete with the first for bandwidth at first paint.
   useEffect(() => {
     if (reduce) return;
-    const tryPlayAll = () => {
-      videoRefs.current.forEach((v) => {
+    const playActive = () => {
+      videoRefs.current.forEach((v, i) => {
         if (!v) return;
         v.muted = true;
         v.defaultMuted = true;
         v.setAttribute("muted", "");
-        v.play().catch(() => {});
+        if (i === activeIdx) v.play().catch(() => {});
+        else v.pause();
       });
     };
-    tryPlayAll();
+    playActive();
     const onFirstGesture = () => {
-      tryPlayAll();
+      playActive();
       document.removeEventListener("touchstart", onFirstGesture);
       document.removeEventListener("pointerdown", onFirstGesture);
     };
     document.addEventListener("touchstart", onFirstGesture, { once: true, passive: true });
     document.addEventListener("pointerdown", onFirstGesture, { once: true, passive: true });
     const onVis = () => {
-      if (!document.hidden) tryPlayAll();
+      if (!document.hidden) playActive();
     };
     document.addEventListener("visibilitychange", onVis);
     return () => {
@@ -57,7 +71,7 @@ export function Hero() {
       document.removeEventListener("pointerdown", onFirstGesture);
       document.removeEventListener("visibilitychange", onVis);
     };
-  }, [reduce]);
+  }, [reduce, activeIdx]);
 
   // Auto-rotate between slides every 4s. Pauses when user pauses or when
   // the tab is hidden.
@@ -109,31 +123,48 @@ export function Hero() {
           }}
         />
         {/* Two-slide auto-rotating carousel. Both videos mount immediately
-            and crossfade — opacity 1 for active, 0 for inactive. */}
+            and crossfade — opacity 1 for active, 0 for inactive. Each video
+            uses <source media> so mobile gets the small 854px variant
+            (~160-470KB) and desktop gets the 1280px variant. A poster JPEG
+            paints instantly while the bytes arrive. */}
         {!reduce &&
           HERO_SLIDES.map((slide, i) => (
             <video
-              key={slide.src}
+              key={slide.desktop}
               ref={(el) => {
                 videoRefs.current[i] = el;
               }}
-              autoPlay
               loop
               muted
               playsInline
-              preload="auto"
+              preload={i === 0 ? "auto" : "none"}
+              poster={`${import.meta.env.BASE_URL}${slide.poster}`}
               // @ts-expect-error fetchPriority is missing from React video types
               fetchPriority={i === 0 ? "high" : "auto"}
               aria-label={slide.label}
               className="absolute inset-0 h-full w-full object-cover scale-105 transition-opacity duration-[1200ms] ease-out"
               style={{ opacity: activeIdx === i ? 1 : 0 }}
-              src={`${import.meta.env.BASE_URL}${slide.src}`}
               {...({
                 "webkit-playsinline": "true",
                 "x5-playsinline": "true",
                 "disableremoteplayback": "true",
               } as Record<string, string>)}
-            />
+            >
+              <source
+                src={`${import.meta.env.BASE_URL}${slide.mobile}`}
+                type="video/mp4"
+                media="(max-width: 767px)"
+              />
+              <source
+                src={`${import.meta.env.BASE_URL}${slide.desktop}`}
+                type="video/mp4"
+                media={DESKTOP_BREAKPOINT}
+              />
+              <source
+                src={`${import.meta.env.BASE_URL}${slide.desktop}`}
+                type="video/mp4"
+              />
+            </video>
           ))}
 
         {/* Top fade — improves nav legibility */}
