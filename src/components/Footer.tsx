@@ -61,8 +61,9 @@ export function Footer() {
               className="h-8 w-auto mx-auto lg:mx-0"
             />
             <p className="mt-5 text-[14px] sm:text-[15px] text-ink-soft leading-relaxed">
-              {business.name}. The best-value NZ digital marketing agency.
-              Real leads. Real growth. Plain English — no jargon.
+              New Zealand's best-value digital marketing agency. Our five-star
+              rated agency guarantees to deliver real results and unbelievable
+              prices and inclusions to every client.
             </p>
           </div>
 
@@ -70,7 +71,7 @@ export function Footer() {
             to="/#contact"
             className="inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.18em] text-ink hover:text-ink-soft transition-colors"
           >
-            Start a project <ArrowUpRight size={14} />
+            Get your free audit <ArrowUpRight size={14} />
           </Link>
         </div>
 

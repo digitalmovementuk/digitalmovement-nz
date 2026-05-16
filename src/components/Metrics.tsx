@@ -36,7 +36,7 @@ export function Metrics() {
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-12 items-end text-center lg:text-left">
           <div>
             <Reveal>
-              <p className="eyebrow text-ink-muted">The numbers</p>
+              <p className="eyebrow text-ink-muted">Our numbers</p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2
@@ -48,15 +48,15 @@ export function Metrics() {
                   fontWeight: 700,
                 }}
               >
-                Numbers we'd
-                <span className="text-ink/55"> put in writing.</span>
+                All the numbers
+                <span className="block text-ink/55">tell our story.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.12}>
             <p className="text-[15px] sm:text-[17px] text-ink-soft leading-relaxed max-w-[480px] mx-auto lg:mx-0 lg:justify-self-end">
-              No vanity metrics. No hand-waving. The maths below is what
-              actually moved for the businesses we work with.
+              With a proven track record of exceeding client expectations,
+              our numbers are undeniable.
             </p>
           </Reveal>
         </div>
@@ -82,7 +82,7 @@ export function Metrics() {
 function FeaturedStat() {
   const cardRef = useRef<HTMLDivElement>(null);
   const inView = useInView(cardRef, { amount: 0.35, once: true });
-  const { ref: numRef, value } = useCountUp(8);
+  const { ref: numRef, value } = useCountUp(500);
 
   return (
     <motion.div
@@ -98,7 +98,7 @@ function FeaturedStat() {
           <div className="inline-flex items-center gap-2 text-[10.5px] font-bold uppercase tracking-[0.18em] text-ink-muted">
             <span>01</span>
             <span className="h-px w-6 bg-ink/15" />
-            <span>Featured result</span>
+            <span>Helping businesses</span>
           </div>
 
           <span
@@ -112,15 +112,15 @@ function FeaturedStat() {
             }}
           >
             {inView ? value : 0}
-            <span className="text-ink/55">×</span>
+            <span className="text-ink/55">+</span>
           </span>
 
           <p className="mt-3 text-[14px] sm:text-[15px] font-bold uppercase tracking-[0.18em] text-ink">
-            More monthly leads
+            Businesses grown with our help
           </p>
           <p className="mt-3 max-w-[440px] text-[14px] sm:text-[15px] text-ink-soft leading-relaxed">
-            Average uplift across active SEO + Ads clients in the first six
-            months. We show you the maths every month.
+            500+ Kiwi businesses have grown with us — from small online stores
+            to large national companies — backed by real, measurable results.
           </p>
         </div>
 
@@ -133,8 +133,8 @@ function FeaturedStat() {
 
 function BarChartVisual({ inView }: { inView: boolean }) {
   const bars = [
-    { label: "Industry avg.", value: 1, mute: true },
-    { label: "Our clients", value: 8 },
+    { label: "Typical agency", value: 1, mute: true },
+    { label: "Digital Movement", value: 8 },
   ];
   const maxValue = 8;
   return (
@@ -179,7 +179,7 @@ function BarChartVisual({ inView }: { inView: boolean }) {
                 } -mt-1`}
                 style={{ letterSpacing: "-0.025em" }}
               >
-                {b.value}×
+                {b.mute ? "Avg." : "500+"}
               </p>
             </div>
           );
@@ -198,7 +198,7 @@ function BarChartVisual({ inView }: { inView: boolean }) {
 function DaysStat() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { amount: 0.4, once: true });
-  const { ref: numRef, value } = useCountUp(60);
+  const { ref: numRef, value } = useCountUp(3500);
   return (
     <motion.div
       ref={ref}
@@ -208,9 +208,9 @@ function DaysStat() {
       className="relative bg-white rounded-[28px] sm:rounded-[36px] border border-ink/8 overflow-hidden p-6 sm:p-8 flex flex-col justify-between min-h-[240px] sm:min-h-[300px] text-center"
     >
       <div className="inline-flex self-center items-center gap-2 text-[10.5px] font-bold uppercase tracking-[0.18em] text-ink-muted">
-        <span>02</span>
+        <span>03</span>
         <span className="h-px w-6 bg-ink/15" />
-        <span>To Google page 1</span>
+        <span>Increasing visibility</span>
       </div>
 
       <div className="my-6">
@@ -224,12 +224,12 @@ function DaysStat() {
             fontWeight: 700,
           }}
         >
-          {inView ? value : 0}
-          <span className="text-ink/55"> days</span>
+          {(inView ? value : 0).toLocaleString()}
+          <span className="text-ink/55">+</span>
         </span>
       </div>
 
-      {/* Day-track visual: a 60-step progress bar with a moving pin */}
+      {/* Page-rank progress visual */}
       <div className="mb-6">
         <div className="relative h-1.5 rounded-full bg-ink/10 overflow-hidden">
           <motion.div
@@ -243,14 +243,14 @@ function DaysStat() {
           />
         </div>
         <div className="mt-2 flex justify-between text-[10.5px] font-bold uppercase tracking-[0.16em] text-ink-faint">
-          <span>Day 1</span>
-          <span>Day 60</span>
+          <span>Invisible</span>
+          <span>Page 1 of Google</span>
         </div>
       </div>
 
       <p className="text-[14.5px] sm:text-[15.5px] text-ink-soft leading-relaxed">
-        From kickoff to first commercial keyword on the first page. The figure
-        is the median — some clients move faster.
+        3,500+ pages ranked on page 1 of Google — across consultancies, trades,
+        e-commerce and local services right across New Zealand.
       </p>
     </motion.div>
   );
@@ -273,9 +273,9 @@ function ReviewsStat() {
       className="relative bg-white rounded-[28px] sm:rounded-[36px] border border-ink/8 overflow-hidden p-6 sm:p-8 flex flex-col justify-between min-h-[240px] sm:min-h-[300px] text-center"
     >
       <div className="inline-flex self-center items-center gap-2 text-[10.5px] font-bold uppercase tracking-[0.18em] text-ink-muted">
-        <span>03</span>
+        <span>02</span>
         <span className="h-px w-6 bg-ink/15" />
-        <span>5-star Google reviews</span>
+        <span>Maintaining trust</span>
       </div>
 
       <div className="my-6">
@@ -289,7 +289,7 @@ function ReviewsStat() {
             fontWeight: 700,
           }}
         >
-          +{inView ? value : 0}
+          {inView ? value : 0}<span className="text-ink/55">+</span>
         </span>
       </div>
 
@@ -301,8 +301,8 @@ function ReviewsStat() {
       </div>
 
       <p className="text-[14.5px] sm:text-[15.5px] text-ink-soft leading-relaxed">
-        Verified by Google. Read every single one — including the long ones —
-        on our public profile.
+        100+ five-star Google reviews from clients. Verified, public, and the
+        honest record of how we work.
       </p>
     </motion.div>
   );
@@ -347,8 +347,8 @@ function HeritageStat() {
     return () => window.clearInterval(id);
   }, [inView]);
 
-  // Years from 2018 to current year (assume 2026)
-  const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+  // Eight tick marks across the revenue arc.
+  const ticks = Array.from({ length: 9 });
   return (
     <motion.div
       ref={ref}
@@ -360,7 +360,7 @@ function HeritageStat() {
       <div className="inline-flex self-center items-center gap-2 text-[10.5px] font-bold uppercase tracking-[0.18em] text-ink-muted">
         <span>04</span>
         <span className="h-px w-6 bg-ink/15" />
-        <span>Founder-led, plain English</span>
+        <span>Generating revenue</span>
       </div>
 
       <div className="my-6">
@@ -373,11 +373,11 @@ function HeritageStat() {
             fontWeight: 700,
           }}
         >
-          Since <span className="text-ink/55">2018</span>
+          $10M<span className="text-ink/55">+</span>
         </span>
       </div>
 
-      {/* Timeline visual */}
+      {/* Revenue arc visual */}
       <div className="mb-6">
         <div className="relative h-px bg-ink/10">
           <motion.div
@@ -390,11 +390,11 @@ function HeritageStat() {
             }}
           />
           <div className="absolute inset-x-0 -top-1 flex justify-between">
-            {years.map((y, i) => {
+            {ticks.map((_, i) => {
               const lit = tick > i;
               return (
                 <span
-                  key={y}
+                  key={i}
                   className={`block h-2 w-2 rounded-full transition-colors duration-300 ${
                     lit ? "bg-ink" : "bg-ink/15"
                   }`}
@@ -404,17 +404,17 @@ function HeritageStat() {
           </div>
         </div>
         <div className="mt-3 flex justify-between text-[10.5px] font-bold uppercase tracking-[0.16em] text-ink-faint tabular-nums">
-          <span>'18</span>
-          <span className="hidden sm:inline">'20</span>
-          <span className="hidden sm:inline">'22</span>
-          <span className="hidden sm:inline">'24</span>
-          <span>'26</span>
+          <span>$0</span>
+          <span className="hidden sm:inline">$2.5M</span>
+          <span className="hidden sm:inline">$5M</span>
+          <span className="hidden sm:inline">$7.5M</span>
+          <span>$10M+</span>
         </div>
       </div>
 
       <p className="text-[14.5px] sm:text-[15.5px] text-ink-soft leading-relaxed">
-        Seven years running the engine for NZ businesses. Same team you meet in
-        the proposal call ships the work.
+        Over $10M in revenue generated for businesses through SEO, Google Ads,
+        social media and high-performing web design.
       </p>
     </motion.div>
   );

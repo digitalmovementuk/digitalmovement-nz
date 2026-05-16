@@ -91,7 +91,7 @@ export function Reviews() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2
-                className="mt-5 max-w-[18ch] mx-auto lg:mx-0 balance text-ink"
+                className="mt-5 max-w-[20ch] mx-auto lg:mx-0 balance text-ink"
                 style={{
                   fontSize: "clamp(34px, 6vw, 84px)",
                   lineHeight: "1.04",
@@ -99,8 +99,8 @@ export function Reviews() {
                   fontWeight: 700,
                 }}
               >
-                In their own words.
-                <span className="text-ink/55"> Not ours.</span>
+                What our clients say
+                <span className="block text-ink/55">about how we do what we do.</span>
               </h2>
             </Reveal>
           </div>
@@ -110,7 +110,7 @@ export function Reviews() {
                 <GoogleGIcon />
                 <p className="text-[15px] sm:text-[17px] text-ink-soft leading-tight">
                   <span className="font-semibold text-ink">5.0 average</span> from{" "}
-                  <span className="font-semibold text-ink">+100 verified reviews</span>.
+                  <span className="font-semibold text-ink">100+ verified reviews</span>.
                 </p>
               </div>
               <div className="mt-2 flex items-center justify-center lg:justify-start gap-1 text-[#F5A623]">

@@ -58,15 +58,15 @@ export function StickyCTA() {
         className="flex items-center justify-center gap-3 sm:gap-5 rounded-full bg-white/85 backdrop-blur-xl pl-5 sm:pl-7 pr-2 sm:pr-3 py-2 sm:py-3 border border-white/55 animate-pulse-bar"
       >
         <p className="text-[13px] sm:text-[14.5px] font-semibold text-ink leading-tight whitespace-nowrap">
-          Free proposal{" "}
-          <span className="hidden sm:inline text-ink-muted font-medium">· 24h reply</span>
+          No obligations,{" "}
+          <span className="hidden sm:inline text-ink-muted font-medium">so no worries</span>
         </p>
         <a
           href="#contact"
           tabIndex={show ? 0 : -1}
           className="relative inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[13.5px] sm:text-[15px] px-5 sm:px-7 py-2.5 sm:py-3.5 transition-colors animate-pulse-plum whitespace-nowrap"
         >
-          Start <ArrowRight size={14} strokeWidth={2.4} />
+          Get your free audit <ArrowRight size={14} strokeWidth={2.4} />
         </a>
       </motion.div>
     </div>

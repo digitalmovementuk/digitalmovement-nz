@@ -1,72 +1,78 @@
-// About page content. Rebranded from the NEO source to Digital Movement —
-// London-led, plain talk, NZ clients.
+// About page content. Aligned to the Digital Movement NZ brand voice —
+// 5-star rated agency, guaranteed real results, NZ-based, plain English.
 
 export const about = {
   meta: {
     title: "About · Digital Movement",
     description:
-      "Who we are, what we believe, and the team behind the 90-day sprints. NZ-led, plain talk, no account-manager chain.",
+      "Why we are a 5-star rated digital marketing agency in New Zealand. Trusted, proven, and relentlessly results-driven — turning visibility into velocity and marketing into momentum.",
   },
   hero: {
     eyebrow: "About",
-    headlinePre: "A small agency",
-    headlineSoft: "taking the craft seriously again.",
-    sub: "We're a small Kiwi team of specialists who treat performance marketing as a craft — not an Excel sport. One promise: measurable results within 90 days.",
+    headlinePre: "Why we are a 5-star rated",
+    headlineSoft: "digital marketing agency.",
+    sub: "Trusted, proven, and relentlessly results-driven, we turn visibility into velocity and marketing into momentum.",
     locations: "Auckland · New Zealand",
   },
   pillars: [
     {
-      label: "Vision",
+      label: "Guaranteeing real results",
       headline:
-        "A world where every NZ business is found online — by people and by AI.",
-      body: "Search is changing faster than ever. We want NZ businesses to rank on Google and to surface in ChatGPT, Perplexity and Gemini — without needing an enterprise marketing department to make it happen.",
+        "From more website traffic to more enquiries to higher sales.",
+      body: "From increased website traffic to more calls and enquiries to higher sales figures, we guarantee real, measurable results that you'll actually notice. Choosing the right digital marketing company in New Zealand can feel overwhelming, especially with so many agencies making big promises but delivering very little. At Digital Movement, we do things differently — we focus on what genuinely matters: measurable results, clear communication, and marketing strategies that actually help businesses grow.",
+      bodyMore:
+        "We understand that most business owners in New Zealand have limited time and resources to dedicate to marketing. That's why we provide an all-in-one digital marketing service designed to make growth simple and stress-free.\n\nOur approach combines high-performing website design and search engine optimisation (SEO) with targeted Google Ads and effective social media marketing, bringing everything together seamlessly under one roof.\n\nAs a trusted digital marketing company, we pride ourselves on offering honest advice, hands-on support, and campaigns that deliver outstanding returns on investment. No ignored emails. No confusing jargon. Just a dedicated team working proactively to move your business forward.\n\nIf you're looking for a reliable partner that understands your challenges and is committed to real, long-term success, put Digital Movement to the test.",
     },
     {
-      label: "Mission",
+      label: "Delivering you customers",
       headline:
-        "Strip the mystery out of performance marketing and turn it into real enquiries.",
-      body: "Enough vanity metrics, reporting theatre and account-manager chains. We deliver technical SEO, AI-search optimisation and high-end websites at a fixed monthly price — and we put our names to the result.",
+        "The right customers, ready and willing to pay for what you offer.",
+      body: "Increasing your revenue by finding the right customers who are ready and willing to pay for what your business has to offer is what we do best. As a trusted digital marketing company in New Zealand, Digital Movement is proud to support businesses nationwide with a forward-thinking team of world-class marketing experts driven by results. From day one, our specialists work tirelessly to deliver a strong return on investment in the shortest time possible.",
+      bodyMore:
+        "We're so confident in our expertise and proven strategies that we offer a bold guarantee: your business will appear on page 1 of Google search results within just 90 days. That's how strongly we believe in the quality of our work and the commitment of our team.\n\nOur highly skilled and experienced digital marketing experts are constantly developing innovative solutions designed to generate exceptional results. Whether it's driving high-quality leads with value-focused content, increasing sales with intelligently targeted ads, or building long-term brand visibility with scroll-stopping socials, we tailor every strategy to suit your business goals and market.\n\nDigital Movement is trusted by everyone from small local businesses to large national companies because we deliver what others promise. We combine cutting-edge marketing expertise with ongoing support and clear communication, taking the stress out of online marketing so you can focus on running your business.",
     },
     {
-      label: "Values",
-      headline: "Commitment. Performance. Fair pricing.",
-      body: "We take fewer clients so we can stand on the phone for each one. What we promise, we keep — or we keep quiet.",
+      label: "Going beyond service",
+      headline: "A dedicated NZ-based specialist working closely with you.",
+      body: "Gaining peace of mind by having a dedicated NZ-based digital marketing specialist working closely with you is what you can expect. As a passionate digital marketing company in New Zealand that wants you to succeed, we go the extra mile by assigning a dedicated NZ-based specialist who works closely with you to create and optimise a high-performing marketing strategy tailored to your business.",
+      bodyMore:
+        "You will have direct access to your specialist via phone and email, ensuring clear communication, fast responses, and complete peace of mind at every stage of your campaign.\n\nAt Digital Movement, we don't see ourselves as just another digital marketing agency providing campaigns and reports. We see ourselves as a genuine partner in your business growth. Our role goes far beyond delivering a service — we're here to understand your goals, overcome your challenges, and help you build sustainable success for the long term.\n\nWhen you choose Digital Movement, you're choosing a digital marketing company in New Zealand that is fully invested in your success, not just today, but well into the future. We don't disappear once a campaign goes live — we continuously refine, support, and scale your marketing to ensure ongoing growth and measurable results.",
     },
   ],
   founderNote: {
     eyebrow: "A note from the team",
-    headlinePre: "You'll talk to the people",
-    headlineSoft: "who do the work.",
-    role: "Senior strategists, NZ",
+    headlinePre: "No ignored emails.",
+    headlineSoft: "No confusing jargon. Just real results.",
+    role: "Your NZ-based specialists",
     paragraphs: [
-      "We started Digital Movement because we were tired of it. Good NZ companies pay thousands a month. They get vanity metrics. Not enquiries in the inbox. That changes here.",
-      "At Digital Movement: no account manager with a spreadsheet. You get senior strategists on the line. Fixed monthly price. No lock-in. A 90-day sprint with our names on it.",
-      "Sound like your way of working? Drop us a line. Weekdays we reply within 24 h. Personally.",
+      "We understand that most business owners in New Zealand have limited time and resources to dedicate to marketing. That's why we provide an all-in-one digital marketing service designed to make growth simple and stress-free.",
+      "Our approach combines high-performing website design and search engine optimisation (SEO) with targeted Google Ads and effective social media marketing — bringing everything together seamlessly under one roof.",
+      "As a trusted digital marketing company, we pride ourselves on offering honest advice, hands-on support, and campaigns that deliver outstanding returns on investment. No ignored emails. No confusing jargon. Just a dedicated team working proactively to move your business forward.",
     ],
     trackRecord: [
-      { year: "2026", entry: "Launched Digital Movement NZ · Auckland" },
-      { year: "2021 – 2025", entry: "Performance marketing leadership · ANZ agencies" },
-      { year: "2017 – 2021", entry: "Senior SEO + paid lead · International agency network" },
-      { year: "2013 – 2017", entry: "In-house growth + digital marketing · Auckland / Sydney" },
+      { year: "100+", entry: "Five-star Google reviews from clients" },
+      { year: "500+", entry: "Businesses have grown with our help" },
+      { year: "3,500+", entry: "Pages ranked on page 1 of Google" },
+      { year: "$10M+", entry: "Revenue generated for NZ businesses" },
     ],
   },
   studio: {
     eyebrow: "Where we work",
     headlinePre: "Auckland-led.",
-    headlineSoft: "NZ-wide clients.",
-    body: "Run out of Auckland with a small senior team — no co-working theatre, no junior pyramid. We work with Kiwi businesses across Auckland, Wellington, Christchurch, Hamilton, Tauranga and beyond — async-first, on a Zoom when it counts, on the ground when it really counts.",
+    headlineSoft: "Trusted by NZ businesses nationwide.",
+    body: "As a trusted digital marketing company in New Zealand, Digital Movement is proud to support businesses nationwide with a forward-thinking team of world-class marketing experts driven by results. We work with Kiwi businesses across Auckland, Wellington, Christchurch, Hamilton, Tauranga and beyond.",
     bullets: [
-      "Owned studio space, no hot-desking",
-      "Workshops on-site whenever it matters",
-      "Async-first, synchronous when it counts",
+      "Trusted from small local businesses to large national companies",
+      "Premium digital marketing without breaking the bank",
+      "Honest advice, hands-on support, outstanding ROI",
     ],
   },
   team: {
     eyebrow: "The team",
-    headlinePre: "Small team.",
-    headlineSoft: "All seniors.",
+    headlinePre: "Highly skilled,",
+    headlineSoft: "constantly innovating.",
     intro:
-      "Every discipline owned in-house — no outsourcing, no white-label. You speak directly to the person responsible for the code, the campaign, or the strategy on your project.",
+      "Our highly skilled and experienced digital marketing experts are constantly developing innovative solutions designed to generate exceptional results — tailored to your business goals and market.",
     members: [
       {
         name: "James Holloway",
@@ -128,11 +134,11 @@ export const about = {
   },
   cta: {
     eyebrow: "Ready?",
-    headlinePre: "Let's talk",
-    headlineSoft: "about your growth.",
-    body: "Free intro call, personally with a senior strategist. Reply within 24 h on weekdays.",
-    button: "Start free SEO audit",
-    secondary: "Book intro call",
+    headlinePre: "Let us show you how",
+    headlineSoft: "we deliver real results.",
+    body: "Get in touch to find out how you can grow your business with a 5-star rated digital marketing agency in New Zealand that guarantees real results.",
+    button: "Get your free audit",
+    secondary: "Book a consultation",
   },
 };
 

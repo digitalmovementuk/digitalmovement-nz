@@ -2,10 +2,7 @@
 
 export const business = {
   name: "Digital Movement",
-  tagline: "Page 1 Google in as little as 60 days.",
-  // NZ launch — phone is placeholder until the line is set up. Keep the
-  // placeholder readable; once the real number lands, swap href to the
-  // E.164 form (e.g. tel:+649XXXXXXX).
+  tagline: "Get real results. Guaranteed.",
   phone: "+64 9 XXX XXXX",
   phoneHref: "tel:+6490000000",
   email: "office@digitalmovement.co.nz",
@@ -27,12 +24,12 @@ export const navLinks = [
 
 export const heroStats = [
   { value: 8, suffix: "x", label: "Increase in monthly leads" },
-  { value: 60, suffix: "", label: "Days to Google page 1" },
+  { value: 90, suffix: "", label: "Days to Google page 1" },
 ];
 
 export const googleRating = {
   rating: 5.0,
-  count: 200,
+  count: 100,
   reviewsUrl: "https://www.google.com/search?q=digital+movement+new+zealand",
 };
 
@@ -40,78 +37,78 @@ export const services = [
   {
     key: "seo",
     title: "SEO",
-    promise: "Page 1 Google in as little as 60 days.",
+    promise: "Get on Page 1 of Google Search results in 90 days.",
     detail:
-      "Technical fixes, content that earns clicks, and link building that compounds. We show you the maths each month — what moved, why, and what's next.",
-    bullets: ["Technical SEO audit", "Content + on-page", "Authority building", "Monthly maths"],
+      "Technical SEO, local and national SEO, and content writing — all under one roof. We guarantee your business a page 1 position in Google Search results in just 90 days.",
+    bullets: ["Technical SEO", "Local SEO", "National SEO", "Content writing"],
     video: "video/seo-logo.mp4",
   },
   {
     key: "google-ads",
     title: "Google Ads",
-    promise: "ROI-positive paid traffic that prints.",
+    promise: "Increase net profit faster with smarter Google Ads.",
     detail:
-      "Tightly themed campaigns, conversion-tracked landing pages, and weekly waste-trimming. We don't bid on vanity terms — we bid on revenue.",
+      "Intelligently designed Search and Performance Max campaigns that deliver near-instant ROI. We weed out wasted clicks and focus on converting visits into high-quality leads.",
     bullets: [
-      "Search + Performance Max",
+      "Search Ads",
+      "Performance Max",
       "Conversion tracking",
-      "Landing pages built to convert",
-      "Weekly optimisation",
+      "Landing page creation & tuning",
     ],
     video: "video/google-ads-logo.mp4",
   },
   {
     key: "social",
     title: "Social Media",
-    promise: "Content that drives leads, not vanity metrics.",
+    promise: "Grow your business through meaningful engagement.",
     detail:
-      "Short-form video, paid social, and creative built for your audience and platform. Followers are nice — booked calls are better.",
-    bullets: ["Short-form video", "Paid social", "Creative production", "Lead-led posting plan"],
+      "Turn interested social media users into engaged followers and loyal brand advocates. Paid social ads, content creation and a posting plan — built for relevance, timing, and strategy.",
+    bullets: ["Paid social ads", "Content creation", "Posting plan", "Founder content"],
     video: "video/socials-logo.mp4",
   },
   {
     key: "websites",
     title: "Websites",
-    promise: "Conversion-optimised sites built to rank from day one.",
+    promise: "Gain more loyal customers with world-class web design.",
     detail:
-      "Fast, modern, mobile-first websites that load quickly, look the part, and turn visitors into enquiries. Built on platforms you can edit yourself.",
-    bullets: ["Mobile-first design", "Core Web Vitals", "Built to convert", "You can edit it"],
+      "High-performing websites that don't just look exceptional but actively help you outperform competitors online. Built to deliver paying customers, not just traffic.",
+    bullets: ["Mobile-first design", "Conversion architecture", "SEO-ready from day one", "You can edit it"],
     video: "video/website-logo.mp4",
   },
 ];
 
 export const results = [
   {
-    metric: "1312%",
-    label: "Increase in monthly leads",
-    industry: "Cosmetic clinic",
-    work: "SEO + Web Design + Google Ads",
-    timeline: "Within 4 months",
-    quote: "We went from a quiet Monday to a fully booked diary.",
+    metric: "1125%",
+    label: "Increase in web conversions",
+    industry: "Online store",
+    work: "SEO + Web Design",
+    timeline: "Andrew Schultz",
+    quote: "Their team took the time to understand my business and implemented a tailored SEO strategy that delivered results almost immediately.",
   },
   {
-    metric: "1125%",
-    label: "Increase in conversions",
-    industry: "E-commerce",
-    work: "SEO + Web Design",
-    timeline: "Within 6 months",
-    quote: "Same traffic, more than ten times the orders.",
+    metric: "1312%",
+    label: "Increase in monthly leads",
+    industry: "Small business",
+    work: "Web Design + SEO + Google Ads",
+    timeline: "Beth Sorenson",
+    quote: "The team built me a great website and set up SEO and Google Ads, and I started getting real leads not long after.",
   },
   {
     metric: "1050%",
     label: "Increase in monthly sales",
-    industry: "Online store",
+    industry: "First-time website",
     work: "Web Design",
-    timeline: "Within 3 months",
-    quote: "The new site paid for itself in the first month.",
+    timeline: "Matthew Peard",
+    quote: "Digital Movement has done an incredible job on my first website. They know their stuff and know how to get the results I need.",
   },
   {
     metric: "1796%",
     label: "Increase in organic traffic",
-    industry: "Local services",
-    work: "Full digital marketing",
-    timeline: "Within 8 months",
-    quote: "We're now the first thing people see on Google.",
+    industry: "Established business",
+    work: "Digital Marketing",
+    timeline: "Fabienne M.",
+    quote: "Punctual, organised, and efficient. I have been dealing with this company for years now, and I couldn't recommend a better agency.",
   },
 ];
 
@@ -160,75 +157,75 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "cunos",
-    client: "Cunos",
-    industry: "Senior finance consultancy",
-    location: "Auckland",
-    services: ["SEO", "Content", "Web Design"],
-    timeline: "5 months",
-    headline: "5x consultations from organic search",
+    slug: "andrew-schultz",
+    client: "Andrew Schultz",
+    industry: "Online store owner",
+    location: "New Zealand",
+    services: ["SEO", "Web Design"],
+    timeline: "Verified review",
+    headline: "1125% more web conversions",
     body:
-      "An advice-only firm punching below its weight on Google. We built topical authority across KiwiSaver drawdown and estate planning, and shipped a redesign that finally matched the brand.",
+      "I can't recommend Digital Movement enough for their incredible SEO services. As the owner of a small online store, I was struggling to attract consistent traffic and generate sales. Their team took the time to understand my business and implemented a tailored SEO strategy that delivered results almost immediately — a game-changer for my business.",
     metrics: [
-      { value: "5x", label: "Consultations" },
-      { value: "7x", label: "Organic traffic" },
-      { value: "#1", label: "12 target keywords" },
+      { value: "1125%", label: "Web conversions" },
+      { value: "5.0", label: "Google rating" },
+      { value: "Page 1", label: "Google ranking" },
     ],
-    video: "video/cases/finance-skyline.mp4",
+    video: "video/cases/digital.mp4",
     accent: "violet",
   },
   {
-    slug: "canterbury-conservatory-roofs",
-    client: "Canterbury Conservatory Roofs",
-    industry: "Roofing & home improvement",
-    location: "Christchurch",
-    services: ["Local SEO", "Google Ads"],
-    timeline: "3 months",
-    headline: "8x more booked jobs per week",
+    slug: "beth-sorenson",
+    client: "Beth Sorenson",
+    industry: "Small business owner",
+    location: "New Zealand",
+    services: ["Web Design", "SEO", "Google Ads"],
+    timeline: "Verified review",
+    headline: "1312% more monthly leads",
     body:
-      "We took a five-page brochure site and turned it into a lead engine. Quote-form changes, GBP optimisation, and a tight Performance Max campaign filled the diary inside a quarter.",
+      "Digital Movement have been amazing to work with. The team built me a great website and set up SEO and Google Ads, and I started getting real leads not long after. The team is easy to talk to, quick to respond, and they explain everything in plain English. I finally feel confident that my marketing is being looked after.",
     metrics: [
-      { value: "8x", label: "Booked jobs" },
-      { value: "$72", label: "Cost per lead" },
-      { value: "9/10", label: "Quote-to-job" },
-    ],
-    video: "video/cases/roofing.mp4",
-    accent: "orange",
-  },
-  {
-    slug: "fantastic-finish",
-    client: "Fantastic Finish",
-    industry: "Commercial cleaning",
-    location: "Wellington",
-    services: ["SEO", "Web Design", "Google Ads"],
-    timeline: "4 months",
-    headline: "13x more monthly leads",
-    body:
-      "A regional commercial cleaner with strong reviews but a near-invisible Google footprint. We rebuilt the site, restructured the service architecture and tightened paid search around high-intent commercial terms.",
-    metrics: [
-      { value: "13x", label: "More leads" },
-      { value: "60", label: "Days to page 1" },
-      { value: "8x", label: "ROAS" },
+      { value: "1312%", label: "Monthly leads" },
+      { value: "5.0", label: "Google rating" },
+      { value: "Real", label: "Inbound enquiries" },
     ],
     video: "video/cases/cleaning.mp4",
     accent: "pink",
   },
   {
-    slug: "stride-and-co",
-    client: "Stride & Co.",
-    industry: "Last-mile logistics",
-    location: "Hamilton",
-    services: ["SEO", "Web Design"],
-    timeline: "6 months",
-    headline: "11x more booked deliveries",
+    slug: "matthew-peard",
+    client: "Matthew Peard",
+    industry: "First-time website",
+    location: "New Zealand",
+    services: ["Web Design"],
+    timeline: "Verified review",
+    headline: "1050% more monthly sales",
     body:
-      "Same traffic, more than ten times the booked deliveries. We rewrote every service page, fixed Core Web Vitals, and rebuilt the quote-request flow around a single primary action.",
+      "Digital Movement has done an incredible job on my first website. I can't express how happy I am with Martey and his team. They know their stuff and know how to get the results I need. Thanks for looking after me and giving me the best package and price for what I needed at the time.",
     metrics: [
-      { value: "11x", label: "Conversions" },
-      { value: "1.5x", label: "Avg. order value" },
-      { value: "1.8s", label: "LCP" },
+      { value: "1050%", label: "Monthly sales" },
+      { value: "5.0", label: "Google rating" },
+      { value: "1st", label: "Website launched" },
     ],
-    video: "video/cases/logistics.mp4",
+    video: "video/cases/finance-skyline.mp4",
+    accent: "orange",
+  },
+  {
+    slug: "fabienne-m",
+    client: "Fabienne M.",
+    industry: "Established business",
+    location: "New Zealand",
+    services: ["Digital Marketing"],
+    timeline: "Verified review",
+    headline: "1796% more organic traffic",
+    body:
+      "Punctual, organised, and efficient are just a few of their best qualities. I have been dealing with this company for years now, and I couldn't recommend a better agency. Not only have they helped me with my websites, SEO, and Google Ads, but they've also always pointed me in the right direction. If I'm lacking anything, they always help fill that gap.",
+    metrics: [
+      { value: "1796%", label: "Organic traffic" },
+      { value: "5.0", label: "Google rating" },
+      { value: "Years", label: "Loyal partner" },
+    ],
+    video: "video/cases/roofing.mp4",
     accent: "violet",
   },
   {
@@ -246,7 +243,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "800+", label: "Ranking keywords" },
       { value: "12", label: "Demos / week" },
     ],
-    video: "video/cases/digital.mp4",
+    video: "video/cases/logistics.mp4",
     accent: "pink",
   },
 ];
@@ -266,28 +263,28 @@ export const testimonials: Review[] = [
     role: "Online store owner",
     when: "Verified Google review",
     quote:
-      "I can't recommend Digital Movement enough for their incredible SEO services! As the owner of a small online store, I was struggling to attract consistent traffic and generate sales — the team turned that around for us.",
+      "I can't recommend Digital Movement enough for their incredible SEO services. As the owner of a small online store, I was struggling to attract consistent traffic and generate sales. Their team took the time to understand my business and implemented a tailored SEO strategy that delivered results almost immediately — a game-changer for my business.",
   },
   {
     name: "Beth Sorenson",
     role: "Small business owner",
     when: "Verified Google review",
     quote:
-      "Digital Movement have been amazing to work with. The team built me a great website and set up SEO and Google Ads, and I started getting real leads not long after. They explain everything in plain English.",
-  },
-  {
-    name: "Fabienne M.",
-    role: "Founder",
-    when: "Verified Google review",
-    quote:
-      "Punctual, organised, and efficient are just a few of their best qualities — couldn't recommend a better agency. The communication is honestly the best I've had with anyone.",
+      "Digital Movement have been amazing to work with. The team built me a great website and set up SEO and Google Ads, and I started getting real leads not long after. The team is easy to talk to, quick to respond, and they explain everything in plain English.",
   },
   {
     name: "Matthew Peard",
-    role: "Director",
+    role: "First-time website owner",
     when: "Verified Google review",
     quote:
-      "The team is easy to talk to, quick to respond, and they explain everything in plain English. I finally feel confident with our marketing — and the leads are coming in.",
+      "Digital Movement has done an incredible job on my first website. I can't express how happy I am with Martey and his team. They know their stuff and know how to get the results I need. Thanks for looking after me and giving me the best package and price for what I needed at the time.",
+  },
+  {
+    name: "Fabienne M.",
+    role: "Loyal client of years",
+    when: "Verified Google review",
+    quote:
+      "Punctual, organised, and efficient are just a few of their best qualities. I have been dealing with this company for years now, and I couldn't recommend a better agency. Not only have they helped me with my websites, SEO, and Google Ads, but they've also always pointed me in the right direction.",
   },
 ];
 
@@ -319,5 +316,5 @@ export const faqs = [
 ];
 
 export const heroEyebrow = {
-  ratingText: "5.0 · +100 reviews",
+  ratingText: "5.0 · 100+ verified reviews",
 };

@@ -169,7 +169,7 @@ function Hero({ content }: { content: ServiceContent }) {
                 ))}
               </motion.ul>
 
-              {/* Mobile dual-CTA */}
+              {/* Mobile single CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -182,16 +182,10 @@ function Hero({ content }: { content: ServiceContent }) {
                 >
                   {content.hero.primaryCta} <ArrowRight size={14} />
                 </Link>
-                <Link
-                  to="/#contact"
-                  className="text-[13px] text-white/75 hover:text-white underline-offset-4 hover:underline transition-colors"
-                >
-                  {content.hero.secondaryCta}
-                </Link>
               </motion.div>
             </div>
 
-            {/* Desktop right column — dual CTA */}
+            {/* Desktop right column — single CTA */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -203,12 +197,6 @@ function Hero({ content }: { content: ServiceContent }) {
                 className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-medium text-[14px] px-5 py-2 transition-colors"
               >
                 {content.hero.primaryCta} <ArrowRight size={13} />
-              </Link>
-              <Link
-                to="/#contact"
-                className="text-white/65 hover:text-white text-[13px] sm:text-[14px] font-medium leading-tight whitespace-nowrap md:text-right transition-colors"
-              >
-                {content.hero.secondaryCta} <span className="text-white/35">→</span>
               </Link>
             </motion.div>
           </div>
@@ -240,39 +228,81 @@ function WhatItIs({ content }: { content: ServiceContent }) {
                 }}
               >
                 {content.whatItIs.headlineMain}
-                <span className="text-ink/55"> {content.whatItIs.headlineSub}</span>
+                <span className="block text-ink/55">{content.whatItIs.headlineSub}</span>
               </h2>
             </Reveal>
           </div>
-          <div className="space-y-5 sm:space-y-6 text-[15.5px] sm:text-[17px] md:text-[17.5px] text-ink-soft leading-relaxed">
-            {content.whatItIs.paragraphs.map((p, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.5, delay: 0.12 + 0.06 * i, ease: EASE_OUT }}
-              >
-                {p}
-              </motion.p>
-            ))}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.12 + 0.06 * content.whatItIs.paragraphs.length,
-                ease: EASE_OUT,
-              }}
-              className="text-ink font-semibold"
-            >
-              {content.whatItIs.audience}
-            </motion.p>
-          </div>
+          <WhatItIsBody content={content} />
         </div>
       </div>
     </section>
+  );
+}
+
+function WhatItIsBody({ content }: { content: ServiceContent }) {
+  const [open, setOpen] = useState(false);
+  const paragraphs = content.whatItIs.paragraphs;
+  const FOLD = 2;
+  const visible = paragraphs.slice(0, FOLD);
+  const hidden = paragraphs.slice(FOLD);
+  const hasMore = hidden.length > 0;
+
+  return (
+    <div className="space-y-5 sm:space-y-6 text-[15.5px] sm:text-[17px] md:text-[17.5px] text-ink-soft leading-relaxed">
+      {visible.map((p, i) => (
+        <motion.p
+          key={i}
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.12 + 0.06 * i, ease: EASE_OUT }}
+        >
+          {p}
+        </motion.p>
+      ))}
+
+      {hasMore && (
+        <motion.div
+          initial={false}
+          animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+          transition={{ duration: 0.45, ease: EASE_OUT }}
+          style={{ overflow: "hidden" }}
+        >
+          <div className="space-y-5 sm:space-y-6 pt-5 sm:pt-6">
+            {hidden.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+        </motion.div>
+      )}
+
+      {hasMore && (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          className="inline-flex items-center gap-1 text-[13.5px] sm:text-[14px] font-semibold text-ink hover:text-ink-soft transition-colors"
+          style={{ color: ACCENT }}
+        >
+          {open ? "Read less" : "Read more"}
+          <span aria-hidden className="text-[14px]">{open ? "‹‹" : "››"}</span>
+        </button>
+      )}
+
+      <motion.p
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.12 + 0.06 * (visible.length + 1),
+          ease: EASE_OUT,
+        }}
+        className="text-ink font-semibold pt-2"
+      >
+        {content.whatItIs.audience}
+      </motion.p>
+    </div>
   );
 }
 
@@ -302,7 +332,7 @@ function Outcomes({ content }: { content: ServiceContent }) {
                 }}
               >
                 {content.outcomes.headlineMain}
-                <span className="text-ink/55"> {content.outcomes.headlineSub}</span>
+                <span className="block text-ink/55">{content.outcomes.headlineSub}</span>
               </h2>
             </Reveal>
           </div>
@@ -381,7 +411,7 @@ function Methodology({ content }: { content: ServiceContent }) {
               }}
             >
               {content.methodology.headlineMain}
-              <span className="text-ink/55"> {content.methodology.headlineSub}</span>
+              <span className="block text-ink/55">{content.methodology.headlineSub}</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -393,65 +423,100 @@ function Methodology({ content }: { content: ServiceContent }) {
 
         <ol className="mt-14 sm:mt-16 space-y-12 sm:space-y-16">
           {content.methodology.phases.map((phase, i) => (
-            <motion.li
-              key={phase.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.7, delay: 0.05 * i, ease: EASE_OUT }}
-              className="grid lg:grid-cols-[120px_1fr] gap-6 lg:gap-12 items-start border-t border-ink/10 pt-8 sm:pt-10"
-            >
-              <div>
-                <span
-                  className="block text-ink/35 italic leading-none"
-                  style={{
-                    fontSize: "clamp(48px, 5.2vw, 72px)",
-                    letterSpacing: "-0.04em",
-                    fontWeight: 500,
-                  }}
-                  aria-hidden
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-3 text-[10.5px] font-bold uppercase tracking-[0.20em] text-ink-muted">
-                  {phase.kicker}
-                </p>
-              </div>
-              <div className="max-w-[640px]">
-                <h3
-                  className="text-ink"
-                  style={{
-                    fontSize: "clamp(22px, 2.4vw, 32px)",
-                    lineHeight: "1.12",
-                    letterSpacing: "-0.026em",
-                    fontWeight: 700,
-                  }}
-                >
-                  {phase.title}
-                </h3>
-                <p className="mt-3 text-[15.5px] sm:text-[16.5px] text-ink-soft leading-relaxed">{phase.body}</p>
-                {phase.bullets && phase.bullets.length > 0 && (
-                  <ul className="mt-5 space-y-2">
-                    {phase.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-[14.5px] sm:text-[15px] text-ink-soft">
-                        <span
-                          className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full text-white"
-                          style={{ background: ACCENT }}
-                          aria-hidden
-                        >
-                          <Check size={9} strokeWidth={3.5} />
-                        </span>
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </motion.li>
+            <MethodologyPhase key={phase.title} phase={phase} index={i} />
           ))}
         </ol>
       </div>
     </section>
+  );
+}
+
+function MethodologyPhase({
+  phase,
+  index,
+}: {
+  phase: ServiceContent["methodology"]["phases"][number];
+  index: number;
+}) {
+  const [open, setOpen] = useState(false);
+  const hasBullets = Boolean(phase.bullets && phase.bullets.length > 0);
+  return (
+    <motion.li
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.7, delay: 0.05 * index, ease: EASE_OUT }}
+      className="grid lg:grid-cols-[120px_1fr] gap-6 lg:gap-12 items-start border-t border-ink/10 pt-8 sm:pt-10"
+    >
+      <div>
+        <span
+          className="block text-ink/35 italic leading-none"
+          style={{
+            fontSize: "clamp(48px, 5.2vw, 72px)",
+            letterSpacing: "-0.04em",
+            fontWeight: 500,
+          }}
+          aria-hidden
+        >
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <p className="mt-3 text-[10.5px] font-bold uppercase tracking-[0.20em] text-ink-muted">
+          {phase.kicker}
+        </p>
+      </div>
+      <div className="max-w-[640px]">
+        <h3
+          className="text-ink"
+          style={{
+            fontSize: "clamp(22px, 2.4vw, 32px)",
+            lineHeight: "1.12",
+            letterSpacing: "-0.026em",
+            fontWeight: 700,
+          }}
+        >
+          {phase.title}
+        </h3>
+        <p className="mt-3 text-[15.5px] sm:text-[16.5px] text-ink-soft leading-relaxed">{phase.body}</p>
+        {hasBullets && (
+          <>
+            <motion.div
+              initial={false}
+              animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+              transition={{ duration: 0.45, ease: EASE_OUT }}
+              style={{ overflow: "hidden" }}
+            >
+              <ul className="mt-5 space-y-2">
+                {phase.bullets!.map((b) => (
+                  <li
+                    key={b}
+                    className="flex items-start gap-3 text-[14.5px] sm:text-[15px] text-ink-soft"
+                  >
+                    <span
+                      className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full text-white"
+                      style={{ background: ACCENT }}
+                      aria-hidden
+                    >
+                      <Check size={9} strokeWidth={3.5} />
+                    </span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              className="mt-5 inline-flex items-center gap-1 text-[13.5px] sm:text-[14px] font-semibold transition-colors"
+              style={{ color: ACCENT }}
+            >
+              {open ? "Read less" : "Read more"}
+              <span aria-hidden className="text-[14px]">{open ? "‹‹" : "››"}</span>
+            </button>
+          </>
+        )}
+      </div>
+    </motion.li>
   );
 }
 
@@ -481,7 +546,7 @@ function Deliverables({ content }: { content: ServiceContent }) {
                 }}
               >
                 {content.deliverables.headlineMain}
-                <span className="text-white/55"> {content.deliverables.headlineSub}</span>
+                <span className="block text-white/55">{content.deliverables.headlineSub}</span>
               </h2>
             </Reveal>
           </div>
@@ -565,7 +630,7 @@ function ProcessTimeline({ content }: { content: ServiceContent }) {
                 }}
               >
                 {content.process.headlineMain}
-                <span className="text-ink/55"> {content.process.headlineSub}</span>
+                <span className="block text-ink/55">{content.process.headlineSub}</span>
               </h2>
             </Reveal>
           </div>
@@ -636,7 +701,7 @@ function Stack({ content }: { content: ServiceContent }) {
               }}
             >
               {content.stack.headlineMain}
-              <span className="text-ink/55"> {content.stack.headlineSub}</span>
+              <span className="block text-ink/55">{content.stack.headlineSub}</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -655,13 +720,29 @@ function Stack({ content }: { content: ServiceContent }) {
               className="rounded-2xl border border-ink/10 bg-white p-5 sm:p-6"
             >
               <div className="flex items-start gap-3">
-                <span
-                  className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-white"
-                  style={{ background: ACCENT }}
-                  aria-hidden
-                >
-                  <Sparkles size={15} strokeWidth={2.2} />
-                </span>
+                {item.logo ? (
+                  <span
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white border border-ink/10"
+                    aria-hidden
+                  >
+                    <img
+                      src={`https://cdn.simpleicons.org/${item.logo}`}
+                      alt=""
+                      width="22"
+                      height="22"
+                      loading="lazy"
+                      className="h-[22px] w-[22px] object-contain"
+                    />
+                  </span>
+                ) : (
+                  <span
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-white"
+                    style={{ background: ACCENT }}
+                    aria-hidden
+                  >
+                    <Sparkles size={16} strokeWidth={2.2} />
+                  </span>
+                )}
                 <div>
                   <h3 className="text-[15.5px] font-bold text-ink leading-tight">{item.name}</h3>
                   <p className="mt-1.5 text-[13.5px] sm:text-[14px] text-ink-soft leading-relaxed">{item.body}</p>
@@ -701,7 +782,7 @@ function FAQ({ content }: { content: ServiceContent }) {
                 }}
               >
                 {content.faq.headlineMain}
-                <span className="text-ink/55"> {content.faq.headlineSub}</span>
+                <span className="block text-ink/55">{content.faq.headlineSub}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -851,7 +932,7 @@ function FinalCTA({ content }: { content: ServiceContent }) {
             }}
           >
             {content.finalCta.headlineMain}
-            <span className="text-white/55"> {content.finalCta.headlineSub}</span>
+            <span className="block text-white/55">{content.finalCta.headlineSub}</span>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>

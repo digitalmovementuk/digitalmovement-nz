@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Compass, Heart, MapPin, Sparkles, Target } from "lucide-react";
@@ -117,8 +117,8 @@ function AboutHero() {
               fontWeight: 700,
             }}
           >
-            {about.hero.headlinePre}{" "}
-            <span className="text-white/55">{about.hero.headlineSoft}</span>
+            {about.hero.headlinePre}
+            <span className="block text-white/55">{about.hero.headlineSoft}</span>
           </h1>
         </Reveal>
         <Reveal delay={0.14}>
@@ -152,7 +152,7 @@ function Pillars() {
           <Reveal>
             <p className="inline-flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.26em] text-ink-muted">
               <span className="h-px w-8 bg-ink/20" aria-hidden />
-              What we stand on
+              What we do
               <span className="h-px w-8 bg-ink/20" aria-hidden />
             </p>
           </Reveal>
@@ -166,13 +166,13 @@ function Pillars() {
                 fontWeight: 700,
               }}
             >
-              Three statements.{" "}
-              <span className="text-ink/55">One way of working.</span>
+              Three promises.
+              <span className="block text-ink/55">One way of working.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-5 mx-auto max-w-[58ch] text-[15px] leading-relaxed text-ink-soft sm:text-[16.5px]">
-              Every promise we make to clients lines up against these. They sit on the office wall, and they sit in every brief we accept — or decline.
+              At Digital Movement we do things differently. We focus on what genuinely matters to our clients: measurable results, clear communication, and marketing strategies that actually help businesses grow.
             </p>
           </Reveal>
         </div>
@@ -193,10 +193,11 @@ function PillarScrollCard({
   icon: Icon,
   index,
 }: {
-  pillar: { label: string; headline: string; body: string };
+  pillar: { label: string; headline: string; body: string; bodyMore?: string };
   icon: typeof Compass;
   index: number;
 }) {
+  const [open, setOpen] = useState(false);
   const ref = useRef<HTMLLIElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const smooth = useSpring(scrollYProgress, {
@@ -336,6 +337,40 @@ function PillarScrollCard({
         {pillar.body}
       </motion.p>
 
+      {pillar.bodyMore && (
+        <>
+          <motion.div
+            initial={false}
+            animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+            transition={{ duration: 0.45, ease: EASE_OUT }}
+            style={{ overflow: "hidden" }}
+            className="relative"
+          >
+            <div className="space-y-4 pt-5 sm:pt-6">
+              {pillar.bodyMore.split("\n\n").map((p, i) => (
+                <motion.p
+                  key={i}
+                  className="text-[15px] leading-relaxed sm:text-[16px]"
+                  style={{ color: bodyColor }}
+                >
+                  {p}
+                </motion.p>
+              ))}
+            </div>
+          </motion.div>
+          <motion.button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            className="relative mt-5 inline-flex items-center gap-1 text-[13.5px] sm:text-[14px] font-semibold transition-colors self-start"
+            style={{ color: DM_ACCENT }}
+          >
+            {open ? "Read less" : "Read more"}
+            <span aria-hidden className="text-[14px]">{open ? "‹‹" : "››"}</span>
+          </motion.button>
+        </>
+      )}
+
       <motion.span
         aria-hidden
         className="relative mt-7 block h-px w-full"
@@ -408,8 +443,8 @@ function TeamNote() {
                   fontWeight: 700,
                 }}
               >
-                {about.founderNote.headlinePre}{" "}
-                <span className="text-ink/55">{about.founderNote.headlineSoft}</span>
+                {about.founderNote.headlinePre}
+                <span className="block text-ink/55">{about.founderNote.headlineSoft}</span>
               </h2>
             </Reveal>
             <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-ink-soft sm:text-[16.5px]">
@@ -422,7 +457,7 @@ function TeamNote() {
 
             <Reveal delay={0.32}>
               <p className="mt-10 mb-4 text-[10.5px] font-bold uppercase tracking-[0.24em] text-ink-muted">
-                Track record
+                Our numbers
               </p>
             </Reveal>
             <ul className="grid gap-3.5 border-t border-ink/10 pt-5 md:grid-cols-2">
@@ -512,8 +547,8 @@ function Studio() {
                 fontWeight: 700,
               }}
             >
-              {about.studio.headlinePre}{" "}
-              <span className="text-white/55">{about.studio.headlineSoft}</span>
+              {about.studio.headlinePre}
+              <span className="block text-white/55">{about.studio.headlineSoft}</span>
             </h2>
           </Reveal>
           <Reveal delay={0.14}>
@@ -572,8 +607,8 @@ function TeamGrid() {
                   fontWeight: 700,
                 }}
               >
-                {about.team.headlinePre}{" "}
-                <span className="text-ink/55">{about.team.headlineSoft}</span>
+                {about.team.headlinePre}
+                <span className="block text-ink/55">{about.team.headlineSoft}</span>
               </h2>
             </Reveal>
           </div>
@@ -713,8 +748,8 @@ function AboutCTA() {
                 fontWeight: 700,
               }}
             >
-              {about.cta.headlinePre}{" "}
-              <span className="text-white/55">{about.cta.headlineSoft}</span>
+              {about.cta.headlinePre}
+              <span className="block text-white/55">{about.cta.headlineSoft}</span>
             </h2>
           </Reveal>
           <Reveal delay={0.14}>

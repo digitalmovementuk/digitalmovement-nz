@@ -26,7 +26,7 @@ export function Contact() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2
-              className="mt-5 max-w-[14ch] mx-auto lg:mx-0 balance text-ink"
+              className="mt-5 max-w-[18ch] mx-auto lg:mx-0 balance text-ink"
               style={{
                 fontSize: "clamp(34px, 6vw, 84px)",
                 lineHeight: "1.04",
@@ -34,15 +34,15 @@ export function Contact() {
                 fontWeight: 700,
               }}
             >
-              Tell us where
-              <span className="text-ink/55"> it hurts.</span>
+              Let us show you how
+              <span className="block text-ink/55">we deliver real results.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="mt-6 max-w-[460px] mx-auto lg:mx-0 text-[15.5px] sm:text-[17px] text-ink-soft leading-relaxed">
-              A founder reads every enquiry. We reply within 24 h on weekdays
-              with a one-page audit and a 30-min screen-share call — no padded
-              sales deck.
+            <p className="mt-6 max-w-[480px] mx-auto lg:mx-0 text-[15.5px] sm:text-[17px] text-ink-soft leading-relaxed">
+              Get in touch to find out how you can grow your business with a
+              5-star rated digital marketing agency in New Zealand that
+              guarantees real results.
             </p>
           </Reveal>
 
@@ -78,7 +78,7 @@ export function Contact() {
                 className="space-y-5"
               >
                 <div className="flex items-center justify-between">
-                  <p className="eyebrow text-ink-muted">Free proposal</p>
+                  <p className="eyebrow text-ink-muted">Ready to grow your business?</p>
                   <p className="text-[12px] text-ink-muted">Reply within 24 h</p>
                 </div>
 
@@ -138,7 +138,7 @@ export function Contact() {
                   type="submit"
                   className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-medium text-[15px] py-3 transition-colors"
                 >
-                  Send My Free Proposal <ArrowRight size={15} />
+                  Get your free audit <ArrowRight size={15} />
                 </button>
 
                 <p className="text-[11px] text-ink-muted leading-relaxed">

@@ -100,15 +100,16 @@ export function ServicesCarousel() {
                   fontWeight: 700,
                 }}
               >
-                Four channels.
-                <span className="text-ink/55"> One growth engine.</span>
+                We guarantee real results
+                <span className="block text-ink/55">for businesses.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.12}>
             <p className="text-[14px] sm:text-[15px] text-ink-soft leading-relaxed max-w-[440px] mx-auto lg:mx-0 lg:justify-self-end">
-              SEO earns the visit. Ads buy the visit. Social warms them up. The
-              site closes them. We run the whole engine, end-to-end.
+              We are a 5-star rated digital marketing agency in New Zealand
+              that guarantees real, measurable growth with exceptional value
+              and inclusions for every client.
             </p>
           </Reveal>
         </div>

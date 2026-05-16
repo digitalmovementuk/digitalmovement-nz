@@ -76,7 +76,7 @@ export function ClientCases() {
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-12 items-end text-center lg:text-left">
           <div>
             <Reveal>
-              <p className="eyebrow text-ink-muted">Client cases</p>
+              <p className="eyebrow text-ink-muted">Proven results</p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2
@@ -88,15 +88,16 @@ export function ClientCases() {
                   fontWeight: 700,
                 }}
               >
-                Real numbers.
-                <span className="text-ink/55"> Real businesses.</span>
+                Results that speak
+                <span className="block text-ink/55">for themselves.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.12}>
             <p className="text-[15px] sm:text-[17px] text-ink-soft leading-relaxed max-w-[480px] mx-auto lg:mx-0 lg:justify-self-end">
-              Five NZ businesses across five industries. The same outcome:
-              measurable growth you can read off a dashboard.
+              Our 5-star rated digital marketing agency in New Zealand
+              guarantees real results — measurable growth that you can
+              actually notice.
             </p>
           </Reveal>
         </div>

@@ -191,20 +191,20 @@ export function Hero() {
                   fontWeight: 600,
                 }}
               >
-                Page 1 Google in as&nbsp;little as 60 days.
+                Get real results.<br />Guaranteed.
               </h1>
             </div>
 
             <div className="flex flex-col items-center md:flex-row md:items-center gap-3 md:gap-4">
               <p className="text-white/80 text-[13px] sm:text-[14px] font-medium leading-tight text-center md:text-left">
-                Free proposal{" "}
-                <span className="text-white/65">· 24h reply</span>
+                No obligations,{" "}
+                <span className="text-white/65">so no worries.</span>
               </p>
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[15px] px-7 py-3 transition-colors"
               >
-                Start
+                Get your free audit
               </a>
             </div>
           </div>
