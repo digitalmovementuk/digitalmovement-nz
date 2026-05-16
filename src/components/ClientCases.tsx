@@ -384,9 +384,11 @@ function StoryVideo({
       loop
       muted
       playsInline
-      // Preload eagerly so the active story's first frame is ready the
-      // moment the section enters the viewport — no waiting for buffer.
-      preload="auto"
+      // `preload="metadata"` — the parent IG-story controller calls play()
+      // only when the section is visible, which is the moment we want
+      // bytes to start flowing. Five 3–28 MB videos × preload="auto"
+      // would saturate the connection before the user reached them.
+      preload="metadata"
       className="absolute inset-0 h-full w-full object-cover pointer-events-none"
       src={`${import.meta.env.BASE_URL}${file}`}
       aria-hidden
@@ -396,11 +398,36 @@ function StoryVideo({
 }
 
 function CaseVideo({ file, poster }: { file: string; poster?: string }) {
-  // Videos mount on first paint and preload eagerly so each card already
-  // has its footage ready when the user scrolls to it.
+  // Mount the <video> only when the row is within 800 px of the viewport.
+  // Case videos run 3–28 MB each — eager-loading all five blows ~60 MB on
+  // first paint, even though ClientCases sits well below the fold. The
+  // 800 px lead time pre-buffers them so the user never sees a delay.
+  const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldMount, setShouldMount] = useState(false);
 
   useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setShouldMount(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldMount(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "800px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!shouldMount) return;
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
@@ -416,10 +443,10 @@ function CaseVideo({ file, poster }: { file: string; poster?: string }) {
     io.observe(v);
     tryPlay();
     return () => io.disconnect();
-  }, [file]);
+  }, [shouldMount, file]);
 
   return (
-    <div className="absolute inset-0">
+    <div ref={wrapRef} className="absolute inset-0">
       <div
         aria-hidden
         className="absolute inset-0"
@@ -428,19 +455,21 @@ function CaseVideo({ file, poster }: { file: string; poster?: string }) {
             "radial-gradient(ellipse at center, rgba(154,47,198,0.32) 0%, rgba(27,14,46,1) 70%)",
         }}
       />
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        poster={poster}
-        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-        src={`${import.meta.env.BASE_URL}${file}`}
-        aria-hidden
-        {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
-      />
+      {shouldMount && (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster={poster}
+          className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+          src={`${import.meta.env.BASE_URL}${file}`}
+          aria-hidden
+          {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
+        />
+      )}
     </div>
   );
 }

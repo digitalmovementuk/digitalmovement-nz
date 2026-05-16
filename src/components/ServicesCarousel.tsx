@@ -246,11 +246,37 @@ const ServiceSlide = ({
 };
 
 function ServiceVideo({ file }: { file: string }) {
-  // Videos mount immediately and preload eagerly so each card paints its
-  // footage as soon as it scrolls into view — no blank gradient delay.
+  // Mount the <video> element only once the card is within 800 px of the
+  // viewport — generous enough that on any normal scroll speed the buffer
+  // is ready before the card is seen, but small enough that we never load
+  // all four (~25 MB) on initial paint. Once mounted we stay mounted; the
+  // inner IO only controls play / pause.
+  const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldMount, setShouldMount] = useState(false);
 
   useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setShouldMount(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldMount(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "800px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!shouldMount) return;
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
@@ -266,10 +292,10 @@ function ServiceVideo({ file }: { file: string }) {
     io.observe(v);
     tryPlay();
     return () => io.disconnect();
-  }, [file]);
+  }, [shouldMount, file]);
 
   return (
-    <div className="absolute inset-0">
+    <div ref={wrapRef} className="absolute inset-0">
       <div
         aria-hidden
         className="absolute inset-0"
@@ -278,18 +304,20 @@ function ServiceVideo({ file }: { file: string }) {
             "radial-gradient(ellipse at center, rgba(154,47,198,0.40) 0%, rgba(27,14,46,1) 65%)",
         }}
       />
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 h-full w-full object-cover scale-[1.18] origin-center"
-        src={`${import.meta.env.BASE_URL}${file}`}
-        aria-hidden
-        {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
-      />
+      {shouldMount && (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover scale-[1.18] origin-center"
+          src={`${import.meta.env.BASE_URL}${file}`}
+          aria-hidden
+          {...({ "webkit-playsinline": "true", "x5-playsinline": "true" } as Record<string, string>)}
+        />
+      )}
     </div>
   );
 }
