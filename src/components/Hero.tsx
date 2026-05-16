@@ -3,17 +3,21 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { Pause, Play } from "lucide-react";
 import { GoogleRatingCard } from "./GoogleRatingBadge";
 
+const HERO_SLIDES = [
+  { src: "video/hero/mountain.mp4", label: "Mount Aoraki" },
+  { src: "video/hero/beach.mp4", label: "NZ Beach Life" },
+];
+const SLIDE_INTERVAL_MS = 4000;
+
 /**
- * Hero — Apple Watch Series 11 blueprint.
- *  - Full-bleed video, no centred copy block
- *  - Bottom-left: product chip ("DIGITAL MOVEMENT — NZ") + bold headline
- *  - Bottom-right: price-equivalent ("Free proposal · 24h reply") + Buy-style pill ("Start →")
- *  - Right edge: small circular pause/play control over the video
+ * Hero — Apple Watch Series 11 blueprint with a 2-slide auto-rotating
+ * video carousel (mountain + beach) crossfading every 4s.
  */
 export function Hero() {
   const reduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [activeIdx, setActiveIdx] = useState(0);
   const [paused, setPaused] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -24,55 +28,58 @@ export function Hero() {
 
   // iOS Safari autoplay is finicky — needs muted + playsInline set on the
   // element *before* the first play() call, plus a fallback first-gesture
-  // listener since Low-Power Mode silently rejects autoplay. We also retry
-  // on canplay / loadeddata / visibilitychange so flaky networks recover.
+  // listener since Low-Power Mode silently rejects autoplay.
   useEffect(() => {
     if (reduce) return;
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = true;
-    v.defaultMuted = true;
-    v.setAttribute("muted", "");
-    // Force-load so iOS at least decodes the first frame even when autoplay
-    // is blocked. Without this the <video> can render as an opaque black
-    // box on Low-Power-Mode iPhones.
-    try {
-      v.load();
-    } catch {}
-    const tryPlay = () => v.play().catch(() => {});
-    tryPlay();
+    const tryPlayAll = () => {
+      videoRefs.current.forEach((v) => {
+        if (!v) return;
+        v.muted = true;
+        v.defaultMuted = true;
+        v.setAttribute("muted", "");
+        v.play().catch(() => {});
+      });
+    };
+    tryPlayAll();
     const onFirstGesture = () => {
-      tryPlay();
+      tryPlayAll();
       document.removeEventListener("touchstart", onFirstGesture);
       document.removeEventListener("pointerdown", onFirstGesture);
     };
     document.addEventListener("touchstart", onFirstGesture, { once: true, passive: true });
     document.addEventListener("pointerdown", onFirstGesture, { once: true, passive: true });
-    v.addEventListener("canplay", tryPlay, { once: true });
-    v.addEventListener("loadeddata", tryPlay, { once: true });
     const onVis = () => {
-      if (!document.hidden) tryPlay();
+      if (!document.hidden) tryPlayAll();
     };
     document.addEventListener("visibilitychange", onVis);
     return () => {
       document.removeEventListener("touchstart", onFirstGesture);
       document.removeEventListener("pointerdown", onFirstGesture);
       document.removeEventListener("visibilitychange", onVis);
-      v.removeEventListener("canplay", tryPlay);
-      v.removeEventListener("loadeddata", tryPlay);
     };
   }, [reduce]);
 
+  // Auto-rotate between slides every 4s. Pauses when user pauses or when
+  // the tab is hidden.
+  useEffect(() => {
+    if (reduce || paused) return;
+    const id = window.setInterval(() => {
+      if (document.hidden) return;
+      setActiveIdx((i) => (i + 1) % HERO_SLIDES.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, [reduce, paused]);
+
   const togglePlay = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) {
-      v.play().catch(() => {});
-      setPaused(false);
-    } else {
-      v.pause();
-      setPaused(true);
-    }
+    setPaused((prev) => {
+      const next = !prev;
+      videoRefs.current.forEach((v) => {
+        if (!v) return;
+        if (next) v.pause();
+        else v.play().catch(() => {});
+      });
+      return next;
+    });
   };
 
   return (
@@ -101,28 +108,33 @@ export function Hero() {
               "radial-gradient(ellipse at 60% 35%, rgba(154,47,198,0.45) 0%, rgba(27,14,46,1) 55%, #100620 100%)",
           }}
         />
-        {/* Video mounts immediately and preloads aggressively so the hero
-            never shows a flat gradient — bytes start flowing on first paint
-            and the first frame paints as soon as the network allows. */}
-        {!reduce && (
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            // @ts-expect-error fetchPriority is missing from React video types
-            fetchPriority="high"
-            className="absolute inset-0 h-full w-full object-cover scale-105"
-            src={`${import.meta.env.BASE_URL}video/dm-color-theme.mp4`}
-            {...({
-              "webkit-playsinline": "true",
-              "x5-playsinline": "true",
-              "disableremoteplayback": "true",
-            } as Record<string, string>)}
-          />
-        )}
+        {/* Two-slide auto-rotating carousel. Both videos mount immediately
+            and crossfade — opacity 1 for active, 0 for inactive. */}
+        {!reduce &&
+          HERO_SLIDES.map((slide, i) => (
+            <video
+              key={slide.src}
+              ref={(el) => {
+                videoRefs.current[i] = el;
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              // @ts-expect-error fetchPriority is missing from React video types
+              fetchPriority={i === 0 ? "high" : "auto"}
+              aria-label={slide.label}
+              className="absolute inset-0 h-full w-full object-cover scale-105 transition-opacity duration-[1200ms] ease-out"
+              style={{ opacity: activeIdx === i ? 1 : 0 }}
+              src={`${import.meta.env.BASE_URL}${slide.src}`}
+              {...({
+                "webkit-playsinline": "true",
+                "x5-playsinline": "true",
+                "disableremoteplayback": "true",
+              } as Record<string, string>)}
+            />
+          ))}
 
         {/* Top fade — improves nav legibility */}
         <div
