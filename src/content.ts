@@ -17,7 +17,6 @@ export const business = {
 
 export const navLinks = [
   { label: "What we do", href: "#services" },
-  { label: "Client cases", href: "#cases" },
   { label: "Numbers", href: "#metrics" },
   { label: "Contact", href: "#contact" },
 ];

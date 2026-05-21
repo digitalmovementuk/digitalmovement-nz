@@ -6,11 +6,10 @@ import { business } from "../content";
 
 type Surface = "dark" | "light";
 
-// Primary navigation. Mixes in-page anchors (`/#cases`) with real subpage
+// Primary navigation. Mixes in-page anchors with real subpage
 // routes (`/about`, `/services/*`) — Link to="/#hash" jumps home and
 // Layout's hash-scroll effect handles the rest.
 const subpageLinks = [
-  { label: "Cases", to: "/#cases" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/#contact" },
 ];

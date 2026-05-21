@@ -6,9 +6,6 @@ import { ServicesCarousel } from "../components/ServicesCarousel";
 // needs Hero + ServicesCarousel; everything that lives further down the page
 // arrives in a second chunk so it doesn't block first content paint on
 // mobile.
-const ClientCases = lazy(() =>
-  import("../components/ClientCases").then((m) => ({ default: m.ClientCases })),
-);
 const Metrics = lazy(() =>
   import("../components/Metrics").then((m) => ({ default: m.Metrics })),
 );
@@ -36,7 +33,6 @@ export function HomePage() {
     <>
       <Hero />
       <ServicesCarousel />
-      {defer(ClientCases)}
       {defer(Metrics)}
       {defer(Reviews)}
       {defer(Contact)}

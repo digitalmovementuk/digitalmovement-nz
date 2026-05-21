@@ -13,7 +13,6 @@ const footerServices = [
 
 const footerCompany = [
   { label: "About", to: "/about" },
-  { label: "Client cases", to: "/#cases" },
   { label: "Numbers", to: "/#metrics" },
   { label: "Contact", to: "/#contact" },
 ];
