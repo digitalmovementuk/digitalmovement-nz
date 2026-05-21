@@ -282,12 +282,20 @@ function ServiceVideo({ file }: { file: string }) {
     v.muted = true;
     v.defaultMuted = true;
     const tryPlay = () => v.play().catch(() => {});
+    const restartAndPlay = () => {
+      try {
+        v.currentTime = 0;
+      } catch {
+        // Safari occasionally throws if metadata isn't ready yet.
+      }
+      tryPlay();
+    };
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) tryPlay();
+        if (entry.isIntersecting) restartAndPlay();
         else v.pause();
       },
-      { threshold: 0.1 },
+      { threshold: 0.6 },
     );
     io.observe(v);
     tryPlay();

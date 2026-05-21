@@ -50,8 +50,16 @@ export function Hero() {
         v.muted = true;
         v.defaultMuted = true;
         v.setAttribute("muted", "");
-        if (i === activeIdx) v.play().catch(() => {});
-        else v.pause();
+        if (i === activeIdx) {
+          try {
+            v.currentTime = 0;
+          } catch {
+            // Safari may throw before metadata is ready.
+          }
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
       });
     };
     playActive();
