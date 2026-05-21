@@ -27,7 +27,6 @@ export function AboutUs() {
       <Pillars />
       <TeamNote />
       <Studio />
-      <TeamGrid />
       <AboutCTA />
     </>
   );
