@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Check } from "lucide-react";
+import { submitLead, trackLead, FALLBACK_EMAIL } from "../lib/submitLead";
 
 /**
  * LeadCaptureModal — frozen-glass modal that pops in once per page load,
@@ -10,6 +11,8 @@ import { X, ArrowRight, Check } from "lucide-react";
 export function LeadCaptureModal() {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const hasShownRef = useRef(false);
 
   // Trigger — IntersectionObserver on #reviews with a positive bottom
@@ -45,10 +48,29 @@ export function LeadCaptureModal() {
     };
   }, [open]);
 
-  const onSubmit = (e: React.FormEvent) => {
+  // Was setSubmitted(true) with no delivery — the modal thanked the visitor
+  // and dropped the lead. Success is now contingent on the send succeeding.
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    window.setTimeout(() => setOpen(false), 1600);
+    const data = new FormData(e.currentTarget);
+    setSending(true);
+    setError(null);
+
+    const result = await submitLead({
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      source: "lead-capture-modal",
+    });
+
+    setSending(false);
+
+    if (result.ok) {
+      trackLead("lead-capture-modal");
+      setSubmitted(true);
+      window.setTimeout(() => setOpen(false), 1600);
+    } else {
+      setError(`Couldn't send that — please email ${FALLBACK_EMAIL} instead.`);
+    }
   };
 
   return (
@@ -130,10 +152,16 @@ export function LeadCaptureModal() {
                     />
                     <button
                       type="submit"
-                      className="w-full mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[15px] py-3 transition-colors"
+                      disabled={sending}
+                      className="w-full mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-[15px] py-3 transition-colors"
                     >
-                      Send my free audit <ArrowRight size={15} />
+                      {sending ? "Sending…" : <>Send my free audit <ArrowRight size={15} /></>}
                     </button>
+                    {error ? (
+                      <p role="alert" className="text-[12.5px] leading-relaxed text-[#B3261E]">
+                        {error}
+                      </p>
+                    ) : null}
                     <p className="text-[11px] text-ink-muted text-center pt-1 leading-relaxed">
                       No spam. Unsubscribe anytime.
                     </p>

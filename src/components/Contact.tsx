@@ -3,17 +3,46 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Check, Phone, MessageCircle, Mail, Clock } from "lucide-react";
 import { business } from "../content";
 import { Reveal } from "../lib/Reveal";
+import { submitLead, trackLead, FALLBACK_EMAIL } from "../lib/submitLead";
 
 const SERVICES = ["SEO", "Google Ads", "Social Media", "Website", "Not sure yet"];
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [hp, setHp] = useState(""); // honeypot
 
-  const onSubmit = (e: React.FormEvent) => {
+  // This used to be `setSubmitted(true)` and nothing else — the form showed a
+  // thank-you and threw the lead away. Success is now only ever shown when
+  // submitLead actually succeeded.
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (hp) return;
-    setSubmitted(true);
+    if (hp) return; // honeypot tripped — drop silently, as bots expect
+
+    const data = new FormData(e.currentTarget);
+    setSending(true);
+    setError(null);
+
+    const result = await submitLead({
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      service: String(data.get("service") ?? ""),
+      message: String(data.get("message") ?? ""),
+      source: "contact-section",
+    });
+
+    setSending(false);
+
+    if (result.ok) {
+      trackLead("contact-section");
+      setSubmitted(true);
+    } else {
+      setError(
+        `We couldn't send that from here. Please email us directly at ${FALLBACK_EMAIL} and we'll pick it up straight away.`,
+      );
+    }
   };
 
   return (
@@ -136,10 +165,17 @@ export function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-medium text-[15px] py-3 transition-colors"
+                  disabled={sending}
+                  className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium text-[15px] py-3 transition-colors"
                 >
-                  Get your free audit <ArrowRight size={15} />
+                  {sending ? "Sending…" : <>Get your free audit <ArrowRight size={15} /></>}
                 </button>
+
+                {error ? (
+                  <p role="alert" className="text-[13px] leading-relaxed text-[#B3261E]">
+                    {error}
+                  </p>
+                ) : null}
 
                 <p className="text-[11px] text-ink-muted leading-relaxed">
                   No pressure, no jargon. By submitting you agree to be contacted about your enquiry.
