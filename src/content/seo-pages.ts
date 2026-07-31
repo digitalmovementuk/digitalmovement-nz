@@ -41,6 +41,17 @@ export type SeoPageContent = {
    */
   region?: string;
 
+  /**
+   * Name used for the Service node in JSON-LD.
+   *
+   * Defaults to "SEO {city}" for city pages and "SEO New Zealand" for the hub.
+   * The /industries/* pages reuse this whole contract — same hero, same
+   * section rhythm, same honesty rules — but they are not SEO-for-a-place, so
+   * they set this explicitly. Schema must describe what the page actually
+   * offers, which is gate item S5.2.
+   */
+  serviceName?: string;
+
   meta: { title: string; description: string };
 
   /**

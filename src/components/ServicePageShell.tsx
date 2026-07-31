@@ -5,6 +5,17 @@ import { ArrowRight, ArrowUpRight, Check, Plus, Minus, Sparkles } from "lucide-r
 import { Reveal } from "../lib/Reveal";
 import type { ServiceContent } from "../content/services";
 import { Seo, serviceSchema, faqSchema, breadcrumbs, SERVICE_NAMES } from "../seo";
+import { LeadForm } from "./LeadForm";
+
+/* Pre-selects the enquiry form's service dropdown to the page the visitor is
+   on. Keyed by slug so a new service page fails visibly (falls back to "Not
+   sure yet") rather than silently mis-attributing the lead. */
+const LEAD_FORM_SERVICE: Record<string, string> = {
+  seo: "SEO",
+  "google-ads": "Google Ads",
+  "social-media": "Social Media",
+  "web-design": "Website",
+};
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
@@ -165,10 +176,14 @@ function Hero({ content }: { content: ServiceContent }) {
         />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-10">
-        <div className="container-v3 pb-6 sm:pb-10 md:pb-20 lg:pb-24">
-          <div className="flex flex-col items-center text-center gap-5 md:flex-row md:items-end md:justify-between md:text-left md:gap-10">
-            <div className="flex flex-col items-center md:items-start w-full md:w-auto">
+      {/* Two pillars: copy on the left, the enquiry form on the right.
+          These pages previously carried no form at all — every CTA pointed at
+          /#contact on the homepage, so a visitor who arrived on a service page
+          from search had to leave it to enquire. The form is the page's job. */}
+      <div className="relative z-10 w-full">
+        <div className="container-v3 py-10 sm:py-14">
+          <div className="grid lg:grid-cols-[1.05fr_minmax(0,0.95fr)] gap-10 lg:gap-14 xl:gap-20 items-center">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full">
               <motion.p
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -226,28 +241,27 @@ function Hero({ content }: { content: ServiceContent }) {
                 transition={{ duration: 0.6, delay: 0.8 }}
                 className="md:hidden mt-6 flex flex-col items-center gap-3"
               >
-                <Link
-                  to="/#contact"
+                <a
+                  href="#enquire"
                   className="inline-flex items-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-medium text-[14px] px-6 py-2.5 transition-colors"
                 >
                   {content.hero.primaryCta} <ArrowRight size={14} />
-                </Link>
+                </a>
               </motion.div>
             </div>
 
-            {/* Desktop right column — single CTA */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="hidden md:flex flex-col md:items-end gap-3 shrink-0"
+              className="w-full"
             >
-              <Link
-                to="/#contact"
-                className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-medium text-[14px] px-5 py-2 transition-colors"
-              >
-                {content.hero.primaryCta} <ArrowRight size={13} />
-              </Link>
+              <LeadForm
+                source={`service-${content.slug}-hero`}
+                heading="Get your free audit"
+                note="A one-page audit in your inbox within 24 hours. No obligation."
+                defaultService={LEAD_FORM_SERVICE[content.slug] ?? "Not sure yet"}
+              />
             </motion.div>
           </div>
         </div>
@@ -967,7 +981,8 @@ function FinalCTA({ content }: { content: ServiceContent }) {
         className="absolute -bottom-40 -left-40 h-[520px] w-[520px] rounded-full opacity-[0.18]"
         style={{ background: `radial-gradient(circle at center, ${ACCENT} 0%, transparent 70%)` }}
       />
-      <div className="container-v3 relative">
+      <div className="container-v3 relative grid lg:grid-cols-[1fr_minmax(0,0.9fr)] gap-12 lg:gap-16 items-center">
+        <div>
         <Reveal>
           <p className="eyebrow text-white/55">{content.finalCta.eyebrow}</p>
         </Reveal>
@@ -992,12 +1007,12 @@ function FinalCTA({ content }: { content: ServiceContent }) {
         </Reveal>
         <Reveal delay={0.15}>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Link
-              to="/#contact"
+            <a
+              href="#enquire"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[15px] sm:text-[16px] px-7 py-3.5 transition-colors"
             >
               {content.finalCta.primary} <ArrowRight size={16} />
-            </Link>
+            </a>
             <Link
               to="/"
               className="inline-flex items-center gap-1.5 text-[14px] sm:text-[15px] text-white/75 hover:text-white transition-colors"
@@ -1006,6 +1021,19 @@ function FinalCTA({ content }: { content: ServiceContent }) {
             </Link>
           </div>
         </Reveal>
+        </div>
+
+        {/* Second form, at the foot of the page — the house pattern is one in
+            the hero and one here, and nowhere in between. A visitor who read
+            the whole page should not have to scroll back up to act. */}
+        <div id="enquire" className="scroll-mt-24">
+          <LeadForm
+            source={`service-${content.slug}-footer`}
+            heading="Get your free audit"
+            note="A one-page audit in your inbox within 24 hours. No obligation."
+            defaultService={LEAD_FORM_SERVICE[content.slug] ?? "Not sure yet"}
+          />
+        </div>
       </div>
     </section>
   );

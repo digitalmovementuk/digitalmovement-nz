@@ -104,8 +104,8 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     hero: {
       eyebrow: "Search engine optimisation · for NZ businesses",
-      headlineTop: "SEO that puts you",
-      headlineBottom: "on Google page 1 in 90 days.",
+      headlineTop: "Page 1 SEO",
+      headlineBottom: "in just 90 days.",
       sub: "Let us show you how our 5-star rated SEO agency in NZ can guarantee your business a page 1 position in Google Search results in just 90 days. SEO services for New Zealand businesses that want customers, not impressions.",
       primaryCta: "Get your FREE SEO audit",
       secondaryCta: "Book a consultation",
@@ -748,7 +748,10 @@ export const services: Record<ServiceSlug, ServiceContent> = {
   },
 
   websites: {
-    slug: "websites",
+    /* The URL slug, which drives the route, the canonical and the breadcrumb.
+       Renamed from "websites" to match the term this page actually targets
+       ("web design") in its title, H1, description and body. */
+    slug: "web-design",
     meta: {
       title: "Web Design for NZ businesses · Digital Movement",
       description:

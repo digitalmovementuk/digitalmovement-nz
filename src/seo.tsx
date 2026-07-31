@@ -144,7 +144,7 @@ export const SERVICE_NAMES: Record<string, string> = {
   seo: "SEO",
   "google-ads": "Google Ads Management",
   "social-media": "Social Media Marketing",
-  websites: "Web Design and Development",
+  "web-design": "Web Design and Development",
 };
 
 /** Service schema for a service page. */
