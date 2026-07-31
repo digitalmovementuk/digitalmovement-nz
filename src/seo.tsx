@@ -27,15 +27,25 @@ export function absoluteUrl(path: string): string {
  *    particular triggers manual actions when it has no visible review
  *    content behind it.
  * 2. Never mark up a fact we don't actually have. The telephone number in
- *    src/content.ts is still the placeholder "+64 9 XXX XXXX", and no NZBN
- *    or street address is on file, so those properties are omitted rather
- *    than invented. Fill in TELEPHONE / NZBN / ADDRESS below once they
- *    exist and they will flow into the markup automatically.
+ *    src/content.ts is still the placeholder "+64 9 XXX XXXX", so `telephone`
+ *    is omitted rather than invented. Fill in TELEPHONE below once the real
+ *    number exists and it will flow into the markup automatically.
  * ------------------------------------------------------------------ */
 
-/** Set these once the real values exist — omitted from schema while empty. */
+/** Set once the real value exists — omitted from schema while empty. */
 export const TELEPHONE = "";
-export const NZBN = "";
+
+/**
+ * NZBN of DIGITAL MOVEMENT NEW ZEALAND LIMITED, verified against the NZ
+ * Companies Office register (company number 9433725, registered 16 Jun 2026).
+ * An identifier is a matter of public record, not a claim about the page, so
+ * it is safe to mark up even though it isn't displayed.
+ *
+ * The registered office on that record is in Auckland. It is deliberately NOT
+ * marked up as `address`: a postal address in schema is a claim about where
+ * the business operates, and the site shows no address at all.
+ */
+export const NZBN = "9429053714732";
 
 /**
  * Ratings belong to the group, not to the New Zealand entity. The reviews
