@@ -154,6 +154,50 @@ export function serviceSchema(opts: { name: string; description: string; path: s
 }
 
 /**
+ * Service schema for the /seo hub and its city spokes.
+ *
+ * Differs from serviceSchema in one way that matters: `areaServed` narrows
+ * from the country to the city the page is about. That is the claim the page
+ * is making and the one it has to back up — a Christchurch page that says it
+ * serves all of New Zealand tells a search engine nothing the homepage
+ * doesn't already say.
+ *
+ * `address` is still deliberately absent. The registered office is a serviced
+ * floor in Auckland, the site shows no address anywhere, and marking up a
+ * postal address the page never displays is the same policy breach as a
+ * phantom rating. areaServed is a statement about where we work; address
+ * would be a statement about where we are.
+ */
+export function seoPageSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  city?: string;
+  region?: string;
+}) {
+  const areaServed = opts.city
+    ? {
+        "@type": "City",
+        name: opts.city,
+        ...(opts.region
+          ? { containedInPlace: { "@type": "AdministrativeArea", name: opts.region } }
+          : {}),
+      }
+    : { "@type": "Country", name: "New Zealand" };
+
+  return {
+    "@type": "Service",
+    "@id": `${absoluteUrl(opts.path)}#service`,
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    serviceType: "Search Engine Optimisation",
+    provider: { "@id": `${SITE_URL}/#organization` },
+    areaServed,
+  };
+}
+
+/**
  * FAQPage built from the questions actually rendered on the page.
  * Called only where ServicePageShell renders content.faq.items — marking up
  * questions that aren't visible is the same policy breach as a phantom

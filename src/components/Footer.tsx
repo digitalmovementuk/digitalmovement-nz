@@ -11,6 +11,17 @@ const footerServices = [
   { label: "Websites", to: "/services/websites" },
 ];
 
+// The /seo hub and its city spokes. Sitewide footer links are how the spokes
+// get crawled and how authority reaches them from every other page — on a
+// domain with zero referring domains, internal linking is the only link equity
+// there is to distribute.
+const footerLocations = [
+  { label: "SEO New Zealand", to: "/seo" },
+  { label: "SEO Christchurch", to: "/seo/christchurch" },
+  { label: "SEO Hamilton", to: "/seo/hamilton" },
+  { label: "SEO Tauranga", to: "/seo/tauranga" },
+];
+
 const footerCompany = [
   { label: "About", to: "/about" },
   { label: "Numbers", to: "/#metrics" },
@@ -75,13 +86,25 @@ export function Footer() {
         </div>
 
         {/* Sitemap grid */}
-        <div className="grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-3 pt-12 sm:pt-14 text-center sm:text-left">
+        <div className="grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-4 pt-12 sm:pt-14 text-center sm:text-left">
           <Column heading="Services">
             <ul className="space-y-2.5">
               {footerServices.map((s) => (
                 <li key={s.to}>
                   <Link to={s.to} className={linkCls}>
                     {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Column>
+
+          <Column heading="SEO by location">
+            <ul className="space-y-2.5">
+              {footerLocations.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className={linkCls}>
+                    {l.label}
                   </Link>
                 </li>
               ))}

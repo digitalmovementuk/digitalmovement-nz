@@ -56,6 +56,31 @@ export const routes: RouteRecord[] = [
         lazy: () =>
           import("./pages/services/websites").then((m) => ({ Component: m.ServiceWebsites })),
       },
+      /**
+       * The /seo hub and its city spokes.
+       *
+       * Kept separate from /services/seo on purpose. That page sells SEO to
+       * someone already browsing the agency; these are entered cold from a
+       * commercial search ("seo christchurch", 880/mo) and are built to win
+       * that SERP. Different reader, different job, no redirect between them.
+       */
+      {
+        path: "seo",
+        lazy: () => import("./pages/seo").then((m) => ({ Component: m.SeoHub })),
+      },
+      {
+        path: "seo/christchurch",
+        lazy: () =>
+          import("./pages/seo/christchurch").then((m) => ({ Component: m.SeoChristchurch })),
+      },
+      {
+        path: "seo/hamilton",
+        lazy: () => import("./pages/seo/hamilton").then((m) => ({ Component: m.SeoHamilton })),
+      },
+      {
+        path: "seo/tauranga",
+        lazy: () => import("./pages/seo/tauranga").then((m) => ({ Component: m.SeoTauranga })),
+      },
       {
         path: "404",
         lazy: () => import("./pages/NotFound").then((m) => ({ Component: m.NotFound })),

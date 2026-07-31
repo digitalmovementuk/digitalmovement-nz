@@ -17,6 +17,10 @@ const subpageLinks = [
 const serviceLinks = [
   { label: "Overview", to: "/#services" },
   { label: "SEO", to: "/services/seo" },
+  // The commercial hub, deliberately distinct from /services/seo above: that
+  // page sells the capability, this one competes for "seo new zealand" and
+  // parents the city pages.
+  { label: "SEO by location", to: "/seo" },
   { label: "Google Ads", to: "/services/google-ads" },
   { label: "Social Media", to: "/services/social-media" },
   { label: "Websites", to: "/services/websites" },

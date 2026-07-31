@@ -1,6 +1,6 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
 
 // Digital Movement NZ — served from the root of www.digitalmovement.co.nz
@@ -44,9 +44,61 @@ function inlineCss(): Plugin {
   };
 }
 
+/**
+ * Internal preview build.
+ *
+ * `VITE_INTERNAL_OVERVIEW=1` produces a copy of the site carrying the LIVE
+ * page-overview pill — an internal planning artefact that must never appear on
+ * digitalmovement.co.nz. Three things are enforced here rather than left to the
+ * deploy script, because forgetting any one of them publishes internal
+ * projections on the client-facing domain:
+ *
+ *   1. The widget <script> is injected ONLY in this mode. The public build has
+ *      no reference to it at all.
+ *   2. `CNAME` is dropped from the output, so the internal deploy cannot bind
+ *      the custom domain even if pushed to the wrong branch.
+ *   3. `noindex,nofollow` is forced, so the preview can never be indexed as
+ *      duplicate content against the real site.
+ *
+ * The internal build also needs its own base path, since it is served from a
+ * project Pages URL (/digitalmovement-nz-internal/) rather than a domain root.
+ */
+const INTERNAL = process.env.VITE_INTERNAL_OVERVIEW === "1";
+const BASE = process.env.VITE_BASE || "/";
+
+function internalOverview(): Plugin {
+  return {
+    name: "internal-overview",
+    apply: "build",
+    transformIndexHtml: {
+      order: "post",
+      handler(html) {
+        if (!INTERNAL) return html;
+        return html
+          .replace(
+            "</head>",
+            `  <meta name="robots" content="noindex,nofollow" />\n` +
+              `  <script defer src="${BASE}overview-widget.js"></script>\n</head>`,
+          );
+      },
+    },
+    closeBundle() {
+      if (!INTERNAL) return;
+      // Never let the internal build claim the live domain. This runs against
+      // the emitted directory rather than the bundle because CNAME arrives via
+      // publicDir copying, which never passes through generateBundle.
+      const cname = resolve(process.cwd(), "dist/CNAME");
+      if (existsSync(cname)) {
+        rmSync(cname);
+        this.warn("internal build: removed dist/CNAME so it cannot bind the live domain");
+      }
+    },
+  };
+}
+
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), inlineCss()],
-  base: "/",
+  plugins: [react(), inlineCss(), internalOverview()],
+  base: BASE,
   server: {
     port: 5185,
     host: true,
