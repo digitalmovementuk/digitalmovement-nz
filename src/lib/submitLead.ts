@@ -37,12 +37,48 @@ const WEB3FORMS_KEYS = ((import.meta.env.VITE_WEB3FORMS_KEYS as string | undefin
 
 const WEBHOOK = ((import.meta.env.VITE_LEAD_ENDPOINT as string | undefined) ?? "").trim();
 
+/**
+ * Digital Movement's own PHP lead handler, shared with digitalmovement.uk and
+ * digitalezahnärzte.de. This is the primary destination — it needs no signup
+ * and no third-party account, which is why the site sat unconfigured for so
+ * long waiting on a Web3Forms key that never arrived.
+ *
+ * Its contract is specific and unforgiving, so it gets its own sender rather
+ * than reusing the generic webhook path:
+ *
+ *  - The URL is the subdomain ROOT. There is no /send.php — that path 404s and
+ *    cost a sister site every lead it received until it was found.
+ *  - Content-Type MUST be text/plain;charset=utf-8. That keeps the request a
+ *    CORS *simple* request and avoids a preflight entirely.
+ *  - `consent` is REQUIRED. Omit it and the handler rejects the submission.
+ *  - `company_website` is the honeypot the handler expects — send it empty.
+ *  - The Origin must be on the handler's allowlist or it answers 403. Both
+ *    digitalmovement.co.nz and www. are allowlisted as of 2026-07-31.
+ *
+ * Never use mode:"no-cors" here: the opaque response would report success
+ * while the server silently rejected the lead.
+ */
+const DM_ENDPOINT =
+  ((import.meta.env.VITE_DM_LEAD_ENDPOINT as string | undefined) ?? "").trim() ||
+  // Deliberately defaulted in code, not left to .env alone. Nothing here is a
+  // secret — every value in a static build ships to the browser anyway — and an
+  // env var that can go missing is precisely how this site spent months
+  // showing a thank-you while delivering nothing. A fresh clone builds working.
+  "https://leads.digitalmovement.uk/";
+
 export type LeadPayload = {
   name: string;
   email: string;
   phone?: string;
   service?: string;
   message?: string;
+  /**
+   * Whether the visitor ticked the consent box. Required — a lead without
+   * recorded consent must not be transmitted, and the DM handler rejects it
+   * anyway. Typed as required rather than optional so a new form cannot forget
+   * it and fail silently at runtime.
+   */
+  consent: boolean;
   /** Which form on the site it came from — useful for attribution. */
   source: string;
 };
@@ -55,7 +91,15 @@ export type LeadResult =
 export const FALLBACK_EMAIL = business.email;
 
 export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
-  const destinations = WEB3FORMS_KEYS.length + (WEBHOOK ? 1 : 0);
+  // Consent is a precondition, not a field. Refuse before any network call —
+  // an untransmitted lead is recoverable, a lead sent without recorded consent
+  // is not.
+  if (!payload.consent) {
+    console.error("[lead] Refusing to send: consent was not given.");
+    return { ok: false, reason: "rejected", detail: "consent missing" };
+  }
+
+  const destinations = WEB3FORMS_KEYS.length + (WEBHOOK ? 1 : 0) + (DM_ENDPOINT ? 1 : 0);
 
   if (destinations === 0) {
     // No destination configured. Say so loudly rather than pretending the
@@ -93,6 +137,26 @@ export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
       }),
     ),
     ...(WEBHOOK ? [post(WEBHOOK, { ...payload, submittedAt, pageUrl })] : []),
+    ...(DM_ENDPOINT
+      ? [
+          postDm(DM_ENDPOINT, {
+            name: payload.name,
+            email: payload.email,
+            phone: payload.phone || "",
+            service: payload.service || "",
+            message: payload.message || "",
+            // The handler's honeypot. Real submissions always send it empty;
+            // our own honeypot has already dropped the bot before this point.
+            company_website: "",
+            consent: "yes",
+            consent_text:
+              "I agree that Digital Movement may store these details and contact me about this enquiry.",
+            consent_timestamp: submittedAt,
+            page_url: pageUrl ?? "",
+            form_id: payload.source,
+          }),
+        ]
+      : []),
   ];
 
   const results = await Promise.all(sends);
@@ -115,6 +179,44 @@ export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
   }
 
   return { ok: true };
+}
+
+/**
+ * Sender for the Digital Movement PHP handler. Differs from post() in two ways
+ * that matter and are easy to "tidy" into breakage:
+ *
+ *  1. Content-Type is text/plain — NOT application/json. The body is still
+ *     JSON; the header is what keeps this a CORS simple request with no
+ *     preflight. Changing it to application/json would work only as long as
+ *     the handler keeps answering OPTIONS correctly.
+ *  2. The handler answers HTTP 200 with {ok:false,error:"…"} for its own
+ *     rejections — a bad origin, a missing consent field. Checking res.ok
+ *     alone would read those as successes, so the body is parsed too.
+ */
+async function postDm(url: string, body: Record<string, unknown>): Promise<LeadResult> {
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(body),
+    });
+
+    if (!res.ok) {
+      return { ok: false, reason: "rejected", detail: `HTTP ${res.status}` };
+    }
+
+    const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+    if (!data || data.ok !== true) {
+      return { ok: false, reason: "rejected", detail: data?.error ?? "handler returned ok:false" };
+    }
+    return { ok: true };
+  } catch (err) {
+    return {
+      ok: false,
+      reason: "network",
+      detail: err instanceof Error ? err.message : String(err),
+    };
+  }
 }
 
 async function post(url: string, body: Record<string, unknown>): Promise<LeadResult> {

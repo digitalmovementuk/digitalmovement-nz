@@ -37,4 +37,17 @@ if (typeof window !== "undefined" && GA4_ID) {
 // each static path to its own HTML file, and on the client it hydrates the
 // same tree. There is deliberately no BrowserRouter here — creating one
 // would give the client a second, conflicting router.
-export const createRoot = ViteReactSSG({ routes });
+/**
+ * `basename` must track Vite's base, not be hardcoded to "/".
+ *
+ * The public site is served from a domain root, so base is "/" and this is a
+ * no-op. The internal preview is served from a project Pages path
+ * (/digitalmovement-nz-internal/), and there the pre-rendered HTML is correct
+ * but React Router — knowing nothing about the prefix — matches the incoming
+ * pathname against routes declared at "/", finds nothing, and falls through to
+ * the "*" NotFound route. The page renders fine until hydration, then blanks
+ * to a 404. Deriving it from BASE_URL keeps both deployments correct.
+ */
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+export const createRoot = ViteReactSSG({ routes, basename: basename || undefined });

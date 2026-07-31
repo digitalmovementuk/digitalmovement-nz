@@ -23,7 +23,7 @@ const serviceLinks = [
   { label: "SEO by location", to: "/seo" },
   { label: "Google Ads", to: "/services/google-ads" },
   { label: "Social Media", to: "/services/social-media" },
-  { label: "Websites", to: "/services/websites" },
+  { label: "Web Design", to: "/services/web-design" },
 ];
 
 export function Nav() {
@@ -315,8 +315,9 @@ export function Nav() {
                 Get your free audit <ArrowRight size={15} />
               </Link>
 
+              {/* Email only — the phone number was a placeholder and is gone
+                  from content.ts until a real one exists (strategy N009). */}
               <div className="mt-10 text-[13px] text-white/65 space-y-1.5">
-                <p>{business.phone}</p>
                 <p>{business.email}</p>
               </div>
             </motion.aside>

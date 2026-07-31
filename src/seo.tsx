@@ -57,16 +57,24 @@ export const NZBN = "9429053714732";
 export const REVIEW_RATING = "5.0";
 export const REVIEW_COUNT = "100";
 
+/* The parent entity is still declared — the relationship is a real fact and
+   worth expressing — but WITHOUT aggregateRating.
+
+   Self-serving AggregateRating markup is a Google structured-data policy
+   violation: a rating about your own organisation, served from your own
+   domain, is not eligible and risks a manual action. Moving it onto the
+   parent organisation does not launder it, because it still ships from
+   digitalmovement.co.nz. Removed 2026-07-31 per the DM ship-gate (Rapid Gate
+   item 18).
+
+   The reviews stay VISIBLE on the page. Showing genuine reviews is fine and
+   expected; only the markup is prohibited. REVIEW_RATING / REVIEW_COUNT are
+   therefore still exported and still drive the on-page copy — they simply no
+   longer appear in any JSON-LD. */
 const PARENT_ORG = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#parent-organization`,
   name: "Digital Movement Melbourne",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: REVIEW_RATING,
-    reviewCount: REVIEW_COUNT,
-    bestRating: "5",
-  },
 };
 
 export const ORGANIZATION = {
@@ -222,11 +230,13 @@ type SeoProps = {
   /** Route path, e.g. "/" or "/services/seo". Drives canonical + og:url. */
   path: string;
   noindex?: boolean;
+  /** Retired URL: emit a meta refresh to this path. Use with `noindex`. */
+  metaRefresh?: string;
   /** Schema nodes for this route; wrapped in a single @graph. */
   schema?: object[];
 };
 
-export function Seo({ title, description, path, noindex, schema }: SeoProps) {
+export function Seo({ title, description, path, noindex, metaRefresh, schema }: SeoProps) {
   const url = absoluteUrl(path);
   const graph =
     schema && schema.length > 0
@@ -239,6 +249,10 @@ export function Seo({ title, description, path, noindex, schema }: SeoProps) {
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       {noindex ? <meta name="robots" content="noindex,follow" /> : null}
+      {/* Static hosting cannot return a 301, so a retired URL says so in the
+          pre-rendered head. Crawlers treat an instant meta refresh as a
+          redirect signal, and it works without JavaScript. */}
+      {metaRefresh ? <meta httpEquiv="refresh" content={`0; url=${metaRefresh}`} /> : null}
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Digital Movement" />

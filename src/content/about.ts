@@ -3,7 +3,7 @@
 
 export const about = {
   meta: {
-    title: "About · Digital Movement",
+    title: "About Digital Movement · NZ Digital Marketing Agency",
     description:
       "Why we are a 5-star rated digital marketing agency in New Zealand. Trusted, proven, and relentlessly results-driven — turning visibility into velocity and marketing into momentum.",
   },
@@ -67,71 +67,12 @@ export const about = {
       "Honest advice, hands-on support, outstanding ROI",
     ],
   },
-  team: {
-    eyebrow: "The team",
-    headlinePre: "Highly skilled,",
-    headlineSoft: "constantly innovating.",
-    intro:
-      "Our highly skilled and experienced digital marketing experts are constantly developing innovative solutions designed to generate exceptional results — tailored to your business goals and market.",
-    members: [
-      {
-        name: "James Holloway",
-        role: "SEO & GEO Lead",
-        kicker: "Search · AI Search",
-        bio: "Optimises websites for Google and for the new AI search engines. The mind behind our technical audits and the content architecture that ranks.",
-        image:
-          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
-      },
-      {
-        name: "Marcus Okafor",
-        role: "Web Developer",
-        kicker: "React · Performance",
-        bio: "Builds fast, mobile-first websites with near-perfect Core Web Vitals. If something doesn't load in 1.5 seconds, he treats it as broken.",
-        image:
-          "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=800&q=80",
-      },
-      {
-        name: "Sophie Lindberg",
-        role: "Operations Manager",
-        kicker: "Process · Quality",
-        bio: "Makes sure no project slips. Keeps the 90-day sprints in lockstep — and our reports on point.",
-        image:
-          "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
-      },
-      {
-        name: "Amara Diallo",
-        role: "Creative Director",
-        kicker: "Brand · Art Direction",
-        bio: "Translates brand strategy into visual language that sticks. Owns the look and feel of every website that leaves the studio.",
-        image:
-          "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&q=80",
-      },
-      {
-        name: "Lucia Moretti",
-        role: "Social Media Manager",
-        kicker: "Short-Form · Paid Social",
-        bio: "Builds content that drives booked calls — not likes. Specialises in founder-brand content and short-form video.",
-        image:
-          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
-      },
-      {
-        name: "David Klein",
-        role: "Project Manager",
-        kicker: "Delivery · Stakeholder",
-        bio: "Your direct contact for timing, scope and expectation management. Keeps every project on plan — and you in the loop.",
-        image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
-      },
-      {
-        name: "Mira Hassan",
-        role: "Graphic Designer",
-        kicker: "Type · Editorial",
-        bio: "Designs websites, pitch decks and social visuals with an eye for detail you can't teach. Wears black, thinks in grids.",
-        image:
-          "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=800&q=80",
-      },
-    ],
-  },
+  /* The seven-person `team` block was deleted 2026-07-31. It listed invented
+     people — names, roles and credentials — illustrated with Unsplash stock
+     portraits. Its <TeamGrid> was already unrendered, so none of it was live,
+     but leaving fabricated staff one JSX line from production is not a risk
+     worth carrying on a page whose job is to establish who we are. Restore
+     with real people and real photographs, or not at all. */
   cta: {
     eyebrow: "Ready?",
     headlinePre: "Let us show you how",

@@ -31,12 +31,17 @@
 
   var CSS = `
   :root{--ov-ink:#1b0e2e;--ov-deep:#100620;--ov-acc:#F05F22;--ov-warm:#fbfbfd;--ov-line:rgba(27,14,46,.12);--ov-mut:#6e6478}
-  .ov-pill{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:99998;
+  /* Sits BELOW the sticky header rather than inside it: this site's bar has
+     centred nav links, and a viewport-centred pill lands straight on top of
+     them. Clearing them the way CEx does isn't available here — they're React
+     components with utility classes, not a stable .nav__links hook. */
+  .ov-pill{position:fixed;top:84px;left:50%;transform:translateX(-50%);z-index:99998;
     display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;
     background:#1b0e2e;color:#fff;font:800 12.5px/1 Inter,system-ui,sans-serif;letter-spacing:.02em;
     border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 24px -8px rgba(0,0,0,.5);cursor:pointer;
     -webkit-tap-highlight-color:transparent;transition:transform .15s ease, background .2s}
   .ov-pill:hover{background:#000;transform:translateX(-50%) translateY(1px)}
+  @media(max-width:1023px){.ov-pill{top:76px}}
   .ov-dot{width:9px;height:9px;border-radius:50%;background:#ff3b30;box-shadow:0 0 0 0 rgba(255,59,48,.7);
     animation:ovpulse 1.6s infinite}
   @keyframes ovpulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,.7)}70%{box-shadow:0 0 0 7px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
@@ -44,10 +49,16 @@
   .ov-pill__lbl{opacity:.92}
   @media(max-width:860px){.ov-pill__lbl{display:none}.ov-pill{padding:8px 13px}}
   .ov-scrim{position:fixed;inset:0;z-index:99999;background:rgba(16,6,32,.68);backdrop-filter:blur(3px);
-    display:none;align-items:flex-start;justify-content:center;padding:5vh 16px;overflow:auto}
+    display:none;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto;overscroll-behavior:contain}
   .ov-scrim.is-open{display:flex}
-  .ov-modal{width:min(1120px,100%);background:var(--ov-warm);border-radius:18px;overflow:hidden;
+  /* Cap the whole modal to the viewport and let the table area take the
+     remaining height, so the body scrolls instead of the modal growing past
+     the fold and stranding the last rows. */
+  .ov-modal{width:min(1120px,100%);max-height:92vh;display:flex;flex-direction:column;
+    background:var(--ov-warm);border-radius:18px;overflow:hidden;
     box-shadow:0 40px 90px -30px rgba(0,0,0,.6);font-family:Inter,system-ui,sans-serif;color:var(--ov-ink)}
+  .ov-head{flex:0 0 auto}
+  .ov-foot{flex:0 0 auto}
   .ov-head{background:linear-gradient(120deg,#2c1450 0%,#1b0e2e 55%,#100620 100%);color:#fff;padding:22px 26px 20px;position:relative}
   .ov-kick{font:800 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.22em;text-transform:uppercase;color:#FFB07A}
   .ov-h{font-size:clamp(1.25rem,2.4vw,1.7rem);font-weight:800;letter-spacing:-.02em;margin:8px 0 4px}
@@ -109,6 +120,10 @@
   function render(data) {
     var t = data.totals || {};
     var scrim = el("div", "ov-scrim");
+    // This site runs Lenis smooth-scroll, which intercepts wheel events at the
+    // document level. Without these opt-outs the modal is visually scrollable
+    // but the wheel does nothing inside it — the reported "can't scroll" bug.
+    scrim.setAttribute("data-lenis-prevent", "");
 
     var rows = (data.rows || []).map(function (r, i) {
       var live = r.live
@@ -154,7 +169,7 @@
             '<div class="ov-stat ov-stat--acc"><b>~' + dec(t.enquiries_12mo) + '</b><span>Enquiries/mo (12 mo)*</span></div>' +
           '</div>' +
         '</div>' +
-        '<div class="ov-wrap"><table class="ov-tbl"><thead><tr>' +
+        '<div class="ov-wrap" data-lenis-prevent><table class="ov-tbl"><thead><tr>' +
           '<th class="l">Page</th><th>Wave</th><th>Head<br>vol./mo</th><th>Cluster<br>vol./mo</th>' +
           '<th>Cum.<br>vol.&nbsp;%</th><th>KD</th><th>EYS</th><th>Enquiries/mo<br>(12 mo)*</th><th>Status</th>' +
           '</tr></thead><tbody>' + rows + '</tbody></table></div>' +

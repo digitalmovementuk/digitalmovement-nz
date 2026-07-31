@@ -11,7 +11,7 @@ export const seoHub: SeoPageContent = {
   path: "/seo",
 
   meta: {
-    title: "SEO New Zealand | Digital Movement",
+    title: "SEO New Zealand · SEO Agency NZ | Digital Movement",
     description:
       "SEO New Zealand from a 5.0-rated agency: page 1 in 90 days, month-to-month, free audit, no lock-in. Built for trades and home services businesses.",
   },

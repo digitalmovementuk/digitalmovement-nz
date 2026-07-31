@@ -50,7 +50,11 @@ export function GoogleRatingCard() {
       rel="noopener noreferrer"
       // Match the visible text in the card so screen-reader output and the
       // visual content read identically (label-content-name-mismatch a11y).
-      aria-label="Google Rating 5.0 — Based on +100 reviews"
+      /* No aria-label. The visible text already reads "Google Rating 5.0 /
+         Based on +100 reviews", and the label duplicated it with an em-dash
+         the visible text does not contain — which is exactly the
+         label-content-name mismatch WCAG 2.5.3 exists to catch. A speech-input
+         user saying "click Google Rating" must match what they can see. */
       className="inline-flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur px-3.5 py-2.5 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.45)] hover:bg-white transition"
     >
       <GoogleGIcon />

@@ -52,9 +52,25 @@ export const routes: RouteRecord[] = [
           })),
       },
       {
-        path: "services/websites",
+        /* Renamed from services/websites 2026-07-31. The page targets "web
+           design" in its title, H1, description and body; the slug was the one
+           element that disagreed. Changed while the page had no rankings or
+           inbound links to lose — the cheapest this will ever be. */
+        path: "services/web-design",
         lazy: () =>
           import("./pages/services/websites").then((m) => ({ Component: m.ServiceWebsites })),
+      },
+      {
+        /* The old slug, preserved. GitHub Pages cannot issue a 301, so this
+           renders a real page at the old URL whose only job is to send both
+           browsers and crawlers to the new one — a meta refresh plus a
+           canonical, and noindex so the duplicate never competes. Delete once
+           Search Console shows no impressions on the old path. */
+        path: "services/websites",
+        lazy: () =>
+          import("./pages/services/websites-redirect").then((m) => ({
+            Component: m.WebsitesRedirect,
+          })),
       },
       /**
        * The /seo hub and its city spokes.

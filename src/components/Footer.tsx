@@ -1,4 +1,4 @@
-import { Phone, Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { business } from "../content";
 
@@ -8,7 +8,7 @@ const footerServices = [
   { label: "SEO", to: "/services/seo" },
   { label: "Google Ads", to: "/services/google-ads" },
   { label: "Social Media", to: "/services/social-media" },
-  { label: "Websites", to: "/services/websites" },
+  { label: "Web Design", to: "/services/web-design" },
 ];
 
 // The /seo hub and its city spokes. Sitewide footer links are how the spokes
@@ -68,6 +68,8 @@ export function Footer() {
             <img
               src={`${import.meta.env.BASE_URL}brand/logo-color-positive.svg`}
               alt="Digital Movement"
+              width="160"
+              height="40"
               className="h-8 w-auto mx-auto lg:mx-0"
             />
             <p className="mt-5 text-[14px] sm:text-[15px] text-ink-soft leading-relaxed">
@@ -131,12 +133,8 @@ export function Footer() {
                   {business.email}
                 </a>
               </li>
-              <li>
-                <a href={business.phoneHref} className={`${linkCls} inline-flex items-center gap-2`}>
-                  <Phone size={13} strokeWidth={2.2} className="text-ink-faint" />
-                  {business.phone}
-                </a>
-              </li>
+              {/* Phone row removed with the placeholder number (N009). Restore
+                  when a real NZ number is published. */}
             </ul>
 
             <div className="mt-6 flex items-center justify-center sm:justify-start gap-3">

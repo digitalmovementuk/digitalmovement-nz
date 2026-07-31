@@ -245,7 +245,7 @@ export function Hero() {
                   fontWeight: 600,
                 }}
               >
-                Get real results.<br />Guaranteed.
+                Get real results from<br />SEO and digital marketing.
               </h1>
             </div>
 

@@ -88,7 +88,25 @@ async function main() {
   // ---- 3. Sitemap from what was actually built --------------------------
   // Only the flat files are listed; the directory twins are the same URL.
   const files = (await findHtml(DIST)).filter((f) => !f.endsWith(`${sep}index.html`) || f === join(DIST, "index.html"));
-  const routePaths = files
+
+  // A page that tells crawlers not to index it must not then be advertised in
+  // the sitemap — the two directives contradict each other and Search Console
+  // reports it as an error. Detected by reading the built HTML rather than by
+  // keeping a list of excluded paths, so retired URLs drop out on their own.
+  // The internal preview build marks every page noindex on purpose, so the
+  // filter below would strip the lot and trip the "no HTML pages" guard. There
+  // the sitemap is an inventory for the overview widget, not a crawl
+  // instruction, so it lists everything. The public build keeps the real rule.
+  const internal = process.env.VITE_INTERNAL_OVERVIEW === "1";
+
+  const indexable = [];
+  for (const f of files) {
+    const html = await readFile(f, "utf8");
+    if (!internal && /<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) continue;
+    indexable.push(f);
+  }
+
+  const routePaths = indexable
     .map(toRoutePath)
     .filter((p) => p !== "/404")
     .sort((a, b) => (a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)));
@@ -149,18 +167,30 @@ async function main() {
     let bundle = "";
     for (const f of js) bundle += await readFile(join(assetsDir, f), "utf8");
 
-    const hasDestination =
-      /api\.web3forms\.com/.test(bundle) || /VITE_LEAD_ENDPOINT_PRESENT/.test(bundle);
+    // Digital Movement's own PHP handler is the primary destination and needs
+    // no key, so its presence alone satisfies the check. Web3Forms remains
+    // supported, but only counts when a real key shipped with it — a bare
+    // endpoint with no key delivers nothing.
+    const hasDmEndpoint = /leads\.digitalmovement\.uk/.test(bundle);
     const hasWeb3FormsKey = /"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"/.test(bundle);
+    const hasWeb3Forms = /api\.web3forms\.com/.test(bundle) && hasWeb3FormsKey;
+    const hasDestination = hasDmEndpoint || hasWeb3Forms;
 
-    if (!hasDestination || !hasWeb3FormsKey) {
+    // Consent is not optional: the handler rejects a payload without it, and a
+    // lead collected without recorded consent must not be transmitted at all.
+    // If the string vanishes from the bundle the forms are silently broken.
+    if (!/consent/.test(bundle)) {
+      fail("the bundle carries no consent field — the lead endpoint will reject every enquiry.");
+    }
+
+    if (!hasDestination) {
       if (process.env.ALLOW_NO_LEAD_ENDPOINT === "1") {
         console.warn(
           "postbuild: WARNING — no lead destination in the bundle. The forms will show a visible failure and the direct email. Building anyway because ALLOW_NO_LEAD_ENDPOINT=1.",
         );
       } else {
         fail(
-          "no lead destination reached the bundle — set VITE_WEB3FORMS_KEYS (see .env.example) so enquiries are delivered, or set ALLOW_NO_LEAD_ENDPOINT=1 to build without one deliberately.",
+          "no lead destination reached the bundle — VITE_DM_LEAD_ENDPOINT should default to https://leads.digitalmovement.uk/ (see src/lib/submitLead.ts), or set ALLOW_NO_LEAD_ENDPOINT=1 to build without one deliberately.",
         );
       }
     } else {

@@ -26,7 +26,10 @@ const ACCENT = "#F05F22";
  * Set to `null` when they are approved for production — that one edit removes
  * the badge from all four pages. Nothing else depends on it.
  */
-const FIDELITY: string | null = "MID-FI";
+/* Was "MID-FI". These pages now ship, and a fidelity badge is a working
+   marker, not a production element — left set it would render a permanent
+   pill over every money page. Set back to a string only while iterating. */
+const FIDELITY: string | null = null;
 
 function FidelityTag() {
   if (!FIDELITY) return null;

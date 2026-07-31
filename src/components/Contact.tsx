@@ -4,6 +4,7 @@ import { ArrowRight, Check, Phone, MessageCircle, Mail, Clock } from "lucide-rea
 import { business } from "../content";
 import { Reveal } from "../lib/Reveal";
 import { submitLead, trackLead, FALLBACK_EMAIL } from "../lib/submitLead";
+import { ConsentCheckbox, ConsentNotice } from "./Consent";
 
 const SERVICES = ["SEO", "Google Ads", "Social Media", "Website", "Not sure yet"];
 
@@ -30,6 +31,7 @@ export function Contact() {
       phone: String(data.get("phone") ?? ""),
       service: String(data.get("service") ?? ""),
       message: String(data.get("message") ?? ""),
+      consent: data.get("consent") != null,
       source: "contact-section",
     });
 
@@ -83,13 +85,10 @@ export function Contact() {
               caption="Reply within 24 h"
               href={business.emailHref}
             />
-            <ContactTile
-              icon={<Phone size={18} />}
-              label="Call us"
-              value={business.phone}
-              caption="Mon–Fri, 9–6"
-              href={business.phoneHref}
-            />
+            {/* No phone tile. The published number was the placeholder
+                "+64 9 XXX XXXX" and has been removed from content.ts —
+                showing a fake number is worse than showing none. Restore this
+                tile once a real NZ number exists (strategy N009). */}
           </ul>
         </div>
 
@@ -163,6 +162,8 @@ export function Contact() {
                   />
                 </label>
 
+                <ConsentCheckbox />
+
                 <button
                   type="submit"
                   disabled={sending}
@@ -177,9 +178,7 @@ export function Contact() {
                   </p>
                 ) : null}
 
-                <p className="text-[11px] text-ink-muted leading-relaxed">
-                  No pressure, no jargon. By submitting you agree to be contacted about your enquiry.
-                </p>
+                <ConsentNotice />
               </motion.form>
             ) : (
               <motion.div
@@ -215,16 +214,16 @@ export function Contact() {
                       <Phone size={14} strokeWidth={2.4} />
                     </span>
                     <div className="text-[13px] text-ink-soft leading-relaxed">
-                      <p className="font-bold text-ink">Save our number</p>
+                      <p className="font-bold text-ink">Reply by email</p>
                       <p>
-                        Call-backs come from{" "}
+                        We'll come back to you from{" "}
                         <a
-                          href={business.phoneHref}
+                          href={business.emailHref}
                           className="text-ink underline underline-offset-2 hover:opacity-80"
                         >
-                          {business.phone}
+                          {business.email}
                         </a>
-                        . If we ring, that's us.
+                        . Worth whitelisting it.
                       </p>
                     </div>
                   </div>

@@ -62,6 +62,33 @@ function Hero({ content }: { content: ServiceContent }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const base = import.meta.env.BASE_URL;
 
+  /* The hero background video is decoration, and these files are 6–8 MB each.
+     Loaded eagerly (preload="auto" + fetchPriority="high", as this did) it was
+     the largest thing on the page and it competed with the text and the form
+     for bandwidth — the single biggest cause of the site's LCP failure.
+
+     It is now mounted only after the page has finished loading, so it cannot
+     contend with anything that matters. The poster paints immediately and is
+     the LCP element; the video fades in behind the copy when it is ready, and
+     on a slow connection or with reduced motion it simply never arrives, which
+     costs the visitor nothing. */
+  const [showVideo, setShowVideo] = useState(false);
+  useEffect(() => {
+    if (reduce) return;
+    const start = () => {
+      const idle = (window as unknown as {
+        requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
+      }).requestIdleCallback;
+      if (idle) idle(() => setShowVideo(true), { timeout: 3000 });
+      else window.setTimeout(() => setShowVideo(true), 1200);
+    };
+    if (document.readyState === "complete") start();
+    else {
+      window.addEventListener("load", start, { once: true });
+      return () => window.removeEventListener("load", start);
+    }
+  }, [reduce]);
+
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -88,20 +115,35 @@ function Hero({ content }: { content: ServiceContent }) {
   return (
     <section
       data-surface="dark"
-      className="surface-dark relative isolate overflow-hidden w-screen min-h-[100svh] h-[100svh]"
+      /* ~66svh, not 100svh: the section below must be visible at the fold so
+         the page reads as having somewhere to go (DM hero rule). */
+      className="surface-dark relative isolate overflow-hidden w-screen min-h-[66svh] py-24 sm:py-28 flex items-center"
     >
       <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
-        {!reduce && content.hero.video && (
+        {/* Poster as its own <img>: it must paint whether or not the video
+            ever mounts, and as the LCP element it should not wait on a <video>
+            element's own loading rules. Dimensions are set so it reserves its
+            box and contributes no layout shift. */}
+        <img
+          src={`${base}brand/og-cover.jpg`}
+          alt=""
+          aria-hidden
+          width={1200}
+          height={675}
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover scale-105"
+        />
+        {!reduce && showVideo && content.hero.video && (
           <video
             ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
-            preload="auto"
+            preload="none"
             poster={`${base}brand/og-cover.jpg`}
             // @ts-expect-error fetchPriority is missing from React video types
-            fetchPriority="high"
+            fetchPriority="low"
             className="absolute inset-0 h-full w-full object-cover scale-105"
             src={`${base}${content.hero.video}#t=0.1`}
             {...({

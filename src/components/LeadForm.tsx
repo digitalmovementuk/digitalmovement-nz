@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { business } from "../content";
 import { submitLead, trackLead, FALLBACK_EMAIL } from "../lib/submitLead";
+import { ConsentCheckbox, ConsentNotice } from "./Consent";
 
 /**
  * The enquiry form used by the /seo pages.
@@ -27,9 +28,6 @@ import { submitLead, trackLead, FALLBACK_EMAIL } from "../lib/submitLead";
  */
 
 const SERVICES = ["SEO", "Google Ads", "Social Media", "Website", "Not sure yet"];
-
-/** How long enquiry data is kept. Stated on the form, so it lives in one place. */
-const RETENTION = "24 months";
 
 type Props = {
   /** Attribution string recorded with the lead, e.g. "seo-christchurch-hero". */
@@ -66,6 +64,7 @@ export function LeadForm({ source, heading, note, defaultService = "SEO", varian
       phone: String(data.get("phone") ?? ""),
       service: String(data.get("service") ?? ""),
       message: String(data.get("message") ?? ""),
+      consent: data.get("consent") != null,
       source,
     });
 
@@ -176,19 +175,7 @@ export function LeadForm({ source, heading, note, defaultService = "SEO", varian
                 autoComplete="off"
               />
             </label>
-
-            <label className="flex items-start gap-3 pt-1 cursor-pointer">
-              <input
-                type="checkbox"
-                name="consent"
-                required
-                className="mt-0.5 h-4 w-4 shrink-0 rounded border-ink/30 accent-[#0071E3]"
-              />
-              <span className="text-[12px] text-ink-muted leading-relaxed">
-                I agree that {business.name} may store these details and contact me about this
-                enquiry.
-              </span>
-            </label>
+            <ConsentCheckbox />
 
             <button
               type="submit"
@@ -203,19 +190,7 @@ export function LeadForm({ source, heading, note, defaultService = "SEO", varian
                 {error}
               </p>
             ) : null}
-
-            <p className="text-[11px] text-ink-faint leading-relaxed">
-              {business.name} holds what you send here to answer your enquiry, for {RETENTION}, and
-              shares it with nobody else. Withdraw your consent, or ask to see or delete what we
-              hold, any time at{" "}
-              <a
-                href={business.emailHref}
-                className="underline underline-offset-2 hover:text-ink-muted"
-              >
-                {business.email}
-              </a>
-              . You can also complain to the Office of the Privacy Commissioner.
-            </p>
+            <ConsentNotice />
           </motion.form>
         ) : (
           <motion.div

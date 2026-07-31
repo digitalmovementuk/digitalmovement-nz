@@ -98,15 +98,15 @@ export const services: Record<ServiceSlug, ServiceContent> = {
   seo: {
     slug: "seo",
     meta: {
-      title: "SEO for NZ businesses · Digital Movement",
+      title: "SEO Services NZ · Page 1 in 90 Days · Digital Movement",
       description:
         "Google Page 1 in just 90 days, guaranteed. Technical SEO, local SEO, national SEO, content writing and web design from a 5-star rated NZ agency.",
     },
     hero: {
       eyebrow: "Search engine optimisation · for NZ businesses",
-      headlineTop: "Google Page 1",
-      headlineBottom: "in just 90 days.",
-      sub: "Let us show you how our 5-star rated web design and SEO agency in New Zealand can guarantee your business a page 1 position in Google Search results in just 90 days.",
+      headlineTop: "SEO that puts you",
+      headlineBottom: "on Google page 1 in 90 days.",
+      sub: "Let us show you how our 5-star rated SEO agency in NZ can guarantee your business a page 1 position in Google Search results in just 90 days. SEO services for New Zealand businesses that want customers, not impressions.",
       primaryCta: "Get your FREE SEO audit",
       secondaryCta: "Book a consultation",
       chips: ["Technical SEO", "Local SEO", "National SEO", "Content writing", "Web design"],
@@ -323,7 +323,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       eyebrow: "Google Ads · for NZ businesses",
       headlineTop: "More net profit",
       headlineBottom: "with smarter Google Ads.",
-      sub: "Let us show you how our 5-star rated Google Ads agency in New Zealand can deliver near-instant ROI through intelligently designed and executed Google Ads campaigns.",
+      sub: "Let us show you how our 5-star rated Google Ads agency in New Zealand can deliver near-instant ROI through intelligently designed and executed PPC campaigns — Google Ads, formerly AdWords, run properly.",
       primaryCta: "Get your FREE consult",
       secondaryCta: "Book a consultation",
       chips: ["Search Ads", "Performance Max", "Conversion tracking", "Landing page creation & tuning"],
@@ -538,9 +538,9 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     hero: {
       eyebrow: "Social media · for NZ businesses",
-      headlineTop: "Growth through",
-      headlineBottom: "meaningful engagement.",
-      sub: "Let us show you how our 5-star rated social media marketing agency in New Zealand can help you turn interested social media users into engaged followers and loyal brand advocates.",
+      headlineTop: "Social media that",
+      headlineBottom: "grows real engagement.",
+      sub: "Let us show you how our 5-star rated social media agency in New Zealand can turn interested social media users into engaged followers and loyal brand advocates.",
       primaryCta: "Get your FREE consult",
       secondaryCta: "Book a consultation",
       chips: ["Paid social ads", "Content creation", "Posting plan"],

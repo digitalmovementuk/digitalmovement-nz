@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Check } from "lucide-react";
 import { submitLead, trackLead, FALLBACK_EMAIL } from "../lib/submitLead";
+import { ConsentCheckbox, ConsentNotice } from "./Consent";
 
 /**
  * LeadCaptureModal — frozen-glass modal that pops in once per page load,
@@ -59,6 +60,7 @@ export function LeadCaptureModal() {
     const result = await submitLead({
       name: String(data.get("name") ?? ""),
       email: String(data.get("email") ?? ""),
+      consent: data.get("consent") != null,
       source: "lead-capture-modal",
     });
 
@@ -150,6 +152,9 @@ export function LeadCaptureModal() {
                       placeholder="Email"
                       className={inputCls}
                     />
+
+                    <ConsentCheckbox />
+
                     <button
                       type="submit"
                       disabled={sending}
@@ -162,9 +167,7 @@ export function LeadCaptureModal() {
                         {error}
                       </p>
                     ) : null}
-                    <p className="text-[11px] text-ink-muted text-center pt-1 leading-relaxed">
-                      No spam. Unsubscribe anytime.
-                    </p>
+                    <ConsentNotice />
                   </form>
                 </>
               ) : (

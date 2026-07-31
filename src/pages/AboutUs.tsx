@@ -58,6 +58,8 @@ function AboutHero() {
         <img
           src={HERO_IMAGE}
           alt=""
+          width={2400}
+          height={1600}
           className="h-full w-full object-cover"
           loading="eager"
           decoding="async"
@@ -506,6 +508,8 @@ function Studio() {
       >
         <img
           src={STUDIO_IMAGE}
+          width={2400}
+          height={1600}
           alt=""
           className="h-full w-full object-cover"
           loading="lazy"
@@ -581,53 +585,9 @@ function Studio() {
   );
 }
 
-/* ───────────  Team grid  ─────────── */
-
-function TeamGrid() {
-  return (
-    <section
-      data-surface="light"
-      className="surface-light relative pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24"
-    >
-      <div className="container-v3">
-        <div className="grid items-end gap-6 lg:grid-cols-[1.15fr_1fr] lg:gap-12 text-center lg:text-left">
-          <div>
-            <Reveal>
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-ink-muted">
-                {about.team.eyebrow}
-              </p>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <h2
-                className="mt-5 max-w-[18ch] mx-auto lg:mx-0 balance text-ink"
-                style={{
-                  fontSize: "clamp(34px, 5.4vw, 76px)",
-                  lineHeight: "1.02",
-                  letterSpacing: "-0.034em",
-                  fontWeight: 700,
-                }}
-              >
-                {about.team.headlinePre}
-                <span className="block text-ink/55">{about.team.headlineSoft}</span>
-              </h2>
-            </Reveal>
-          </div>
-          <Reveal delay={0.12}>
-            <p className="text-[15px] sm:text-[17px] text-ink-soft leading-relaxed max-w-[480px] mx-auto lg:mx-0 lg:justify-self-end">
-              {about.team.intro}
-            </p>
-          </Reveal>
-        </div>
-
-        <ul className="mt-12 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {about.team.members.map((m, i) => (
-            <TeamCard key={m.name} member={m} index={i} />
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
+/* The TeamGrid component was deleted 2026-07-31 along with the invented
+   team data it rendered (see src/content/about.ts). It was already not
+   mounted. */
 
 function TeamCard({
   member,

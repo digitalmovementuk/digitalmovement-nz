@@ -3,12 +3,12 @@
 export const business = {
   name: "Digital Movement",
   tagline: "Get real results. Guaranteed.",
-  phone: "+64 9 XXX XXXX",
-  phoneHref: "tel:+6490000000",
+  /* No phone published. The number was the placeholder "+64 9 XXX XXXX"
+     wired to tel:+6490000000 — a live dead link on every page. Publishing
+     nothing is better than publishing a number that cannot be rung; restore
+     both fields together once a real NZ line exists. */
   email: "office@digitalmovement.co.nz",
   emailHref: "mailto:office@digitalmovement.co.nz",
-  whatsapp: "+64 9 XXX XXXX",
-  whatsappHref: "mailto:office@digitalmovement.co.nz",
   socials: [
     { label: "Instagram", href: "https://www.instagram.com/digitalmovementnz" },
     { label: "Facebook", href: "https://www.facebook.com/digitalmovementnz" },
