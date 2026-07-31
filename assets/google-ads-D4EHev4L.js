@@ -1,1 +1,0 @@
-import{j as o}from"./motion-C-MnnNMq.js";import{S as r}from"./ServicePageShell-D_cJGdvk.js";import{s as e}from"./services-BN6SjV0b.js";import"./react-core-CTtcpkNN.js";import"./index-ZeVfqfNb.js";import"./lenis-CZHgqTAH.js";import"./icons-BVIt78Gw.js";function a(){return o.jsx(r,{content:e.googleAds})}export{a as ServiceGoogleAds};
