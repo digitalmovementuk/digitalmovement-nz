@@ -137,6 +137,43 @@ async function main() {
     console.warn("postbuild: no robots.txt in dist/ — expected one from public/.");
   }
 
+  // ---- 6. The build must actually carry a lead destination --------------
+  // Vite inlines VITE_* at build time, so a build run without them succeeds
+  // and ships a site whose forms deliver nowhere — the exact defect that made
+  // every past enquiry disappear, and one that is invisible from the outside
+  // because the page looks perfectly normal. Check the emitted JS rather than
+  // process.env: what matters is what reached the bundle.
+  const assetsDir = join(DIST, "assets");
+  if (existsSync(assetsDir)) {
+    const js = (await readdir(assetsDir)).filter((f) => f.endsWith(".js"));
+    let bundle = "";
+    for (const f of js) bundle += await readFile(join(assetsDir, f), "utf8");
+
+    const hasDestination =
+      /api\.web3forms\.com/.test(bundle) || /VITE_LEAD_ENDPOINT_PRESENT/.test(bundle);
+    const hasWeb3FormsKey = /"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"/.test(bundle);
+
+    if (!hasDestination || !hasWeb3FormsKey) {
+      if (process.env.ALLOW_NO_LEAD_ENDPOINT === "1") {
+        console.warn(
+          "postbuild: WARNING — no lead destination in the bundle. The forms will show a visible failure and the direct email. Building anyway because ALLOW_NO_LEAD_ENDPOINT=1.",
+        );
+      } else {
+        fail(
+          "no lead destination reached the bundle — set VITE_WEB3FORMS_KEYS (see .env.example) so enquiries are delivered, or set ALLOW_NO_LEAD_ENDPOINT=1 to build without one deliberately.",
+        );
+      }
+    } else {
+      console.log("postbuild: lead destination present in the bundle");
+    }
+
+    if (/G-[A-Z0-9]{6,}/.test(bundle)) {
+      console.log("postbuild: GA4 measurement ID present in the bundle");
+    } else {
+      console.warn("postbuild: WARNING — no GA4 measurement ID in the bundle (VITE_GA4_ID unset).");
+    }
+  }
+
   console.log(`postbuild: ${routePaths.length} pages, each with a unique title and canonical`);
   for (const p of routePaths) console.log(`  ${p}`);
   console.log("postbuild: dist/404.html present, noindex, and distinct from the homepage");
