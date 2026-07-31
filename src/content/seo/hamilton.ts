@@ -25,7 +25,7 @@ export const hamilton: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Hamilton businesses",
     h1: "SEO Hamilton businesses trust for page 1 rankings.",
-    sub: "Let us show you how our 5.0-rated SEO agency helps Hamilton trades and local businesses reach page 1 of Google in 90 days — guaranteed.",
+    sub: "Digital Movement is a 5.0-rated SEO agency that gets Hamilton trades and local businesses to page 1 of Google in 90 days, guaranteed.",
     chips: ["Page 1 in 90 days", "5.0 rating, 100+ reviews", "Free SEO audit", "No lock-in contracts"],
     formHeading: "Get your free Hamilton SEO audit",
     formNote: "Written report in your inbox within 24 hours. No obligation.",

@@ -29,7 +29,7 @@ export const christchurch: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Christchurch businesses",
     h1: "SEO Christchurch, Done Properly",
-    sub: "Let us show you how our 5.0-rated SEO agency helps Christchurch businesses — especially trades and local services — get found by the customers already searching for them, with a guaranteed page 1 position in 90 days.",
+    sub: "Digital Movement is a 5.0-rated SEO agency working with Christchurch businesses — especially trades and local services — get found by the customers already searching for them, with a guaranteed page 1 position in 90 days.",
     chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free audit, no obligation"],
     formHeading: "Get your free Christchurch SEO audit",
     formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",

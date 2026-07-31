@@ -30,7 +30,7 @@ export const tauranga: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Tauranga businesses",
     h1: "SEO Tauranga businesses use to get found first.",
-    sub: "Tauranga is growing faster than almost anywhere else in New Zealand, and the search results are still wide open. We get local trades and service businesses onto Google page 1 in 90 days, guaranteed.",
+    sub: "Digital Movement is an SEO agency that gets Tauranga trades and service businesses onto Google page 1 in 90 days, guaranteed. The city is growing faster than almost anywhere else in New Zealand, and the search results are still wide open.",
     chips: ["Page 1 in 90 days", "5.0 Google rating", "Month-to-month", "Free audit"],
     formHeading: "Get your free Tauranga SEO audit",
     formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",

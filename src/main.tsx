@@ -25,8 +25,33 @@ if (typeof window !== "undefined" && GA4_ID) {
   w.gtag = function gtag() {
     w.dataLayer.push(arguments);
   };
+  /* Consent Mode v2 defaults, set BEFORE config so they apply to the very
+     first hit.
+
+     New Zealand's Privacy Act 2020 has no equivalent of the GDPR/PECR
+     prior-consent gate for analytics cookies, so this site does not show a
+     cookie banner — that is a deliberate decision for an NZ-audience site,
+     not an oversight, and it is the reason QA gate item L2.4 is closed
+     without a consent UI.
+
+     But the site is reachable from anywhere, and the categories that
+     actually carry legal weight elsewhere are the advertising ones. Those
+     are denied outright: this property runs no remarketing and no ads
+     personalisation, so denying them costs nothing and means an EU or UK
+     visitor is never enrolled in advertising storage without consent.
+     Analytics storage stays granted — it is what the property is for, and
+     GA4 anonymises IPs by default.
+
+     If remarketing is ever added, this block must become a real consent
+     banner before the first ad tag ships. */
+  w.gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "granted",
+  });
   w.gtag("js", new Date());
-  w.gtag("config", GA4_ID);
+  w.gtag("config", GA4_ID, { anonymize_ip: true });
   const s = document.createElement("script");
   s.async = true;
   s.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;

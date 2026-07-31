@@ -39,7 +39,7 @@ export const seoHub: SeoPageContent = {
     // lines beside a form is asking a comparison shopper to read an essay
     // before they can act.
     h1: "SEO New Zealand can measure in dollars.",
-    sub: "You're comparing SEO agencies, not researching what SEO is. So: page 1 in 90 days, guaranteed, from a 5.0-rated team. Month-to-month after a short setup term, and a free audit before you decide anything.",
+    sub: "Digital Movement is a New Zealand SEO agency that gets businesses to page 1 of Google in 90 days, guaranteed. You're comparing agencies, not researching what SEO is — so: a 5.0-rated team, month-to-month after a short setup term, and a free audit before you decide anything.",
     chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free SEO audit"],
     formHeading: "Get your free SEO audit",
     formNote: "One-page report in your inbox. No obligation, no spam.",
