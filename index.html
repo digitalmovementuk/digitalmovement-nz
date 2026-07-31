@@ -10,56 +10,28 @@
       html, body { background: #1B0E2E; color-scheme: dark; margin: 0; }
     </style>
 
-    <title>DIGITAL MOVEMENT | The People's Agency</title>
-    <meta
-      name="description"
-      content="The People's Agency. NZ digital marketing that gets businesses to page 1 of Google. Real leads. Real growth. Plain-English advice. SEO, Google Ads, social media, websites."
-    />
-    <link rel="canonical" href="https://www.digitalmovement.co.nz/" />
+    <!-- Title, description, canonical, Open Graph, Twitter and JSON-LD are
+         NOT set here. They are per-route and come from <Seo> in src/seo.tsx,
+         which vite-react-ssg writes into each pre-rendered HTML file at build
+         time. Duplicating them in this template would emit two of every tag
+         and put the homepage's values on every page — which is exactly the
+         duplicate-metadata problem pre-rendering was added to fix. Only
+         genuinely site-wide tags belong below. -->
 
     <!-- SVG favicon ships in ~6 KB instead of the 252 KB raster. Modern
          browsers prefer SVG; older ones fall back to the .png. -->
-    <link rel="icon" type="image/svg+xml" href="brand/logo-mono-negative.svg" />
-    <link rel="icon" type="image/png" sizes="192x192" href="brand/motif-positive.png" />
-    <link rel="apple-touch-icon" href="brand/motif-positive.png" />
+    <link rel="icon" type="image/svg+xml" href="/brand/logo-mono-negative.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/brand/motif-positive.png" />
+    <link rel="apple-touch-icon" href="/brand/motif-positive.png" />
     <meta name="apple-mobile-web-app-title" content="Digital Movement" />
     <meta name="application-name" content="Digital Movement" />
 
-    <!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc.) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.digitalmovement.co.nz/" />
-    <meta property="og:site_name" content="Digital Movement" />
-    <meta property="og:title" content="DIGITAL MOVEMENT | The People's Agency" />
-    <meta
-      property="og:description"
-      content="The People's Agency. NZ digital marketing that gets businesses to page 1 of Google. Real leads. Real growth. Plain-English advice."
-    />
-    <meta
-      property="og:image"
-      content="https://www.digitalmovement.co.nz/brand/og-cover.jpg"
-    />
-    <meta
-      property="og:image:secure_url"
-      content="https://www.digitalmovement.co.nz/brand/og-cover.jpg"
-    />
+    <!-- Image dimensions are the same asset on every route, so they stay
+         here rather than being repeated per page. -->
+    <meta property="og:image:secure_url" content="https://www.digitalmovement.co.nz/brand/og-cover.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="2460" />
     <meta property="og:image:height" content="1383" />
-    <meta property="og:image:alt" content="Digital Movement — The People's Agency" />
-    <meta property="og:locale" content="en_NZ" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="DIGITAL MOVEMENT | The People's Agency" />
-    <meta
-      name="twitter:description"
-      content="NZ digital marketing that gets businesses to page 1 of Google. Real leads. Real growth. Plain-English advice."
-    />
-    <meta
-      name="twitter:image"
-      content="https://www.digitalmovement.co.nz/brand/og-cover.jpg"
-    />
-    <meta name="twitter:image:alt" content="Digital Movement — The People's Agency" />
 
     <!-- Hero first-slide poster + mobile/desktop video preloads. The poster
          paints the moment the HTML parses (well before React boots), so the
@@ -104,32 +76,6 @@
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
       />
     </noscript>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Digital Movement",
-        "alternateName": "The People's Agency",
-        "description": "NZ digital marketing agency. SEO, Google Ads, social media, websites.",
-        "url": "https://www.digitalmovement.co.nz/",
-        "image": "https://www.digitalmovement.co.nz/brand/og-cover.jpg",
-        "email": "office@digitalmovement.co.nz",
-        "areaServed": {
-          "@type": "Country",
-          "name": "New Zealand"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5.0",
-          "reviewCount": "200"
-        },
-        "sameAs": [
-          "https://www.facebook.com/digitalmovementnz",
-          "https://www.instagram.com/digitalmovementnz"
-        ]
-      }
-    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

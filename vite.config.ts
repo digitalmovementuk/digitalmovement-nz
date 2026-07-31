@@ -44,7 +44,7 @@ function inlineCss(): Plugin {
   };
 }
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), inlineCss()],
   base: "/",
   server: {
@@ -55,17 +55,24 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          "react-core": ["react", "react-dom", "react-router-dom"],
-          motion: ["framer-motion"],
-          lenis: ["lenis"],
-          icons: ["lucide-react"],
-        },
+        // Manual chunking is a client-bundle optimisation only. The SSR pass
+        // that vite-react-ssg runs to pre-render each route treats react and
+        // friends as externals, and Rollup refuses to put an external module
+        // into a manual chunk — so applying this to both builds fails the
+        // build outright with EXTERNAL_MODULES_CANNOT_BE_INCLUDED_IN_MANUAL_CHUNKS.
+        manualChunks: isSsrBuild
+          ? undefined
+          : {
+              "react-core": ["react", "react-dom", "react-router-dom"],
+              motion: ["framer-motion"],
+              lenis: ["lenis"],
+              icons: ["lucide-react"],
+            },
       },
     },
     chunkSizeWarningLimit: 600,
   },
-});
+}));
 
 // Silence unused-import warning when the helpers aren't pulled in (kept for
 // future tweaks to the plugin).

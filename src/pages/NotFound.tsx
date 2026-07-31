@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { Seo } from "../seo";
 
 export function NotFound() {
   return (
+    <>
+      <Seo
+        title="Page not found | Digital Movement"
+        description="The page you were looking for doesn't exist."
+        path="/404"
+        noindex
+      />
     <section
       data-surface="dark"
       className="surface-dark relative min-h-[100svh] flex items-center justify-center px-6"
@@ -32,5 +40,6 @@ export function NotFound() {
         </Link>
       </div>
     </section>
+    </>
   );
 }

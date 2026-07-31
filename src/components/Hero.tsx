@@ -152,10 +152,13 @@ export function Hero() {
               aria-label={slide.label}
               className="absolute inset-0 h-full w-full object-cover scale-105 transition-opacity duration-[1200ms] ease-out"
               style={{ opacity: activeIdx === i ? 1 : 0 }}
+              // React expects the camelCased DOM property here; the all-lowercase
+              // spelling is rejected as an invalid prop and warns on every
+              // server render, so it never reached the markup anyway.
+              disableRemotePlayback
               {...({
                 "webkit-playsinline": "true",
                 "x5-playsinline": "true",
-                "disableremoteplayback": "true",
               } as Record<string, string>)}
             >
               <source

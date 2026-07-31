@@ -5,6 +5,7 @@ import { ArrowRight, Compass, Heart, MapPin, Sparkles, Target } from "lucide-rea
 import { Reveal } from "../lib/Reveal";
 import { about, HERO_IMAGE, STUDIO_IMAGE } from "../content/about";
 import { DM_ACCENT } from "../components/ServicePageShell";
+import { Seo, breadcrumbs } from "../seo";
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
@@ -13,16 +14,16 @@ const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 // location detail → seven-person team grid → final CTA. DM-rebranded from
 // the NEO source.
 export function AboutUs() {
-  useEffect(() => {
-    document.title = about.meta.title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute("content", about.meta.description);
-    }
-  }, []);
-
+  // Was a client-side document.title effect, so crawlers never saw it.
+  // <Seo> writes it into the pre-rendered HTML instead.
   return (
     <>
+      <Seo
+        title={about.meta.title}
+        description={about.meta.description}
+        path="/about"
+        schema={[breadcrumbs([{ name: "About", path: "/about" }])]}
+      />
       <AboutHero />
       <Pillars />
       <TeamNote />

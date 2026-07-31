@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Check, Plus, Minus, Sparkles } from "lucide-react";
 import { Reveal } from "../lib/Reveal";
 import type { ServiceContent } from "../content/services";
+import { Seo, serviceSchema, faqSchema, breadcrumbs, SERVICE_NAMES } from "../seo";
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
@@ -18,21 +19,28 @@ const ACCENT_BG_SOFT = "rgba(240, 95, 34, 0.12)";
 // a single content object. Mirrors the structure of the NEO source, rebranded
 // to DM NZ palette (plum + pink + DM orange).
 export function ServicePageShell({ content }: { content: ServiceContent }) {
-  useEffect(() => {
-    document.title = content.meta.title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute("content", content.meta.description);
-    } else {
-      const m = document.createElement("meta");
-      m.name = "description";
-      m.content = content.meta.description;
-      document.head.appendChild(m);
-    }
-  }, [content]);
+  const path = `/services/${content.slug}`;
 
+  // Title and description used to be written here in an effect, which meant
+  // they only ever existed after JavaScript ran — so crawlers saw the
+  // template's tags, not the page's. <Seo> emits them into the pre-rendered
+  // HTML at build time instead.
   return (
     <>
+      <Seo
+        title={content.meta.title}
+        description={content.meta.description}
+        path={path}
+        schema={[
+          serviceSchema({
+            name: SERVICE_NAMES[content.slug] ?? content.slug,
+            description: content.meta.description,
+            path,
+          }),
+          faqSchema(content.faq.items),
+          breadcrumbs([{ name: SERVICE_NAMES[content.slug] ?? content.slug, path }]),
+        ]}
+      />
       <Hero content={content} />
       <WhatItIs content={content} />
       <Outcomes content={content} />

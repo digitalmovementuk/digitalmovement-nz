@@ -1,0 +1,206 @@
+import { Head } from "vite-react-ssg";
+
+/**
+ * Single source of truth for per-route metadata and structured data.
+ *
+ * Everything here is emitted into the pre-rendered HTML at build time, so a
+ * crawler that never executes JavaScript still sees the right title,
+ * description, canonical and schema for each route. Before pre-rendering,
+ * every route shared the homepage's tags — which made them duplicates of
+ * each other even once they returned 200.
+ */
+
+export const SITE_URL = "https://www.digitalmovement.co.nz";
+export const OG_IMAGE = `${SITE_URL}/brand/og-cover.jpg`;
+
+export function absoluteUrl(path: string): string {
+  return path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
+}
+
+/* ------------------------------------------------------------------ *
+ * Structured data
+ *
+ * Two rules govern everything below, both of them Google policy rather
+ * than preference:
+ *
+ * 1. Never mark up a fact the page doesn't show. `aggregateRating` in
+ *    particular triggers manual actions when it has no visible review
+ *    content behind it.
+ * 2. Never mark up a fact we don't actually have. The telephone number in
+ *    src/content.ts is still the placeholder "+64 9 XXX XXXX", and no NZBN
+ *    or street address is on file, so those properties are omitted rather
+ *    than invented. Fill in TELEPHONE / NZBN / ADDRESS below once they
+ *    exist and they will flow into the markup automatically.
+ * ------------------------------------------------------------------ */
+
+/** Set these once the real values exist — omitted from schema while empty. */
+export const TELEPHONE = "";
+export const NZBN = "";
+
+/**
+ * Ratings belong to the group, not to the New Zealand entity. The reviews
+ * were earned by the parent business, so the rating is attached to the
+ * parent Organization and the NZ node carries no rating of its own. That
+ * keeps the markup truthful without putting the parent's location into
+ * any visible page copy.
+ */
+export const REVIEW_RATING = "5.0";
+export const REVIEW_COUNT = "100";
+
+const PARENT_ORG = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#parent-organization`,
+  name: "Digital Movement Melbourne",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: REVIEW_RATING,
+    reviewCount: REVIEW_COUNT,
+    bestRating: "5",
+  },
+};
+
+export const ORGANIZATION = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Digital Movement",
+  alternateName: "The People's Agency",
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/brand/motif-positive.png`,
+  image: OG_IMAGE,
+  email: "office@digitalmovement.co.nz",
+  parentOrganization: PARENT_ORG,
+  sameAs: [
+    "https://www.facebook.com/digitalmovementnz",
+    "https://www.instagram.com/digitalmovementnz",
+  ],
+  ...(TELEPHONE ? { telephone: TELEPHONE } : {}),
+  ...(NZBN ? { identifier: { "@type": "PropertyValue", propertyID: "NZBN", value: NZBN } } : {}),
+};
+
+export const LOCAL_BUSINESS = {
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#localbusiness`,
+  name: "Digital Movement",
+  description:
+    "New Zealand digital marketing agency. SEO, Google Ads, social media and web design.",
+  url: `${SITE_URL}/`,
+  image: OG_IMAGE,
+  email: "office@digitalmovement.co.nz",
+  parentOrganization: { "@id": `${SITE_URL}/#parent-organization` },
+  areaServed: { "@type": "Country", name: "New Zealand" },
+  ...(TELEPHONE ? { telephone: TELEPHONE } : {}),
+  ...(NZBN ? { identifier: { "@type": "PropertyValue", propertyID: "NZBN", value: NZBN } } : {}),
+};
+
+export const WEBSITE = {
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: `${SITE_URL}/`,
+  name: "Digital Movement",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: "en-NZ",
+};
+
+/** Breadcrumbs for any route. Home is always the first crumb. */
+export function breadcrumbs(trail: Array<{ name: string; path: string }>) {
+  const items = [{ name: "Home", path: "/" }, ...trail];
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  };
+}
+
+/**
+ * Human service names, keyed by route slug.
+ *
+ * The content file's `hero.headlineTop` is marketing copy ("Google Page 1",
+ * "More net profit"), not a service name, so it can't be used here — a
+ * Service node called "More net profit" tells a search engine nothing.
+ */
+export const SERVICE_NAMES: Record<string, string> = {
+  seo: "SEO",
+  "google-ads": "Google Ads Management",
+  "social-media": "Social Media Marketing",
+  websites: "Web Design and Development",
+};
+
+/** Service schema for a service page. */
+export function serviceSchema(opts: { name: string; description: string; path: string }) {
+  return {
+    "@type": "Service",
+    "@id": `${absoluteUrl(opts.path)}#service`,
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    serviceType: opts.name,
+    provider: { "@id": `${SITE_URL}/#organization` },
+    areaServed: { "@type": "Country", name: "New Zealand" },
+  };
+}
+
+/**
+ * FAQPage built from the questions actually rendered on the page.
+ * Called only where ServicePageShell renders content.faq.items — marking up
+ * questions that aren't visible is the same policy breach as a phantom
+ * rating.
+ */
+export function faqSchema(items: Array<{ q: string; a: string }>) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
+/* ------------------------------------------------------------------ */
+
+type SeoProps = {
+  title: string;
+  description: string;
+  /** Route path, e.g. "/" or "/services/seo". Drives canonical + og:url. */
+  path: string;
+  noindex?: boolean;
+  /** Schema nodes for this route; wrapped in a single @graph. */
+  schema?: object[];
+};
+
+export function Seo({ title, description, path, noindex, schema }: SeoProps) {
+  const url = absoluteUrl(path);
+  const graph =
+    schema && schema.length > 0
+      ? JSON.stringify({ "@context": "https://schema.org", "@graph": schema })
+      : null;
+
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={url} />
+      {noindex ? <meta name="robots" content="noindex,follow" /> : null}
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Digital Movement" />
+      <meta property="og:locale" content="en_NZ" />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image:alt" content="Digital Movement — The People's Agency" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={OG_IMAGE} />
+
+      {graph ? <script type="application/ld+json">{graph}</script> : null}
+    </Head>
+  );
+}
