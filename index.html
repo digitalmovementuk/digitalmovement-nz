@@ -33,22 +33,10 @@
     <meta property="og:image:width" content="2460" />
     <meta property="og:image:height" content="1383" />
 
-    <!-- These preloads used to sit here and were removed 2026-07-31.
-         They lived in the shared index.html, so EVERY page paid for them —
-         but only the homepage has the rotating hero they referenced.
-
-         - The mountain-poster.jpg preload was a 27KB high-priority fetch that
-           went unused on all nine non-homepage routes (Chrome logged
-           "preloaded but not used"), competing for priority with the image
-           those pages actually paint.
-         - The two `as="video"` hints were never honoured at all: Chrome does
-           not support `as="video"` for rel=preload and logged an unsupported-
-           value warning on every page load.
-
-         The homepage hero already sets its own poster and fetchPriority on
-         the element itself, which is the correct place for a hint that only
-         applies to one route. Do not reintroduce route-specific preloads into
-         this shared file. -->
+    <!-- No hero preloads here. They previously applied to the homepage only
+         but shipped on every page: an unused 27KB high-priority poster fetch,
+         and two as="video" hints Chrome never honoured. Route-specific hints
+         belong on the element, not in this shared file. -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
