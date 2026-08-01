@@ -99,6 +99,19 @@ function internalOverview(): Plugin {
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), inlineCss(), internalOverview()],
   base: BASE,
+  define: {
+    /**
+     * Build date, baked in at compile time and emitted as `dateModified` in
+     * each page's schema.
+     *
+     * QA gate item E1.16 asks for freshness to be signalled *honestly*. The
+     * build date is the one date we can state without lying: it is genuinely
+     * when this version of the page was produced. A hand-set "last updated"
+     * string is what that item exists to catch, because it drifts the moment
+     * someone forgets to change it.
+     */
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString().slice(0, 10)),
+  },
   server: {
     port: 5185,
     host: true,

@@ -52,6 +52,47 @@ export type SeoPageContent = {
    */
   serviceName?: string;
 
+  /**
+   * Keep the page out of the index and, because postbuild derives the sitemap
+   * from what is indexable, out of the sitemap too.
+   *
+   * Used for a page that is built but not yet truthful enough to publish —
+   * /pricing, which has no real figures yet. Building it and hiding it is the
+   * honest middle: the work is done and reviewable, and nothing misleading is
+   * exposed. Remove the flag in the same commit that adds the real numbers.
+   */
+  noindex?: boolean;
+
+  /**
+   * Visible fidelity badge, e.g. "LOW-FI". Per-page, not global — set only on
+   * pages that have not cleared the review gate yet. Omit once a page is
+   * approved for production; that one edit removes the badge.
+   */
+  fidelity?: string;
+
+  /**
+   * Breadcrumb parent. Defaults to "SEO" / "/seo" — right for every SEO city
+   * or topic page. A page built on this same contract for a different service
+   * (e.g. a Google Ads city page) overrides both so the crumb trail and the
+   * page it points back to actually match what the page sells.
+   */
+  hubLabel?: string;
+  hubPath?: string;
+
+  /**
+   * Service node `serviceType` in JSON-LD. Defaults to "Search Engine
+   * Optimisation". Override on pages that reuse this contract to sell a
+   * different service — schema must describe what the page actually offers.
+   */
+  serviceType?: string;
+
+  /**
+   * Prefix on the LeadForm `source` string (default "seo"), e.g.
+   * "seo-christchurch-hero". Override so a non-SEO page reusing this contract
+   * doesn't mislabel its leads as SEO leads in analytics.
+   */
+  sourcePrefix?: string;
+
   meta: { title: string; description: string };
 
   /**
@@ -129,6 +170,12 @@ export type SeoPageContent = {
     headlineMain: string;
     headlineSub: string;
     intro: string;
+    /**
+     * How many real case studies to render. Defaults to 3, which is the right
+     * amount of supporting evidence on a page selling something else. /results
+     * exists to show the work, so it sets this higher.
+     */
+    limit?: number;
   };
 
   /** Internal links: up to the hub and sideways to sibling cities. */

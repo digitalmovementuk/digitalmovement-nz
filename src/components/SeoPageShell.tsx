@@ -20,25 +20,18 @@ const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 const ACCENT = "#F05F22";
 
 /**
- * Fidelity tag. These pages are signed off as MID-FI: real copy and the real
- * design system, but not yet approved to go live.
- *
- * Set to `null` when they are approved for production — that one edit removes
- * the badge from all four pages. Nothing else depends on it.
+ * Fidelity tag. Per-page now (`content.fidelity`), not a global switch — a
+ * page is approved for production by removing its own `fidelity` field, not
+ * by flipping one constant that would affect every page on the contract.
  */
-/* Was "MID-FI". These pages now ship, and a fidelity badge is a working
-   marker, not a production element — left set it would render a permanent
-   pill over every money page. Set back to a string only while iterating. */
-const FIDELITY: string | null = null;
-
-function FidelityTag() {
-  if (!FIDELITY) return null;
+function FidelityTag({ fidelity }: { fidelity?: string }) {
+  if (!fidelity) return null;
   return (
     <div
       className="fixed bottom-3 left-3 z-[60] rounded-full bg-ink/85 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-sm pointer-events-none select-none"
       aria-hidden
     >
-      {FIDELITY}
+      {fidelity}
     </div>
   );
 }
@@ -70,12 +63,14 @@ function FidelityTag() {
  */
 export function SeoPageShell({ content }: { content: SeoPageContent }) {
   const isCity = Boolean(content.city);
+  const hubLabel = content.hubLabel ?? "SEO";
+  const hubPath = content.hubPath ?? "/seo";
   const crumbTrail = isCity
     ? [
-        { name: "SEO", path: "/seo" },
+        { name: hubLabel, path: hubPath },
         { name: content.city!, path: content.path },
       ]
-    : [{ name: "SEO", path: "/seo" }];
+    : [{ name: hubLabel, path: hubPath }];
 
   return (
     <>
@@ -83,13 +78,17 @@ export function SeoPageShell({ content }: { content: SeoPageContent }) {
         title={content.meta.title}
         description={content.meta.description}
         path={content.path}
+        noindex={content.noindex}
         schema={[
           seoPageSchema({
-            name: content.city ? `SEO ${content.city}` : "SEO New Zealand",
+            name:
+              content.serviceName ??
+              (content.city ? `SEO ${content.city}` : "SEO New Zealand"),
             description: content.meta.description,
             path: content.path,
             city: content.city,
             region: content.region,
+            serviceType: content.serviceType,
           }),
           faqSchema(content.faq.items),
           breadcrumbs(crumbTrail),
@@ -104,7 +103,7 @@ export function SeoPageShell({ content }: { content: SeoPageContent }) {
       <Nearby content={content} />
       <FAQ content={content} />
       <FinalCTA content={content} />
-      <FidelityTag />
+      <FidelityTag fidelity={content.fidelity} />
     </>
   );
 }
@@ -197,7 +196,7 @@ function Hero({ content }: { content: SeoPageContent }) {
             transition={{ duration: 0.7, delay: 0.34, ease: EASE_OUT }}
           >
             <LeadForm
-              source={`seo-${content.slug || "hub"}-hero`}
+              source={`${content.sourcePrefix ?? "seo"}-${content.slug || "hub"}-hero`}
               heading={content.hero.formHeading}
               note={content.hero.formNote}
             />
@@ -511,7 +510,7 @@ function Process({ content }: { content: SeoPageContent }) {
  * imply otherwise.
  */
 function Proof({ content }: { content: SeoPageContent }) {
-  const shown = caseStudies.slice(0, 3);
+  const shown = caseStudies.slice(0, content.proof.limit ?? 3);
   return (
     <section
       data-surface="light"
@@ -760,7 +759,7 @@ function FinalCTA({ content }: { content: SeoPageContent }) {
 
           <Reveal delay={0.12}>
             <LeadForm
-              source={`seo-${content.slug || "hub"}-footer`}
+              source={`${content.sourcePrefix ?? "seo"}-${content.slug || "hub"}-footer`}
               heading={content.finalCta.formHeading}
               note={content.finalCta.formNote}
             />

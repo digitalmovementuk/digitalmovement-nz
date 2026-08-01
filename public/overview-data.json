@@ -1,14 +1,44 @@
 {
-  "synced_at": "2026-07-31 · built from dm-nz-seo-strategy.md",
+  "synced_at": "2026-08-01",
   "live_base": "https://digitalmovementuk.github.io/digitalmovement-nz-internal",
   "totals": {
-    "pages": 21,
-    "live": 10,
-    "volume": 6160,
-    "enquiries_12mo": 27.4
+    "pages": 26,
+    "live": 26,
+    "volume": 8130,
+    "enquiries_12mo": 47.0
   },
   "model_note": "Volume & KD are real Semrush NZ figures pulled 31 July 2026. EYS and enquiries are a conservative projection — target ranking after 12 months, position-based CTR x 3% enquiry rate, head term only, no long tail. Cluster volumes are summed and overstate unique demand: near-duplicate queries such as 'seo christchurch' and 'seo consultant christchurch' are counted separately.",
   "rows": [
+    {
+      "title": "Google Ads Christchurch",
+      "slug": "google-ads/christchurch",
+      "cluster": "Christchurch · google ads christchurch",
+      "tier": "Spoke",
+      "volume": 1600,
+      "cluster_volume": 2440,
+      "cum_volume": 1600,
+      "kd": 9,
+      "eys": 528,
+      "enquiries_12mo": 15.8,
+      "wave": "Wave 4",
+      "live": true,
+      "fidelity": "LOW-FI"
+    },
+    {
+      "title": "What Is SEO?",
+      "slug": "what-is-seo",
+      "cluster": "National · seo / what is seo",
+      "tier": "Explainer",
+      "volume": 1600,
+      "cluster_volume": 3660,
+      "cum_volume": 3200,
+      "kd": 55,
+      "eys": 80,
+      "enquiries_12mo": 2.4,
+      "wave": "Wave 4",
+      "live": true,
+      "fidelity": "LOW-FI"
+    },
     {
       "title": "SEO Auckland",
       "slug": "seo/auckland",
@@ -16,12 +46,12 @@
       "tier": "Spoke",
       "volume": 1300,
       "cluster_volume": 6250,
-      "cum_volume": 1300,
+      "cum_volume": 4500,
       "kd": 45,
       "eys": 91,
       "enquiries_12mo": 2.7,
       "wave": "Wave 3",
-      "live": false
+      "live": true
     },
     {
       "title": "SEO New Zealand",
@@ -30,7 +60,7 @@
       "tier": "Hub",
       "volume": 1000,
       "cluster_volume": 4920,
-      "cum_volume": 2300,
+      "cum_volume": 5500,
       "kd": 34,
       "eys": 90,
       "enquiries_12mo": 2.7,
@@ -44,7 +74,7 @@
       "tier": "Spoke",
       "volume": 880,
       "cluster_volume": 3890,
-      "cum_volume": 3180,
+      "cum_volume": 6380,
       "kd": 13,
       "eys": 264,
       "enquiries_12mo": 7.9,
@@ -58,7 +88,7 @@
       "tier": "Spoke",
       "volume": 320,
       "cluster_volume": 1180,
-      "cum_volume": 3500,
+      "cum_volume": 6700,
       "kd": 8,
       "eys": 106,
       "enquiries_12mo": 3.2,
@@ -72,12 +102,12 @@
       "tier": "Spoke",
       "volume": 320,
       "cluster_volume": 320,
-      "cum_volume": 3820,
+      "cum_volume": 7020,
       "kd": 6,
       "eys": 106,
       "enquiries_12mo": 3.2,
       "wave": "Wave 2",
-      "live": false
+      "live": true
     },
     {
       "title": "SEO Tauranga",
@@ -86,7 +116,7 @@
       "tier": "Spoke",
       "volume": 260,
       "cluster_volume": 260,
-      "cum_volume": 4080,
+      "cum_volume": 7280,
       "kd": 11,
       "eys": 78,
       "enquiries_12mo": 2.3,
@@ -100,12 +130,12 @@
       "tier": "Spoke",
       "volume": 260,
       "cluster_volume": 790,
-      "cum_volume": 4340,
+      "cum_volume": 7540,
       "kd": 26,
       "eys": 39,
       "enquiries_12mo": 1.2,
       "wave": "Wave 2",
-      "live": false
+      "live": true
     },
     {
       "title": "Pricing",
@@ -114,12 +144,27 @@
       "tier": "Support",
       "volume": 170,
       "cluster_volume": 170,
-      "cum_volume": 4510,
+      "cum_volume": 7710,
       "kd": 16,
       "eys": 51,
       "enquiries_12mo": 1.5,
       "wave": "Supporting",
-      "live": false
+      "live": true
+    },
+    {
+      "title": "SEO Whangārei",
+      "slug": "seo/whangarei",
+      "cluster": "Whangārei · search engine optimisation whangarei",
+      "tier": "Spoke",
+      "volume": 170,
+      "cluster_volume": 670,
+      "cum_volume": 7880,
+      "kd": 10,
+      "eys": 54,
+      "enquiries_12mo": 1.6,
+      "wave": "Wave 4",
+      "live": true,
+      "fidelity": "LOW-FI"
     },
     {
       "title": "SEO Hawke's Bay",
@@ -128,12 +173,12 @@
       "tier": "Spoke",
       "volume": 140,
       "cluster_volume": 140,
-      "cum_volume": 4650,
+      "cum_volume": 8020,
       "kd": 9,
       "eys": 46,
       "enquiries_12mo": 1.4,
       "wave": "Wave 2",
-      "live": false
+      "live": true
     },
     {
       "title": "SEO Dunedin",
@@ -142,12 +187,12 @@
       "tier": "Spoke",
       "volume": 110,
       "cluster_volume": 110,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": 6,
       "eys": 36,
       "enquiries_12mo": 1.1,
       "wave": "Wave 2",
-      "live": false
+      "live": true
     },
     {
       "title": "Home",
@@ -156,7 +201,7 @@
       "tier": "Core",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
@@ -170,7 +215,7 @@
       "tier": "Core",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
@@ -184,7 +229,7 @@
       "tier": "Core",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
@@ -198,7 +243,7 @@
       "tier": "Core",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
@@ -212,7 +257,7 @@
       "tier": "Core",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
@@ -226,7 +271,7 @@
       "tier": "Core",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
@@ -240,12 +285,12 @@
       "tier": "Support",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
       "wave": "Supporting",
-      "live": false
+      "live": true
     },
     {
       "title": "Industries — Builders",
@@ -254,12 +299,12 @@
       "tier": "Support",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
       "wave": "Supporting",
-      "live": false
+      "live": true
     },
     {
       "title": "Industries — Plumbers",
@@ -268,12 +313,12 @@
       "tier": "Support",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
       "wave": "Supporting",
-      "live": false
+      "live": true
     },
     {
       "title": "Industries — Electricians",
@@ -282,12 +327,12 @@
       "tier": "Support",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
       "wave": "Supporting",
-      "live": false
+      "live": true
     },
     {
       "title": "Industries — Roofers",
@@ -296,12 +341,41 @@
       "tier": "Support",
       "volume": null,
       "cluster_volume": null,
-      "cum_volume": 4760,
+      "cum_volume": 8130,
       "kd": null,
       "eys": null,
       "enquiries_12mo": 0,
       "wave": "Supporting",
-      "live": false
+      "live": true
+    },
+    {
+      "title": "Technical SEO",
+      "slug": "seo/technical-seo",
+      "cluster": "National · technical seo (no volume of its own)",
+      "tier": "Support",
+      "volume": 0,
+      "cluster_volume": 0,
+      "cum_volume": 8130,
+      "kd": null,
+      "eys": 0,
+      "enquiries_12mo": 0,
+      "wave": "Wave 4",
+      "live": true,
+      "fidelity": "LOW-FI"
+    },
+    {
+      "title": "Sitemap",
+      "slug": "sitemap",
+      "cluster": "Crawl surface · human index",
+      "tier": "Support",
+      "volume": 0,
+      "cluster_volume": 0,
+      "cum_volume": 0,
+      "kd": null,
+      "eys": 0,
+      "enquiries_12mo": 0,
+      "wave": "Supporting",
+      "live": true
     }
   ]
 }

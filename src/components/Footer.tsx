@@ -17,9 +17,31 @@ const footerServices = [
 // there is to distribute.
 const footerLocations = [
   { label: "SEO New Zealand", to: "/seo" },
+  { label: "SEO Auckland", to: "/seo/auckland" },
   { label: "SEO Christchurch", to: "/seo/christchurch" },
+  { label: "SEO Wellington", to: "/seo/wellington" },
   { label: "SEO Hamilton", to: "/seo/hamilton" },
   { label: "SEO Tauranga", to: "/seo/tauranga" },
+  { label: "SEO Dunedin", to: "/seo/dunedin" },
+  { label: "SEO Hawke's Bay", to: "/seo/hawkes-bay" },
+  { label: "SEO Whangarei", to: "/seo/whangarei" },
+  { label: "Ecommerce SEO", to: "/seo/ecommerce" },
+  { label: "Technical SEO", to: "/seo/technical-seo" },
+  { label: "What Is SEO?", to: "/what-is-seo" },
+];
+
+// A second paid-service page family, same reasoning as footerLocations above:
+// one entry today, grown the same way the SEO spokes did.
+const footerGoogleAds = [{ label: "Google Ads Christchurch", to: "/google-ads/christchurch" }];
+
+// Sales collateral rather than traffic assets, but they still need to be
+// crawlable and reachable — an outreach landing page nobody can find from the
+// site reads as a page built for one email.
+const footerIndustries = [
+  { label: "Builders", to: "/industries/builders" },
+  { label: "Plumbers", to: "/industries/plumbers" },
+  { label: "Electricians", to: "/industries/electricians" },
+  { label: "Roofers", to: "/industries/roofers" },
 ];
 
 const footerCompany = [
@@ -113,6 +135,30 @@ export function Footer() {
             </ul>
           </Column>
 
+          <Column heading="Google Ads">
+            <ul className="space-y-2.5">
+              {footerGoogleAds.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className={linkCls}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Column>
+
+          <Column heading="Industries">
+            <ul className="space-y-2.5">
+              {footerIndustries.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className={linkCls}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Column>
+
           <Column heading="Company">
             <ul className="space-y-2.5">
               {footerCompany.map((l) => (
@@ -160,6 +206,7 @@ export function Footer() {
             © {new Date().getFullYear()} {business.name}. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link to="/sitemap" className="hover:text-ink">Sitemap</Link>
             <a href="#" className="hover:text-ink">Privacy</a>
             <a href="#" className="hover:text-ink">Cookies</a>
             <a href="#" className="hover:text-ink">Terms</a>

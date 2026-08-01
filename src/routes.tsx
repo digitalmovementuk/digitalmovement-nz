@@ -98,6 +98,107 @@ export const routes: RouteRecord[] = [
         lazy: () => import("./pages/seo/tauranga").then((m) => ({ Component: m.SeoTauranga })),
       },
       {
+        path: "seo/wellington",
+        lazy: () => import("./pages/seo/wellington").then((m) => ({ Component: m.SeoWellington })),
+      },
+      {
+        path: "seo/dunedin",
+        lazy: () => import("./pages/seo/dunedin").then((m) => ({ Component: m.SeoDunedin })),
+      },
+      {
+        path: "seo/hawkes-bay",
+        lazy: () => import("./pages/seo/hawkes-bay").then((m) => ({ Component: m.SeoHawkesBay })),
+      },
+      {
+        path: "seo/auckland",
+        lazy: () => import("./pages/seo/auckland").then((m) => ({ Component: m.SeoAuckland })),
+      },
+      {
+        path: "seo/ecommerce",
+        lazy: () => import("./pages/seo/ecommerce").then((m) => ({ Component: m.SeoEcommerce })),
+      },
+      {
+        path: "seo/whangarei",
+        lazy: () => import("./pages/seo/whangarei").then((m) => ({ Component: m.SeoWhangarei })),
+      },
+      {
+        /* Supporting/authority page, not a place page — 3/3 hubs discuss
+           technical SEO, 0/3 have a dedicated page. No search volume of its
+           own; it exists to back the city and topic pages up. */
+        path: "seo/technical-seo",
+        lazy: () =>
+          import("./pages/seo/technical-seo").then((m) => ({ Component: m.SeoTechnicalSeo })),
+      },
+
+      /**
+       * Google Ads city pages. Separate top-level path segment from /seo — the
+       * service is different, and "google ads christchurch" (1,600/mo, KD9) is
+       * its own SERP with its own incumbent, not a variant of the SEO one.
+       */
+      {
+        path: "google-ads/christchurch",
+        lazy: () =>
+          import("./pages/google-ads/christchurch").then((m) => ({
+            Component: m.GoogleAdsChristchurch,
+          })),
+      },
+
+      /**
+       * Industry pages — sales collateral, not traffic assets.
+       *
+       * They share the SEO page template because they do the same job for a
+       * reader: answer "do you understand my business" and offer one way to
+       * enquire. What they must never become is a city × trade matrix
+       * (/seo/christchurch/plumbers and so on) — at 20-30 searches a month
+       * nationally for the vertical terms, that is forty near-identical pages
+       * and a textbook thin-content liability. Strategy §05 rules it out
+       * explicitly, and gate item C2.22 makes it a blocker.
+       */
+      {
+        path: "industries/builders",
+        lazy: () =>
+          import("./pages/industries/builders").then((m) => ({ Component: m.IndustryBuilders })),
+      },
+      {
+        path: "industries/plumbers",
+        lazy: () =>
+          import("./pages/industries/plumbers").then((m) => ({ Component: m.IndustryPlumbers })),
+      },
+      {
+        path: "industries/electricians",
+        lazy: () =>
+          import("./pages/industries/electricians").then((m) => ({
+            Component: m.IndustryElectricians,
+          })),
+      },
+      {
+        path: "industries/roofers",
+        lazy: () =>
+          import("./pages/industries/roofers").then((m) => ({ Component: m.IndustryRoofers })),
+      },
+      {
+        path: "results",
+        lazy: () => import("./pages/results").then((m) => ({ Component: m.Results })),
+      },
+      {
+        /* The human sitemap. /sitemap.xml is a build artefact and is served
+           straight from dist by the host, so the two never collide. */
+        path: "sitemap",
+        lazy: () => import("./pages/sitemap").then((m) => ({ Component: m.Sitemap })),
+      },
+      {
+        /* Built and reviewable, but noindexed until real figures replace
+           PRICE_TBC — see the notice atop src/content/pricing.ts. */
+        path: "pricing",
+        lazy: () => import("./pages/pricing").then((m) => ({ Component: m.Pricing })),
+      },
+      {
+        /* Explainer/head-term page — "seo" itself, 1,600/mo at KD55. Top-level
+           path, same as results/sitemap/pricing above, not nested under /seo/. */
+        path: "what-is-seo",
+        lazy: () => import("./pages/what-is-seo").then((m) => ({ Component: m.WhatIsSeo })),
+      },
+      {
         path: "404",
         lazy: () => import("./pages/NotFound").then((m) => ({ Component: m.NotFound })),
       },

@@ -90,6 +90,10 @@
   .ov-tier.Spoke{background:#E9E4F0;color:#4a3a63}
   .ov-tier.Core{background:#D8ECFB;color:#0a4a72}
   .ov-tier.Support{background:#EDEBE6;color:#6e6478}
+  .ov-tier.Explainer{background:#F5E1FF;color:#6b1fa3}
+  .ov-fidelity{display:inline-block;font:800 9px/1 ui-monospace;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;margin-left:8px;vertical-align:middle}
+  .ov-fidelity.LOW-FI{background:#FFE9A8;color:#7a5b00}
+  .ov-fidelity.MID-FI{background:#C9E8FF;color:#0a4a72}
   .ov-pg{color:var(--ov-ink);text-decoration:none;font-weight:700;border-bottom:2px solid rgba(240,95,34,.35)}
   .ov-pg:hover{border-bottom-color:var(--ov-acc)}
   .ov-pg--dead{color:var(--ov-mut);font-weight:700;border-bottom:2px dotted rgba(110,100,120,.4)}
@@ -137,6 +141,7 @@
       return '<tr>' +
         '<td class="l"><span class="ov-rank">' + (i + 1) + '</span>' + label +
           '<span class="ov-tier ' + r.tier + '">' + r.tier + '</span>' +
+          (r.fidelity ? '<span class="ov-fidelity ' + r.fidelity + '">' + r.fidelity + '</span>' : '') +
           '<div class="ov-clu"><span class="ov-slug">/' + r.slug + '</span> · ' + r.cluster + '</div></td>' +
         '<td><span class="ov-wave">' + r.wave + '</span></td>' +
         '<td>' + n(r.volume) + '</td>' +
@@ -177,7 +182,8 @@
           '<b>* Projection.</b> ' + (data.model_note || '') +
           ' &nbsp;·&nbsp; <b>Cum. vol. %</b> = share of cumulative head volume along the priority order. ' +
           '<b>EYS</b> = Expected Yield Score (projected organic clicks/mo at target ranking). ' +
-          '“—” = no Semrush data, or not a traffic asset.' +
+          '“—” = no Semrush data, or not a traffic asset. ' +
+          '<b>LOW-FI / MID-FI</b> badge = page is live for review but not yet production copy/design.' +
           '<div class="ov-warn">Internal preview build. Not published to digitalmovement.co.nz.</div>' +
         '</div>' +
       '</div>';
