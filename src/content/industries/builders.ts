@@ -8,7 +8,7 @@ export const builders: SeoPageContent = {
   meta: {
     title: "SEO for Builders | Digital Movement NZ",
     description:
-      "Most NZ building leads still come from word of mouth. See how a stronger web presence gets your building company more enquiries — free audit, no lock-in.",
+      "Most NZ building leads still come from word of mouth. See how a stronger web presence gets your building company more enquiries. Free plan, no long lock-in.",
   },
 
   // This page is not a traffic asset. It is sales collateral and an outreach
@@ -31,10 +31,10 @@ export const builders: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for building companies",
     h1: "SEO for builders who want more than referrals",
-    sub: "This page is for small-to-mid New Zealand building companies who are busy, booked mostly through word of mouth, and sceptical that any agency actually understands their business. Digital Movement holds a 5.0 Google rating from 100+ verified reviews and guarantees a page 1 Google position in 90 days, with a free audit before you commit to anything.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free audit, no obligation"],
+    sub: "Word of mouth got you here. The problem is it has a ceiling — you can only be recommended by people who already know you. Everyone else is typing your trade and your town into Google, and finding whoever shows up first. This page is for busy building companies who suspect that's costing them, and who want a straight answer before spending a dollar.",
+    chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
     formHeading: "Get your free builder marketing audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
@@ -65,10 +65,8 @@ export const builders: SeoPageContent = {
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Show up when homeowners check",
-        body: "We guarantee your building company a page 1 Google position within 90 days — so when a homeowner checks you out after a referral, or searches for a builder in your area, there's something solid to find.",
+        body: "Two things happen when you rank. The homeowner who was referred to you looks you up and finds something solid instead of nothing. And the homeowner who was never referred to you finds you at all.",
       },
       {
         kicker: "Leads",
@@ -127,21 +125,21 @@ export const builders: SeoPageContent = {
   },
 
   process: {
-    eyebrow: "The 90-day journey",
-    headlineMain: "Your 90 days",
+    eyebrow: "How it runs",
+    headlineMain: "What happens,",
     headlineSub: "mapped out, step by step.",
     intro:
       "What happens on day 1, 30, 60 and 90 when a building company works with us. We say it up front and stick to it.",
     steps: [
-      { eta: "Day 1", title: "Audit & kick-off", body: "Free audit of your current website and online presence lands in your inbox. A short call to understand the kind of building work you want more of." },
+      { eta: "Day 1", title: "Your plan & kick-off", body: "A free plan for your website and online presence lands in your inbox. A short call to understand the kind of building work you want more of." },
       { eta: "Day 30", title: "Foundation in place", body: "Technical issues fixed, project pages live, tracking running. Your building company's site actually represents the work you do." },
       { eta: "Day 60", title: "Enquiries start landing", body: "Rankings for your core building services and areas start moving. Enquiries begin coming in alongside your referrals, not instead of them." },
-      { eta: "Day 90", title: "Page 1, ongoing from there", body: "Your guaranteed page 1 position is live. From here it's month-to-month — no lock-in, and you keep it only as long as it keeps working for you." },
+      { eta: "Day 90", title: "The first full review", body: "A quarter of real data on the table: where you rank on every search we agreed, what came in, and what we do next. From here it's month by month, and you keep it only as long as it keeps working for you." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Proof from around NZ",
     headlineSub: "not a builder case study we don't have.",
     intro:
@@ -166,7 +164,7 @@ export const builders: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Straight answers",
     headlineSub: "to the questions builders ask.",
-    intro: "What building company owners ask most often before they book their free audit.",
+    intro: "What building company owners ask most often before they book their free plan.",
     items: [
       {
         q: "We already get enough work through referrals — why would a building company need SEO?",
@@ -174,15 +172,15 @@ export const builders: SeoPageContent = {
       },
       {
         q: "How much does SEO cost for a building company?",
-        a: "Digital Movement runs a fixed monthly price with no setup fee and no surprise charges for extra content or links. The exact number depends on your area and the competition for your services, which is what the free audit tells you before you commit to anything.",
+        a: "Digital Movement runs a fixed monthly price with no setup fee and no surprise charges for extra content or links. The exact number depends on your area and the competition for your services, which is what the free plan tells you before you commit to anything.",
       },
       {
         q: "How long before a building company sees results?",
-        a: "Most clients see ranking movement within the first few weeks, with a guaranteed page 1 Google position within 90 days. Service and area-specific searches for building work usually move faster than broad, generic terms.",
+        a: "Most clients see ranking movement within the first few weeks. Specific searches — your trade plus your town, or a particular kind of job — move a lot faster than broad ones like \"builder\", which is why we go after those first. Enquiries follow the rankings, so expect a few months before the phone genuinely changes.",
       },
       {
         q: "Are we locked into a long contract?",
-        a: "No, Digital Movement works month-to-month after a short minimum term to get the foundations in place properly. If the work isn't landing enquiries for your building company, you can leave — we'd rather earn the next month than trap you in one.",
+        a: "No, Digital Movement works three months to start, then month by month to get the foundations in place properly. If the work isn't landing enquiries for your building company, you can leave — we'd rather earn the next month than trap you in one.",
       },
       {
         q: "Do you actually understand how building companies get work?",
@@ -194,7 +192,7 @@ export const builders: SeoPageContent = {
       },
       {
         q: "What if our website already looks fine?",
-        a: "Looking fine and being found are different problems. A lot of building company websites are visually okay but technically invisible to Google, or missing the licensing and review content that actually builds trust. The free audit tells you which problem, if either, your building company has.",
+        a: "Looking fine and being found are different problems. A lot of building company websites are visually okay but technically invisible to Google, or missing the licensing and review content that actually builds trust. The free plan tells you which problem, if either, your building company has.",
       },
     ],
   },
@@ -205,6 +203,6 @@ export const builders: SeoPageContent = {
     headlineSub: "for your building company.",
     body: "Get in touch and we'll show you exactly where your building company stands online right now, and what it would take to turn more of those homeowner searches into enquiries — free, no obligation, in plain English.",
     formHeading: "Get your free builder marketing audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 };

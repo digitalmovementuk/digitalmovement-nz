@@ -128,7 +128,14 @@ export type SeoPageContent = {
     headlineMain: string;
     headlineSub: string;
     paragraphs: string[];
-    /** Optional supporting figures rendered as a small stat row. */
+    /**
+     * Optional supporting figures rendered as a small stat row.
+     *
+     * Same rule as `outcomes.items[].value`: facts about the reader's market,
+     * never metrics from our keyword tooling. No difficulty scores, no search
+     * volumes, no CPC. If the only available number comes out of a rank
+     * tracker, leave this out.
+     */
     stats?: { value: string; label: string }[];
   };
 
@@ -137,7 +144,21 @@ export type SeoPageContent = {
     headlineMain: string;
     headlineSub: string;
     intro: string;
-    items: { kicker: string; value: string; unit: string; title: string; body: string }[];
+    /**
+     * `value`/`unit` are OPTIONAL and must stay that way.
+     *
+     * When they were required, every page had to produce six numbers it did
+     * not have, and the only numbers to hand were our own keyword research —
+     * so difficulty scores, search volumes and CPCs ended up printed on
+     * customer-facing pages as if they were benefits. A business owner does
+     * not buy "KD 6".
+     *
+     * Supply a figure only when it is a real, checkable fact about the
+     * reader's world (a council consent window, a trade's average job value).
+     * Never a metric from our tooling. With no figure, the card renders as a
+     * headline and a paragraph, which is the better card anyway.
+     */
+    items: { kicker: string; value?: string; unit?: string; title: string; body: string }[];
   };
 
   included: {

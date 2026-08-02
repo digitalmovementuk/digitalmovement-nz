@@ -65,15 +65,16 @@ export function Contact() {
                 fontWeight: 700,
               }}
             >
-              Let us show you how
-              <span className="block text-ink/55">we deliver real results.</span>
+              More enquiries,
+              <span className="block text-ink/55">starting this month.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-6 max-w-[480px] mx-auto lg:mx-0 text-[15.5px] sm:text-[17px] text-ink-soft leading-relaxed">
-              Get in touch to find out how you can grow your business with a
-              5-star rated digital marketing agency in New Zealand that
-              guarantees real results.
+              Tell us what you sell and where you sell it. You'll get back a
+              free one-page plan: the searches your customers are already
+              using, the ones you're missing, and the three fixes worth doing
+              first.
             </p>
           </Reveal>
 
@@ -82,7 +83,7 @@ export function Contact() {
               icon={<Mail size={18} />}
               label="Email"
               value={business.email}
-              caption="Reply within 24 h"
+              caption="Reply in one working day"
               href={business.emailHref}
             />
             {/* No phone tile. The published number was the placeholder
@@ -107,7 +108,7 @@ export function Contact() {
               >
                 <div className="flex items-center justify-between">
                   <p className="eyebrow text-ink-muted">Ready to grow your business?</p>
-                  <p className="text-[12px] text-ink-muted">Reply within 24 h</p>
+                  <p className="text-[12px] text-ink-muted">Reply in one working day</p>
                 </div>
 
                 <Field label="Your name" name="name" required>
@@ -169,7 +170,7 @@ export function Contact() {
                   disabled={sending}
                   className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium text-[15px] py-3 transition-colors"
                 >
-                  {sending ? "Sending…" : <>Get your free audit <ArrowRight size={15} /></>}
+                  {sending ? "Sending…" : <>Get my free plan <ArrowRight size={15} /></>}
                 </button>
 
                 {error ? (
@@ -196,7 +197,7 @@ export function Contact() {
                   We've got your details.
                 </h3>
                 <p className="mt-2 text-ink-soft leading-relaxed">
-                  A founder — not a sales rep — will reply personally within 24 h on weekdays.
+                  A founder — not a sales rep — will reply personally within one working day.
                 </p>
 
                 <div className="mt-7 rounded-2xl border border-ink/10 bg-surface-2 p-5 text-left space-y-3">
@@ -205,8 +206,8 @@ export function Contact() {
                       <Clock size={15} strokeWidth={2.4} />
                     </span>
                     <div className="text-[13px] text-ink-soft leading-relaxed">
-                      <p className="font-bold text-ink">Reply within 24 h</p>
-                      <p>Weekdays. We screen-share the audit on a 30-min call.</p>
+                      <p className="font-bold text-ink">Reply in one working day</p>
+                      <p>Weekdays. We screen-share the plan on a 30-min call.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

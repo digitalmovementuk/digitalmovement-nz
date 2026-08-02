@@ -7,9 +7,9 @@ export const wellington: SeoPageContent = {
   region: "Wellington",
 
   meta: {
-    title: "SEO Wellington · Page 1 in 90 Days | Digital Movement",
+    title: "SEO Wellington · Get Found First | Digital Movement",
     description:
-      "SEO Wellington that gets tradies and local businesses found on Google. Page 1 in 90 days, guaranteed. Free audit, no lock-in contract.",
+      "SEO Wellington that gets tradies and local businesses found on Google. Target searches agreed in writing, a report every month, and a free plan first.",
   },
 
   keywords: {
@@ -23,11 +23,11 @@ export const wellington: SeoPageContent = {
 
   hero: {
     eyebrow: "SEO · for Wellington businesses",
-    h1: "SEO Wellington: Page 1 in 90 Days",
-    sub: "Digital Movement's Wellington SEO service gets local trades and service businesses onto Google page 1 within 90 days, guaranteed. We're a 5.0-rated agency with 100+ verified reviews, bringing that same track record to businesses across the capital.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Month-to-month, no lock-in"],
+    h1: "SEO Wellington trades use to get found.",
+    sub: "SEO for the trades and service businesses that keep the capital running — plumbers, sparkies, builders, cleaners. We write down which searches we're going after before we start, and show you where you sit on each one every month.",
+    chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Month by month after 3"],
     formHeading: "Get your free Wellington SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. Plain English, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. Plain English, no sales call.",
   },
 
   local: {
@@ -43,9 +43,9 @@ export const wellington: SeoPageContent = {
       "Wellington also sits on an active fault line, and the seismic strengthening ordered across the CBD since the Kaikōura earthquake has kept structural engineers, builders and scaffolders busy for the better part of a decade — a steady source of commercial trade work you don't see in the same way in flatter, less fault-prone cities. Add in the wind, which outdoor trades here plan around the way Auckland trades plan around traffic, and the Hutt Valley and Porirua feeding a steady stream of work into Wellington's orbit, and you've got a market that punishes a page built for somewhere else.",
     ],
     stats: [
-      { value: "260", label: "monthly searches for \"SEO Wellington\"" },
       { value: "5", label: "Wellington suburbs we build pages around" },
-      { value: "90", label: "days to your guaranteed page 1 position" },
+      { value: "1", label: "working day to your free plan" },
+      { value: "3", label: "months to start, then month by month" },
     ],
   },
 
@@ -54,14 +54,12 @@ export const wellington: SeoPageContent = {
     headlineMain: "What changes",
     headlineSub: "when it's done properly.",
     intro:
-      "Wellington is a tighter, more competitive SERP than some of the smaller NZ centres, but it's still winnable for a business willing to build proper local pages instead of a templated one. Here's what changes when the work is done properly for a Wellington business.",
+      "Wellington is a tighter, more competitive market than some of the smaller NZ centres, but it's still winnable for a business willing to build proper local pages instead of a templated one. Here's what changes when the work is done properly for a Wellington business.",
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Rank where Wellington is already searching",
-        body: "We guarantee your Wellington business a page 1 Google position within 90 days — built around the suburb and service searches Wellingtonians actually type, from Thorndon to Miramar.",
+        body: "We build around the suburb and service searches Wellingtonians actually type, from Thorndon to Miramar — because \"electrician Newtown\" brings work and \"electrical services Wellington\" mostly brings competition.",
       },
       {
         kicker: "Leads",
@@ -130,16 +128,16 @@ export const wellington: SeoPageContent = {
       { eta: "Day 1", title: "Audit and kick-off", body: "Your free SEO audit lands in your inbox, followed by a straight-talking call to map your Wellington keyword targets." },
       { eta: "Day 30", title: "Foundations laid", body: "Technical SEO cleaned up. First Wellington suburb and service pages live. Tracking running, so you can see it working." },
       { eta: "Day 60", title: "Rankings on the move", body: "Your commercial Wellington keywords start climbing toward page 1. Enquiries begin landing in your inbox." },
-      { eta: "Day 90", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live in Wellington search results. From here, month-to-month — no lock-in." },
+      { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Real NZ results",
     headlineSub: "not a Wellington case study we don't have.",
     intro:
-      "The reviews below are genuine Digital Movement clients from elsewhere in New Zealand, not Wellington businesses and not all trades. We're not going to pretend otherwise — what we can show you is the same process and the same guarantee we'd bring to a Wellington account, backed by a track record we're happy to stand behind.",
+      "The reviews below are genuine Digital Movement clients from elsewhere in New Zealand, not Wellington businesses and not all trades. We're not going to pretend otherwise — what we can show you is the same process we'd bring to a Wellington account, and a track record we're happy to stand behind.",
   },
 
   nearby: {
@@ -158,15 +156,15 @@ export const wellington: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Wellington questions",
     headlineSub: "answered straight, no fluff.",
-    intro: "What Wellington business owners ask most often before they book their free audit.",
+    intro: "What Wellington business owners ask most often before they book their free plan.",
     items: [
       {
         q: "How much do SEO services in Wellington cost?",
-        a: "Digital Movement charges one fixed monthly price for Wellington SEO services, with no setup fee and no surprise line items for 'extra' content or links. The exact figure depends on your industry and how competitive your keywords are, which the free audit tells you before you commit to anything.",
+        a: "Digital Movement charges one fixed monthly price for Wellington SEO services, with no setup fee and no surprise line items for 'extra' content or links. The exact figure depends on your industry and how competitive your keywords are, which the free plan tells you before you commit to anything.",
       },
       {
-        q: "Is there a Wellington SEO company that actually guarantees rankings?",
-        a: "Yes. Digital Movement guarantees your business a page 1 Google position within 90 days, agreed in writing before you sign anything, and we show you the ranking movement every month so it isn't just a line on a page.",
+        q: "Is there a Wellington SEO company that guarantees rankings?",
+        a: "Several will tell you they do. None of them can — Google's results are not an agency's to promise, and a guarantee written to sound firm is usually hedged somewhere in the fine print. What we put in writing before you sign is the list of searches we're going after, and every month you see exactly where you sit on each one. That is a commitment you can actually hold someone to.",
       },
       {
         q: "What's included in Wellington SEO services from Digital Movement?",
@@ -178,7 +176,7 @@ export const wellington: SeoPageContent = {
       },
       {
         q: "How long before my Wellington business ranks on Google?",
-        a: "Most clients see ranking movement within the first two to four weeks, with the guaranteed page 1 position landing by day 90. Suburb-specific terms — Te Aro, Newtown, Miramar and the rest — tend to move faster than one broad city-wide keyword.",
+        a: "Most clients see ranking movement within the first two to four weeks, because the early technical fixes are what Google picks up fastest. Enquiries follow once the new pages have been live a month or two. Suburb-specific searches — Te Aro, Newtown, Miramar and the rest — tend to move faster than one broad city-wide phrase.",
       },
       {
         q: "Is Digital Movement based in Wellington?",
@@ -186,11 +184,11 @@ export const wellington: SeoPageContent = {
       },
       {
         q: "What's the difference between an SEO company and an SEO agency in Wellington?",
-        a: "In practice, almost nothing. Wellington searchers use 'SEO company' and 'SEO agency' interchangeably for the same kind of service, and what actually matters is whether they guarantee results, price the work in writing, and let you leave without a long lock-in, which is how we operate.",
+        a: "In practice, almost nothing. Wellington searchers use 'SEO company' and 'SEO agency' interchangeably for the same kind of service. What actually matters is whether they will write down the searches they're going after, price the work in writing, and let you leave without a long contract — three months to start, then month by month, which is how we operate.",
       },
       {
         q: "Is there a minimum contract for Wellington SEO?",
-        a: "We work month-to-month after a short minimum term needed to set the work up properly. If we're not delivering for your Wellington business, you can leave — we'd rather earn the next month than lock you into one you don't want.",
+        a: "We work three months to start, then month by month needed to set the work up properly. If we're not delivering for your Wellington business, you can leave — we'd rather earn the next month than lock you into one you don't want.",
       },
     ],
   },
@@ -201,6 +199,6 @@ export const wellington: SeoPageContent = {
     headlineSub: "SEO for your business.",
     body: "Get in touch and we'll show you exactly where your Wellington business sits on Google right now, and what it would take to reach page 1 — free, no obligation, plain English.",
     formHeading: "Get your free Wellington SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 };

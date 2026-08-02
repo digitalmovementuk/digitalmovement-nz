@@ -16,7 +16,7 @@ export const googleAdsChristchurch: SeoPageContent = {
   meta: {
     title: "Google Ads Christchurch · Managed Properly | Digital Movement",
     description:
-      "Google Ads management for Christchurch businesses — Search Ads, Performance Max and conversion tracking that turn spend into leads. Free consult, no lock-in.",
+      "Google Ads management for Christchurch businesses — Search Ads, Performance Max and conversion tracking that turn spend into leads. Free plan, no long lock-in.",
   },
 
   keywords: {
@@ -36,9 +36,9 @@ export const googleAdsChristchurch: SeoPageContent = {
     eyebrow: "Google Ads · for Christchurch businesses",
     h1: "Google Ads Christchurch, Run Properly",
     sub: "Digital Movement is a 5.0-rated Google Ads agency working with Christchurch businesses — Search Ads, Performance Max and conversion tracking built to turn ad spend into paying customers, not just clicks.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Free Google Ads consult", "Month-to-month, no lock-in"],
+    chips: ["5.0 Google rating", "100+ verified reviews", "Free plan, no obligation", "Month by month after 3"],
     formHeading: "Get your free Christchurch Google Ads consult",
-    formNote: "One-page plain-English report in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
@@ -53,9 +53,9 @@ export const googleAdsChristchurch: SeoPageContent = {
       "Christchurch Airport is the South Island's main gateway, and that pulls a tourism and hospitality corridor out through the city toward Hanmer Springs and Akaroa. A local business near that corridor is bidding against two different kinds of intent at once — a Cantabrian typing a suburb name, and a visitor typing the city name — and one ad group serving both wastes spend on clicks that were never going to convert.",
     ],
     stats: [
-      { value: "1,600", label: "monthly searches for \"Google Ads Christchurch\"" },
       { value: "9", label: "ways Cantabrians phrase the same search" },
       { value: "14", label: "days to first enquiries, with a clean setup" },
+      { value: "3", label: "months to start, then month by month" },
     ],
   },
 
@@ -131,8 +131,8 @@ export const googleAdsChristchurch: SeoPageContent = {
   },
 
   process: {
-    eyebrow: "Your 90-day journey",
-    headlineMain: "Your 90 days",
+    eyebrow: "How it runs",
+    headlineMain: "What happens,",
     headlineSub: "mapped out, step by step.",
     intro:
       "What happens on day 1, 30, 60 and 90 for a Christchurch Google Ads account. We say it up front and show the ROAS maths every month.",
@@ -140,12 +140,12 @@ export const googleAdsChristchurch: SeoPageContent = {
       { eta: "Day 1", title: "Audit & kick-off", body: "Free Google Ads consult for your Christchurch account. We map out campaign architecture and the conversion plan." },
       { eta: "Day 30", title: "Campaigns live", body: "Search and Performance Max running across your Christchurch suburbs. Conversion tracking clean, first data flowing in." },
       { eta: "Day 60", title: "ROAS stabilising", body: "Wasted spend trimmed, quality score up, return on ad spend settling in above target." },
-      { eta: "Day 90", title: "Profitable & scaling", body: "Profitable campaigns scaled across Canterbury. From here on, monthly optimisation — no lock-in." },
+      { eta: "Day 90", title: "Profitable & scaling", body: "Profitable campaigns scaled across Canterbury. From here on, monthly optimisation — three months to start, then month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Proof from around NZ",
     headlineSub: "not a Christchurch case study we don't have.",
     intro:
@@ -184,7 +184,7 @@ export const googleAdsChristchurch: SeoPageContent = {
       },
       {
         q: "How fast will my Christchurch business get enquiries?",
-        a: "With a clean setup, often within the first 14 days. Getting return on ad spend to a stable, profitable level typically takes 60 to 90 days.",
+        a: "With a clean setup, often within the first 14 days — that's usually when the obviously wasted spend stops. Getting to the point where you know what a customer costs you, reliably enough to plan around, usually takes two to three months.",
       },
       {
         q: "Do you target specific Christchurch suburbs, or just the whole city?",
@@ -200,7 +200,7 @@ export const googleAdsChristchurch: SeoPageContent = {
       },
       {
         q: "What happens after the first 90 days?",
-        a: "Monthly continuation, no long lock-in. You keep every account and every login even if you continue without us.",
+        a: "Month by month after the first three. You keep every account and every login even if you continue without us.",
       },
     ],
   },
@@ -211,6 +211,6 @@ export const googleAdsChristchurch: SeoPageContent = {
     headlineSub: "for your Christchurch business.",
     body: "Get in touch and we'll show you exactly what a properly managed Google Ads account could do for your Christchurch business — free, no obligation, in plain English.",
     formHeading: "Get your free Christchurch Google Ads consult",
-    formNote: "One-page plain-English report in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 };

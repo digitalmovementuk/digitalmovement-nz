@@ -95,9 +95,8 @@ export function ClientCases() {
           </div>
           <Reveal delay={0.12}>
             <p className="text-[15px] sm:text-[17px] text-ink-soft leading-relaxed max-w-[480px] mx-auto lg:mx-0 lg:justify-self-end">
-              Our 5-star rated digital marketing agency in New Zealand
-              guarantees real results — measurable growth that you can
-              actually notice.
+              New Zealand business owners, in their own words, on what changed
+              once the work went live.
             </p>
           </Reveal>
         </div>

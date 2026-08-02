@@ -27,9 +27,9 @@ export const whatIsSeo: SeoPageContent = {
     eyebrow: "SEO, explained simply",
     h1: "What Is SEO? A Straight Answer",
     sub: "SEO stands for search engine optimisation. It's the work of helping your website show up higher in Google's normal, unpaid results, so people searching for what you offer find you without you paying for every click.",
-    chips: ["5.0 Google rating", "100+ verified reviews", `Updated ${__BUILD_DATE__}`, "Free audit, no obligation"],
+    chips: ["5.0 Google rating", "100+ verified reviews", `Updated ${__BUILD_DATE__}`, "Free plan, no obligation"],
     formHeading: "Get a free SEO audit for your site",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
   local: {
     eyebrow: "The short version",
@@ -43,9 +43,9 @@ export const whatIsSeo: SeoPageContent = {
       "None of this happens by accident. Google uses hundreds of signals to decide who ranks where, and most small business websites are missing several of the basics without realising it. The next section breaks down, in plain terms, what Google is actually looking for.",
     ],
     stats: [
-      { value: "1,600", label: "NZ searches for 'SEO' every month" },
-      { value: "55", label: "difficulty score for this term alone" },
-      { value: "90 days", label: "our guaranteed timeframe for page 1" },
+      { value: "Free", label: "every visitor SEO brings you, unlike an ad click" },
+      { value: "1", label: "working day to your free plan" },
+      { value: "3", label: "months to start, then month by month" },
     ],
   },
   outcomes: {
@@ -184,7 +184,7 @@ export const whatIsSeo: SeoPageContent = {
     items: [
       {
         q: "How long does SEO take to work?",
-        a: "Most sites start seeing movement within 90 days, and that's the timeframe we guarantee for page 1 rankings. Meaningful, lasting growth typically builds over 3 to 6 months, because Google needs time to trust a site's changes before it moves it up the results.",
+        a: "Most sites start seeing ranking movement within the first month or two, because the early technical fixes are what Google picks up fastest. Enquiries follow later. Meaningful, lasting growth typically builds over three to six months, because Google needs time to trust a site's changes before it moves it up the results. Anyone promising you a position by a date is promising something they don't control.",
       },
       {
         q: "Is SEO still relevant now that search includes AI-generated answers?",
@@ -200,7 +200,7 @@ export const whatIsSeo: SeoPageContent = {
       },
       {
         q: "How much does SEO cost?",
-        a: "It depends on the size of your site and how competitive your industry is. We work month-to-month after a short minimum term, so there's no long lock-in contract to worry about.",
+        a: "It depends on the size of your site and how competitive your industry is. We work three months to start, then month by month — long enough for the work to show, short enough that you're never stuck with an agency that isn't delivering.",
       },
       {
         q: "Can I do SEO myself?",
@@ -220,8 +220,8 @@ export const whatIsSeo: SeoPageContent = {
     eyebrow: "Ready to rank higher?",
     headlineMain: "Let's talk SEO",
     headlineSub: "no pressure, just a plan.",
-    body: "If you've read this far, you already understand more about SEO than most business owners do. The next step is seeing where your own site stands. Get a free audit and we'll show you exactly what's holding your rankings back.",
+    body: "If you've read this far, you already understand more about SEO than most business owners do. The next step is seeing where your own site stands. Ask for a free plan and we'll show you exactly what's holding your rankings back.",
     formHeading: "Get your free SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 };

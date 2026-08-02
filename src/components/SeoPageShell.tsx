@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Check, Plus, Minus } from "lucide-react";
+import { ArrowUpRight, Check, Plus, Minus } from "lucide-react";
 import { Reveal } from "../lib/Reveal";
 import { LeadForm } from "./LeadForm";
 import { caseStudies } from "../content";
@@ -95,8 +95,18 @@ export function SeoPageShell({ content }: { content: SeoPageContent }) {
         ]}
       />
       <Hero content={content} />
-      <Local content={content} />
+      {/*
+        Outcomes before Local, deliberately.
+
+        The old order put four paragraphs about the city's suburbs and
+        industry mix between the hero and any statement of what the reader
+        actually gets. A builder arriving from `seo hamilton` had to read the
+        geography before the offer. The offer comes first now; the local
+        section becomes the evidence that we know the market, which is what
+        it was always good at.
+      */}
       <Outcomes content={content} />
+      <Local content={content} />
       <Included content={content} />
       <Process content={content} />
       <Proof content={content} />
@@ -315,26 +325,44 @@ function Outcomes({ content }: { content: SeoPageContent }) {
                 <span className="h-px w-6 bg-ink/15" />
                 <span>{item.kicker}</span>
               </div>
-              <p
-                className="mt-5 text-ink"
-                style={{
-                  fontSize: "clamp(38px, 4.6vw, 58px)",
-                  lineHeight: "0.92",
-                  letterSpacing: "-0.045em",
-                  fontWeight: 700,
-                }}
-              >
-                {item.value}
-                <span className="text-ink/55"> {item.unit}</span>
-              </p>
+              {/*
+                A figure only if the page has a real one. Where there is no
+                honest number, the card leads on the promise instead of
+                inventing a statistic to fill the slot — and the heading takes
+                the display size the number would have had, so the card still
+                anchors the grid.
+              */}
+              {item.value && (
+                <p
+                  className="mt-5 text-ink"
+                  style={{
+                    fontSize: "clamp(38px, 4.6vw, 58px)",
+                    lineHeight: "0.92",
+                    letterSpacing: "-0.045em",
+                    fontWeight: 700,
+                  }}
+                >
+                  {item.value}
+                  {item.unit && <span className="text-ink/55"> {item.unit}</span>}
+                </p>
+              )}
               <h3
-                className="mt-3 text-ink"
-                style={{
-                  fontSize: "clamp(19px, 1.8vw, 23px)",
-                  lineHeight: "1.18",
-                  letterSpacing: "-0.022em",
-                  fontWeight: 600,
-                }}
+                className={item.value ? "mt-3 text-ink" : "mt-5 text-ink"}
+                style={
+                  item.value
+                    ? {
+                        fontSize: "clamp(19px, 1.8vw, 23px)",
+                        lineHeight: "1.18",
+                        letterSpacing: "-0.022em",
+                        fontWeight: 600,
+                      }
+                    : {
+                        fontSize: "clamp(24px, 2.6vw, 32px)",
+                        lineHeight: "1.1",
+                        letterSpacing: "-0.032em",
+                        fontWeight: 700,
+                      }
+                }
               >
                 {item.title}
               </h3>
@@ -747,14 +775,12 @@ function FinalCTA({ content }: { content: SeoPageContent }) {
                 {content.finalCta.body}
               </p>
             </Reveal>
-            <Reveal delay={0.15}>
-              <Link
-                to="/"
-                className="mt-8 inline-flex items-center gap-1.5 text-[14px] text-white/70 hover:text-white transition-colors"
-              >
-                Back to homepage <ArrowRight size={14} />
-              </Link>
-            </Reveal>
+            {/*
+              No "Back to homepage" link here. It sat directly beside the form
+              — an exit route offered at the one moment on the page where the
+              reader is deciding to enquire. The nav and footer already provide
+              every way back.
+            */}
           </div>
 
           <Reveal delay={0.12}>

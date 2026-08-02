@@ -2,7 +2,15 @@
 
 export const business = {
   name: "Digital Movement",
-  tagline: "Get real results. Guaranteed.",
+  /*
+     Not "Get real results. Guaranteed." — "results" named nothing, and the
+     guarantee behind it was a page-1-in-90-days promise we had no grounds to
+     make. A representation about future performance needs reasonable grounds
+     under the Fair Trading Act, and we have no New Zealand client record to
+     stand it up. What replaced it sitewide: the search terms agreed in
+     writing, and a plain-English report every month. See the FAQ below.
+  */
+  tagline: "Be the first thing your next customer finds.",
   /* No phone published. The number was the placeholder "+64 9 XXX XXXX"
      wired to tel:+6490000000 — a live dead link on every page. Publishing
      nothing is better than publishing a number that cannot be rung; restore
@@ -23,7 +31,7 @@ export const navLinks = [
 
 export const heroStats = [
   { value: 8, suffix: "x", label: "Increase in monthly leads" },
-  { value: 90, suffix: "", label: "Days to Google page 1" },
+  { value: 1, suffix: "", label: "Working day to your free plan" },
 ];
 
 export const googleRating = {
@@ -36,9 +44,9 @@ export const services = [
   {
     key: "seo",
     title: "SEO",
-    promise: "Get on Page 1 of Google Search results in 90 days.",
+    promise: "Be the first name they find when they search for what you sell.",
     detail:
-      "Technical SEO, local and national SEO, and content writing — all under one roof. We guarantee your business a page 1 position in Google Search results in just 90 days.",
+      "Your customers are already searching. We make sure the business they find is yours — the right pages, built for the searches that end in a phone call, not the ones that end in a browse.",
     bullets: ["Technical SEO", "Local SEO", "National SEO", "Content writing"],
     video: "video/seo-logo.mp4",
   },
@@ -59,9 +67,9 @@ export const services = [
   {
     key: "social",
     title: "Social Media",
-    promise: "Grow your business through meaningful engagement.",
+    promise: "Turn the scroll into enquiries, not applause.",
     detail:
-      "Turn interested social media users into engaged followers and loyal brand advocates. Paid social ads, content creation and a posting plan — built for relevance, timing, and strategy.",
+      "Likes don't pay wages. We run paid social, content and a posting plan aimed at the people close to buying — so what comes back is booked jobs and filled diaries, not a bigger follower count.",
     bullets: ["Paid social ads", "Content creation", "Posting plan", "Founder content"],
     video: "video/socials-logo.mp4",
   },
@@ -294,19 +302,19 @@ export const faqs = [
   },
   {
     q: "Are there contracts or lock-ins?",
-    a: "We work month-to-month after a short minimum term to set things up properly. If we're not delivering, you can leave. We'd rather earn the next month than trap you in it.",
+    a: "Three months to start, then month by month. The three months exist because the early work — fixing the site, building the pages — takes that long to show up. After that you can leave whenever you like. We'd rather earn the next month than trap you in it.",
   },
   {
-    q: "What's actually in the free proposal?",
-    a: "A short Loom walkthrough plus a written one-page audit flagging technical issues, ranking gaps, and the three highest-leverage fixes. Yours to keep, whether you work with us or not.",
+    q: "What's actually in the free plan?",
+    a: "A short video walkthrough plus a written one-page plan: what's holding your site back, which searches your customers are using that you're missing, and the three fixes worth doing first. Yours to keep, whether you work with us or not.",
   },
   {
     q: "How is pricing structured?",
     a: "Fixed monthly fees with no surprise costs. We scope the work to your goals and budget. We're not the cheapest, but we are honest about what each dollar buys.",
   },
   {
-    q: "Do you really guarantee results?",
-    a: "We guarantee the work, the reporting, and the response time. We're confident enough in our process to put it in writing — and we'll show you the maths every month.",
+    q: "Do you guarantee I'll rank number one?",
+    a: "No, and be careful of anyone who does — nobody controls Google's results, so that promise is written to be broken. Here's what we do put in writing before you start: the exact searches we're going after, what we'll do each month, and a report that shows where you sit on every one of them. If it isn't moving, you'll see it in the report before we say a word.",
   },
   {
     q: "What industries do you work with?",

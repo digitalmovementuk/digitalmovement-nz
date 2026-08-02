@@ -54,16 +54,19 @@ export const pricing: SeoPageContent = {
   meta: {
     title: "SEO Pricing NZ — What It Costs | Digital Movement",
     description:
-      "What SEO actually costs in New Zealand, how our fee is structured, and what changes it. No lock-in contracts, no surprise invoices.",
+      "What SEO actually costs in New Zealand, how our fee is structured, and what changes it. Three months to start, then month by month. No surprise invoices.",
   },
 
   hero: {
     eyebrow: "Pricing",
-    h1: "What SEO costs, written down.",
-    sub: "Digital Movement charges a fixed monthly fee for SEO in New Zealand, month to month after a short setup term, with no lock-in. This page explains how that fee is set, what moves it, and what you get for it.",
-    chips: ["Fixed monthly fee", "No lock-in", "Free audit first"],
+    // Not "written down" — the tiers still read TBC, and an H1 that promises
+    // published figures the page does not show is the first thing a sceptical
+    // buyer catches. What this page genuinely delivers is the reasoning.
+    h1: "What SEO costs, and what moves the price.",
+    sub: "Digital Movement charges one fixed monthly fee for SEO in New Zealand — three months to start, then month by month. This page explains how that fee is set, what pushes it up or down, and exactly what you get for it.",
+    chips: ["One fixed monthly fee", "Month by month after three", "Free plan first"],
     formHeading: "Get a number for your business",
-    formNote: "Send your website and we'll come back with a scoped price and the audit behind it.",
+    formNote: "Send us your website. You'll get a scoped price and the plan behind it, back within one working day.",
   },
 
   local: {
@@ -146,10 +149,10 @@ export const pricing: SeoPageContent = {
         title: "The terms",
         items: [
           "Fixed fee, agreed before work starts",
-          "Month to month after a short setup term",
-          "No lock-in and no exit fee",
+          "Three months to start, then month by month",
+          "No exit fee when you go",
           "No media markup or hidden costs",
-          "Free audit before you commit to anything",
+          "A free plan before you commit to anything",
         ],
       },
     ],
@@ -226,15 +229,15 @@ export const pricing: SeoPageContent = {
     items: [
       {
         q: "How much does SEO cost in New Zealand?",
-        a: "Most New Zealand SEO retainers for small and mid-sized businesses sit in the hundreds to low thousands of dollars a month, and vary with how competitive the market is and how much repair the site needs. Digital Movement charges a fixed monthly fee agreed before work starts — send your site and we will quote it against a free audit rather than a guess.",
+        a: "Most New Zealand SEO retainers for small and mid-sized businesses sit in the hundreds to low thousands of dollars a month, and vary with how competitive the market is and how much repair the site needs. Digital Movement charges a fixed monthly fee agreed before work starts — send your site and we will quote it against a free plan rather than a guess.",
       },
       {
         q: "Why is there no price list on this page yet?",
-        a: "Because a published price you cannot stand behind is worse than no price. Our tiers are scoped and the structure is fixed, but the figures shown here are being finalised and we would rather show a placeholder than a number we would have to walk back. Ask and you get a real one within a few days.",
+        a: "Because a published price you cannot stand behind is worse than no price. The tiers are scoped and the structure is fixed, but the figures are still being finalised, and we would rather show a gap than a number we would have to walk back later. Ask and you get a real one within a few days.",
       },
       {
         q: "Is there a contract or lock-in?",
-        a: "No lock-in. There is a short minimum term at the start because the setup work is front-loaded and judging results before it lands is meaningless, and after that it is month to month with no exit fee.",
+        a: "Three months to start, then month by month. The three months exist because the setup work is front-loaded — the site repairs and the first new pages take that long to land, and judging the results before they do tells you nothing. After that you can leave any month you like, with no exit fee.",
       },
       {
         q: "What makes one business more expensive than another?",
@@ -250,11 +253,11 @@ export const pricing: SeoPageContent = {
       },
       {
         q: "What happens if it does not work?",
-        a: "You leave, because there is nothing holding you. We would rather earn next month than trap you in it — and the monthly report is designed to make it obvious either way, which is the opposite of how most agency reporting is built.",
+        a: "After the first three months you leave, and there is nothing holding you. We would rather earn next month than trap you in it — and the monthly report is built to make the answer obvious either way, which is the opposite of how most agency reporting works.",
       },
       {
-        q: "Do I have to pay for the audit?",
-        a: "No. The audit is free and it is yours to keep whether you hire us or not, including the technical findings and the ranking gaps. It exists so both sides can price the work honestly instead of guessing.",
+        q: "Do I have to pay for the plan?",
+        a: "No. The plan is free and it is yours to keep whether you hire us or not, including what is broken on the site and which searches you are missing. It exists so both sides can price the work honestly instead of guessing.",
       },
     ],
   },
@@ -263,8 +266,8 @@ export const pricing: SeoPageContent = {
     eyebrow: "Get a number",
     headlineMain: "Ask what it",
     headlineSub: "would cost you.",
-    body: "Send your website and the town you want work from. You will get a free audit and a fixed monthly price scoped to what your market actually demands — not a bracket, and not a call to discuss brackets.",
-    formHeading: "Get your price and your audit",
-    formNote: "A founder replies personally within 24 hours on weekdays.",
+    body: "Send your website and the town you want work from. You will get a free plan and one fixed monthly price scoped to what your market actually demands — not a bracket, and not a call to discuss brackets.",
+    formHeading: "Get your price and your plan",
+    formNote: "A founder replies personally, within one working day.",
   },
 };

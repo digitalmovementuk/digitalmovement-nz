@@ -196,7 +196,7 @@ export function Nav() {
 
           <div className="flex items-center gap-3">
             <Link to="/#contact" className={`hidden md:inline-flex ${ctaCls}`}>
-              Get your free audit <ArrowRight size={13} />
+              Get my free plan <ArrowRight size={13} />
             </Link>
 
             <button
@@ -313,7 +313,7 @@ export function Nav() {
                 onClick={() => setOpen(false)}
                 className="mt-8 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white text-[15px] font-medium py-3 transition-colors"
               >
-                Get your free audit <ArrowRight size={15} />
+                Get my free plan <ArrowRight size={15} />
               </Link>
 
               {/* Email only — the phone number was a placeholder and is gone

@@ -13,7 +13,7 @@ export const seoHub: SeoPageContent = {
   meta: {
     title: "SEO New Zealand · SEO Agency NZ | Digital Movement",
     description:
-      "SEO New Zealand from a 5.0-rated agency: page 1 in 90 days, month-to-month, free audit, no lock-in. Built for trades and home services businesses.",
+      "SEO New Zealand businesses can measure in enquiries, not rankings. Three months to start, then month by month. Free plan first. Built for trades and home services.",
   },
 
   keywords: {
@@ -38,9 +38,9 @@ export const seoHub: SeoPageContent = {
     // `local` section, where there is room for it — a hero that runs to nine
     // lines beside a form is asking a comparison shopper to read an essay
     // before they can act.
-    h1: "SEO New Zealand can measure in dollars.",
-    sub: "Digital Movement is a New Zealand SEO agency that gets businesses to page 1 of Google in 90 days, guaranteed. You're comparing agencies, not researching what SEO is — so: a 5.0-rated team, month-to-month after a short setup term, and a free audit before you decide anything.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free SEO audit"],
+    h1: "SEO New Zealand businesses can measure in dollars.",
+    sub: "You're comparing agencies, not looking up what SEO means. So, briefly: we agree the searches we're going after before we start, we show you every month exactly where you sit on each one, and you get a free plan before you decide anything. Three months to start, then month by month.",
+    chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
     formHeading: "Get your free SEO audit",
     formNote: "One-page report in your inbox. No obligation, no spam.",
   },
@@ -56,26 +56,19 @@ export const seoHub: SeoPageContent = {
       "Local search behaves differently in a country this size too. Someone searching from Nelson or Rotorua isn't choosing between fifteen options within twenty minutes — they're often choosing between three, and Google's results reflect that. Well-optimised local pages punch above their weight here: it takes less content and fewer links to establish relevance than in a market with fifty competing businesses per suburb.",
       "None of this makes SEO free or instant. It still takes real technical work, real content and real time to rank — cost and timeframe don't disappear just because the market is smaller. What changes is the ceiling: in a country this size, a well-run campaign can realistically own a category, not just chip away at page two forever.",
     ],
-    stats: [
-      { value: "1,000", label: "monthly searches for \"seo new zealand\"" },
-      { value: "23–41", label: "keyword difficulty across national seo terms" },
-      { value: "7,110", label: "combined monthly searches across every seo term we track" },
-    ],
   },
 
   outcomes: {
     eyebrow: "What changes",
-    headlineMain: "What page 1",
+    headlineMain: "What showing up first",
     headlineSub: "actually changes.",
     intro:
       "You've read enough vague agency copy already. Here's what moving from page two to page one does to your business, in plain terms.",
     items: [
       {
         kicker: "Ranking",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Move up where it counts",
-        body: "We guarantee a page 1 position in Google Search results within 90 days — tracked, reported and on record from day one.",
+        body: "We go after the searches that end in a phone call, and we name every one of them in writing before we start — so you always know what you're paying for and whether it worked.",
       },
       {
         kicker: "Cost",
@@ -105,7 +98,7 @@ export const seoHub: SeoPageContent = {
         title: "Research & strategy",
         items: [
           "National and local keyword mapping",
-          "Competitor gap analysis across NZ SERPs",
+          "A look at what your competitors rank for that you don't",
           "Technical SEO audit",
           "Six-month content roadmap",
           "Conversion-focused page structure",
@@ -159,13 +152,13 @@ export const seoHub: SeoPageContent = {
       {
         eta: "Month 3",
         title: "Page 1, on record",
-        body: "Your guaranteed page 1 position is live. From here it's month-to-month — no lock-in.",
+        body: "The first full review: every search we agreed, where you started, where you are now, and what came in. From here it runs month by month.",
       },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Reviews from",
     headlineSub: "real NZ clients.",
     intro:
@@ -182,7 +175,7 @@ export const seoHub: SeoPageContent = {
       {
         label: "SEO Christchurch",
         to: "/seo/christchurch",
-        blurb: "Canterbury's largest market, with search volume and competitor detail specific to Christchurch.",
+        blurb: "Canterbury's largest market — who you're actually up against in Christchurch, and what it takes to beat them.",
       },
       {
         label: "SEO Hamilton",
@@ -213,11 +206,11 @@ export const seoHub: SeoPageContent = {
       },
       {
         q: "How long does SEO take to work in New Zealand?",
-        a: "Most businesses see ranking movement within 2 to 4 weeks, with a guaranteed page 1 position by day 90. New Zealand's smaller SERPs mean it can move faster here than it does in bigger markets.",
+        a: "Most businesses see ranking movement within two to four weeks, because the early technical fixes are what Google picks up fastest. Enquiries follow later, usually once the new pages have been live a month or two. New Zealand's smaller markets mean it can move faster here than it does overseas.",
       },
       {
         q: "What's the difference between an SEO company and an SEO agency in NZ?",
-        a: "In practice, nothing — \"SEO company\" and \"SEO agency\" describe the same service in New Zealand. What matters is whether they guarantee results in writing and show you the reporting to prove it.",
+        a: "In practice, nothing — \"SEO company\" and \"SEO agency\" describe the same service in New Zealand. What matters is whether they will write down which searches they are going after, and show you the reporting each month against that list.",
       },
       {
         q: "Do I need local SEO or national SEO for my New Zealand business?",
@@ -229,11 +222,11 @@ export const seoHub: SeoPageContent = {
       },
       {
         q: "How do I choose an SEO company in New Zealand?",
-        a: "Look for a fixed price with no hidden add-ons, a results guarantee in writing, direct access to the person doing the work, and real reviews you can verify on Google rather than case studies on the agency's own website.",
+        a: "Look for a fixed price with no hidden add-ons, the target searches written down before you sign, direct access to the person doing the work, and real reviews you can verify on Google rather than case studies on the agency's own website. Be wary of anyone guaranteeing a number-one ranking — nobody controls Google's results.",
       },
       {
         q: "Is there a minimum contract for SEO services in NZ?",
-        a: "Most reputable agencies, us included, work month-to-month after a short minimum term needed to set things up properly. You shouldn't be locked into a year just to find out if it's working.",
+        a: "Most reputable agencies, us included, ask for three months to start, then work month by month. That is roughly how long it takes before the work shows. You shouldn't be locked into a year just to find out if it's working.",
       },
     ],
   },

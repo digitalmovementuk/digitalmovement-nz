@@ -7,9 +7,9 @@ export const tauranga: SeoPageContent = {
   region: "Bay of Plenty",
 
   meta: {
-    title: "SEO Tauranga · Page 1 in 90 Days · Digital Movement",
+    title: "SEO Tauranga · Get Found First · Digital Movement",
     description:
-      "SEO Tauranga that gets tradies and local businesses found. Google page 1 in 90 days, guaranteed. Free audit, no lock-in contract.",
+      "SEO Tauranga that gets tradies and local businesses found. Target searches agreed in writing, a report every month, and a free plan first.",
   },
 
   keywords: {
@@ -30,10 +30,10 @@ export const tauranga: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Tauranga businesses",
     h1: "SEO Tauranga businesses use to get found first.",
-    sub: "Digital Movement is an SEO agency that gets Tauranga trades and service businesses onto Google page 1 in 90 days, guaranteed. The city is growing faster than almost anywhere else in New Zealand, and the search results are still wide open.",
-    chips: ["Page 1 in 90 days", "5.0 Google rating", "Month-to-month", "Free audit"],
+    sub: "The Bay is filling up with people who have no idea who to ring yet. We get Tauranga trades and service businesses in front of them first — with the target searches written down before we start, so you know exactly what you're paying for.",
+    chips: ["Searches agreed in writing", "5.0 Google rating", "Month by month after 3", "Free plan, no obligation"],
     formHeading: "Get your free Tauranga SEO audit",
-    formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",
+    formNote: "One-page report, plain English, in your inbox within one working day. No obligation.",
   },
 
   local: {
@@ -47,11 +47,6 @@ export const tauranga: SeoPageContent = {
       "Mount Maunganui does double duty as both a residential suburb and a tourist destination, which means demand for services there spikes with the season in a way it doesn't in Greerton or Bethlehem. Papamoa keeps sprawling east. Retirees and lifestyle movers from Auckland keep arriving, chasing the coast and the milder pace. Each of those groups searches differently, and a template SEO page that just swaps in the word 'Tauranga' misses every one of them.",
       "We build local pages and content around where your actual customers live and search — Mount, Papamoa, Tauriko, Greerton, or right across the Bay — not around a single generic city name.",
     ],
-    stats: [
-      { value: "260", label: "monthly Google searches for 'seo tauranga'" },
-      { value: "90", label: "days to page 1, guaranteed" },
-      { value: "5.0", label: "Google rating across 100+ reviews" },
-    ],
   },
 
   outcomes: {
@@ -62,10 +57,8 @@ export const tauranga: SeoPageContent = {
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Rank where it counts",
-        body: "We guarantee your business a page 1 position in Google Search results in Tauranga within 90 days.",
+        body: "Every week the Bay gains people who have no local tradesperson yet. They pick whoever comes up first and looks credible. We build so that's you — Mount Maunganui, Papamoa, Bethlehem and the rest, each as its own search.",
       },
       {
         kicker: "Growth",
@@ -88,7 +81,7 @@ export const tauranga: SeoPageContent = {
     eyebrow: "What you get",
     headlineMain: "Everything included.",
     headlineSub: "One fixed monthly price.",
-    intro: "No setup fee, no surprise add-ons. Everything below runs from month one, and keeps running for as long as you want to keep growing.",
+    intro: "No setup fee, no surprise add-ons. All of it starts in month one and none of it stops while you're with us.",
     columns: [
       {
         title: "Strategy",
@@ -131,23 +124,23 @@ export const tauranga: SeoPageContent = {
     steps: [
       { eta: "Week 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A strategy call where we map your Tauranga and Bay of Plenty keyword targets." },
       { eta: "Week 4", title: "Foundation in place", body: "Technical SEO clean. First local pages live. Tracking running, data flowing." },
-      { eta: "Week 8", title: "Climbing the rankings", body: "First commercial keywords reach the top of page 2 or bottom of page 1. Enquiries start coming in." },
-      { eta: "Week 13", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here, monthly continuation — no lock-in." },
+      { eta: "Week 8", title: "Climbing the rankings", body: "The first searches that make you money start climbing into view. Enquiries start coming in." },
+      { eta: "Week 13", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Results from",
     headlineSub: "businesses across NZ.",
-    intro: "These are genuine reviews from Digital Movement clients around New Zealand — not Tauranga businesses, and not trades specifically. We're showing you the standard of work you'd be getting, honestly, before we've had the chance to build you a local track record.",
+    intro: "These are genuine reviews from Digital Movement clients around New Zealand — not Tauranga businesses, and not trades specifically. Rather than dress up a Bay of Plenty case study we haven't earned yet, here is the standard of work you would actually be getting.",
   },
 
   nearby: {
     eyebrow: "Also serving",
     headlineMain: "SEO across",
     headlineSub: "New Zealand.",
-    intro: "We run the same guaranteed 90-day process for businesses in other growing NZ cities.",
+    intro: "We run the same process for businesses in other growing New Zealand cities.",
     links: [
       { label: "SEO New Zealand", to: "/seo", blurb: "Our national SEO service, for any Kiwi business." },
       { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "Page 1 rankings for Christchurch businesses." },
@@ -159,11 +152,11 @@ export const tauranga: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Asked straight.",
     headlineSub: "Answered straight.",
-    intro: "What Tauranga and Bay of Plenty business owners ask us most before booking their free audit.",
+    intro: "What Tauranga and Bay of Plenty business owners ask us most before booking their free plan.",
     items: [
       {
         q: "What does SEO in Tauranga cost?",
-        a: "It's a fixed monthly price, not a per-hour or per-link fee — the exact number depends on your industry and how competitive your keywords are. Book your free audit and we'll give you a concrete figure, not a range that hides the real cost.",
+        a: "One price a month, agreed before we start. Not per hour, not per link. What it costs depends on how hard your searches are to win. Ask for the free plan and you get a real number for your business, not a range.",
       },
       {
         q: "Do you offer SEO services in Tauranga specifically, or just nationwide SEO?",
@@ -175,19 +168,19 @@ export const tauranga: SeoPageContent = {
       },
       {
         q: "Is there a Tauranga SEO agency that specialises in trades?",
-        a: "Digital Movement's core focus is trades and home services — builders, plumbers, electricians, roofers, landscapers. We understand how those businesses get found: local intent, urgent searches, and new-build subdivisions rather than general brand searches.",
+        a: "Most of our clients are trades and home services, plus the local operators around them — builders, plumbers, sparkies, roofers, landscapers. We understand how those businesses get found: local intent, urgent searches, and new-build subdivisions rather than general brand searches.",
       },
       {
         q: "How fast will I see results from an SEO company in Tauranga?",
-        a: "Ranking movement typically starts in the first 2–4 weeks. We guarantee your business a page 1 position in Google Search results within 90 days.",
+        a: "The first movement usually shows up two to four weeks in — the technical work lands first and Google reads it quickly. The enquiries come later, once those pages have had a month or two to settle. Nobody can promise you a position, and we won't. What we will do is name the searches before we start and show you your place on every one of them, every month.",
       },
       {
         q: "Is there a minimum contract length?",
-        a: "We work month-to-month after a short minimum term to set things up properly. If we're not delivering, you can leave — we'd rather earn the next month than trap you in one.",
+        a: "We ask for three months to start, then work month by month. After three months you can walk at any point. We would rather keep earning the next month than hold you to a contract.",
       },
       {
         q: "Do you have Tauranga client case studies?",
-        a: "Not yet — we're upfront about that. Our published results are from clients across New Zealand. What you can rely on is the same guaranteed process and a 5.0 Google rating across 100+ reviews.",
+        a: "Not yet — we're upfront about that. Our published results are from clients elsewhere in New Zealand. What you can check is the 5.0 rating across 100+ reviews on our Google profile, and the fact that the searches we go after are written down and agreed before you pay us anything.",
       },
       {
         q: "How is SEO different for a new-build area like Tauriko or Papamoa East compared to an established suburb?",
@@ -200,8 +193,8 @@ export const tauranga: SeoPageContent = {
     eyebrow: "Talk to us",
     headlineMain: "Let us show you",
     headlineSub: "how we get Tauranga found.",
-    body: "Get in touch to find out how your Tauranga business can grow with a 5-star rated SEO agency that guarantees real results.",
+    body: "Send us your website and the parts of the Bay you cover. Back comes a list: what Bay of Plenty customers actually type, who is taking those clicks today, and the first three things worth fixing. One working day, no sales call.",
     formHeading: "Get your free Tauranga SEO audit",
-    formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",
+    formNote: "One-page report, plain English, in your inbox within one working day. No obligation.",
   },
 };

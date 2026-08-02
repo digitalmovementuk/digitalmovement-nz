@@ -1,6 +1,11 @@
 // Service-page content for the four service routes.
 // Aligned to the Digital Movement NZ brand voice — 5-star rated agency,
-// guaranteed real results, plain English, NZ businesses.
+// plain English, NZ businesses.
+//
+// Rewritten 2026-08-02 off the copy audit. Standing rules for this file:
+// no page-1-in-90-days guarantee (no grounds for it), no bare "real results"
+// (it names nothing), one CTA wording sitewide, and every acronym expanded
+// the first time a reader meets it.
 
 export type ServiceContent = {
   slug: string;
@@ -27,10 +32,18 @@ export type ServiceContent = {
     headlineMain: string;
     headlineSub: string;
     intro: string;
+    /**
+     * `value`/`unit` are OPTIONAL and must stay that way — same rule as
+     * SeoPageContent. When they were required, every outcome card had to
+     * carry a figure, and the cards that had no honest figure to show
+     * borrowed one from our keyword research. A business owner does not
+     * buy "KD 6". A card with no number is better than a card with a
+     * made-up one; the heading takes the display size instead.
+     */
     items: {
       kicker: string;
-      value: string;
-      unit: string;
+      value?: string;
+      unit?: string;
       title: string;
       body: string;
     }[];
@@ -75,6 +88,15 @@ export type ServiceContent = {
     intro: string;
     items: { q: string; a: string }[];
   };
+  /**
+   * Heading and note above both enquiry forms on the page.
+   *
+   * Per-page, not hardcoded in the shell. The shell used to print "Get your
+   * free plan" on all four services, which sold the thing we produce rather
+   * than the thing the reader wants, and made the four pages read as one.
+   */
+  form: { heading: string; note: string };
+
   leadMagnet: {
     eyebrow: string;
     headline: string;
@@ -98,17 +120,17 @@ export const services: Record<ServiceSlug, ServiceContent> = {
   seo: {
     slug: "seo",
     meta: {
-      title: "SEO Services NZ · Page 1 in 90 Days · Digital Movement",
+      title: "SEO Services NZ · Get Found First · Digital Movement",
       description:
-        "Google Page 1 in just 90 days, guaranteed. Technical SEO, local SEO, national SEO, content writing and web design from a 5-star rated NZ agency.",
+        "SEO for New Zealand businesses that want more enquiries, not more reports. Technical SEO, local SEO, national SEO and content writing. Free plan first.",
     },
     hero: {
       eyebrow: "Search engine optimisation · for NZ businesses",
-      headlineTop: "Page 1 SEO",
-      headlineBottom: "in just 90 days.",
-      sub: "Digital Movement is a 5-star rated SEO agency in NZ that guarantees your business a page 1 position in Google Search results within 90 days. SEO services for New Zealand businesses that want customers, not impressions.",
-      primaryCta: "Get your FREE SEO audit",
-      secondaryCta: "Book a consultation",
+      headlineTop: "Get found first",
+      headlineBottom: "by the people ready to buy.",
+      sub: "An SEO agency in New Zealand for businesses that want customers, not impressions. We agree the searches we're chasing before we start, then show you every month exactly where you sit on each one.",
+      primaryCta: "Get my free plan",
+      secondaryCta: "Talk it through first",
       chips: ["Technical SEO", "Local SEO", "National SEO", "Content writing", "Web design"],
       video: "video/seo-logo.mp4",
     },
@@ -127,30 +149,24 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     outcomes: {
       eyebrow: "What you gain",
-      headlineMain: "Feel your business grow.",
-      headlineSub: "Achieve your goals with confidence.",
+      headlineMain: "More of the right people",
+      headlineSub: "asking what you charge.",
       intro:
-        "Take advantage of intelligently executed SEO strategies designed to deliver business growth that you'll feel right away — backed by proven methodology, clarity and performance.",
+        "Someone in your town is typing what you sell into Google right now. The only question is whose name comes back. Here is what changes when it's yours.",
       items: [
         {
           kicker: "Visibility",
-          value: "Page 1",
-          unit: "in 90 days",
-          title: "Secure stronger visibility",
-          body: "We guarantee your business a page 1 position in high-value Google Search results in just 90 days.",
+          title: "Show up where your customers already look",
+          body: "We go after the searches that end in a phone call — the ones with a town, a service and an urgent problem in them — and we name every one of them in writing before we start.",
         },
         {
           kicker: "Audience",
-          value: "Right",
-          unit: "buyers",
-          title: "Reach customers ready to buy",
+          title: "Reach the ones ready to buy, not browse",
           body: "We attract the audiences most likely to convert — qualified visitors, not vanity traffic.",
         },
         {
           kicker: "Authority",
-          value: "Real",
-          unit: "trust",
-          title: "Establish credibility in your industry",
+          title: "Be the one they trust enough to ring",
           body: "High-quality content that builds trust, drives action and grows sales through consistent, qualified traffic.",
         },
       ],
@@ -210,8 +226,8 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     deliverables: {
       eyebrow: "What you get",
-      headlineMain: "Three pillars.",
-      headlineSub: "All-inclusive, no surprises.",
+      headlineMain: "What you actually get",
+      headlineSub: "every month, for one fixed fee.",
       intro:
         "Fixed monthly price. No setup surprise. Everything below is included — and every month after, as long as you want to keep growing.",
       columns: [
@@ -249,15 +265,15 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     process: {
       eyebrow: "The 90-day journey",
-      headlineMain: "Four milestones.",
-      headlineSub: "Clear, honest, on-record.",
+      headlineMain: "What happens, and when",
+      headlineSub: "from day one to day ninety.",
       intro:
         "What happens on day 1, 30, 60 and 90. We say it up front, we stick to it, and we show you the maths every month.",
       steps: [
         { eta: "Day 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A 60-min strategy call. You understand exactly where you stand and what's next." },
         { eta: "Day 30", title: "Foundation in place", body: "Technical SEO clean. First content pages live. Tracking running, data flowing." },
         { eta: "Day 60", title: "Climbing the rankings", body: "First commercial keywords reach the top of page 2 / bottom of page 1. Pipeline starts filling." },
-        { eta: "Day 90", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here on, monthly continuation — no lock-in." },
+        { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what it brought in. From here it runs month by month." },
       ],
     },
     stack: {
@@ -277,38 +293,42 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     faq: {
       eyebrow: "Common questions",
-      headlineMain: "Asked straight.",
-      headlineSub: "Answered straight.",
-      intro: "What we hear most often from NZ business owners before they book their free audit.",
+      headlineMain: "The questions",
+      headlineSub: "owners actually ask.",
+      intro: "What we hear most often from New Zealand business owners before they ask us for a plan.",
       items: [
-        { q: "How fast will I see results?", a: "Ranking movement in the first 2–4 weeks. We guarantee your business a page 1 position in Google Search results in just 90 days. Real enquiry uplift typically follows from there." },
+        { q: "How fast will I see results?", a: "Most sites show ranking movement in the first two to four weeks, because the early technical fixes are the ones Google picks up fastest. Enquiries follow later — usually once the new pages have been live a month or two. Anyone who tells you enquiries arrive in week one is selling you something." },
         { q: "What's included in the fixed price?", a: "Everything under \"What you get.\" No add-ons, no setup fee, no upcharges for \"more content\" or \"more links.\" Unbelievable prices and inclusions for every client." },
-        { q: "Is there a minimum term?", a: "We work month-to-month after a short minimum term to set things up properly. If we're not delivering, you can leave. We'd rather earn the next month than trap you in it." },
+        { q: "Is there a minimum term?", a: "Three months to start, then month by month. The three months exist because the setup work is front-loaded — site repairs and the first new pages take that long to land, and judging results before they do tells you nothing. After that, leave whenever you like." },
         { q: "Who actually does the work?", a: "Senior NZ specialists — the people you meet in the consultation do the work. No account-manager ping-pong, no juniors learning on your behalf." },
         { q: "How does SEO sit alongside Google Ads?", a: "Very well — we often run both in parallel. SEO builds long-term visibility; Ads buy short-term traffic. When both are clean, you get a pipeline that doesn't stop growing." },
-        { q: "Can you guarantee results in my industry?", a: "We guarantee page 1 on Google within 90 days. If after the audit we don't believe SEO is the right lever for your business, we'll tell you that — straight up." },
-        { q: "What happens after the 90 days?", a: "You decide. Most clients stay monthly because growth compounds from there. You keep all access, all data, all content — even if you stop tomorrow." },
+        { q: "Can you guarantee I'll rank number one?", a: "No, and be wary of anyone who does — nobody controls Google's results. What we put in writing is the searches we're going after, the work we'll do each month, and a report showing where you sit on every one. And if the free plan tells us SEO isn't the right lever for your business, we'll say so rather than sell you it." },
+        { q: "What happens after the first three months?", a: "You decide, month by month. Most clients stay because the results compound from there. Either way you keep all access, all data and all content — even if you stop tomorrow." },
       ],
+    },
+    form: {
+      heading: "Find out what you're missing",
+      note: "Send us your website. You'll get a free one-page plan back within one working day — no sales call.",
     },
     leadMagnet: {
       eyebrow: "Before you decide",
-      headline: "Get your FREE SEO audit.",
-      body: "We audit your site against 50+ technical and content factors and send you a one-page plain-English report. What's broken, what's working, and the three highest-impact next levers — whether you work with us or not.",
+      headline: "See what you're missing out on.",
+      body: "We go through your site, find what's holding it back, and work out which searches your customers are using that you're not showing up for. You get one page in plain English — whether you work with us or not.",
       bullets: [
-        "One-page audit by email in 24 hours",
-        "30-minute Loom walkthrough",
-        "Concrete next steps, prioritised",
-        "No obligations, so no worries",
+        "The searches you're missing, and who's winning them instead",
+        "What's broken on your site, ranked by what it's costing you",
+        "The three fixes worth doing first",
+        "A short video walking you through it",
       ],
-      cta: "Get your FREE SEO audit",
-      note: "Lands in your inbox within 24 working hours. No spam, no obligation.",
+      cta: "Get my free plan",
+      note: "In your inbox within one working day. No spam, no obligation.",
     },
     finalCta: {
       eyebrow: "Talk to us",
-      headlineMain: "Let us show you",
-      headlineSub: "how we deliver real results.",
-      body: "Get in touch to find out how you can grow your business with a 5-star rated digital marketing agency in New Zealand that guarantees real results.",
-      primary: "Get your free audit",
+      headlineMain: "Find out what",
+      headlineSub: "you're missing out on.",
+      body: "Send us your website and the town you work in. You'll get back the searches your customers are already using, the ones going to someone else, and the three fixes worth doing first. One working day, no sales call.",
+      primary: "Get my free plan",
     },
   },
 
@@ -323,9 +343,9 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       eyebrow: "Google Ads · for NZ businesses",
       headlineTop: "More net profit",
       headlineBottom: "with smarter Google Ads.",
-      sub: "Digital Movement is a 5-star rated Google Ads agency in New Zealand delivering near-instant ROI through intelligently designed and executed PPC campaigns — Google Ads, formerly AdWords, run properly.",
-      primaryCta: "Get your FREE consult",
-      secondaryCta: "Book a consultation",
+      sub: "A Google Ads agency in New Zealand for owners who care what a lead costs, not what it looks like. You pay Google only when someone clicks, so the whole job is making sure the clicks you pay for are the ones that ring.",
+      primaryCta: "Get my free plan",
+      secondaryCta: "Talk it through first",
       chips: ["Search Ads", "Performance Max", "Conversion tracking", "Landing page creation & tuning"],
       video: "video/google-ads-logo.mp4",
     },
@@ -336,7 +356,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       paragraphs: [
         "Google Ads is one of the fastest ways to generate strong returns on investment. Talk to us and we'll show you how we've helped businesses grow faster through smarter Google Ads campaigns.",
         "If you haven't spoken with our team about how Google Ads could help launch your business into online success, then you are simply missing out on huge amounts of potential profit every day. Google Ads gives you an opportunity to get ahead of your competitors by appearing front and centre in your target audience's search results.",
-        "Our team are experts at maximising campaign profitability by weeding out wasted clicks and focusing on converting website visits into high-quality leads that generate new business for our clients. We go more than the extra mile to deliver real results.",
+        "Most accounts we take over are quietly wasting a third of the budget on clicks that were never going to buy. The first job is finding that money and stopping it. The second is spending what's left on the searches that actually end in work, and showing you the maths every month so you can see it for yourself.",
         "By using our years of Google Ads experience, we build campaigns that ensure your business is being found by the right customers, in the right locations. We continuously optimise all of our campaigns so you can sit back and relax while our team takes care of getting your business found online.",
       ],
       audience:
@@ -344,8 +364,8 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     outcomes: {
       eyebrow: "What you gain",
-      headlineMain: "Four ways to supercharge",
-      headlineSub: "your bottom line.",
+      headlineMain: "Four ways to put",
+      headlineSub: "more money in the till.",
       intro:
         "There are four key Google Ads services that can significantly increase net profit for your business. If you want to understand how each one works, all you have to do is ask. We're here for you.",
       items: [
@@ -374,8 +394,8 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     methodology: {
       eyebrow: "How we do it",
-      headlineMain: "How your sales will skyrocket.",
-      headlineSub: "Four channels, one engine.",
+      headlineMain: "Where the money",
+      headlineSub: "actually comes from.",
       intro:
         "Want to see a dramatic increase in sales? With Digital Movement, you can utilise our proven expertise in executing Google Ads campaigns that deliver near-instant return on investment.",
       phases: [
@@ -427,8 +447,8 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     deliverables: {
       eyebrow: "What you get",
-      headlineMain: "Three pillars.",
-      headlineSub: "All-inclusive.",
+      headlineMain: "What you actually get",
+      headlineSub: "every month, for one fixed fee.",
       intro:
         "Fixed monthly price, all ad budgets in your account. We don't earn on your ad spend — we earn on results.",
       columns: [
@@ -439,7 +459,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
             "Campaign architecture",
             "Landing-page conversion plan",
             "NZ competitor analysis",
-            "Budget and ROAS model",
+            "A budget, and what each sale needs to cost",
           ],
         },
         {
@@ -455,7 +475,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
         {
           title: "Reporting",
           items: [
-            "Live dashboard (ROAS, CPL, conversions)",
+            "A live dashboard: what you spent, what came back, what each enquiry cost",
             "Monthly plain-English report",
             "Direct line to your specialist",
             "No account-manager ping-pong",
@@ -466,15 +486,15 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     process: {
       eyebrow: "Your 90-day journey",
-      headlineMain: "Four milestones.",
-      headlineSub: "Cash, not clicks.",
+      headlineMain: "What happens, and when",
+      headlineSub: "cash, not clicks.",
       intro:
-        "What happens on day 1, 30, 60 and 90. We say it up front, we stick to it, and we show the ROAS maths every month.",
+        "What happens on day 1, 30, 60 and 90. We say it up front, we stick to it, and every month we show you what you spent against what came back.",
       steps: [
         { eta: "Day 1", title: "Audit & kick-off", body: "Free Google Ads consult. We map out the campaign architecture and conversion plan." },
         { eta: "Day 30", title: "Campaigns live", body: "Search + Performance Max running. Conversion tracking clean. First data flowing in." },
-        { eta: "Day 60", title: "ROAS stabilising", body: "Waste trimmed, quality score up, ROAS settling in above target." },
-        { eta: "Day 90", title: "Profitable & scaling", body: "Profitable campaigns scaled. From here on, monthly optimisation — no lock-in." },
+        { eta: "Day 60", title: "The waste is gone", body: "The searches that never convert are switched off, the ads Google rates highest are cheaper to run, and every dollar in is returning more than it did in month one." },
+        { eta: "Day 90", title: "Profitable & scaling", body: "Profitable campaigns scaled. From here on, monthly optimisation — three months to start, then month by month." },
       ],
     },
     stack: {
@@ -482,7 +502,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       headlineMain: "What we work with.",
       headlineSub: "Industry standard, cleanly integrated.",
       intro:
-        "You keep every account and every access — even if you continue without us. No lock-in.",
+        "You keep every account and every access — even if you continue without us. Three months to start, then month by month.",
       items: [
         { name: "Google Ads", body: "Search, Performance Max, remarketing — all under your account.", logo: "googleads" },
         { name: "GA4 + Tag Manager", body: "Conversion tracking clean, server-side where it counts.", logo: "googleanalytics" },
@@ -494,38 +514,42 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     faq: {
       eyebrow: "Common questions",
-      headlineMain: "Asked straight.",
-      headlineSub: "Answered straight.",
+      headlineMain: "The questions",
+      headlineSub: "we get before the budget goes out.",
       intro: "What Kiwi business owners ask most often before they release Ads budget.",
       items: [
-        { q: "How much ad spend do I need?", a: "Depends on your industry and CPL. We typically recommend NZ$2,000–NZ$8,000 / month to start. The consult will give you a concrete number based on your market." },
+        { q: "How much ad spend do I need?", a: "It depends on your trade and on what one enquiry costs to win in your town — in some markets that's $20, in others it's $200. We usually suggest starting between NZ$2,000 and NZ$8,000 a month. Your free plan gives you a real number for your market rather than a bracket." },
         { q: "Does Digital Movement earn on my ad budget?", a: "No. All budgets run directly through your Google Ads account. We earn a fixed monthly fee — whether your budget is small or large. Incentive: results, not volume." },
-        { q: "How fast will I see enquiries?", a: "With a clean setup, often within the first 14 days. Scaling to stable ROAS typically takes 60–90 days." },
-        { q: "What if ROAS stays below target?", a: "We meet weekly and adjust. If after 60 days it's clear the market potential isn't enough, we'll tell you honestly — and end the sprint instead of burning your budget." },
+        { q: "How fast will I see enquiries?", a: "With a clean setup, often inside the first fortnight — ads start the day they're switched on. Getting the cost per enquiry down to something steady usually takes 60 to 90 days." },
+        { q: "What if it isn't paying for itself?", a: "We meet weekly and adjust. If after 60 days it's clear there isn't enough demand in your market to make the numbers work, we'll tell you straight and stop — rather than keep spending your budget to keep a client." },
         { q: "Who writes the ads?", a: "We do. Including A/B test variants and asset production for Performance Max. You approve, we ship." },
         { q: "What about Performance Max — does it work?", a: "Yes, when you know what you're doing. Tightly scoped asset groups, account-level negative keywords, clean conversion tracking. Otherwise PMax eats budget and delivers vanity conversions." },
-        { q: "What happens after the 90 days?", a: "Monthly continuation. You can pause anytime. All accounts and data are yours." },
+        { q: "What happens after the first three months?", a: "It runs month by month. You can pause any time, and all accounts and data are yours." },
       ],
+    },
+    form: {
+      heading: "Find out what you're wasting",
+      note: "Give us read-only access and we'll show you where the budget is going. Back within one working day — no sales call.",
     },
     leadMagnet: {
       eyebrow: "Before you invest",
-      headline: "Get your FREE Google Ads consult.",
-      body: "We open your Google Ads account (read-only) and find the three biggest waste hot-spots. A one-page plain-English report with concrete levers you can implement immediately — whether you work with us or not.",
+      headline: "See where your budget is leaking.",
+      body: "We look inside your Google Ads account — read-only, nothing touched — and find the three places money is going out with nothing coming back. One page, plain English, whether you work with us or not.",
       bullets: [
-        "Waste analysis of your active account",
-        "Top 3 quick wins prioritised",
-        "30-minute Loom walkthrough",
-        "No obligations, so no worries",
+        "The searches you're paying for that never turn into work",
+        "The three fixes that save the most, soonest",
+        "A short video walking you through it",
+        "Read-only access is all we need",
       ],
-      cta: "Get your FREE consult",
-      note: "In your inbox within 48 working hours. Read-only access is enough.",
+      cta: "Get my free plan",
+      note: "In your inbox within one working day. Read-only access is enough.",
     },
     finalCta: {
       eyebrow: "Talk to us",
-      headlineMain: "Let us show you",
-      headlineSub: "how we deliver real results.",
-      body: "Get in touch to find out how you can grow your business with a 5-star rated digital marketing agency in New Zealand that guarantees real results.",
-      primary: "Get your free audit",
+      headlineMain: "Find out what",
+      headlineSub: "you're paying for nothing.",
+      body: "Give us read-only access to your Google Ads account. You'll get back the three biggest places your budget is leaking and what it would cost to fix them. One working day, no sales call.",
+      primary: "Get my free plan",
     },
   },
 
@@ -534,58 +558,52 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     meta: {
       title: "Social Media for NZ businesses · Digital Movement",
       description:
-        "Grow your business through meaningful engagement. Paid social ads, content creation and posting plans from a 5-star rated NZ social media marketing agency.",
+        "Social media that books jobs, not just likes. Paid social ads, content and a posting plan aimed at the people close to buying — for New Zealand businesses.",
     },
     hero: {
       eyebrow: "Social media · for NZ businesses",
-      headlineTop: "Social media that",
-      headlineBottom: "grows real engagement.",
-      sub: "Digital Movement is a 5-star rated social media agency in New Zealand that turns interested social media users into engaged followers and loyal brand advocates.",
-      primaryCta: "Get your FREE consult",
-      secondaryCta: "Book a consultation",
+      headlineTop: "Social that books jobs,",
+      headlineBottom: "not just likes.",
+      sub: "Likes don't pay wages. We run social for New Zealand businesses that need the phone to ring — aimed at the people already close to buying, and measured on enquiries rather than follower counts.",
+      primaryCta: "Get my free plan",
+      secondaryCta: "Talk it through first",
       chips: ["Paid social ads", "Content creation", "Posting plan"],
       video: "video/socials-logo.mp4",
     },
     whatItIs: {
       eyebrow: "Why do social media",
-      headlineMain: "Social media matters",
-      headlineSub: "more than ever.",
+      headlineMain: "Your next customer",
+      headlineSub: "is already scrolling.",
       paragraphs: [
         "Social media marketing has rapidly become one of the most influential forces in digital marketing — but what does it really do for your business?",
         "Think of your website as your headquarters, and social media as the ongoing conversation that builds trust, rapport, and recognition. As a leading social media marketing agency in New Zealand, we use these platforms to give your brand a clear voice, a strong personality, and consistent visibility where your audience spends their time.",
         "At Digital Movement, we help businesses move beyond just another name online. Through strategic social media marketing, we showcase who you are, what you stand for, and why customers should choose you.",
-        "Much like fans proudly wearing a band's merchandise, social media advertising spreads your message far and wide, turning interested users into engaged followers and loyal brand advocates. If you're unsure how to make this happen, that's exactly where we step in.",
+        "None of that matters unless it ends in work. So we build every post and every ad around one question: does this move someone closer to ringing you? The follower count is a by-product. The booked job is the point.",
       ],
       audience:
         "Built for Kiwi brands that use social as a sales channel — not as a PR stage.",
     },
     outcomes: {
       eyebrow: "What you gain",
-      headlineMain: "Make socials",
-      headlineSub: "work for you.",
+      headlineMain: "Turn the scroll",
+      headlineSub: "into enquiries.",
       intro:
-        "Social media platforms such as Facebook, Instagram, and LinkedIn give businesses unparalleled access to targeted audiences. When used correctly, they allow you to reach the right people with the right message at exactly the right moment.",
+        "Facebook, Instagram and LinkedIn let you put an offer in front of exactly the people most likely to want it — the right town, the right age, the right moment. Here is what that's worth to a business that needs work booked.",
       items: [
         {
           kicker: "Visibility",
-          value: "Brand",
-          unit: "growth",
-          title: "Increase brand visibility & recognition",
-          body: "Develop a strong, consistent brand personality and drive more high-quality traffic to your website.",
+          title: "Be the name they already know",
+          body: "When someone finally needs what you sell, they ring the business they've seen before. Showing up weekly in the right feeds is how you become that business — and it costs a fraction of what it costs to reach a stranger.",
         },
         {
-          kicker: "Engagement",
-          value: "Loyal",
-          unit: "fans",
-          title: "Improve engagement & build loyalty",
-          body: "Better algorithm performance, long-term brand loyalty, and an audience that genuinely cares.",
+          kicker: "Repeat work",
+          title: "Get the second job, not just the first",
+          body: "Your past customers are the cheapest sales you will ever make. Staying in front of them is what turns one job into three — and turns a customer into the person who recommends you.",
         },
         {
-          kicker: "Conversion",
-          value: "Real",
-          unit: "leads",
-          title: "Convert followers into customers",
-          body: "Pump up conversion rates, position your business as an industry authority, and achieve results through a cost-effective channel.",
+          kicker: "Enquiries",
+          title: "Turn the audience into booked work",
+          body: "Every post and ad points somewhere specific — a quote form, a booking page, a phone number. We track which ones actually produce enquiries and put the budget behind those.",
         },
       ],
     },
@@ -645,8 +663,8 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     deliverables: {
       eyebrow: "What you get",
-      headlineMain: "Three pillars.",
-      headlineSub: "All-inclusive.",
+      headlineMain: "What you actually get",
+      headlineSub: "every month, for one fixed fee.",
       intro:
         "Fixed monthly price, all ad budgets in your account. Production, distribution and reporting — complete.",
       columns: [
@@ -684,8 +702,8 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     process: {
       eyebrow: "Your 90-day journey",
-      headlineMain: "Four milestones.",
-      headlineSub: "Enquiries, not followers.",
+      headlineMain: "What happens, and when",
+      headlineSub: "enquiries, not followers.",
       intro:
         "What happens on day 1, 30, 60 and 90. We say it up front — and then we deliver.",
       steps: [
@@ -712,38 +730,42 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     faq: {
       eyebrow: "Common questions",
-      headlineMain: "Asked straight.",
-      headlineSub: "Answered straight.",
-      intro: "What Kiwi owners ask most often before they release social budget.",
+      headlineMain: "The questions",
+      headlineSub: "we get before the budget goes out.",
+      intro: "What New Zealand owners ask most often before they put money behind social.",
       items: [
         { q: "Do I need to be present on every platform?", a: "No. We recommend 1–2 platforms where your audience actually spends time. Better deep than wide." },
         { q: "What if I don't want to be on camera?", a: "Works. We build UGC-style content with creators or product-led visuals. But personal founder content typically performs best." },
         { q: "How much ad budget do I need?", a: "For paid social we recommend at least NZ$2,000 / month to start. Organic works without it — just takes longer." },
         { q: "Who produces the videos?", a: "We do. Including scripts, storyboard, edit, hooks. You approve, we publish. For founder content we need ~2 h per month from you." },
-        { q: "How fast will I see enquiries?", a: "Organic takes 60–90 days for first tracked conversions. Paid social often within 2–3 weeks if setup is clean." },
+        { q: "How fast will I see enquiries?", a: "Paid social often produces the first tracked enquiries within two to three weeks, because you're buying reach from day one. Posting without a budget behind it takes longer — usually 60 to 90 days before it shows up as work." },
         { q: "What about creators and influencer marketing?", a: "When relevant, yes — but as an add-on, not default. NZ founder-led brands typically build best on their own founder content. Creators come when volume justifies it." },
-        { q: "What happens after the 90 days?", a: "Monthly continuation. You keep all accounts, all content, all data — if you stop, nothing is lost." },
+        { q: "What happens after the first three months?", a: "It runs month by month. You keep all accounts, all content and all data — if you stop, nothing is lost." },
       ],
+    },
+    form: {
+      heading: "Find out what's worth posting",
+      note: "Tell us what you sell and where. You'll get a free one-page plan back within one working day — no sales call.",
     },
     leadMagnet: {
       eyebrow: "Before you invest",
-      headline: "Get your FREE social media consult.",
-      body: "We audit your platforms and audience to spot the three highest-impact moves you can make right now. A one-page plain-English report with concrete levers — whether you work with us or not.",
+      headline: "See what's actually worth posting.",
+      body: "We look at your accounts and work out which platform your buyers are really on, what to put in front of them, and what to stop doing. One page, plain English, whether you work with us or not.",
       bullets: [
-        "Platform-by-platform audit",
-        "Audience & content recommendations",
-        "30-minute Loom walkthrough",
-        "No obligations, so no worries",
+        "Which one or two platforms are worth your time",
+        "What to post, and what to stop posting",
+        "The three changes that would bring in work fastest",
+        "A short video walking you through it",
       ],
-      cta: "Get your FREE consult",
-      note: "In your inbox within 48 working hours. No spam, no obligation.",
+      cta: "Get my free plan",
+      note: "In your inbox within one working day. No spam, no obligation.",
     },
     finalCta: {
       eyebrow: "Talk to us",
-      headlineMain: "Let us show you",
-      headlineSub: "how we deliver real results.",
-      body: "Get in touch to find out how you can grow your business with a 5-star rated digital marketing agency in New Zealand that guarantees real results.",
-      primary: "Get your free audit",
+      headlineMain: "Find out what's",
+      headlineSub: "worth posting.",
+      body: "Tell us what you sell and who buys it. You'll get back the platform worth your time, what to put on it, and the three changes that would bring in work fastest. One working day, no sales call.",
+      primary: "Get my free plan",
     },
   },
 
@@ -762,15 +784,15 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       headlineTop: "More customers",
       headlineBottom: "with world-class web design.",
       sub: "Digital Movement is a 5-star rated web design agency in New Zealand building websites that deliver paying customers, not just traffic.",
-      primaryCta: "Get your FREE consult",
-      secondaryCta: "Book a consultation",
-      chips: ["Mobile-first design", "Conversion architecture", "SEO-ready from day one", "You can edit it"],
+      primaryCta: "Get my free plan",
+      secondaryCta: "Talk it through first",
+      chips: ["Mobile-first design", "Built to convert", "Ready to rank from day one", "You can edit it"],
       video: "video/website-logo.mp4",
     },
     whatItIs: {
       eyebrow: "What we do",
-      headlineMain: "Make your business stand out",
-      headlineSub: "with a world-class website.",
+      headlineMain: "A website that sells",
+      headlineSub: "while you're on the tools.",
       paragraphs: [
         "Your website is often the first impression people form of your business, and it needs to count. At Digital Movement, we design high-performing websites that don't just look exceptional but actively help you outperform competitors online.",
         "As an experienced web design agency in New Zealand, our team combines strategic thinking, creative design, and conversion-focused development to create websites that elevate your brand and support real business growth. Every project we deliver is built to impress your audience, reinforce trust, and encourage action.",
@@ -824,7 +846,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
           bullets: [
             "Strategic planning and site architecture",
             "Professional design and engaging content",
-            "Ongoing communication and dedicated account management",
+            "You deal with the people building it, not an account manager",
             "A trusted partner — not just a website designer",
           ],
         },
@@ -932,38 +954,42 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     faq: {
       eyebrow: "Common questions",
-      headlineMain: "Asked straight.",
-      headlineSub: "Answered straight.",
-      intro: "What Kiwi owners ask most often before starting a website project.",
+      headlineMain: "The questions",
+      headlineSub: "owners ask before they commit.",
+      intro: "What New Zealand owners ask most often before starting a website project.",
       items: [
         { q: "How long does a typical project take?", a: "Standard sprint 6 weeks. Plus 2 weeks if we produce extensive new content. Larger e-commerce builds can be 8–12 weeks — we'll tell you that up front." },
         { q: "Which platform do you recommend?", a: "Webflow is our default for marketing websites. Framer for motion-heavy brands. Custom React when performance or complexity demand it. We recommend what fits you — not us." },
         { q: "Can I maintain the site myself?", a: "Yes, that's standard. You get editing access and a 30-min video tutorial. With Webflow/Framer you can change copy, images and pages yourself." },
         { q: "What happens to my old site?", a: "We do a 301-redirect mapping so no SEO trust is lost. Plus a backup, in case you want to roll back." },
         { q: "What if I want changes after launch?", a: "30 days bug-fix support are included in the fixed price. After that: monthly care packages or hourly — you decide." },
-        { q: "What about SEO — will the new site rank?", a: "We build SEO-first — Schema.org, Core Web Vitals, clean URL structure, content strategy from day one. If you want to actively rank, we add our 90-day SEO sprint on top." },
+        { q: "Will the new site show up on Google?", a: "It's built so it can. That means it loads fast, works properly on a phone, has a sensible page structure, and tells Google what your business is and where it operates. That gets you a site Google can rank — actually climbing the results is ongoing work, and that's our SEO service." },
         { q: "What's the cost difference between custom and Webflow?", a: "Fixed-price range starts at NZ$22,000 (Webflow marketing site) and can go to NZ$90,000+ (custom React/e-commerce). We give you a concrete number in the consult." },
       ],
     },
+    form: {
+      heading: "Find out what your site is costing you",
+      note: "Send us your website. You'll get a free one-page plan back within one working day — no sales call.",
+    },
     leadMagnet: {
       eyebrow: "Before you decide",
-      headline: "Get your FREE web design consult.",
-      body: "We analyse your current website on Core Web Vitals, mobile performance and conversion architecture. You get a one-page report with the three highest-impact levers — whether you build with us or not.",
+      headline: "See what your site is costing you.",
+      body: "We measure how fast your site loads, how it behaves on a phone, and where visitors give up before they enquire. You get one page in plain English with the three changes worth making first — whether you build with us or not.",
       bullets: [
-        "Core Web Vitals measurement (LCP, CLS, INP)",
-        "Mobile performance audit",
-        "Top 3 conversion levers prioritised",
-        "No obligations, so no worries",
+        "How fast your site loads, and what it's costing you",
+        "How it behaves on a phone, where most of your visitors are",
+        "The three changes that would win the most enquiries",
+        "A short video walking you through it",
       ],
-      cta: "Get your FREE consult",
-      note: "In your inbox within 24 working hours.",
+      cta: "Get my free plan",
+      note: "In your inbox within one working day.",
     },
     finalCta: {
       eyebrow: "Talk to us",
-      headlineMain: "Let us show you",
-      headlineSub: "how we deliver real results.",
-      body: "Get in touch to find out how you can grow your business with a 5-star rated digital marketing agency in New Zealand that guarantees real results.",
-      primary: "Get your free audit",
+      headlineMain: "Find out what your",
+      headlineSub: "site is costing you.",
+      body: "Send us your website. You'll get back how fast it loads, where visitors give up before they enquire, and the three changes worth making first. One working day, no sales call.",
+      primary: "Get my free plan",
     },
   },
 };

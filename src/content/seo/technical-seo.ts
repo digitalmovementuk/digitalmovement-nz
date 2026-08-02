@@ -11,7 +11,7 @@ export const technicalSeo: SeoPageContent = {
   meta: {
     title: "Technical SEO Services NZ | Digital Movement",
     description:
-      "Technical SEO for NZ websites: crawlability, indexing, speed and structured data, fixed properly. Free audit, no lock-in, page 1 in 90 days guaranteed.",
+      "Technical SEO for NZ websites. If your rankings have stalled despite good content, this is usually why — and this page explains it in plain English. Free plan first.",
   },
 
   keywords: {
@@ -28,10 +28,10 @@ export const technicalSeo: SeoPageContent = {
   hero: {
     eyebrow: "SEO agency · the technical layer",
     h1: "Technical SEO for New Zealand Websites",
-    sub: "Technical SEO is the foundation search engines use to find, understand and rank a website, covering crawlability, indexing, page speed, structured data and mobile usability. This page is for New Zealand site owners whose rankings have stalled despite decent content, or who want to know what a technical SEO audit actually checks before they pay for one. We fold technical SEO into every project we run, and this page explains what that work actually involves, with a free audit before you commit to anything.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free technical SEO audit"],
-    formHeading: "Get your free technical SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    sub: "If your website has decent content and still isn't showing up, this is usually the reason. Technical SEO is the plumbing — the things that decide whether Google can read your site properly at all. None of it is visible to a customer, and all of it decides whether the money you spend on everything else gets a fair chance to work. Here's what it involves, in plain English, with a free plan before you commit to anything.",
+    chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
+    formHeading: "Find out what's holding your site back",
+    formNote: "Send us your website. You'll get a free one-page plan back within one working day — no sales call.",
   },
 
   local: {
@@ -41,37 +41,31 @@ export const technicalSeo: SeoPageContent = {
     paragraphs: [
       "Technical SEO is the set of fixes that let search engines crawl a website, understand its pages and rank them fairly. It covers five things: crawlability (can Google's bots reach and read every page that matters), indexing (does a crawled page actually make it into Google's index), site speed (does the page load fast enough, especially on mobile data), structured data (code that tells Google what a page is, such as a product, a review or a local business, beyond just the words on it), and canonicalisation (making sure Google isn't confused by several URLs showing the same content). None of it is visible to a visitor. All of it decides whether the content and links you build ever get a fair chance to rank.",
       "There are a few reliable signs a site has a technical SEO problem. Rankings stall even though the content is genuinely good, and competitors with thinner pages still outrank you. Pages you know exist don't turn up in a site:yourdomain.co.nz search, which usually means Google crawled them and chose not to index them. The site feels slow, especially on mobile, and Core Web Vitals reports in Search Console show pages failing on loading speed or layout stability. Or two versions of the same page are both live at once (with and without \"www\", with and without a trailing slash, secure and non-secure), splitting the ranking signals that should be going to a single URL.",
-      "This page has no search volume of its own. Almost nobody searches \"technical seo\" as a first step — they search for the outcome instead, like more leads or more pages ranking. We've published it anyway because technical SEO underpins every other page on this site, and because a site owner comparing agencies deserves a plain-English answer to \"what does that actually involve\" before they pay for an audit. Every technical SEO project we run folds into the same page 1 in 90 days guarantee as the rest of our SEO work.",
+      "Almost nobody goes looking for \"technical SEO\". People go looking for the thing they actually want — more enquiries, or an answer to why a website that cost real money isn't showing up. This page exists because that second question usually has a technical answer, and because anyone comparing agencies deserves a plain-English account of what the work involves before they pay for it. Every technical project we run is scoped, priced and reported exactly like the rest of our SEO work.",
     ],
   },
 
   outcomes: {
     eyebrow: "What changes",
-    headlineMain: "What actually changes",
+    headlineMain: "What it's worth",
     headlineSub: "once it's fixed.",
     intro:
-      "Fixing technical SEO doesn't feel dramatic from the outside, because most of the work is invisible. Here's what actually changes once a technical SEO project is done.",
+      "None of this work is visible to a customer, which is why it gets skipped. It still decides whether the pages you already paid for ever get seen. Here is what changes, and what it's worth.",
     items: [
       {
-        kicker: "Crawling & indexing",
-        value: "1",
-        unit: "canonical URL per page",
-        title: "No more pages competing with themselves",
-        body: "Duplicate and parameter URLs get canonicalised or removed, so Google indexes one clear version of each page instead of splitting ranking signals across several.",
+        kicker: "Pages that count",
+        title: "Stop your own pages competing with each other",
+        body: "When the same page exists at three slightly different web addresses, Google splits the credit between them and none of them rank. We point them all at one address, so all the credit lands in one place — and the page you actually care about starts showing up.",
       },
       {
-        kicker: "Site speed",
-        value: "Core Web Vitals",
-        unit: "in the \"Good\" range",
-        title: "Pages that pass Google's speed thresholds",
-        body: "Render-blocking scripts, oversized images and layout shifts get fixed, moving Largest Contentful Paint and Cumulative Layout Shift into the range Google uses as a ranking signal.",
+        kicker: "Speed",
+        title: "Stop losing people before the page loads",
+        body: "Most of your visitors are on a phone, often on mobile data. A slow page loses a share of them before they ever see what you sell — and Google ranks slow pages lower on top of that. We cut the load time by fixing oversized images and the code that blocks the page from appearing.",
       },
       {
-        kicker: "Crawl budget",
-        value: "0",
-        unit: "wasted crawls on junk URLs",
-        title: "Google's crawler spends time on pages that matter",
-        body: "Filtered, faceted and thin URLs get blocked or noindexed, so the crawl budget search engines give a site goes to the pages actually meant to rank.",
+        kicker: "Attention",
+        title: "Point Google at the pages that earn you money",
+        body: "Google only reads so much of a site before it moves on. On a lot of sites it burns that time on filter and search-result pages nobody should land on, and never gets to the service pages you want ranking. We shut the useless ones off so the good ones get read.",
       },
     ],
   },
@@ -147,7 +141,7 @@ export const technicalSeo: SeoPageContent = {
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Real reviews",
     headlineSub: "from real NZ clients.",
     intro:
@@ -215,7 +209,7 @@ export const technicalSeo: SeoPageContent = {
       },
       {
         q: "How long does technical SEO take to show results?",
-        a: "Fixes usually ship within the first month. Google then needs time to re-crawl and re-index the affected pages, so most sites see the effect show up in rankings from around month two, in line with our page 1 in 90 days guarantee.",
+        a: "Fixes usually ship within the first month. Google then needs time to re-read the affected pages, so most sites see the effect show up in rankings from around month two.",
       },
     ],
   },
@@ -224,8 +218,8 @@ export const technicalSeo: SeoPageContent = {
     eyebrow: "Ready when you are",
     headlineMain: "Fix what's broken",
     headlineSub: "before you build anything else.",
-    body: "A technical SEO audit tells you exactly what's stopping a site from ranking, in plain English, before you spend money on content or links that won't get the chance to work. It's free, there's no long lock-in (month-to-month after a short minimum term), and every project comes with our page 1 in 90 days guarantee once the technical foundation is fixed.",
+    body: "Before you spend another dollar on content or ads, find out whether Google can read your site properly at all. The plan is free, it comes back in plain English within one working day, and it's yours to keep whether you hire us or not.",
     formHeading: "Get your free technical SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 };

@@ -8,7 +8,7 @@ export const roofers: SeoPageContent = {
   meta: {
     title: "SEO for Roofers NZ | Digital Movement",
     description:
-      "See how Digital Movement helps NZ roofing companies turn storm demand and re-roof enquiries into booked jobs. Free audit.",
+      "See how Digital Movement helps NZ roofing companies turn storm demand and re-roof enquiries into booked jobs. Free plan, no obligation.",
   },
 
   // This page is sales collateral, not a traffic asset. We send it to a
@@ -33,9 +33,9 @@ export const roofers: SeoPageContent = {
     eyebrow: "SEO · for NZ roofing companies",
     h1: "SEO for roofers, built for storm season.",
     sub: "This page is for New Zealand roofing company owners weighing up whether Digital Movement can get them found online. We don't have roofing clients to point to yet, so instead of a case study, here's exactly how we'd approach a roofing company's SEO — the storm-driven demand spikes, the high-value re-roof decision, and the trust problem a trade with plenty of fly-by-night operators has to solve first.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free audit, no obligation"],
+    chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
     formHeading: "Get your free roofing SEO audit",
-    formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",
+    formNote: "One-page report, plain English, in your inbox within one working day. No obligation.",
   },
 
   local: {
@@ -65,10 +65,8 @@ export const roofers: SeoPageContent = {
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Rank where it counts",
-        body: "We guarantee your roofing company a page 1 position in Google Search results within 90 days.",
+        body: "A leaking roof is not a job anyone shops around for. They search, they ring the first two or three names they see, and it is done by lunchtime. Being on that list is the whole game.",
       },
       {
         kicker: "Timing",
@@ -127,20 +125,20 @@ export const roofers: SeoPageContent = {
   },
 
   process: {
-    eyebrow: "The 90-day journey",
+    eyebrow: "How it runs",
     headlineMain: "Four milestones.",
     headlineSub: "Clear, honest, on record.",
     intro: "What happens on day 1, 30, 60 and 90 for your roofing company. We say it up front, we stick to it, and we show you the maths every month.",
     steps: [
       { eta: "Week 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A strategy call where we map your roofing company's keyword targets — emergency, maintenance and re-roof." },
       { eta: "Week 4", title: "Foundation in place", body: "Technical SEO clean. First landing pages for your roofing services live. Tracking running, data flowing." },
-      { eta: "Week 8", title: "Climbing the rankings", body: "First commercial keywords reach the top of page 2 or bottom of page 1. Enquiries start coming in for your roofing company." },
-      { eta: "Week 13", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here, monthly continuation — no lock-in." },
+      { eta: "Week 8", title: "Climbing the rankings", body: "The re-roof and repair searches start climbing into view. Enquiries start coming in for your roofing company." },
+      { eta: "Week 13", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Results from",
     headlineSub: "businesses across NZ.",
     intro: "These are genuine reviews from Digital Movement clients around New Zealand — not roofing companies. We're showing you the standard of work you'd get, honestly, before we've had the chance to build a roofing track record.",
@@ -151,7 +149,7 @@ export const roofers: SeoPageContent = {
     eyebrow: "Also serving",
     headlineMain: "SEO for",
     headlineSub: "other NZ trades.",
-    intro: "We run the same guaranteed 90-day process for other trades and for New Zealand businesses generally.",
+    intro: "We run the same process for the other trades, and for New Zealand businesses generally.",
     links: [
       { label: "SEO for Builders", to: "/industries/builders", blurb: "The same approach, built for building companies." },
       { label: "SEO for Electricians", to: "/industries/electricians", blurb: "Local SEO for electrical contractors." },
@@ -163,19 +161,19 @@ export const roofers: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Asked straight.",
     headlineSub: "Answered straight.",
-    intro: "What roofing company owners ask us most before booking their free audit.",
+    intro: "What roofing company owners ask us most before booking their free plan.",
     items: [
       {
         q: "What does SEO for roofers cost?",
-        a: "It's a fixed monthly price, not a per-hour or per-link fee — the exact number depends on how competitive your area and keywords are. Book your free audit and we'll give you a concrete figure, not a range that hides the real cost.",
+        a: "It's a fixed monthly price, not a per-hour or per-link fee — the exact number depends on how competitive your area and keywords are. Ask for the free plan and you'll get a real number for your roofing business, not a range.",
       },
       {
         q: "Do you have roofing client case studies?",
-        a: "Not yet — we're upfront about that. Our published results are from New Zealand clients in other industries. What you can rely on is the same guaranteed process and a 5.0 Google rating across 100+ reviews.",
+        a: "Not yet — we're upfront about that. Our published results are from New Zealand clients in other industries. What you can rely on is the same process, written down before you pay us anything, and a 5.0 Google rating across 100+ reviews.",
       },
       {
         q: "Can SEO actually handle the demand spike after a storm?",
-        a: "Yes, if the work is done before the storm, not after. We build your roofing company's visibility ahead of time, so you're already ranking when search volume jumps after severe weather — waiting until the spike starts is too late to catch it.",
+        a: "Yes, but only if the work is done before the storm. When the wind comes through, everyone in the region searches at once and rings whoever is already at the top. Getting there takes weeks, so a roofer who starts the day after a storm has already missed it. The whole point is to be in position when it hits.",
       },
       {
         q: "Do you write content about insurance and claims work?",
@@ -191,11 +189,11 @@ export const roofers: SeoPageContent = {
       },
       {
         q: "Is there a minimum contract length?",
-        a: "We work month-to-month after a short minimum term to set things up properly. If we're not delivering, you can leave — we'd rather earn the next month than trap you in one.",
+        a: "We ask for three months to start, then work month by month. Three months to start, then it's yours to end whenever you like.",
       },
       {
         q: "How fast will my roofing company see results?",
-        a: "Ranking movement typically starts in the first 2–4 weeks. We guarantee your roofing company a page 1 position in Google Search results within 90 days.",
+        a: "Ranking movement typically starts in the first two to four weeks, because the technical work lands first and Google picks it up quickly. Calls follow later. Most roofers are looking at a few months before the phone genuinely changes, and you'll see exactly where you sit every month in between.",
       },
     ],
   },
@@ -204,8 +202,8 @@ export const roofers: SeoPageContent = {
     eyebrow: "Talk to us",
     headlineMain: "Let us show you",
     headlineSub: "how we get roofers found.",
-    body: "Get in touch to find out how your roofing company can grow with a 5-star rated SEO agency that guarantees real results.",
+    body: "Get in touch and we'll show you which roofing searches in your area are worth going after, what your competitors are doing on them, and what it would take to get in front. Free, in plain English, in one working day.",
     formHeading: "Get your free roofing SEO audit",
-    formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",
+    formNote: "One-page report, plain English, in your inbox within one working day. No obligation.",
   },
 };

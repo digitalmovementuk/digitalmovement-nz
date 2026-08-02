@@ -258,8 +258,8 @@ function Hero({ content }: { content: ServiceContent }) {
             >
               <LeadForm
                 source={`service-${content.slug}-hero`}
-                heading="Get your free audit"
-                note="A one-page audit in your inbox within 24 hours. No obligation."
+                heading={content.form.heading}
+                note={content.form.note}
                 defaultService={LEAD_FORM_SERVICE[content.slug] ?? "Not sure yet"}
               />
             </motion.div>
@@ -422,26 +422,40 @@ function Outcomes({ content }: { content: ServiceContent }) {
                 <span className="h-px w-6 bg-ink/15" />
                 <span>{item.kicker}</span>
               </div>
-              <p
-                className="mt-5 text-ink"
-                style={{
-                  fontSize: "clamp(40px, 5vw, 64px)",
-                  lineHeight: "0.9",
-                  letterSpacing: "-0.045em",
-                  fontWeight: 700,
-                }}
-              >
-                {item.value}
-                <span className="text-ink/55"> {item.unit}</span>
-              </p>
+              {/* No figure, no figure-shaped hole. When a card has no honest
+                  number the heading takes the display size, so the card still
+                  carries weight without inventing a statistic to fill it. */}
+              {item.value && (
+                <p
+                  className="mt-5 text-ink"
+                  style={{
+                    fontSize: "clamp(40px, 5vw, 64px)",
+                    lineHeight: "0.9",
+                    letterSpacing: "-0.045em",
+                    fontWeight: 700,
+                  }}
+                >
+                  {item.value}
+                  {item.unit && <span className="text-ink/55"> {item.unit}</span>}
+                </p>
+              )}
               <h3
-                className="mt-3 text-ink"
-                style={{
-                  fontSize: "clamp(20px, 1.8vw, 24px)",
-                  lineHeight: "1.18",
-                  letterSpacing: "-0.022em",
-                  fontWeight: 600,
-                }}
+                className={item.value ? "mt-3 text-ink" : "mt-5 text-ink"}
+                style={
+                  item.value
+                    ? {
+                        fontSize: "clamp(20px, 1.8vw, 24px)",
+                        lineHeight: "1.18",
+                        letterSpacing: "-0.022em",
+                        fontWeight: 600,
+                      }
+                    : {
+                        fontSize: "clamp(24px, 2.6vw, 32px)",
+                        lineHeight: "1.12",
+                        letterSpacing: "-0.03em",
+                        fontWeight: 700,
+                      }
+                }
               >
                 {item.title}
               </h3>
@@ -952,12 +966,18 @@ function LeadMagnet({ content }: { content: ServiceContent }) {
               </ul>
             </div>
             <div className="flex flex-col items-start lg:items-center gap-4">
-              <Link
-                to="/#contact"
+              {/*
+                Points at the form on THIS page, not the homepage contact
+                section. Sending a reader who has just been convinced off to
+                another page, past two working forms, was throwing the lead
+                away at the moment it was won.
+              */}
+              <a
+                href="#enquire"
                 className="inline-flex items-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[15px] sm:text-[16px] px-7 py-3.5 transition-colors"
               >
                 {content.leadMagnet.cta} <ArrowRight size={16} />
-              </Link>
+              </a>
               <p className="text-[12px] text-ink-muted leading-relaxed">{content.leadMagnet.note}</p>
             </div>
           </div>
@@ -1013,12 +1033,7 @@ function FinalCTA({ content }: { content: ServiceContent }) {
             >
               {content.finalCta.primary} <ArrowRight size={16} />
             </a>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-1.5 text-[14px] sm:text-[15px] text-white/75 hover:text-white transition-colors"
-            >
-              Back to homepage <ArrowUpRight size={14} />
-            </Link>
+            {/* No exit link beside the final CTA — see SeoPageShell. */}
           </div>
         </Reveal>
         </div>
@@ -1029,8 +1044,8 @@ function FinalCTA({ content }: { content: ServiceContent }) {
         <div id="enquire" className="scroll-mt-24">
           <LeadForm
             source={`service-${content.slug}-footer`}
-            heading="Get your free audit"
-            note="A one-page audit in your inbox within 24 hours. No obligation."
+            heading={content.form.heading}
+            note={content.form.note}
             defaultService={LEAD_FORM_SERVICE[content.slug] ?? "Not sure yet"}
           />
         </div>

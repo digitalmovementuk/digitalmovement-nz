@@ -116,7 +116,7 @@ export function LeadCaptureModal() {
               {!submitted ? (
                 <>
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-ink-muted">
-                    Free 1-page audit
+                    Free 1-page plan
                   </p>
                   <h3
                     id="lcm-title"
@@ -131,8 +131,8 @@ export function LeadCaptureModal() {
                     Want one for your business?
                   </h3>
                   <p className="mt-2 text-[14.5px] text-ink-soft leading-relaxed">
-                    Drop your email — a founder sends back a tailored audit
-                    within 24h. No sales call required.
+                    Drop your email — a founder sends back a tailored plan
+                    within one working day. No sales call required.
                   </p>
 
                   <form onSubmit={onSubmit} className="mt-5 space-y-3">
@@ -160,7 +160,7 @@ export function LeadCaptureModal() {
                       disabled={sending}
                       className="w-full mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-[15px] py-3 transition-colors"
                     >
-                      {sending ? "Sending…" : <>Send my free audit <ArrowRight size={15} /></>}
+                      {sending ? "Sending…" : <>Get my free plan <ArrowRight size={15} /></>}
                     </button>
                     {error ? (
                       <p role="alert" className="text-[12.5px] leading-relaxed text-[#B3261E]">
@@ -179,8 +179,7 @@ export function LeadCaptureModal() {
                     Got it — talk soon.
                   </h3>
                   <p className="mt-2 text-[14px] text-ink-soft leading-relaxed">
-                    Your audit will land in your inbox within 24 hours on
-                    weekdays.
+                    Your plan will land in your inbox within one working day.
                   </p>
                 </div>
               )}

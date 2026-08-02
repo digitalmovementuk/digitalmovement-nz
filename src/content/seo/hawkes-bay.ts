@@ -9,7 +9,7 @@ export const hawkesBay: SeoPageContent = {
   meta: {
     title: "SEO Hawke's Bay | Napier & Hastings | Digital Movement",
     description:
-      "SEO Hawke's Bay for Napier and Hastings trades. Page 1 in 90 days, guaranteed. 5.0-rated NZ agency. Book your free audit today.",
+      "SEO Hawke's Bay for Napier and Hastings trades. Target searches agreed in writing, a report every month, and a free plan before you commit.",
   },
 
   keywords: {
@@ -32,10 +32,10 @@ export const hawkesBay: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Hawke's Bay businesses",
     h1: "SEO Hawke's Bay trades use to fill the calendar.",
-    sub: "This is SEO for trades and local businesses trading in Napier, Hastings and the wider Hawke's Bay who want to show up first when someone searches for what they do. We guarantee a Google page 1 position within 90 days.",
-    chips: ["Page 1 in 90 days", "5.0 Google rating", "Month-to-month", "Free audit"],
+    sub: "SEO for trades and local businesses in Napier, Hastings and the wider Hawke's Bay who want to be the first name that comes up when someone searches for what they do — and who want it written down which searches those are.",
+    chips: ["Searches agreed in writing", "5.0 Google rating", "Month by month after 3", "Free plan, no obligation"],
     formHeading: "Get your free Hawke's Bay SEO audit",
-    formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",
+    formNote: "One-page report, plain English, in your inbox within one working day. No obligation.",
   },
 
   local: {
@@ -50,11 +50,6 @@ export const hawkesBay: SeoPageContent = {
       "Cyclone Gabrielle in 2023 put sustained pressure on building, roofing, drainage and civil trades across the region, and that demand hasn't fully worked through the system yet. It's context for why capacity is tight, not a hook to sell against — we won't dress it up as a marketing angle.",
       "We build local pages and content that name Napier, Hastings, Havelock North and the rural surrounds separately, because that's how people here actually search — not around a single generic 'Hawke's Bay' term with the suburb swapped out.",
     ],
-    stats: [
-      { value: "140", label: "monthly Google searches for 'seo hawkes bay'" },
-      { value: "90", label: "days to page 1, guaranteed" },
-      { value: "5.0", label: "Google rating across 100+ reviews" },
-    ],
   },
 
   outcomes: {
@@ -65,10 +60,8 @@ export const hawkesBay: SeoPageContent = {
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Rank where it counts",
-        body: "We guarantee your business a page 1 position in Google Search results across Hawke's Bay within 90 days.",
+        body: "One business, found in both centres. We build for Napier searches and Hastings searches separately, because a customer in Havelock North doesn't search the way one in Ahuriri does.",
       },
       {
         kicker: "Coverage",
@@ -135,12 +128,12 @@ export const hawkesBay: SeoPageContent = {
       { eta: "Week 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A strategy call where we map your Napier and Hastings keyword targets." },
       { eta: "Week 4", title: "Foundation in place", body: "Technical SEO clean. First local pages for Napier and Hastings live. Tracking running, data flowing." },
       { eta: "Week 8", title: "Climbing the rankings", body: "First commercial keywords reach the top of page 2 or bottom of page 1. Enquiries start coming in from across the Bay." },
-      { eta: "Week 13", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here, monthly continuation — no lock-in." },
+      { eta: "Week 13", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Results from",
     headlineSub: "businesses across NZ.",
     intro: "These are genuine reviews from Digital Movement clients around New Zealand — not Hawke's Bay businesses, and not trades specifically. We're showing you the standard of work you'd be getting, honestly, before we've had the chance to build you a local track record.",
@@ -150,7 +143,7 @@ export const hawkesBay: SeoPageContent = {
     eyebrow: "Also serving",
     headlineMain: "SEO across",
     headlineSub: "New Zealand.",
-    intro: "We run the same guaranteed 90-day process for businesses in other NZ regions.",
+    intro: "We run the same process for businesses in other New Zealand regions.",
     links: [
       { label: "SEO New Zealand", to: "/seo", blurb: "Our national SEO service, for any Kiwi business." },
       { label: "SEO Tauranga", to: "/seo/tauranga", blurb: "Local SEO for the Bay of Plenty." },
@@ -162,11 +155,11 @@ export const hawkesBay: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Asked straight.",
     headlineSub: "Answered straight.",
-    intro: "What Napier and Hastings business owners ask us most before booking their free audit.",
+    intro: "What Napier and Hastings business owners ask us most before booking their free plan.",
     items: [
       {
         q: "What does SEO in Hawke's Bay cost?",
-        a: "It's a fixed monthly price, not a per-hour or per-link fee — the exact number depends on your industry and how competitive your keywords are. Book your free audit and we'll give you a concrete figure, not a range that hides the real cost.",
+        a: "It's a fixed monthly price, not a per-hour or per-link fee — the exact number depends on your industry and how competitive your keywords are. Ask for your free plan and we'll give you a concrete figure, not a range that hides the real cost.",
       },
       {
         q: "Do you offer SEO in Napier specifically?",
@@ -186,15 +179,15 @@ export const hawkesBay: SeoPageContent = {
       },
       {
         q: "How fast will I see results from a Hawke's Bay SEO company?",
-        a: "Ranking movement typically starts in the first 2–4 weeks. We guarantee your business a page 1 position in Google Search results within 90 days.",
+        a: "Ranking movement typically starts in the first two to four weeks, because the early technical fixes are what Google picks up fastest. Enquiries follow once the new pages have been live a month or two. We won't promise a position — nobody controls Google's results — but the searches we're chasing are agreed in writing, and you see where you sit on each one every month.",
       },
       {
         q: "Is there a minimum contract length?",
-        a: "We work month-to-month after a short minimum term to set things up properly. If we're not delivering, you can leave — we'd rather earn the next month than trap you in one.",
+        a: "We ask for three months to start, then work month by month. If we're not delivering, you can leave — we'd rather earn the next month than trap you in one.",
       },
       {
         q: "Do you have Hawke's Bay client case studies?",
-        a: "Not yet — we're upfront about that. Our published results are from clients across New Zealand. What you can rely on is the same guaranteed process and a 5.0 Google rating across 100+ reviews.",
+        a: "Not yet — we're upfront about that. Our published results are from clients elsewhere in New Zealand. What you can rely on is the same process, the target searches written down before you start, and a 5.0 Google rating across 100+ reviews.",
       },
     ],
   },
@@ -203,8 +196,8 @@ export const hawkesBay: SeoPageContent = {
     eyebrow: "Talk to us",
     headlineMain: "Let us show you",
     headlineSub: "how we get Hawke's Bay found.",
-    body: "Get in touch to find out how your Napier or Hastings business can grow with a 5-star rated SEO agency that guarantees real results.",
+    body: "Send us your website and whether you work Napier, Hastings or both. You'll get back the searches your customers are already using, who's winning them instead of you, and the three fixes worth doing first. One working day, no sales call.",
     formHeading: "Get your free Hawke's Bay SEO audit",
-    formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",
+    formNote: "One-page report, plain English, in your inbox within one working day. No obligation.",
   },
 };

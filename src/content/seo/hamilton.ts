@@ -9,7 +9,7 @@ export const hamilton: SeoPageContent = {
   meta: {
     title: "SEO Hamilton Agency | Digital Movement",
     description:
-      "SEO Hamilton services built for trades and local businesses. Free audit, page 1 in 90 days, 5.0-rated NZ agency. Get your free proposal.",
+      "SEO Hamilton services built for trades and local businesses. Free plan, target searches agreed in writing, a plain-English report every month.",
   },
 
   keywords: {
@@ -24,11 +24,11 @@ export const hamilton: SeoPageContent = {
 
   hero: {
     eyebrow: "SEO · for Hamilton businesses",
-    h1: "SEO Hamilton businesses trust for page 1 rankings.",
-    sub: "Digital Movement is a 5.0-rated SEO agency that gets Hamilton trades and local businesses to page 1 of Google in 90 days, guaranteed.",
-    chips: ["Page 1 in 90 days", "5.0 rating, 100+ reviews", "Free SEO audit", "No lock-in contracts"],
+    h1: "SEO Hamilton businesses use to win more jobs.",
+    sub: "We get Hamilton trades and local businesses in front of the customers already searching for them — and we write down which searches we're going after before we start, so you can hold us to it.",
+    chips: ["Searches agreed in writing", "5.0 rating, 100+ reviews", "Free plan, no obligation", "Month by month after 3"],
     formHeading: "Get your free Hamilton SEO audit",
-    formNote: "Written report in your inbox within 24 hours. No obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
@@ -43,11 +43,6 @@ export const hamilton: SeoPageContent = {
       "The University of Waikato adds a steady flow of renters and first-home buyers cycling through Hillcrest and the central suburbs, on top of the agricultural and agritech economy that keeps the wider Waikato base of a Hamilton trades business busy. Both matter for how a Hamilton site should be structured — city-core service pages for the renter and reno market, region-wide pages for the rural and agri-business side.",
       "None of this shows up in a page built once and reused with the city name swapped out. It's why the current results for \"seo hamilton\" and its variants are still winnable by a page that's actually about Hamilton.",
     ],
-    stats: [
-      { value: "320", label: "people search \"seo hamilton\" on Google every month" },
-      { value: "5.0", label: "Google rating from 100+ verified reviews" },
-      { value: "90 days", label: "to a guaranteed page 1 ranking" },
-    ],
   },
 
   outcomes: {
@@ -55,14 +50,12 @@ export const hamilton: SeoPageContent = {
     headlineMain: "Real leads,",
     headlineSub: "not vanity rankings.",
     intro:
-      "Hamilton's SERPs are winnable on relevance alone — the current results are mostly templates with the city name changed. That means the work you're paying for goes straight into rankings and enquiries, not into out-competing a wall of backlinks.",
+      "Hamilton's Hamilton's results are winnable on relevance alone — most of what ranks there now is a template with the city name changed. That means the work you're paying for goes straight into rankings and enquiries, not into out-competing a wall of backlinks.",
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Outrank the template pages",
-        body: "We build pages that are actually about Hamilton — suburbs, industrial areas and the towns you also serve — and guarantee page 1 in Google Search results in 90 days.",
+        body: "We build pages that are actually about Hamilton — Frankton, Rototuna, the industrial areas and the towns you also serve — because a page about \"the Waikato\" wins nothing and a page about your patch wins work.",
       },
       {
         kicker: "Leads",
@@ -131,12 +124,12 @@ export const hamilton: SeoPageContent = {
       { eta: "Day 1", title: "Audit & kick-off", body: "Free Hamilton SEO audit in your inbox. A short strategy call. You know exactly where you stand and what's next." },
       { eta: "Day 30", title: "Foundation in place", body: "Technical SEO clean. Suburb and trade-specific pages live. Google Business Profile fully built out." },
       { eta: "Day 60", title: "Climbing the rankings", body: "First commercial keywords reach the top of page 2 / bottom of page 1. Enquiries start coming in." },
-      { eta: "Day 90", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here on, monthly continuation — no lock-in." },
+      { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Real reviews,",
     headlineSub: "not local yet.",
     intro:
@@ -150,7 +143,7 @@ export const hamilton: SeoPageContent = {
     intro:
       "We work with businesses right across the country. If you're growing beyond Hamilton and the Waikato, here's where else we're active.",
     links: [
-      { label: "SEO New Zealand", to: "/seo", blurb: "Our national SEO hub — every city, every service, one guarantee." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "Our national SEO hub — every city and every service we cover." },
       { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "Search visibility built for Canterbury businesses." },
       { label: "SEO Tauranga", to: "/seo/tauranga", blurb: "Local SEO for the Bay of Plenty." },
     ],
@@ -160,11 +153,11 @@ export const hamilton: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Hamilton SEO,",
     headlineSub: "answered straight.",
-    intro: "What Hamilton business owners ask most before they book their free audit.",
+    intro: "What Hamilton business owners ask most before they book their free plan.",
     items: [
       {
         q: "What does an SEO company in Hamilton charge?",
-        a: "Fixed monthly pricing, scoped to your goals — no setup fee and no surprise add-ons. We give you a concrete number after the free audit, once we know what your site actually needs.",
+        a: "Fixed monthly pricing, scoped to your goals — no setup fee and no surprise add-ons. We give you a concrete number after the free plan, once we know what your site actually needs.",
       },
       {
         q: "Do you provide SEO services in Hamilton for small businesses?",
@@ -176,7 +169,7 @@ export const hamilton: SeoPageContent = {
       },
       {
         q: "How long until my Hamilton business ranks on Google?",
-        a: "We guarantee a page 1 position in Google Search results within 90 days. Many clients see ranking movement in the first few weeks, with enquiries following from there.",
+        a: "Many clients see ranking movement in the first few weeks, with enquiries following once the new pages have been live a month or two. We won't promise you a position — nobody controls Google's results — but we will write down the searches we're chasing and show you where you sit on each one every month.",
       },
       {
         q: "Can you help me rank for suburbs like Rototuna or Chartwell, not just Hamilton?",
@@ -188,7 +181,7 @@ export const hamilton: SeoPageContent = {
       },
       {
         q: "Is there a minimum contract for Hamilton SEO services?",
-        a: "We work month-to-month after a short minimum term to set things up properly. If we're not delivering, you can leave.",
+        a: "We ask for three months to start, then work month by month. If we're not delivering, you can leave.",
       },
       {
         q: "Do you work with trades businesses outside Hamilton city, like Cambridge or Te Awamutu?",
@@ -201,7 +194,7 @@ export const hamilton: SeoPageContent = {
     eyebrow: "Talk to us",
     headlineMain: "Ready to rank",
     headlineSub: "in Hamilton?",
-    body: "Get in touch to find out how a 5.0-rated NZ agency can get your Hamilton business found on Google — with a guaranteed page 1 position in 90 days.",
+    body: "Send us your website and the parts of the Waikato you work in. You'll get back the searches your customers are already using, who's winning them instead of you, and the three fixes worth doing first. One working day, no sales call.",
     formHeading: "Get your free Hamilton SEO audit",
     formNote: "No obligation. Straight answers, not a sales pitch.",
   },

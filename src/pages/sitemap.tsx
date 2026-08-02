@@ -99,7 +99,7 @@ export function Sitemap() {
               fontWeight: 700,
             }}
           >
-            Every page on this site.
+            The pages on this site.
           </h1>
           <p className="mt-5 sm:mt-6 mx-auto lg:mx-0 max-w-[52ch] text-[15px] sm:text-[17px] text-white/70 leading-relaxed">
             All {total} pages, grouped by what they are for. If you are looking for what we do in

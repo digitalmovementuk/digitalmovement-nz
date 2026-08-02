@@ -182,7 +182,7 @@ export function LeadForm({ source, heading, note, defaultService = "SEO", varian
               disabled={sending}
               className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-[15px] py-3 transition-colors"
             >
-              {sending ? "Sending…" : <>Get your free audit <ArrowRight size={15} /></>}
+              {sending ? "Sending…" : <>Get my free plan <ArrowRight size={15} /></>}
             </button>
 
             {error ? (
@@ -206,8 +206,8 @@ export function LeadForm({ source, heading, note, defaultService = "SEO", varian
             </div>
             <h2 className="mt-5 text-[22px] font-extrabold text-ink">We've got your details.</h2>
             <p className="mt-2 text-[14.5px] text-ink-soft leading-relaxed max-w-[38ch] mx-auto">
-              A founder — not a sales rep — will reply personally within 24 hours on weekdays, with
-              the audit attached.
+              A founder — not a sales rep — will reply personally within one working day, with
+              your plan attached.
             </p>
             <a
               href={business.emailHref}

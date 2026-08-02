@@ -8,7 +8,7 @@ export const electricians: SeoPageContent = {
   meta: {
     title: "SEO for Electricians NZ | Digital Movement",
     description:
-      "See how we build websites and SEO for NZ electrical contractors — domestic, commercial, EV and solar work. Free audit, 5.0-rated agency.",
+      "See how we build websites and SEO for NZ electrical contractors — domestic, commercial, EV and solar work. Free plan, 5.0-rated agency.",
   },
 
   // This page is sales collateral, not a traffic asset: it's the page an
@@ -32,9 +32,9 @@ export const electricians: SeoPageContent = {
     eyebrow: "SEO · for NZ electrical contractors",
     h1: "SEO for electricians who want more than referrals.",
     sub: "This page is for New Zealand electrical contractors, and it exists to show exactly how Digital Movement builds websites and search visibility for electricians. We work with domestic and commercial sparkies alike, from switchboard upgrades to EV charger installs, backed by a 5.0 rating from 100+ verified reviews.",
-    chips: ["5.0 rating, 100+ reviews", "Free SEO audit", "Page 1 in 90 days", "No lock-in contracts"],
+    chips: ["5.0 rating, 100+ reviews", "Free plan, no obligation", "Searches agreed in writing", "Month by month after 3"],
     formHeading: "Get your free electrician SEO audit",
-    formNote: "Written report in your inbox within 24 hours. No obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
@@ -128,7 +128,7 @@ export const electricians: SeoPageContent = {
 
   process: {
     eyebrow: "How it works",
-    headlineMain: "The 90 days,",
+    headlineMain: "What happens,",
     headlineSub: "mapped out.",
     intro:
       "What happens on day 1, 30, 60 and 90 for an electrical contractor working with us. We say it up front, we stick to it, and we show you the maths every month.",
@@ -136,12 +136,12 @@ export const electricians: SeoPageContent = {
       { eta: "Day 1", title: "Audit & kick-off", body: "Free SEO audit for your electrical contracting business lands in your inbox, plus a short call to walk through what it means for you." },
       { eta: "Day 30", title: "Site and profile live", body: "Domestic and commercial service pages go live, your EWRB licence number is visible where customers look for it, and your Google Business Profile is fully built out." },
       { eta: "Day 60", title: "Rankings climbing", body: "Commercial keywords and growth-category searches like EV chargers and solar start moving up, and enquiries begin coming in." },
-      { eta: "Day 90", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here, month-to-month — no lock-in." },
+      { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Honest reviews,",
     headlineSub: "not electricians yet.",
     intro:
@@ -157,7 +157,7 @@ export const electricians: SeoPageContent = {
     links: [
       { label: "SEO for Plumbers", to: "/industries/plumbers", blurb: "Search visibility built for New Zealand plumbing businesses." },
       { label: "SEO for Roofers", to: "/industries/roofers", blurb: "Website and SEO support for NZ roofing contractors." },
-      { label: "SEO New Zealand", to: "/seo", blurb: "Our national SEO hub — every city, every service, one guarantee." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "Every city and every service we cover, in one place." },
     ],
   },
 
@@ -165,7 +165,7 @@ export const electricians: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Electrician SEO,",
     headlineSub: "answered straight.",
-    intro: "What New Zealand electrical contractors ask most before they book their free audit.",
+    intro: "What New Zealand electrical contractors ask most before they book their free plan.",
     items: [
       {
         q: "Do electricians actually need SEO, or is referral work enough?",
@@ -189,11 +189,11 @@ export const electricians: SeoPageContent = {
       },
       {
         q: "What does it cost, and is there a contract?",
-        a: "Fixed monthly pricing, scoped to your business, with no setup fee — we give you a concrete number after the free audit. We work month-to-month after a short minimum term, so if we're not delivering, you can leave.",
+        a: "Fixed monthly pricing, scoped to your business, with no setup fee — we give you a concrete number after the free plan. We work three months to start, then month by month, so if we're not delivering, you can leave.",
       },
       {
         q: "How long until I see results?",
-        a: "We guarantee a page 1 Google ranking within 90 days, and most electrical contractors see ranking movement inside the first few weeks. Enquiries typically follow once the domestic and commercial pages are live.",
+        a: "Most electrical contractors see ranking movement inside the first few weeks. Enquiries typically follow once the domestic and commercial pages are live, so think in months rather than weeks for the phone to change. Anyone who promises you a position by a set date is promising something Google decides, not them.",
       },
       {
         q: "What's actually included?",

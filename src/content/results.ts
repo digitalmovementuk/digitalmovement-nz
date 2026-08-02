@@ -175,7 +175,7 @@ export const results: SeoPageContent = {
     headlineSub: "and where we do this work.",
     intro: "Where to go next — our national approach, a city page, and the trades industry these reviews don't cover yet.",
     links: [
-      { label: "SEO New Zealand", to: "/seo", blurb: "Our full national approach to SEO, and the guarantee behind it." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "Our full national approach to SEO, and what we commit to in writing." },
       { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "What SEO looks like for a Christchurch business specifically." },
       {
         label: "SEO for Builders",
@@ -206,7 +206,7 @@ export const results: SeoPageContent = {
       },
       {
         q: "What happens if it doesn't work?",
-        a: "You can hold us to what we put in writing before you sign — for most SEO clients that includes a guaranteed page 1 position within 90 days. If the numbers in your monthly report aren't moving, that's a conversation we have with you immediately, not something quietly reworded in the next report.",
+        a: "You can hold us to what we put in writing before you sign: the exact searches we're going after, the work we'll do each month, and a report showing where you sit on every one of them. What you won't get from us is a guaranteed position — nobody controls Google's results, and an agency that promises one is writing a cheque Google has to cash. If the numbers in your monthly report aren't moving, that's a conversation we start immediately, not something quietly reworded in the next report.",
       },
       {
         q: "Are the percentages on this page independently verified?",

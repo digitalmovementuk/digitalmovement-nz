@@ -8,7 +8,7 @@ export const plumbers: SeoPageContent = {
   meta: {
     title: "SEO for Plumbers NZ | Digital Movement",
     description:
-      "SEO for NZ plumbers built around the burst-pipe search: local pack, phone-first sites, real reviews. Page 1 in 90 days. Free audit.",
+      "SEO for NZ plumbers, built around the burst-pipe search — the one where whoever shows up first gets the call. Free plan, no obligation.",
   },
 
   // This page is not a traffic asset. It's sales collateral and an outreach
@@ -33,9 +33,9 @@ export const plumbers: SeoPageContent = {
     eyebrow: "SEO · for plumbers",
     h1: "SEO for plumbers who answer the phone.",
     sub: "This page is for the owner of a small New Zealand plumbing business deciding whether an SEO agency is worth the money. A burst pipe gets searched on a phone, right now, by someone who taps the first credible result and calls — we build so that's you, not the plumber three trucks over.",
-    chips: ["Page 1 in 90 days", "5.0 Google rating", "Month-to-month", "Free audit"],
+    chips: ["Searches agreed in writing", "5.0 Google rating", "Month by month after 3", "Free plan, no obligation"],
     formHeading: "Get your free plumbing SEO audit",
-    formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",
+    formNote: "One-page report, plain English, in your inbox within one working day. No obligation.",
   },
 
   local: {
@@ -65,10 +65,8 @@ export const plumbers: SeoPageContent = {
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Rank before the emergency search",
-        body: "We guarantee your plumbing business a page 1 position in Google Search results within 90 days — including the emergency-intent searches that convert fastest.",
+        body: "We go after the searches people make with water on the floor — the ones where they ring the first plumber they see rather than shopping around. Those are the fastest jobs to win and the ones we target first.",
       },
       {
         kicker: "Response",
@@ -127,7 +125,7 @@ export const plumbers: SeoPageContent = {
   },
 
   process: {
-    eyebrow: "The 90-day process",
+    eyebrow: "How it runs",
     headlineMain: "Four checkpoints.",
     headlineSub: "Clear from day one.",
     intro: "What happens for your plumbing business on day one, thirty, sixty and ninety — set out up front, no surprises along the way.",
@@ -135,12 +133,12 @@ export const plumbers: SeoPageContent = {
       { eta: "Week 1", title: "Audit & kick-off", body: "Free SEO audit lands in your inbox. A short call to map the emergency, maintenance and reno keywords your plumbing business should own." },
       { eta: "Week 4", title: "Foundation in place", body: "Technical SEO fixed, mobile-first pages live, Google Business Profile optimised for the searches that matter when someone's got a leak." },
       { eta: "Week 8", title: "Climbing the rankings", body: "Local pack and page 2 movement on your priority terms. Enquiries start landing, not just impressions." },
-      { eta: "Week 13", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here it's month-to-month, no lock-in, for as long as you want the jobs to keep coming." },
+      { eta: "Week 13", title: "The first full review", body: "We sit down with a quarter of real data: where you rank on every search we agreed, what came in, and what we do next. From here it's month by month, for as long as you want the jobs to keep coming." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Real clients,",
     headlineSub: "not plumbers — yet.",
     intro: "These are genuine reviews from Digital Movement clients across New Zealand — none of them plumbers, and we're not going to pretend otherwise. We're showing you the standard of work, honestly, before we've had the chance to build your plumbing business a track record of its own.",
@@ -151,9 +149,9 @@ export const plumbers: SeoPageContent = {
     eyebrow: "Also serving",
     headlineMain: "SEO for other",
     headlineSub: "trades too.",
-    intro: "We run the same guaranteed process for other trades. If you're a plumber weighing us up against a generalist agency, here's what it looks like for the businesses working the same job sites.",
+    intro: "We run the same process for the other trades on the same job sites. If you're weighing us up against a generalist agency, this is what it looks like for them.",
     links: [
-      { label: "SEO for Builders", to: "/industries/builders", blurb: "Page 1 rankings for building businesses, guaranteed." },
+      { label: "SEO for Builders", to: "/industries/builders", blurb: "Getting found by homeowners who are ready to build." },
       { label: "SEO for Electricians", to: "/industries/electricians", blurb: "The same process, built for electrical businesses." },
       { label: "SEO New Zealand", to: "/seo", blurb: "Our national SEO service, for any Kiwi business." },
     ],
@@ -163,11 +161,11 @@ export const plumbers: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Asked straight.",
     headlineSub: "Answered straight.",
-    intro: "What plumbing business owners ask us most before booking their free audit.",
+    intro: "What plumbing business owners ask us most before booking their free plan.",
     items: [
       {
         q: "What does SEO cost for a plumbing business?",
-        a: "It's a fixed monthly price, not a per-click or per-lead fee — the exact number depends on how competitive your area and services are. Book your free audit and we'll give you a concrete figure for your plumbing business, not a vague range.",
+        a: "It's a fixed monthly price, not a per-click or per-lead fee — the exact number depends on how competitive your area and services are. Ask for your free plan and we'll give you a concrete figure for your plumbing business, not a vague range.",
       },
       {
         q: "Does SEO even work for emergency jobs — isn't that all Google Ads?",
@@ -175,15 +173,15 @@ export const plumbers: SeoPageContent = {
       },
       {
         q: "Do you have case studies from other plumbers?",
-        a: "Not yet, and we're not going to pretend otherwise. Our published results are from New Zealand clients in other industries — what you can rely on is the same guaranteed process and a 5.0 Google rating across 100+ reviews.",
+        a: "Not yet, and we're not going to pretend otherwise. Our published results are from New Zealand clients in other industries — what you can rely on is the same process, written down before you pay us anything, and a 5.0 Google rating across 100+ reviews.",
       },
       {
         q: "How fast will I see results?",
-        a: "Ranking movement typically starts in the first two to four weeks. We guarantee your plumbing business a page 1 position in Google Search results within 90 days.",
+        a: "Ranking movement typically starts in the first two to four weeks, because the technical fixes land first and Google picks those up fastest. Calls follow later — most plumbers are looking at a few months before the phone genuinely changes. We'll show you the movement every month either way.",
       },
       {
         q: "Is there a minimum contract length?",
-        a: "We work month-to-month after a short minimum term to set things up properly. If we're not delivering for your plumbing business, you can leave — we'd rather earn the next month than trap you in one.",
+        a: "We ask for three months to start, then work month by month. If we're not delivering for your plumbing business, you can leave — we'd rather earn the next month than trap you in one.",
       },
       {
         q: "Can you help with my Google Business Profile, not just my website?",
@@ -200,8 +198,8 @@ export const plumbers: SeoPageContent = {
     eyebrow: "Talk to us",
     headlineMain: "Let's get your",
     headlineSub: "plumbing business found first.",
-    body: "Get in touch to see how your plumbing business can start showing up first — before the burst pipe, not after — with an SEO partner that guarantees real results.",
+    body: "Get in touch and we'll show you which plumbing searches in your area are worth going after, what your competitors are doing on them, and what it would take to get in front. Free, in plain English, in one working day.",
     formHeading: "Get your free plumbing SEO audit",
-    formNote: "One-page report, plain English, in your inbox within 24 working hours. No obligation.",
+    formNote: "One-page report, plain English, in your inbox within one working day. No obligation.",
   },
 };

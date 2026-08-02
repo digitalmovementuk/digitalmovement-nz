@@ -77,8 +77,11 @@ export function Privacy() {
 
           <Section title="Who can see it">
             <p>
-              Enquiries are emailed to the {business.name} team and stored on our own server. They
-              are not passed to any third party.
+              Enquiries are emailed to the {business.name} team and stored on our own server. We do
+              not sell them, and we do not pass them to anyone for their own use. The only third
+              parties involved are the email and hosting providers that carry and store the message
+              on our behalf, and the analytics described in the next section, which never sees what
+              you typed into the form.
             </p>
           </Section>
 

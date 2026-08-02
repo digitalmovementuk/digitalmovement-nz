@@ -7,9 +7,9 @@ export const christchurch: SeoPageContent = {
   region: "Canterbury",
 
   meta: {
-    title: "SEO Christchurch · Page 1 in 90 Days | Digital Movement",
+    title: "SEO Christchurch · Get Found First | Digital Movement",
     description:
-      "SEO Christchurch businesses can actually use — page 1 in 90 days, guaranteed. Free audit for Cantabrian trades and local businesses. No lock-in.",
+      "SEO Christchurch businesses can actually use. Target searches agreed in writing, a plain-English report every month, and a free plan for Cantabrian trades and local businesses.",
   },
 
   keywords: {
@@ -28,11 +28,11 @@ export const christchurch: SeoPageContent = {
 
   hero: {
     eyebrow: "SEO · for Christchurch businesses",
-    h1: "SEO Christchurch, Done Properly",
-    sub: "Digital Movement is a 5.0-rated SEO agency working with Christchurch businesses — especially trades and local services — get found by the customers already searching for them, with a guaranteed page 1 position in 90 days.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free audit, no obligation"],
+    h1: "SEO Christchurch trades use to fill the week.",
+    sub: "We help Christchurch businesses — especially trades and local services — get found by the customers already searching for them. The searches we're going after are agreed in writing before we start, and you see exactly where you sit on each one every month.",
+    chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
     formHeading: "Get your free Christchurch SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
@@ -46,9 +46,9 @@ export const christchurch: SeoPageContent = {
       "That's the map we build a Christchurch site around. Pages for the suburbs the rebuild put your customers in, service pages for how they actually search, and tracking that shows which of them turn into enquiries.",
     ],
     stats: [
-      { value: "880", label: "monthly searches for \"SEO Christchurch\"" },
       { value: "9", label: "ways Cantabrians phrase the same search" },
-      { value: "90", label: "days to your guaranteed page 1 position" },
+      { value: "1", label: "working day to your free plan" },
+      { value: "3", label: "months to start, then month by month" },
     ],
   },
 
@@ -57,14 +57,12 @@ export const christchurch: SeoPageContent = {
     headlineMain: "What you can expect",
     headlineSub: "when the work actually lands.",
     intro:
-      "Christchurch is a competitive but genuinely winnable SERP — several of the sites currently ranking for these terms have no backlinks at all. Here's what changes when a page is built properly instead of templated.",
+      "Christchurch is competitive but genuinely winnable — several of the sites currently ranking for these terms have no backlinks at all. Here's what changes when a page is built properly instead of templated.",
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Rank where Cantabrians are already looking",
-        body: "We guarantee your business a page 1 Google position within 90 days — built around the suburb and service searches Christchurch customers actually type.",
+        body: "We build around the suburb and service searches Christchurch customers actually type — \"electrician Riccarton\", not \"electrical services\" — because those are the ones that end in a phone call.",
       },
       {
         kicker: "Leads",
@@ -125,7 +123,7 @@ export const christchurch: SeoPageContent = {
 
   process: {
     eyebrow: "The 90-day journey",
-    headlineMain: "Your 90 days",
+    headlineMain: "Your first 90 days",
     headlineSub: "mapped out, step by step.",
     intro:
       "What happens on day 1, 30, 60 and 90 for a Christchurch SEO client. We say it up front and stick to it.",
@@ -133,12 +131,12 @@ export const christchurch: SeoPageContent = {
       { eta: "Day 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A 60-minute strategy call. You know exactly where you stand and what's next." },
       { eta: "Day 30", title: "Foundation in place", body: "Technical SEO clean. First suburb and service pages live. Tracking running, data flowing." },
       { eta: "Day 60", title: "Climbing the rankings", body: "First commercial Christchurch keywords reach the top of page 2 or bottom of page 1. Enquiries start coming in." },
-      { eta: "Day 90", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here on, monthly continuation — no lock-in." },
+      { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Proof from around NZ",
     headlineSub: "not a Christchurch case study we don't have.",
     intro:
@@ -161,7 +159,7 @@ export const christchurch: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Straight answers",
     headlineSub: "to the Christchurch questions.",
-    intro: "What Christchurch business owners ask most often before they book their free audit.",
+    intro: "What Christchurch business owners ask most often before they book their free plan.",
     items: [
       {
         q: "We moved out of the central city after the earthquakes and never went back. Does that hurt our rankings?",
@@ -173,15 +171,15 @@ export const christchurch: SeoPageContent = {
       },
       {
         q: "What will SEO cost us each month?",
-        a: "One set fee a month, and that's the whole cost. No setup charge, nothing extra for more pages or links. What you pay depends on your trade and how hard your keywords are to win. You get that number from the free audit, before you commit to anything.",
+        a: "One set fee a month, and that's the whole cost. No setup charge, nothing extra for more pages or links. What you pay depends on your trade and how hard your keywords are to win. You get that number from the free plan, before you commit to anything.",
       },
       {
         q: "Can you get us found in Rolleston and Selwyn, not just Christchurch?",
         a: "Yes. The Rolleston and Selwyn corridor is growing fast, and plenty of Christchurch trades work out there every week. We treat it as part of your patch, with its own pages and its own search terms.",
       },
       {
-        q: "What happens if we're not on page 1 after 90 days?",
-        a: "The guarantee is agreed in writing before you sign, so there's a document to hold us to. You see the movement every month in plain English, and keywords usually start shifting inside the first month. There's a short setup term, then it runs month by month. Leave after that if the rankings aren't moving.",
+        q: "What happens if the rankings aren't moving after 90 days?",
+        a: "You'll have known long before day 90, because the monthly report shows every agreed search side by side — the ones going backwards as well as the ones going up. If it isn't working we tell you why and what we'd change. Three months to start, then month by month, so if the answer doesn't satisfy you, you leave. We'd rather earn the next month than argue about the last one.",
       },
       {
         q: "Christchurch has more SEO agencies than most NZ cities. Can we get ahead of them?",
@@ -204,6 +202,6 @@ export const christchurch: SeoPageContent = {
     headlineSub: "for your Christchurch business.",
     body: "Get in touch and we'll show you exactly where your Christchurch business stands on Google, and what it would take to get to page 1 — free, no obligation, in plain English.",
     formHeading: "Get your free Christchurch SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 };

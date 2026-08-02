@@ -7,9 +7,9 @@ export const dunedin: SeoPageContent = {
   region: "Otago",
 
   meta: {
-    title: "SEO Dunedin | Page 1 in 90 Days | Digital Movement",
+    title: "SEO Dunedin | Get Found First | Digital Movement",
     description:
-      "SEO Dunedin businesses can rank with — free audit, guaranteed page 1 in 90 days, 5.0-rated NZ agency. Built for Otago trades and local services.",
+      "SEO Dunedin businesses can rank with. Free plan, target searches agreed in writing, a report every month. Built for Otago trades and local services.",
   },
 
   keywords: {
@@ -28,11 +28,11 @@ export const dunedin: SeoPageContent = {
 
   hero: {
     eyebrow: "SEO · for Dunedin businesses",
-    h1: "SEO Dunedin Businesses Rank With",
-    sub: "Digital Movement is a 5.0-rated New Zealand SEO agency that gets Dunedin businesses — especially trades and local services — found on Google, with a guaranteed page 1 position in 90 days. \"SEO Dunedin\" is one of the lowest-competition search terms in the country, which means a properly built page can win it fast.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free audit, no obligation"],
+    h1: "SEO Dunedin trades use to get found first.",
+    sub: "We get Dunedin businesses — especially trades and local services — found by the customers already looking for them. Fewer businesses here compete properly for search than in the bigger centres, which means a well-built page can get in front of them faster than it would in Auckland.",
+    chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
     formHeading: "Get your free Dunedin SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
@@ -44,12 +44,7 @@ export const dunedin: SeoPageContent = {
       "The University of Otago and the attached health sciences campus put more than 20,000 students into the city for roughly eight months of the year, then empty a good chunk of North Dunedin out over summer. That's a real seasonal swing for anyone renting, cleaning, moving or fitting out student flats — the phone rings hard in January and February and goes quiet mid-year, and a site that doesn't account for that timing misses the window.",
       "A lot of the city's housing stock is Victorian and Edwardian villa, especially through North East Valley, Kaikorai Valley and the central city fringe. That's specialist work — heritage-sensitive renovation, joinery repair, insulation retrofits on timber-frame houses built before double glazing existed — not the volume new-build trade you'd target in Selwyn or Rolleston. The suburbs a Dunedin business names on its site should reflect that: North East Valley, Roslyn, St Clair, Green Island and Mosgiel are all real, distinct markets a local customer types into Google.",
       "Dunedin's harbour runs the length of the city out to Port Chalmers, and the port and its logistics, marine and light-industrial trade sit alongside the university and hospital as the city's steadiest employers. Health and education between them carry a large share of the local economy, and a lot of trades and services work builds off contracts and staff turnover in those two sectors rather than off tourism.",
-      "Dunedin is a small enough market that word of mouth still carries real weight — most people ask a neighbour or a Facebook group before they Google a tradesperson. That cuts both ways for SEO: competition on Google is genuinely light, which is exactly what \"seo dunedin\" at KD 6 tells you, so a business that shows up properly on page 1 picks up a disproportionate share of the search traffic that word of mouth doesn't already cover.",
-    ],
-    stats: [
-      { value: "110", label: "monthly searches for \"SEO Dunedin\"" },
-      { value: "6", label: "keyword difficulty — the lowest in our plan" },
-      { value: "90", label: "days to your guaranteed page 1 position" },
+      "Dunedin is a small enough market that word of mouth still carries real weight — most people ask a neighbour or a Facebook group before they Google a tradesperson. That cuts both ways. Competition on Google here is genuinely light — far lighter than Auckland or Wellington — so a business that shows up properly picks up more than its share of the people word of mouth was never going to reach.",
     ],
   },
 
@@ -58,14 +53,12 @@ export const dunedin: SeoPageContent = {
     headlineMain: "What changes",
     headlineSub: "when Dunedin SEO is done properly.",
     intro:
-      "\"SEO Dunedin\" is the easiest commercial SERP in our entire New Zealand plan to win. Here's what that low competition actually buys a Dunedin business once the page is live.",
+      "\"SEO Dunedin\" is the least crowded of any city we work in. Here's what that low competition actually buys a Dunedin business once the page is live.",
     items: [
       {
         kicker: "Visibility",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Rank where Dunedin customers already look",
-        body: "We guarantee your business a page 1 Google position within 90 days — built around the hill suburbs, the flat, and the surrounding towns Dunedin customers actually search from.",
+        body: "We build around the hill suburbs, the flat and the surrounding towns Dunedin customers actually search from — because \"plumber Mosgiel\" and \"plumber Dunedin\" are two different jobs, and both bring work.",
       },
       {
         kicker: "Leads",
@@ -126,7 +119,7 @@ export const dunedin: SeoPageContent = {
 
   process: {
     eyebrow: "The 90-day journey",
-    headlineMain: "Your 90 days",
+    headlineMain: "Your first 90 days",
     headlineSub: "mapped out, step by step.",
     intro:
       "What happens on day 1, 30, 60 and 90 for a Dunedin SEO client. We say it up front and stick to it.",
@@ -134,12 +127,16 @@ export const dunedin: SeoPageContent = {
       { eta: "Day 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A 60-minute strategy call. You know exactly where you stand and what's next." },
       { eta: "Day 30", title: "Foundation in place", body: "Technical SEO clean. First suburb and service pages live for Dunedin. Tracking running, data flowing." },
       { eta: "Day 60", title: "Climbing the rankings", body: "First commercial Dunedin keywords reach the top of page 2 or bottom of page 1. Enquiries start coming in." },
-      { eta: "Day 90", title: "Page 1 on Google", body: "Your guaranteed page 1 position is live. From here on, monthly continuation — no lock-in." },
+      { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    // Dunedin\'s copy names Loomframe by name, and Loomframe is the fifth
+    // case study — at the default limit of 3 the page cited a client it
+    // never showed. Raised so the named proof is actually on the page.
+    limit: 5,
+    eyebrow: "Client reviews",
     headlineMain: "Proof, including",
     headlineSub: "one genuine Dunedin client.",
     intro:
@@ -162,11 +159,11 @@ export const dunedin: SeoPageContent = {
     eyebrow: "Common questions",
     headlineMain: "Straight answers",
     headlineSub: "to the Dunedin questions.",
-    intro: "What Dunedin business owners ask most often before they book their free audit.",
+    intro: "What Dunedin business owners ask most often before they book their free plan.",
     items: [
       {
         q: "How much do SEO services in Dunedin cost?",
-        a: "Digital Movement runs a fixed monthly price with no setup fee and no surprise add-ons for \"more content\" or \"more links.\" The exact number depends on your industry and competition, which is what the free audit tells you before you commit to anything.",
+        a: "Digital Movement runs a fixed monthly price with no setup fee and no surprise add-ons for \"more content\" or \"more links.\" The exact number depends on your industry and competition, which is what the free plan tells you before you commit to anything.",
       },
       {
         q: "Is there an SEO company in Dunedin that works with small businesses?",
@@ -178,7 +175,7 @@ export const dunedin: SeoPageContent = {
       },
       {
         q: "Why is \"seo dunedin\" easier to rank for than other NZ cities?",
-        a: "Keyword difficulty for \"seo dunedin\" sits at 6 out of 100 — the lowest of any city in our plan, Christchurch and Hamilton included. That means the sites currently ranking are weak enough that a properly built page can genuinely take page 1, not just chip away at it.",
+        a: "Less than most people expect. Dunedin is one of the least contested markets in the country — easier than Christchurch, easier than Hamilton — because the sites currently ranking here mostly aren't trying very hard. A page built properly can take the top of the results outright rather than slowly chipping away at it.",
       },
       {
         q: "Do you offer Otago SEO services outside Dunedin city, like Mosgiel or Port Chalmers?",
@@ -186,7 +183,7 @@ export const dunedin: SeoPageContent = {
       },
       {
         q: "How long before my Dunedin business ranks on Google?",
-        a: "Most clients see ranking movement in the first two to four weeks, with the guaranteed page 1 position landing within 90 days. Given how light the current competition is for Dunedin search terms, movement here is often faster than in a bigger city.",
+        a: "Most clients see ranking movement in the first two to four weeks, because the early technical fixes are what Google picks up fastest. Enquiries follow once the new pages have been live a month or two. Given how few Dunedin businesses compete properly on search, movement here is usually faster than in a bigger city.",
       },
       {
         q: "Do you work with trades and home service businesses in Dunedin?",
@@ -205,6 +202,6 @@ export const dunedin: SeoPageContent = {
     headlineSub: "for your Dunedin business.",
     body: "Get in touch and we'll show you exactly where your Dunedin business stands on Google, and what it would take to get to page 1 — free, no obligation, in plain English.",
     formHeading: "Get your free Dunedin SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 };

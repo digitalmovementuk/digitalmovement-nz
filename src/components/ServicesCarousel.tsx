@@ -100,16 +100,16 @@ export function ServicesCarousel() {
                   fontWeight: 700,
                 }}
               >
-                We guarantee real results
-                <span className="block text-ink/55">for businesses.</span>
+                Four ways to bring
+                <span className="block text-ink/55">customers to your door.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.12}>
             <p className="text-[14px] sm:text-[15px] text-ink-soft leading-relaxed max-w-[440px] mx-auto lg:mx-0 lg:justify-self-end">
-              We are a 5-star rated digital marketing agency in New Zealand
-              that guarantees real, measurable growth with exceptional value
-              and inclusions for every client.
+              Pick the one that fits where your customers already are. Most
+              businesses start with a single service and add a second once the
+              first is paying for itself.
             </p>
           </Reveal>
         </div>

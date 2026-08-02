@@ -120,7 +120,7 @@ function FeaturedStat() {
           </p>
           <p className="mt-3 max-w-[440px] text-[14px] sm:text-[15px] text-ink-soft leading-relaxed">
             500+ Kiwi businesses have grown with us — from small online stores
-            to large national companies — backed by real, measurable results.
+            to large national companies.
           </p>
         </div>
 

@@ -13,7 +13,7 @@ export const ecommerce: SeoPageContent = {
   meta: {
     title: "Ecommerce SEO Agency NZ | Digital Movement",
     description:
-      "Ecommerce SEO agency for NZ online stores. Fix duplicate product pages, rank category pages first, and win page 1 in 90 days. Free audit, no lock-in.",
+      "Ecommerce SEO for NZ online stores: fix duplicate product pages, get category pages ranking, and turn search traffic into orders. Free plan first.",
   },
 
   keywords: {
@@ -33,10 +33,10 @@ export const ecommerce: SeoPageContent = {
   hero: {
     eyebrow: "SEO agency · for NZ online stores",
     h1: "Ecommerce SEO for NZ Online Stores",
-    sub: "Ecommerce SEO is search optimisation built specifically for online stores — product pages, category pages and the site structure connecting them — and this page is for New Zealand store owners deciding whether it's worth doing. Run a Shopify, WooCommerce or BigCommerce store? This is built for you: page 1 in 90 days, guaranteed, from a 5.0-rated agency, with a free audit before you commit to anything.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Page 1 in 90 days", "Free ecommerce SEO audit"],
+    sub: "Every month, people search for exactly what your store sells and buy it from someone else. Ecommerce SEO is the work of making sure those orders come to you instead — your category pages, your product pages, and the structure holding them together. Built for Shopify, WooCommerce and BigCommerce stores, with a free plan before you commit to anything.",
+    chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
     formHeading: "Get your free ecommerce SEO audit",
-    formNote: "One-page audit in your inbox within 24 hours. No spam, no obligation.",
+    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
@@ -46,38 +46,29 @@ export const ecommerce: SeoPageContent = {
     paragraphs: [
       "Ecommerce SEO is a different job to the local service SEO most NZ agencies build. A tradesperson's site has a handful of pages competing for suburb and service searches. An online store might have hundreds or thousands of product pages, several category pages per range, and filter combinations that generate URLs nobody typed on purpose. The scale changes the approach — ecommerce SEO is about ranking a structure, not one page.",
       "The biggest technical problem in ecommerce SEO is duplicate content. A product available in five colours and three sizes can generate fifteen URLs for the same item, and a filtered category view — in stock, under $50, size M — can generate hundreds more. Google sees near-identical pages competing for the same keyword, and without canonical tags and a sensible URL strategy, an online store can end up out-competing itself instead of the market.",
-      "Category pages usually carry more commercial search volume than any single product page. Someone searching \"waterproof hiking boots\" is behaviourally closer to a category page than to one specific item, and Google's results generally reflect that: category and collection pages rank for the broad, high-volume terms, while product pages pick up the long-tail searches for a specific model or SKU. Ecommerce SEO that only optimises product pages is chasing the smaller half of the traffic.",
+      "More people search for a type of product than for one exact model. Someone typing \"waterproof hiking boots\" wants to see a range, not one boot, and Google's results reflect that — the pages that rank are category pages. Product pages still matter, but they catch the shopper who already knows the model. A store that only tidies up its product pages is fighting for the smaller half of the shoppers.",
       "New Zealand online stores share Google's results with offshore retailers who ship here, and those overseas stores often have bigger content budgets and years of accumulated backlinks. A small NZ store cannot out-spend that on every generic keyword. What it can do is win the searches an overseas retailer has no reason to target — NZ-specific sizing, local shipping and returns, and category pages built around how New Zealanders actually search rather than how a global catalogue happens to be organised.",
-      "That pattern — commercial intent with limited direct competition — is exactly what \"ecommerce seo agency\" itself looks like: 320 searches a month in New Zealand at a keyword difficulty of 6, low enough that a properly built page can compete from a standing start. The same shape shows up inside a store's own catalogue: mid-volume, low-competition category and product searches that a bigger, less specialised competitor hasn't bothered to build a proper page for.",
+      "The same shape shows up inside almost every store's own catalogue: the searches that describe a category or a specific product, where the demand is steady and nobody bigger has bothered to build a proper page. Those are the ones worth taking, because you can take them — and they are the ones a shopper types when they have their card out.",
       "None of this is a one-off fix. New products get added, ranges get discontinued, and filters change as stock changes, so an online store's SEO needs maintaining the same way its inventory does. A category page optimised once and left alone drifts out of date as fast as the products on it.",
-    ],
-    stats: [
-      { value: "320", label: "monthly searches for \"ecommerce seo agency\" in NZ" },
-      { value: "6", label: "keyword difficulty — one of the easiest commercial terms we track" },
-      { value: "$12.11", label: "average cost per click for the same term in Google Ads" },
     ],
   },
 
   outcomes: {
     eyebrow: "What changes",
-    headlineMain: "What ecommerce SEO",
-    headlineSub: "actually changes for your store.",
+    headlineMain: "More orders,",
+    headlineSub: "without more ad spend.",
     intro:
       "Vague agency promises don't help you decide. Here's what ecommerce SEO does to an online store's traffic and cost per lead, in plain terms.",
     items: [
       {
         kicker: "Ranking",
-        value: "Page 1",
-        unit: "in 90 days",
         title: "Rank your category pages",
-        body: "We guarantee a page 1 Google position within 90 days for your priority ecommerce category pages — tracked and reported from day one, not promised and forgotten.",
+        body: "Your category pages are where the money is — someone searching \"merino baby blankets nz\" is closer to paying than someone searching your brand name. We get those pages in front of them, and we track the orders that follow, not just the traffic.",
       },
       {
         kicker: "Cost",
-        value: "$12.11",
-        unit: "avg. CPC for this term",
-        title: "Traffic that stops costing per click",
-        body: "\"Ecommerce SEO agency\" carries a $12.11 average cost per click in Google Ads. Organic rankings for your own category and product pages capture that same commercial intent without paying for every visit.",
+        title: "Visitors you stop paying for one at a time",
+        body: "Every visitor an ad sends you costs you money, and stops the day the budget does. A category page that ranks keeps sending the same kind of shopper next month, and the month after, without another dollar going to Google.",
       },
       {
         kicker: "Structure",
@@ -154,13 +145,13 @@ export const ecommerce: SeoPageContent = {
       {
         eta: "Month 3",
         title: "Page 1, on record",
-        body: "Your guaranteed page 1 position is live for your priority category pages. From here it's month-to-month — no lock-in.",
+        body: "The first full review: every search we agreed, where you started, where you are now, and what it sold. From here it runs month by month.",
       },
     ],
   },
 
   proof: {
-    eyebrow: "Real results",
+    eyebrow: "Client reviews",
     headlineMain: "Reviews from",
     headlineSub: "real NZ clients.",
     intro:
@@ -200,11 +191,11 @@ export const ecommerce: SeoPageContent = {
     items: [
       {
         q: "How much does ecommerce SEO cost?",
-        a: "Ecommerce SEO is usually billed as a fixed monthly fee, the same as our other SEO work — not a per-page or per-product rate. The exact number depends on the size of your catalogue and how much technical clean-up it needs, which the free audit tells you before you commit.",
+        a: "Ecommerce SEO is usually billed as a fixed monthly fee, the same as our other SEO work — not a per-page or per-product rate. The exact number depends on the size of your catalogue and how much technical clean-up it needs, which the free plan tells you before you commit.",
       },
       {
         q: "How long does ecommerce SEO take to work?",
-        a: "Most online stores see ranking movement within 2 to 4 weeks, with a guaranteed page 1 position for priority category pages by day 90. Product pages with long-tail keywords often move faster than broad category terms.",
+        a: "Most online stores see ranking movement within two to four weeks, because the early technical fixes are what Google picks up fastest. Orders follow later, usually once the category pages have been live a month or two. Specific product searches — a brand and a size — move faster than broad category terms.",
       },
       {
         q: "Does ecommerce SEO work for a small catalogue?",
@@ -212,7 +203,7 @@ export const ecommerce: SeoPageContent = {
       },
       {
         q: "Should I optimise product pages or category pages first?",
-        a: "Category pages first, in most cases. They usually carry more commercial search volume than any single product, and a well-built category page can rank for the broad terms while individual product pages pick up long-tail searches for specific items.",
+        a: "Category pages first, in most cases. More people search for a type of thing than for one exact model, so the category page reaches the bigger group — and the product pages underneath still pick up the shoppers who know precisely what they want.",
       },
       {
         q: "Do you do SEO for Shopify stores?",
@@ -224,11 +215,11 @@ export const ecommerce: SeoPageContent = {
       },
       {
         q: "Is ecommerce SEO worth it compared to paid ads?",
-        a: "\"Ecommerce SEO agency\" carries a $12.11 average cost per click in Google Ads, and every visit from that keyword costs money for as long as you keep paying. Organic rankings for the same commercial intent keep sending traffic to your online store after an ad budget would have run out.",
+        a: "Ads stop the day you stop paying, and on commercial searches like these each click is not cheap. A page that ranks keeps bringing the same shoppers in after the ad budget has run out. Ads are the faster lever, search is the one that compounds — most stores that can afford it run both.",
       },
       {
         q: "Is there a minimum contract for ecommerce SEO?",
-        a: "Most reputable agencies, us included, work month-to-month after a short minimum term needed to set things up properly. You shouldn't be locked into a year just to find out if it's working for your store.",
+        a: "Most reputable agencies, us included, ask for three months to start, then work month by month. That is roughly how long it takes before the work shows. You shouldn't be locked into a year just to find out if it's working for your store.",
       },
     ],
   },
