@@ -165,7 +165,7 @@ export const auckland: SeoPageContent = {
     items: [
       {
         q: "How long does it take to rank for SEO in Auckland?",
-        a: "Auckland is the most competitive SEO market in New Zealand, so it's honest to say it takes longer here than in a smaller city. Suburb and service-specific terms in areas like the North Shore or West Auckland can move within weeks, while broad, high-competition terms take sustained work over months to build the authority needed to compete. We'll tell you which of your target terms are realistic in 90 days and which need longer, before you commit to anything.",
+        a: "Auckland is the most competitive SEO market in New Zealand, so it's honest to say it takes longer here than in a smaller city. Suburb and service-specific terms in areas like the North Shore or West Auckland can move within weeks, while broad, high-competition terms take sustained work over months to build the authority needed to compete. Before you commit to anything we'll tell you which of your target searches are realistic in the first few months and which are a longer job.",
       },
       {
         q: "How much does an SEO agency in Auckland cost?",
