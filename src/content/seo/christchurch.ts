@@ -40,11 +40,10 @@ export const christchurch: SeoPageContent = {
     headlineMain: "A city that rebuilt",
     headlineSub: "itself outward, block by block.",
     paragraphs: [
-      "Christchurch rebuilt itself after 2011, and the rebuild didn't put the city back where it was. A lot of businesses that used to sit inside the four avenues moved out to Riccarton, Addington, Sydenham and further afield, and plenty never moved back in. The result is a commercial city with several real centres instead of one obvious downtown — which matters for SEO, because Google reads \"near me\" searches off exactly that kind of spread.",
-      "Christchurch is also flat and wide. It covers more ground per person than almost any other city in the country, without the hills and harbours that box Auckland and Wellington into tight corridors. A customer in Halswell and a customer in Papanui are both genuinely \"local\" to a Christchurch business in a way that doesn't hold in a hillier city, and a site built around one city-wide keyword misses both of them.",
-      "That spread only means something if the site actually names it. Riccarton, Addington, Sydenham, Papanui, Merivale, Hornby, and the fast-growing Rolleston and Selwyn corridor are all places a real customer types into Google before they type \"Christchurch.\" A page written for the city and swapped in for Hamilton next week never mentions any of them.",
-      "The city also carries a real tech and agritech scene alongside the trades — Canterbury Tech's membership base and the agricultural research coming out of Lincoln University sit a few kilometres from the roofers and landscapers rebuilding the same suburbs. That mix pushes the baseline for decent SEO higher than in a smaller centre, because Cantabrian searchers are used to seeing well-run local sites.",
-      "Christchurch Airport is the South Island's main gateway, and that pulls a tourism and hospitality corridor out through the city toward Hanmer Springs and Akaroa. A local service business near that corridor is competing for two different kinds of intent at once — a Cantabrian typing a suburb name, and a visitor typing the city name — and the two need different pages, not one.",
+      "Christchurch rebuilt itself after 2011, and the rebuild moved the city. Businesses that used to sit inside the four avenues shifted out to Riccarton, Addington and Sydenham, and plenty never moved back. The result is a city with several real commercial centres instead of one downtown. Google reads \"near me\" searches off exactly that spread.",
+      "Christchurch is flat and wide. It covers more ground per person than almost any other New Zealand city, with no hills or harbours to box it in. So the spread kept going: north through Papanui and Merivale, west through Hornby, and out into fast-growing Rolleston and the Selwyn corridor. A customer in Halswell and a customer in Papanui are both genuinely local to the same business. Those suburb names are what people type into Google before they ever type \"Christchurch\".",
+      "The rebuild economy runs wider than the trades. Canterbury Tech's member companies and Lincoln University's agritech research sit a few kilometres from the roofers and landscapers working the same suburbs. That mix raises the bar — Cantabrians are used to seeing well-built local sites, so a thin one stands out for the wrong reason. Christchurch Airport adds a second audience on top: South Island visitors who search the city by name and never the suburb.",
+      "That's the map we build a Christchurch site around. Pages for the suburbs the rebuild put your customers in, service pages for how they actually search, and tracking that shows which of them turn into enquiries.",
     ],
     stats: [
       { value: "880", label: "monthly searches for \"SEO Christchurch\"" },
@@ -165,36 +164,36 @@ export const christchurch: SeoPageContent = {
     intro: "What Christchurch business owners ask most often before they book their free audit.",
     items: [
       {
-        q: "How much does an SEO agency in Christchurch cost?",
-        a: "Digital Movement runs a fixed monthly price with no setup fee and no surprise add-ons for \"more content\" or \"more links.\" The exact number depends on your industry and competition, which is what the free audit tells you before you commit to anything.",
+        q: "We moved out of the central city after the earthquakes and never went back. Does that hurt our rankings?",
+        a: "No. Google weighs local results by how close you are to the searcher, not by whether you have a CBD address. Much of commercial Christchurch now sits outside the four avenues — Riccarton, Addington, Sydenham. We build your pages around where your customers are now, not where the centre used to be.",
       },
       {
-        q: "Do you offer SEO services in Christchurch for small businesses?",
-        a: "Yes. Most of our Christchurch enquiries are trades and small local businesses — builders, plumbers, electricians, roofers, landscapers — not big national brands. The packages are built for that size of business from the start.",
+        q: "We take jobs from Hornby to Papanui. Does that mean a page for every suburb?",
+        a: "No — only for the areas your work actually comes from. Christchurch is flat and spread out, so suburb searches carry more weight here than elsewhere. We map where your jobs come from, then build for the suburbs that matter.",
       },
       {
-        q: "What does an SEO consultant in Christchurch actually do?",
-        a: "A proper SEO consultant audits your site, fixes what's technically broken, builds pages around the suburbs and services you actually work in, and tracks whether any of it turns into phone calls and enquiries — not just ranking positions.",
+        q: "What will SEO cost us each month?",
+        a: "One set fee a month, and that's the whole cost. No setup charge, nothing extra for more pages or links. What you pay depends on your trade and how hard your keywords are to win. You get that number from the free audit, before you commit to anything.",
       },
       {
-        q: "Is there a Christchurch SEO agency that guarantees results?",
-        a: "Digital Movement guarantees your business a page 1 Google position within 90 days. It's agreed in writing before you sign anything, and we show you the ranking movement every month so the guarantee isn't just a line on a page.",
+        q: "Can you get us found in Rolleston and Selwyn, not just Christchurch?",
+        a: "Yes. The Rolleston and Selwyn corridor is growing fast, and plenty of Christchurch trades work out there every week. We treat it as part of your patch, with its own pages and its own search terms.",
       },
       {
-        q: "How long before my Christchurch business ranks on Google?",
-        a: "Most clients see ranking movement in the first two to four weeks, with the guaranteed page 1 position landing within 90 days. Suburb and service-specific terms usually move faster than broad city-wide keywords.",
+        q: "What happens if we're not on page 1 after 90 days?",
+        a: "The guarantee is agreed in writing before you sign, so there's a document to hold us to. You see the movement every month in plain English, and keywords usually start shifting inside the first month. There's a short setup term, then it runs month by month. Leave after that if the rankings aren't moving.",
       },
       {
-        q: "Do you work with trades and home service businesses in Christchurch?",
-        a: "Trades are who we build for. Builders, roofers, plumbers, electricians and landscapers deal with exactly the kind of local, high-intent searches SEO is best at capturing, and we understand how that customer searches and books.",
+        q: "Christchurch has more SEO agencies than most NZ cities. Can we get ahead of them?",
+        a: "Yes — the current results are softer than they look. Several of the sites ranking for Christchurch SEO terms have no links pointing at them at all. You win that field on relevance: pages genuinely about your suburbs and your services.",
       },
       {
-        q: "Is Digital Movement based in Christchurch?",
-        a: "We work with businesses across New Zealand, including Christchurch, and run every project remotely with the same reporting and access whether you're in the CBD, Rolleston, or anywhere else in Canterbury. Get in touch and we'll tell you straight whether we're the right fit.",
+        q: "We're a Canterbury tech firm, not a trade. Is this only for tradies?",
+        a: "Most of what we do is trades and local services, but the method transfers. Christchurch's tech and agritech buyers search the same way — a specific problem, then a specific supplier. Our clients run one to twenty staff, whatever the industry.",
       },
       {
-        q: "What's the difference between an SEO company and an SEO agency in Christchurch?",
-        a: "In practice, not much — both terms describe a business that manages SEO on your behalf, and Christchurch searchers use them interchangeably. What matters more is whether they guarantee results, price it in writing, and let you leave without a long lock-in, which is how we operate.",
+        q: "You're not a Christchurch company. Why hire you over a local agency?",
+        a: "Because the address doesn't rank you — the pages do. We're not in Christchurch and won't pretend to be. What you get is a page that knows Riccarton from Rolleston, and a specialist you ring directly. If a local agency suits you better, we'll say so.",
       },
     ],
   },
