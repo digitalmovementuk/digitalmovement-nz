@@ -245,7 +245,14 @@ export function Hero() {
                   fontWeight: 600,
                 }}
               >
-                Win the customers<br />already looking for you.
+                {/* Keyword H1, restored 2026-08-03. "SEO" and "digital marketing"
+                    belong in the homepage H1 — they match the page title
+                    ("SEO & Digital Marketing Agency New Zealand") and they are the
+                    two terms this site is trying to win. 38f55aa replaced this with
+                    "Win the customers already looking for you", which reads better
+                    and ranks for nothing. Do not remove the two keywords again
+                    without replacing them with equivalents. */}
+                Get real results from<br />SEO and digital marketing.
               </h1>
             </div>
 

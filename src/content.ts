@@ -3,14 +3,18 @@
 export const business = {
   name: "Digital Movement",
   /*
-     Not "Get real results. Guaranteed." — "results" named nothing, and the
-     guarantee behind it was a page-1-in-90-days promise we had no grounds to
-     make. A representation about future performance needs reasonable grounds
-     under the Fair Trading Act, and we have no New Zealand client record to
-     stand it up. What replaced it sitewide: the search terms agreed in
-     writing, and a plain-English report every month. See the FAQ below.
+     "Get real results" is back (2026-08-03) to match the restored hero H1.
+     The word that must NOT come back is the one after it. "Get real results.
+     Guaranteed." carried a page-1-in-90-days promise, and a representation
+     about future performance needs reasonable grounds under the Fair Trading
+     Act — we have no New Zealand client record that stands it up. What we
+     promise instead, sitewide: the search terms agreed in writing, and a
+     plain-English report every month. See the FAQ below.
+
+     Note this string is currently rendered nowhere; it is kept in sync with
+     the H1 so it cannot drift into a contradiction if it ever is.
   */
-  tagline: "Be the first thing your next customer finds.",
+  tagline: "Get real results.",
   /* No phone published. The number was the placeholder "+64 9 XXX XXXX"
      wired to tel:+6490000000 — a live dead link on every page. Publishing
      nothing is better than publishing a number that cannot be rung; restore
@@ -44,9 +48,9 @@ export const services = [
   {
     key: "seo",
     title: "SEO",
-    promise: "Be the first name they find when they search for what you sell.",
+    promise: "Technical, local and national SEO that gets you found first.",
     detail:
-      "Your customers are already searching. We make sure the business they find is yours — the right pages, built for the searches that end in a phone call, not the ones that end in a browse.",
+      "Technical SEO, local SEO, national SEO and content writing — all under one roof. Your customers are already searching. We make sure the business they find is yours, with pages built for the searches that end in a phone call, not the ones that end in a browse.",
     bullets: ["Technical SEO", "Local SEO", "National SEO", "Content writing"],
     video: "video/seo-logo.mp4",
   },
@@ -67,9 +71,9 @@ export const services = [
   {
     key: "social",
     title: "Social Media",
-    promise: "Turn the scroll into enquiries, not applause.",
+    promise: "Social media marketing that turns the scroll into enquiries.",
     detail:
-      "Likes don't pay wages. We run paid social, content and a posting plan aimed at the people close to buying — so what comes back is booked jobs and filled diaries, not a bigger follower count.",
+      "Paid social ads, content creation and a posting plan, aimed at the people close to buying. Likes don't pay wages — what comes back is booked jobs and filled diaries, not a bigger follower count.",
     bullets: ["Paid social ads", "Content creation", "Posting plan", "Founder content"],
     video: "video/socials-logo.mp4",
   },

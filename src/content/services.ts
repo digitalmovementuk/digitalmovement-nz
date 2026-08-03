@@ -3,9 +3,20 @@
 // plain English, NZ businesses.
 //
 // Rewritten 2026-08-02 off the copy audit. Standing rules for this file:
-// no page-1-in-90-days guarantee (no grounds for it), no bare "real results"
-// (it names nothing), one CTA wording sitewide, and every acronym expanded
-// the first time a reader meets it.
+// no page-1-in-90-days guarantee (no grounds for it), one CTA wording
+// sitewide, and every acronym expanded the first time a reader meets it.
+//
+// Keyword restore 2026-08-03. The 2026-08-02 pass fixed a legal problem and
+// broke an SEO one at the same time: rewriting away from the guarantee also
+// rewrote the search terms out of the H1s. The SEO page's H1 contained
+// neither "SEO" nor "NZ"; the social page's said "Social" instead of
+// "Social media"; web design lost "SEO" from a chip and an FAQ question.
+// Those are back. The guarantee is not, and must not come back with them —
+// the two were only ever in the same sentence by accident.
+//
+// Standing rule: every service page's H1 must contain the term that page is
+// trying to rank for. Copy that reads beautifully and matches no search is
+// not better copy, it is a page nobody arrives at.
 
 export type ServiceContent = {
   slug: string;
@@ -126,8 +137,12 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     hero: {
       eyebrow: "Search engine optimisation · for NZ businesses",
-      headlineTop: "Get found first",
-      headlineBottom: "by the people ready to buy.",
+      // Keyword H1, restored 2026-08-03. The SEO service page had ended up with
+      // an H1 that did not contain the words "SEO" or "NZ" — it read well and
+      // matched nothing. The old H1 was "Page 1 SEO / in just 90 days"; the
+      // keyword comes back, the page-1-by-date promise does not.
+      headlineTop: "SEO services in NZ",
+      headlineBottom: "that bring in customers.",
       sub: "An SEO agency in New Zealand for businesses that want customers, not impressions. We agree the searches we're chasing before we start, then show you every month exactly where you sit on each one.",
       primaryCta: "Get my free plan",
       secondaryCta: "Talk it through first",
@@ -562,9 +577,12 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     hero: {
       eyebrow: "Social media · for NZ businesses",
-      headlineTop: "Social that books jobs,",
-      headlineBottom: "not just likes.",
-      sub: "Likes don't pay wages. We run social for New Zealand businesses that need the phone to ring — aimed at the people already close to buying, and measured on enquiries rather than follower counts.",
+      // "Social media", not "Social" — restored 2026-08-03. The shortened
+      // version scanned better and dropped the page's own search term out of
+      // its H1.
+      headlineTop: "Social media that",
+      headlineBottom: "books jobs, not just likes.",
+      sub: "Likes don't pay wages. We run social media marketing for New Zealand businesses that need the phone to ring — aimed at the people already close to buying, and measured on enquiries rather than follower counts.",
       primaryCta: "Get my free plan",
       secondaryCta: "Talk it through first",
       chips: ["Paid social ads", "Content creation", "Posting plan"],
@@ -572,8 +590,8 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     whatItIs: {
       eyebrow: "Why do social media",
-      headlineMain: "Your next customer",
-      headlineSub: "is already scrolling.",
+      headlineMain: "Social media marketing",
+      headlineSub: "that ends in booked work.",
       paragraphs: [
         "Social media marketing has rapidly become one of the most influential forces in digital marketing — but what does it really do for your business?",
         "Think of your website as your headquarters, and social media as the ongoing conversation that builds trust, rapport, and recognition. As a leading social media marketing agency in New Zealand, we use these platforms to give your brand a clear voice, a strong personality, and consistent visibility where your audience spends their time.",
@@ -786,7 +804,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       sub: "Digital Movement is a 5-star rated web design agency in New Zealand building websites that deliver paying customers, not just traffic.",
       primaryCta: "Get my free plan",
       secondaryCta: "Talk it through first",
-      chips: ["Mobile-first design", "Built to convert", "Ready to rank from day one", "You can edit it"],
+      chips: ["Mobile-first design", "Built to convert", "SEO-ready from day one", "You can edit it"],
       video: "video/website-logo.mp4",
     },
     whatItIs: {
@@ -963,7 +981,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
         { q: "Can I maintain the site myself?", a: "Yes, that's standard. You get editing access and a 30-min video tutorial. With Webflow/Framer you can change copy, images and pages yourself." },
         { q: "What happens to my old site?", a: "We do a 301-redirect mapping so no SEO trust is lost. Plus a backup, in case you want to roll back." },
         { q: "What if I want changes after launch?", a: "30 days bug-fix support are included in the fixed price. After that: monthly care packages or hourly — you decide." },
-        { q: "Will the new site show up on Google?", a: "It's built so it can. That means it loads fast, works properly on a phone, has a sensible page structure, and tells Google what your business is and where it operates. That gets you a site Google can rank — actually climbing the results is ongoing work, and that's our SEO service." },
+        { q: "What about SEO — will the new site rank?", a: "It's built so it can. That means it loads fast, works properly on a phone, has a sensible page structure, and tells Google what your business is and where it operates. That gets you a site Google can rank — actually climbing the results is ongoing work, and that's our SEO service." },
         { q: "What's the cost difference between custom and Webflow?", a: "Fixed-price range starts at NZ$22,000 (Webflow marketing site) and can go to NZ$90,000+ (custom React/e-commerce). We give you a concrete number in the consult." },
       ],
     },
