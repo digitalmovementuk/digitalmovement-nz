@@ -32,10 +32,10 @@ export const ecommerce: SeoPageContent = {
 
   hero: {
     eyebrow: "SEO agency · for NZ online stores",
-    h1: "Ecommerce SEO for NZ Online Stores",
-    sub: "Every month, people search for exactly what your store sells and buy it from someone else. Ecommerce SEO is the work of making sure those orders come to you instead — your category pages, your product pages, and the structure holding them together. Built for Shopify, WooCommerce and BigCommerce stores, with a free plan before you commit to anything.",
+    h1: "Ecommerce SEO for NZ online stores.",
+    sub: "Every month people search for exactly what you sell, and buy it from someone else. We fix that — your category pages, your product pages, and the structure holding them together. Shopify, WooCommerce and BigCommerce.",
     chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
-    formHeading: "Get your free ecommerce SEO audit",
+    formHeading: "Get your free ecommerce SEO plan",
     formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
@@ -44,12 +44,10 @@ export const ecommerce: SeoPageContent = {
     headlineMain: "Stores rank differently",
     headlineSub: "to service businesses.",
     paragraphs: [
-      "Ecommerce SEO is a different job to the local service SEO most NZ agencies build. A tradesperson's site has a handful of pages competing for suburb and service searches. An online store might have hundreds or thousands of product pages, several category pages per range, and filter combinations that generate URLs nobody typed on purpose. The scale changes the approach — ecommerce SEO is about ranking a structure, not one page.",
-      "The biggest technical problem in ecommerce SEO is duplicate content. A product available in five colours and three sizes can generate fifteen URLs for the same item, and a filtered category view — in stock, under $50, size M — can generate hundreds more. Google sees near-identical pages competing for the same keyword, and without canonical tags and a sensible URL strategy, an online store can end up out-competing itself instead of the market.",
-      "More people search for a type of product than for one exact model. Someone typing \"waterproof hiking boots\" wants to see a range, not one boot, and Google's results reflect that — the pages that rank are category pages. Product pages still matter, but they catch the shopper who already knows the model. A store that only tidies up its product pages is fighting for the smaller half of the shoppers.",
-      "New Zealand online stores share Google's results with offshore retailers who ship here, and those overseas stores often have bigger content budgets and years of accumulated backlinks. A small NZ store cannot out-spend that on every generic keyword. What it can do is win the searches an overseas retailer has no reason to target — NZ-specific sizing, local shipping and returns, and category pages built around how New Zealanders actually search rather than how a global catalogue happens to be organised.",
-      "The same shape shows up inside almost every store's own catalogue: the searches that describe a category or a specific product, where the demand is steady and nobody bigger has bothered to build a proper page. Those are the ones worth taking, because you can take them — and they are the ones a shopper types when they have their card out.",
-      "None of this is a one-off fix. New products get added, ranges get discontinued, and filters change as stock changes, so an online store's SEO needs maintaining the same way its inventory does. A category page optimised once and left alone drifts out of date as fast as the products on it.",
+      "A tradie's site has a handful of pages. A store has hundreds of product pages, a category page per range, and filter URLs nobody meant to create. That changes the job entirely: you're ranking a structure, not a page.",
+      "The biggest problem is your store competing with itself. One product in five colours and three sizes can spit out fifteen URLs for the same thing, and a filtered view — in stock, under $50, size M — makes hundreds more. Google sees near-identical pages fighting each other, and your best page loses.",
+      "The other thing worth knowing: more people search for a type of product than for one exact model. Someone typing \"waterproof hiking boots\" wants a range, so it's the category page that ranks. Fix only your product pages and you're fighting for the smaller half of the shoppers.",
+      "You also share the results with overseas retailers who ship here and have deeper pockets. You won't out-spend them on generic terms. You can win what they've no reason to target — NZ sizing, local shipping and returns, and categories built the way New Zealanders actually search.",
     ],
   },
 
@@ -58,24 +56,24 @@ export const ecommerce: SeoPageContent = {
     headlineMain: "More orders,",
     headlineSub: "without more ad spend.",
     intro:
-      "Vague agency promises don't help you decide. Here's what ecommerce SEO does to an online store's traffic and cost per lead, in plain terms.",
+      "Vague promises don't help you decide. Here's what this actually does to your traffic and what it costs you to get a customer.",
     items: [
       {
         kicker: "Ranking",
-        title: "Rank your category pages",
-        body: "Your category pages are where the money is — someone searching \"merino baby blankets nz\" is closer to paying than someone searching your brand name. We get those pages in front of them, and we track the orders that follow, not just the traffic.",
+        title: "Get your category pages ranking",
+        body: "Your category pages are where the money is. Someone searching \"merino baby blankets nz\" is closer to paying than someone searching your brand name. We get those pages in front of them, and we track the orders — not just the visits.",
       },
       {
         kicker: "Cost",
         title: "Visitors you stop paying for one at a time",
-        body: "Every visitor an ad sends you costs you money, and stops the day the budget does. A category page that ranks keeps sending the same kind of shopper next month, and the month after, without another dollar going to Google.",
+        body: "Every visitor an ad sends you costs money, and stops the day the budget does. A category page that ranks keeps sending the same shoppers next month, and the month after, for nothing.",
       },
       {
         kicker: "Structure",
         value: "Fixed",
-        unit: "technical foundation",
+        unit: "foundation",
         title: "Stop your store competing with itself",
-        body: "Duplicate product variants and filtered URLs get consolidated properly, so your category pages rank instead of splitting authority across near-identical copies of the same ecommerce page.",
+        body: "Duplicate variants and filter URLs get tidied up properly, so your category pages rank instead of splitting the effort across near-identical copies of themselves.",
       },
     ],
   },
@@ -83,38 +81,38 @@ export const ecommerce: SeoPageContent = {
   included: {
     eyebrow: "What's included",
     headlineMain: "Everything it takes",
-    headlineSub: "to rank an online store.",
+    headlineSub: "to rank a store.",
     intro:
-      "One fixed monthly price. No setup fee, no upsells for \"more pages\" once you've signed — everything below, every month, for as long as you stay.",
+      "One price a month. No setup fee, no upsells for \"more pages\" once you've signed. All of it, every month, for as long as you stay.",
     columns: [
       {
-        title: "Store audit & strategy",
+        title: "Getting started",
         items: [
-          "Full technical audit of your online store",
-          "Category and product keyword mapping",
-          "Duplicate content audit — variants, filters, pagination",
-          "Competitor gap analysis against other online stores",
-          "Six-month content roadmap",
+          "We check what's broken across your whole store",
+          "We work out which category and product searches are worth chasing",
+          "We find where your store is competing with itself",
+          "A look at the stores beating you, and why",
+          "A six-month plan you can read in one sitting",
         ],
       },
       {
-        title: "Build & optimise",
+        title: "The work",
         items: [
-          "Canonical tags and URL structure fixes",
-          "Category page content targeting commercial searches",
-          "Product schema and structured data",
-          "Site speed and Core Web Vitals work for large catalogues",
-          "New category and collection pages published monthly",
+          "Telling Google which version of a duplicate page is the real one",
+          "Category pages written for what shoppers actually search",
+          "Code that shows your price, stock and reviews in Google",
+          "Speed work that holds up on a big catalogue",
+          "New category and collection pages every month",
         ],
       },
       {
-        title: "Track & report",
+        title: "What you see",
         items: [
-          "Live rankings dashboard for your priority pages",
-          "Monthly report in plain English",
-          "Direct line to your specialist",
-          "Enquiry and conversion tracking",
-          "Clear next steps every month",
+          "A live dashboard for your priority pages",
+          "A plain-English report every month",
+          "The person doing the work, on the phone",
+          "Tracking that ties visits back to orders",
+          "What worked, and what's next",
         ],
       },
     ],
@@ -122,30 +120,30 @@ export const ecommerce: SeoPageContent = {
 
   process: {
     eyebrow: "How it works",
-    headlineMain: "Ninety days,",
-    headlineSub: "mapped out plainly.",
+    headlineMain: "The first",
+    headlineSub: "three months.",
     intro:
-      "What happens in week 1, month 2 and month 3 for an ecommerce SEO client — on record, so you can hold us to it.",
+      "What happens in week 1, month 2 and month 3 — on record, so you can hold us to it.",
     steps: [
       {
         eta: "Week 1",
-        title: "Audit and plan",
-        body: "Your free ecommerce SEO audit lands in your inbox, plus a call to walk through your category and product page priorities.",
+        title: "Plan and kick-off",
+        body: "Your free plan lands in your inbox, plus a call to agree which category and product pages come first.",
       },
       {
-        eta: "Week 2–4",
-        title: "Foundations go in",
-        body: "Duplicate content gets cleaned up, canonical tags go in, tracking goes live, and the first category pages ship.",
+        eta: "Weeks 2–4",
+        title: "Foundations",
+        body: "The duplicate pages get sorted, tracking goes live, and the first category pages ship.",
       },
       {
         eta: "Month 2",
-        title: "Rankings move",
-        body: "Category pages start climbing out of page two, and product pages begin picking up long-tail searches.",
+        title: "It compounds",
+        body: "More category pages live, and your product pages start picking up the longer, more specific searches.",
       },
       {
         eta: "Month 3",
-        title: "Page 1, on record",
-        body: "The first full review: every search we agreed, where you started, where you are now, and what it sold. From here it runs month by month.",
+        title: "First full review",
+        body: "Every search we agreed, side by side: where you started, where you are, and what it sold. From here it's month by month.",
       },
     ],
   },
@@ -155,7 +153,7 @@ export const ecommerce: SeoPageContent = {
     headlineMain: "Reviews from",
     headlineSub: "real NZ clients.",
     intro:
-      "These are the same verified Google reviews on our homepage. One is from Andrew Schultz, the owner of a small online store, whose tailored SEO strategy delivered a 1125% increase in web conversions — the rest are real Digital Movement clients from other industries, shown honestly rather than dressed up as an ecommerce portfolio we don't have.",
+      "These are the same verified Google reviews as on our homepage. One is Andrew Schultz, who owns a small online store and saw web conversions rise 1125%. The rest are real clients from other industries, shown honestly rather than dressed up as an ecommerce portfolio we don't have.",
   },
 
   nearby: {
@@ -163,63 +161,63 @@ export const ecommerce: SeoPageContent = {
     headlineMain: "More pages,",
     headlineSub: "built the same way.",
     intro:
-      "Ecommerce SEO is one part of how we approach SEO across New Zealand. Have a look at the rest of our work.",
+      "Ecommerce is one part of what we do. Here's the rest.",
     links: [
       {
         label: "SEO New Zealand",
         to: "/seo",
-        blurb: "The national hub — our full approach to ranking NZ businesses on Google, including online stores.",
+        blurb: "The national hub — how we get NZ businesses found, online stores included.",
       },
       {
         label: "SEO Auckland",
         to: "/seo/auckland",
-        blurb: "How we approach SEO for Auckland businesses, including online stores based there.",
+        blurb: "Getting found in Auckland, stores included.",
       },
       {
         label: "SEO Christchurch",
         to: "/seo/christchurch",
-        blurb: "How we approach SEO for Christchurch businesses and online stores based in Canterbury.",
+        blurb: "Getting found in Canterbury, stores included.",
       },
     ],
   },
 
   faq: {
     eyebrow: "Common questions",
-    headlineMain: "Ecommerce SEO,",
-    headlineSub: "answered directly.",
-    intro: "What online store owners ask before they choose an ecommerce SEO agency.",
+    headlineMain: "The questions store",
+    headlineSub: "owners ask us.",
+    intro: "What people ask before choosing an ecommerce SEO agency.",
     items: [
       {
         q: "How much does ecommerce SEO cost?",
-        a: "Ecommerce SEO is usually billed as a fixed monthly fee, the same as our other SEO work — not a per-page or per-product rate. The exact number depends on the size of your catalogue and how much technical clean-up it needs, which the free plan tells you before you commit.",
+        a: "One fixed price a month, same as our other work. Not per page, not per product. What it comes to depends on how big your catalogue is and how much tidying it needs — the free plan tells you before you commit.",
       },
       {
         q: "How long does ecommerce SEO take to work?",
-        a: "Most online stores see ranking movement within two to four weeks, because the early technical fixes are what Google picks up fastest. Orders follow later, usually once the category pages have been live a month or two. Specific product searches — a brand and a size — move faster than broad category terms.",
+        a: "Some movement usually shows in the first few weeks, because the technical fixes land first. Orders follow later, once the category pages have been up a month or two. Specific searches — a brand and a size — move faster than broad category terms.",
       },
       {
         q: "Does ecommerce SEO work for a small catalogue?",
-        a: "Yes — a small catalogue is often easier to optimise properly than a large one, because there's less duplicate content to untangle and fewer pages competing with each other. What matters is picking the right category and product pages to prioritise first.",
+        a: "Yes, and often better. A small catalogue has less duplication to untangle and fewer pages fighting each other. What matters is picking the right pages to do first.",
       },
       {
         q: "Should I optimise product pages or category pages first?",
-        a: "Category pages first, in most cases. More people search for a type of thing than for one exact model, so the category page reaches the bigger group — and the product pages underneath still pick up the shoppers who know precisely what they want.",
+        a: "Category pages, nearly always. More people search for a type of thing than one exact model, so the category page reaches the bigger group. Your product pages still pick up the shoppers who know exactly what they want.",
       },
       {
         q: "Do you do SEO for Shopify stores?",
-        a: "Yes. Shopify stores have their own quirks — limited control over URL structure, automatic variant URLs, and app-generated duplicate pages — and ecommerce SEO for Shopify works within those constraints rather than fighting the platform.",
+        a: "Yes. Shopify has its own quirks — limited control over URLs, automatic variant pages, and apps that generate duplicates. We work within those rather than fighting the platform.",
       },
       {
         q: "What about WooCommerce or BigCommerce?",
-        a: "The same ecommerce SEO principles apply on WooCommerce and BigCommerce: fixing duplicate content from variants and filters, building category pages that target commercial searches, and cleaning up the technical issues each platform tends to generate by default.",
+        a: "Same principles. Sort the duplication from variants and filters, build category pages that target what people actually search, and clean up whatever mess the platform makes by default.",
       },
       {
         q: "Is ecommerce SEO worth it compared to paid ads?",
-        a: "Ads stop the day you stop paying, and on commercial searches like these each click is not cheap. A page that ranks keeps bringing the same shoppers in after the ad budget has run out. Ads are the faster lever, search is the one that compounds — most stores that can afford it run both.",
+        a: "Ads stop the day you stop paying, and clicks on searches like these aren't cheap. A page that ranks keeps bringing shoppers in after the budget's gone. Ads are the faster lever, search is the one that compounds. Most stores that can afford it run both.",
       },
       {
         q: "Is there a minimum contract for ecommerce SEO?",
-        a: "Most reputable agencies, us included, ask for three months to start, then work month by month. That is roughly how long it takes before the work shows. You shouldn't be locked into a year just to find out if it's working for your store.",
+        a: "Three months to start, then month by month. That's roughly how long before the work shows. You shouldn't be locked into a year just to find out whether it's working.",
       },
     ],
   },
@@ -227,9 +225,9 @@ export const ecommerce: SeoPageContent = {
   finalCta: {
     eyebrow: "Ready when you are",
     headlineMain: "Get your free",
-    headlineSub: "ecommerce SEO audit.",
-    body: "See exactly where your online store stands in Google before you commit to anyone. One-page report, plain English, no obligation.",
-    formHeading: "Get your free ecommerce SEO audit",
-    formNote: "In your inbox within 24 working hours. No spam, no obligation.",
+    headlineSub: "ecommerce SEO plan.",
+    body: "See where your store actually stands in Google before you commit to anyone. One page, plain English, no obligation.",
+    formHeading: "Get your free ecommerce SEO plan",
+    formNote: "In your inbox within one working day. No spam, no obligation.",
   },
 };

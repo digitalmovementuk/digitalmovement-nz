@@ -5,16 +5,23 @@
 // content.ts), "real results" is gone (it named nothing), and pillars[0]
 // no longer repeats founderNote word for word — the same 200 words appeared
 // twice on one page.
+//
+// Rewritten again 2026-08-03 in the NZ tone pass (spec:
+// Sales/SEO Strategies/DM NZ 26-07-31/dm-nz-tone-and-voice.md). This page
+// carried the heaviest agency puffery on the site — "world-class marketing
+// experts", "work tirelessly", "cutting-edge", "scroll-stopping socials",
+// "genuine partner in your business growth". All of it is gone. If it comes
+// back, the page fails the read-aloud test in rule 5 of the spec.
 
 export const about = {
   meta: {
     title: "About Digital Movement · NZ Digital Marketing Agency",
     description:
-      "The New Zealand digital marketing agency for businesses that want more enquiries, not more reports. Who we are, how we work, and what you can hold us to.",
+      "The New Zealand agency for businesses that want more enquiries, not more reports. Who we are, how we work, and what you can hold us to.",
   },
   hero: {
     eyebrow: "About",
-    headlinePre: "Why we are a 5-star rated",
+    headlinePre: "Why we're a 5-star rated",
     headlineSoft: "digital marketing agency.",
     sub: "We get New Zealand businesses found by the people already searching for what they sell — and we show you, every month, exactly what that brought in.",
     locations: "Auckland · New Zealand",
@@ -23,25 +30,25 @@ export const about = {
     {
       label: "More enquiries, not more reports",
       headline:
-        "From more website traffic to more enquiries to higher sales.",
-      body: "Traffic is not the point. Enquiries are. Every month you get one page that says what we did, which searches you moved on, and how many calls and form fills came in — the number you'd check anyway. Plenty of agencies make big promises and report on the ones that are easy to hit. We report on the one that pays your wages.",
+        "The only number that matters is the one that pays your wages.",
+      body: "Traffic isn't the point. Enquiries are. Every month you get one page that says what we did, which searches moved, and how many calls and forms came in. Plenty of agencies promise big and then report on whatever was easy to hit. We report on the number you'd check anyway.",
       bodyMore:
-        "Here is what that looks like in practice. Before anything starts, we agree the searches we're going after and write them down — the specific phrases your customers type, not a vague promise about \"rankings\". You keep that list.\n\nEach month you get a one-page report against it: where you sat on each search, where you sit now, what we shipped, and what's next. If a number went backwards, it's on the same page as the ones that went up. Nothing gets quietly dropped from the report because it stopped looking good.\n\nWe also track the thing underneath the rankings — how many enquiries actually arrived, and which pages sent them. That's the number we'd want to see if we were paying the invoice, so it's the number we lead with.",
+        "Here's what that looks like. Before anything starts, we agree the searches we're going after and write them down — the actual phrases your customers type, not a vague promise about rankings. You keep that list.\n\nEach month you get one page against it: where you sat on each search, where you sit now, what we shipped, and what's next. If something went backwards, it's on the same page as the things that went up. Nothing gets quietly dropped because it stopped looking good.\n\nUnderneath the rankings we track the thing that actually matters — how many enquiries arrived, and which pages sent them. That's the number we'd want to see if we were paying the invoice, so it's the one we lead with.",
     },
     {
-      label: "Delivering you customers",
+      label: "The right customers",
       headline:
-        "The right customers, ready and willing to pay for what you offer.",
-      body: "Increasing your revenue by finding the right customers who are ready and willing to pay for what your business has to offer is what we do best. As a trusted digital marketing company in New Zealand, Digital Movement is proud to support businesses nationwide with a forward-thinking team of world-class marketing experts driven by results. From day one, our specialists work tirelessly to deliver a strong return on investment in the shortest time possible.",
+        "People who are ready to buy, not people who are browsing.",
+      body: "There's a difference between someone reading about your trade and someone who needs it done this week. We go after the second kind. That means the specific searches that end in a phone call, not the broad ones that look impressive on a report and never ring.",
       bodyMore:
-        "What we won't do is promise you the top spot. Nobody controls Google's results, so an agency that guarantees position one is either guessing or picking a search term so obscure that winning it changes nothing. What we put in writing instead is the search terms, the work, and the reporting — three things we actually control.\n\nOur highly skilled and experienced digital marketing experts are constantly developing innovative solutions designed to generate exceptional results. Whether it's driving high-quality leads with value-focused content, increasing sales with intelligently targeted ads, or building long-term brand visibility with scroll-stopping socials, we tailor every strategy to suit your business goals and market.\n\nDigital Movement is trusted by everyone from small local businesses to large national companies because we deliver what others promise. We combine cutting-edge marketing expertise with ongoing support and clear communication, taking the stress out of online marketing so you can focus on running your business.",
+        "What we won't do is promise you the top spot. Nobody controls Google's results, so an agency guaranteeing position one is either guessing or picking a search so obscure that winning it changes nothing. What we put in writing is the searches, the work and the reporting — three things we actually control.\n\nWe work with businesses right across New Zealand, from one-van trades to national companies. The approach doesn't change much: find what your customers are typing, build pages that answer it properly, earn the links that make Google take you seriously, and show you the numbers every month.\n\nIf we're not the right fit for what you need, we'll say so. That's cheaper for both of us than three months of finding out.",
     },
     {
-      label: "Going beyond service",
-      headline: "A dedicated NZ-based specialist working closely with you.",
-      body: "Gaining peace of mind by having a dedicated NZ-based digital marketing specialist working closely with you is what you can expect. As a passionate digital marketing company in New Zealand that wants you to succeed, we go the extra mile by assigning a dedicated NZ-based specialist who works closely with you to create and optimise a high-performing marketing strategy tailored to your business.",
+      label: "You deal with the person doing the work",
+      headline: "One specialist, based here, who answers their own email.",
+      body: "You get the person doing the work, by email, with a reply within one working day. Not a ticket number, and not an account manager relaying what someone else said. If something's gone wrong, you're talking to whoever can fix it.",
       bodyMore:
-        "You deal with the specialist doing the work, by email, and you get a reply within one working day — not a ticket number and not an account manager relaying messages.\n\nAt Digital Movement, we don't see ourselves as just another digital marketing agency providing campaigns and reports. We see ourselves as a genuine partner in your business growth. Our role goes far beyond delivering a service — we're here to understand your goals, overcome your challenges, and help you build sustainable success for the long term.\n\nWhen you choose Digital Movement, you're choosing a digital marketing company in New Zealand that is fully invested in your success, not just today, but well into the future. We don't disappear once a campaign goes live — we continuously refine, support, and scale your marketing to ensure ongoing growth and measurable results.",
+        "That's a deliberate choice, not a shortcut. Most of what goes wrong between an agency and a client is a message passed through two people who each lost a bit of it. Cutting that out means you hear the honest version, including the months where a number went the wrong way.\n\nWe don't disappear once the work goes live either. Rankings slip if a competitor gets serious or Google changes how it reads pages, so the job is ongoing by nature — and you should be able to ring someone about it.",
     },
   ],
   founderNote: {
@@ -50,26 +57,26 @@ export const about = {
     headlineSoft: "No jargon. Just the number that matters.",
     role: "Your NZ-based specialists",
     paragraphs: [
-      "We understand that most business owners in New Zealand have limited time and resources to dedicate to marketing. That's why we provide an all-in-one digital marketing service designed to make growth simple and stress-free.",
-      "Our approach combines high-performing website design and search engine optimisation (SEO) with targeted Google Ads and effective social media marketing — bringing everything together seamlessly under one roof.",
-      "As a trusted digital marketing company, we pride ourselves on offering honest advice, hands-on support, and campaigns that deliver outstanding returns on investment. No ignored emails. No confusing jargon. Just a dedicated team working proactively to move your business forward.",
+      "Most owners we work with have very little time to spend on this, and no particular interest in learning how Google works. Fair enough. So we handle it and explain it in language you'd use yourself.",
+      "That covers the website, getting found on Google, the ads if you run them, and the social side — all in one place, so you're not chasing three suppliers who each blame the other two.",
+      "What you get from us is a straight answer, a reply within one working day, and a report you can read in two minutes. No ignored emails. No jargon.",
     ],
     trackRecord: [
       { year: "100+", entry: "Five-star Google reviews from clients" },
-      { year: "500+", entry: "Businesses have grown with our help" },
-      { year: "3,500+", entry: "Pages ranked on page 1 of Google" },
-      { year: "$10M+", entry: "Revenue generated for NZ businesses" },
+      { year: "500+", entry: "Businesses we've worked with" },
+      { year: "3,500+", entry: "Pages we've got onto page 1" },
+      { year: "$10M+", entry: "Revenue our clients have put through" },
     ],
   },
   studio: {
     eyebrow: "Where we work",
     headlinePre: "Auckland-led.",
-    headlineSoft: "Trusted by NZ businesses nationwide.",
-    body: "As a trusted digital marketing company in New Zealand, Digital Movement is proud to support businesses nationwide with a forward-thinking team of world-class marketing experts driven by results. We work with Kiwi businesses across Auckland, Wellington, Christchurch, Hamilton, Tauranga and beyond.",
+    headlineSoft: "Working right across the country.",
+    body: "We're based in Auckland and work with businesses everywhere from Whangārei to Dunedin — Wellington, Christchurch, Hamilton, Tauranga and plenty of smaller towns in between. Every job runs remotely, with the same reporting and the same direct line wherever you are.",
     bullets: [
-      "Trusted from small local businesses to large national companies",
-      "Premium digital marketing without breaking the bank",
-      "Honest advice, hands-on support, outstanding ROI",
+      "One-van trades through to national companies",
+      "One fixed price a month, agreed before you start",
+      "Straight advice, even when it's not what you hoped",
     ],
   },
   /* The seven-person `team` block was deleted 2026-07-31. It listed invented
@@ -79,7 +86,7 @@ export const about = {
      worth carrying on a page whose job is to establish who we are. Restore
      with real people and real photographs, or not at all. */
   cta: {
-    eyebrow: "Ready?",
+    eyebrow: "Talk to us",
     headlinePre: "Find out what you're",
     headlineSoft: "missing out on.",
     body: "Tell us what you sell and where. You'll get back a free one-page plan — the searches your customers are already using, the ones going to someone else, and the three fixes worth doing first. Back within one working day.",

@@ -16,7 +16,7 @@ export const googleAdsChristchurch: SeoPageContent = {
   meta: {
     title: "Google Ads Christchurch · Managed Properly | Digital Movement",
     description:
-      "Google Ads management for Christchurch businesses — Search Ads, Performance Max and conversion tracking that turn spend into leads. Free plan, no long lock-in.",
+      "Google Ads for Christchurch businesses, run so the budget buys enquiries instead of clicks. Your own account, fixed fee, free plan first.",
   },
 
   keywords: {
@@ -34,97 +34,95 @@ export const googleAdsChristchurch: SeoPageContent = {
 
   hero: {
     eyebrow: "Google Ads · for Christchurch businesses",
-    h1: "Google Ads Christchurch, Run Properly",
-    sub: "Digital Movement is a 5.0-rated Google Ads agency working with Christchurch businesses — Search Ads, Performance Max and conversion tracking built to turn ad spend into paying customers, not just clicks.",
-    chips: ["5.0 Google rating", "100+ verified reviews", "Free plan, no obligation", "Month by month after 3"],
-    formHeading: "Get your free Christchurch Google Ads consult",
+    h1: "Google Ads Christchurch, run properly.",
+    sub: "Most accounts we're handed are paying for clicks that were never going to turn into anything. We fix that: the ads, the pages they land on, and the tracking that tells you which ones actually made you money. Your budget stays in your own account.",
+    chips: ["5.0 Google rating", "100+ verified reviews", "Your own ad account", "Free plan, no obligation"],
+    formHeading: "Get your free Christchurch Google Ads plan",
     formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
     eyebrow: "Built for Ōtautahi",
-    headlineMain: "A spread-out market",
+    headlineMain: "A spread-out city",
     headlineSub: "that punishes one flat campaign.",
     paragraphs: [
-      "Christchurch rebuilt itself after 2011, and the rebuild didn't put the city back where it was. A lot of businesses that used to sit inside the four avenues moved out to Riccarton, Addington, Sydenham and further afield, and plenty never moved back in. For Google Ads, that spread matters more than for most channels: a single campaign with one radius set around the old CBD quietly misses everywhere else the city actually rebuilt into.",
-      "Christchurch is also flat and wide. It covers more ground per person than almost any other city in the country, without the hills and harbours that box Auckland and Wellington into tight corridors. A campaign geo-targeted to a five-kilometre radius around town is excluding real customers in Halswell and Papanui — both genuinely local, both currently invisible to a single-radius setup.",
-      "That spread only pays off if the campaign is actually built around it. Riccarton, Addington, Sydenham, Papanui, Merivale, Hornby, and the fast-growing Rolleston and Selwyn corridor are all places worth their own ad groups and their own location bid adjustments — not one campaign aimed loosely at \"Christchurch\" and left alone.",
-      "The city also carries a real tech and agritech scene alongside the trades — Canterbury Tech's membership base and the agricultural research coming out of Lincoln University sit a few kilometres from the businesses rebuilding the same suburbs. That mix pushes average cost-per-click higher than in a smaller centre, because more advertisers are already bidding on the same commercial terms — which makes account structure and negative keywords matter more, not less.",
-      "Christchurch Airport is the South Island's main gateway, and that pulls a tourism and hospitality corridor out through the city toward Hanmer Springs and Akaroa. A local business near that corridor is bidding against two different kinds of intent at once — a Cantabrian typing a suburb name, and a visitor typing the city name — and one ad group serving both wastes spend on clicks that were never going to convert.",
+      "The rebuild moved Christchurch outward. Riccarton, Addington, Sydenham, Papanui, Hornby — plenty of businesses left the four avenues and never went back. Set your ads to a five-kilometre circle around town and you're invisible in Halswell and Papanui, both of which are genuinely local to you.",
+      "So the suburbs need their own ads, and the Rolleston and Selwyn corridor needs its own again. One campaign pointed loosely at \"Christchurch\" and left running is how budgets disappear here.",
+      "The other thing to know is that clicks cost more in Christchurch than in a smaller centre, because there are more people bidding — trades, tech out at Lincoln, hospitality along the airport corridor. That makes it more important, not less, to tell Google which searches you don't want to pay for.",
     ],
     stats: [
       { value: "9", label: "ways Cantabrians phrase the same search" },
-      { value: "14", label: "days to first enquiries, with a clean setup" },
+      { value: "14", label: "days before the obviously wasted spend stops" },
       { value: "3", label: "months to start, then month by month" },
     ],
   },
 
   outcomes: {
     eyebrow: "What you gain",
-    headlineMain: "What changes",
-    headlineSub: "when the account is actually managed.",
+    headlineMain: "What changes when",
+    headlineSub: "someone's actually watching.",
     intro:
-      "Christchurch is a competitive auction — average cost-per-click runs higher here than in smaller centres, because more advertisers are already bidding. Here's what changes when a campaign is built properly instead of left on autopilot.",
+      "Clicks cost more here than in a smaller centre, because more people are bidding. Here's what changes when the account is built properly instead of left on autopilot.",
     items: [
       {
         kicker: "Visibility",
         value: "Front",
         unit: "& centre",
-        title: "Show up when Christchurch is ready to buy",
-        body: "Search Ads put your business at the top of Google the moment someone in Christchurch searches for what you sell — no waiting on rankings, no guessing.",
+        title: "Be there the moment someone's ready to buy",
+        body: "Ads put you at the top of Google the moment someone in Christchurch searches for what you sell. No waiting months for rankings.",
       },
       {
         kicker: "Spend",
-        value: "Clean",
-        unit: "conversions",
-        title: "Stop paying for clicks that don't convert",
-        body: "Weekly search-term trimming and tight negative keyword lists mean your Christchurch budget buys real enquiries, not window-shoppers and irrelevant suburbs.",
+        value: "Less",
+        unit: "waste",
+        title: "Stop paying for clicks that go nowhere",
+        body: "Every week we read what people actually typed to reach you, and cut the searches that were never going to become a job. That's where most of the savings come from.",
       },
       {
         kicker: "Trust",
         value: "5.0",
         unit: "rating",
-        title: "Borrow trust that's already proven",
-        body: "100+ verified reviews and a 5.0 Google rating back every landing page we build — the signals Christchurch customers check before they call.",
+        title: "Borrow trust that's already there",
+        body: "100+ verified reviews and a 5.0 Google rating sit behind every page we build. That's what people check before they ring.",
       },
     ],
   },
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included",
-    headlineSub: "fixed price, no surprises.",
+    headlineMain: "Everything included.",
+    headlineSub: "Fixed price, no surprises.",
     intro:
-      "One fixed monthly management fee. Every ad dollar runs through your own Google Ads account — we don't earn on your spend. Everything below is included from day one.",
+      "One fixed fee a month, separate from your ad budget. Every dollar of that budget runs through your own Google account — we don't take a cut of your spend.",
     columns: [
       {
-        title: "Strategy",
+        title: "Getting started",
         items: [
-          "Google Ads account & tracking audit",
-          "Campaign architecture mapped to Christchurch suburbs",
-          "Landing-page conversion plan",
-          "Canterbury competitor and auction-insights analysis",
-          "Budget and ROAS model",
+          "We check what your current account is actually paying for",
+          "Campaigns mapped to the suburbs you work in",
+          "A look at who else is bidding against you, and on what",
+          "A plan for the pages your ads send people to",
+          "A budget and a target for what a customer should cost you",
         ],
       },
       {
-        title: "Execution",
+        title: "The work",
         items: [
-          "Search & Performance Max campaign builds",
-          "Landing page creation & tuning",
-          "Conversion tracking (GA4 + server-side)",
-          "Weekly search-term trimming",
-          "Ad and asset production",
+          "Search and Performance Max campaigns built from scratch",
+          "Landing pages written and tuned so the clicks turn into enquiries",
+          "Tracking set up so you know which ads made you money",
+          "Weekly trimming of the searches that waste your budget",
+          "Ads and images written and produced",
         ],
       },
       {
-        title: "Reporting",
+        title: "What you see",
         items: [
-          "Live dashboard — ROAS, cost per lead, conversions",
-          "Monthly plain-English report",
-          "Direct line to your specialist",
-          "No account-manager ping-pong",
-          "Clear wins, clear next steps",
+          "A live dashboard — spend, cost per enquiry, what came in",
+          "A plain-English report every month",
+          "The person doing the work, on the phone",
+          "No account managers in between",
+          "What worked, and what's next",
         ],
       },
     ],
@@ -132,85 +130,85 @@ export const googleAdsChristchurch: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "What happens,",
-    headlineSub: "mapped out, step by step.",
+    headlineMain: "Your first",
+    headlineSub: "three months.",
     intro:
-      "What happens on day 1, 30, 60 and 90 for a Christchurch Google Ads account. We say it up front and show the ROAS maths every month.",
+      "Here's how a Christchurch account runs, start to finish. We say it up front and show you the numbers every month.",
     steps: [
-      { eta: "Day 1", title: "Audit & kick-off", body: "Free Google Ads consult for your Christchurch account. We map out campaign architecture and the conversion plan." },
-      { eta: "Day 30", title: "Campaigns live", body: "Search and Performance Max running across your Christchurch suburbs. Conversion tracking clean, first data flowing in." },
-      { eta: "Day 60", title: "ROAS stabilising", body: "Wasted spend trimmed, quality score up, return on ad spend settling in above target." },
-      { eta: "Day 90", title: "Profitable & scaling", body: "Profitable campaigns scaled across Canterbury. From here on, monthly optimisation — three months to start, then month by month." },
+      { eta: "Week 1", title: "Plan and kick-off", body: "Your free plan lands in your inbox, then a call to agree the campaigns and which pages the ads point at." },
+      { eta: "Month 1", title: "Live", body: "Campaigns running across the suburbs you work in. Tracking clean, first real numbers coming in." },
+      { eta: "Month 2", title: "Tightening up", body: "The wasted spend gets cut week by week, and what a customer costs you starts settling into a number you can plan around." },
+      { eta: "Month 3", title: "First full review", body: "What you spent, what came in, and what each customer cost. From here it's month by month, and you keep every account and login either way." },
     ],
   },
 
   proof: {
     eyebrow: "Client reviews",
-    headlineMain: "Proof from around NZ",
-    headlineSub: "not a Christchurch case study we don't have.",
+    headlineMain: "Proof from around NZ.",
+    headlineSub: "No made-up local case study.",
     intro:
-      "These reviews are real Digital Movement clients from around New Zealand — not Christchurch businesses, and not all running Google Ads. We'd rather show you the standard we hold ourselves to everywhere than dress up a local case study we don't actually have yet.",
+      "These reviews are real Digital Movement clients from around New Zealand — not Christchurch businesses, and not all running ads. We'd rather show you the standard we hold ourselves to than dress up a local case study we don't have yet.",
   },
 
   nearby: {
     eyebrow: "Elsewhere on the site",
     headlineMain: "More ways to grow",
-    headlineSub: "in Christchurch and beyond.",
-    intro: "Google Ads works best alongside a site that also ranks organically. Here's where else to look.",
+    headlineSub: "in Christchurch.",
+    intro: "Ads work best alongside a site that also ranks on its own. Here's where else to look.",
     links: [
-      { label: "Google Ads New Zealand", to: "/services/google-ads", blurb: "The national hub — our full approach to running profitable Google Ads campaigns for NZ businesses." },
-      { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "Pair paid reach with organic rankings — our approach to SEO for the same city." },
-      { label: "SEO New Zealand", to: "/seo", blurb: "Our national approach to organic search, for when SEO is the right lever too." },
+      { label: "Google Ads New Zealand", to: "/services/google-ads", blurb: "The national hub — how we run ads for NZ businesses." },
+      { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "The slower, cheaper lever for the same city." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — how we get NZ businesses found." },
     ],
   },
 
   faq: {
     eyebrow: "Common questions",
-    headlineMain: "Straight answers",
-    headlineSub: "to the Christchurch questions.",
-    intro: "What Christchurch business owners ask most often before they book their free consult.",
+    headlineMain: "The questions we",
+    headlineSub: "get asked most.",
+    intro: "What Christchurch owners ask before booking a free plan.",
     items: [
       {
-        q: "How much does Google Ads management cost in Christchurch?",
-        a: "Digital Movement runs a fixed monthly management fee, separate from your ad budget, which stays in your own Google Ads account. The exact fee depends on your industry and campaign complexity, which the free consult tells you before you commit to anything.",
+        q: "What does it cost to have someone run our ads?",
+        a: "One fixed fee a month, separate from your ad budget — which stays in your own account. What the fee comes to depends on your trade and how many campaigns you need. The free plan gives you the number before you commit to anything.",
       },
       {
-        q: "How much ad spend do I need to run Google Ads in Christchurch?",
-        a: "It depends on your industry and cost per lead. We typically recommend NZ$2,000–NZ$8,000 a month to start. The free consult gives you a concrete number based on what Christchurch advertisers in your market are actually paying per click.",
+        q: "How much ad budget do we need?",
+        a: "It depends on your trade and what a customer is worth to you. Most Christchurch businesses start somewhere between NZ$2,000 and NZ$8,000 a month. The free plan gives you a real figure based on what people in your market are actually paying per click.",
       },
       {
-        q: "Does Digital Movement earn a cut of my ad spend?",
-        a: "No. Every dollar of budget runs through your own Google Ads account. We charge a fixed monthly fee, whether your budget is small or large — so the incentive is results, not spend.",
+        q: "Do you take a cut of our ad spend?",
+        a: "No. Every dollar runs through your own Google account. We charge the same fixed fee whether your budget is small or large, so there's no reason for us to talk you into spending more.",
       },
       {
-        q: "How fast will my Christchurch business get enquiries?",
-        a: "With a clean setup, often within the first 14 days — that's usually when the obviously wasted spend stops. Getting to the point where you know what a customer costs you, reliably enough to plan around, usually takes two to three months.",
+        q: "How fast will we see enquiries?",
+        a: "Often inside the first two weeks — that's usually when the obviously wasted spend stops and the budget starts going somewhere useful. Knowing reliably what a customer costs you, well enough to plan around, takes two to three months.",
       },
       {
-        q: "Do you target specific Christchurch suburbs, or just the whole city?",
-        a: "Specific suburbs. Riccarton, Addington, Sydenham, Papanui, Merivale, Hornby and the Rolleston corridor all get their own targeting and bid adjustments, rather than one campaign aimed loosely at \"Christchurch.\"",
+        q: "Do you target specific suburbs or the whole city?",
+        a: "Specific suburbs. Riccarton, Addington, Sydenham, Papanui, Merivale, Hornby and the Rolleston corridor each get their own targeting rather than one campaign aimed loosely at \"Christchurch\".",
       },
       {
-        q: "Is Performance Max worth using for a Christchurch business?",
-        a: "Yes, when it's set up properly — tightly scoped asset groups, account-level negative keywords, and clean conversion tracking. Left on default settings, Performance Max burns budget on clicks that were never going to convert.",
+        q: "Is Performance Max worth using?",
+        a: "Yes, when it's set up carefully and told what not to bid on. Left on the default settings it spends your money on clicks that were never going to become a job.",
       },
       {
-        q: "Is Digital Movement based in Christchurch?",
-        a: "We work with businesses across New Zealand, including Christchurch, and run every account remotely with the same reporting and access whether you're in the CBD, Rolleston, or anywhere else in Canterbury. Get in touch and we'll tell you straight whether we're the right fit.",
+        q: "Are you based in Christchurch?",
+        a: "No. We work with businesses right across New Zealand and run every account remotely, with the same reporting and access whether you're in town, out in Rolleston or anywhere else in Canterbury. Get in touch and we'll tell you straight whether we're the right fit.",
       },
       {
-        q: "What happens after the first 90 days?",
-        a: "Month by month after the first three. You keep every account and every login even if you continue without us.",
+        q: "What happens after the first three months?",
+        a: "It's month by month. You keep every account and every login, even if you carry on without us.",
       },
     ],
   },
 
   finalCta: {
     eyebrow: "Talk to us",
-    headlineMain: "Let's talk Ads",
-    headlineSub: "for your Christchurch business.",
-    body: "Get in touch and we'll show you exactly what a properly managed Google Ads account could do for your Christchurch business — free, no obligation, in plain English.",
-    formHeading: "Get your free Christchurch Google Ads consult",
-    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
+    headlineMain: "Let's talk about",
+    headlineSub: "your Christchurch ads.",
+    body: "Send us your account or your website and the parts of Canterbury you cover. We'll show you what your budget is currently buying, what it should be buying, and what we'd change first. One working day, no sales call.",
+    formHeading: "Get your free Christchurch Google Ads plan",
+    formNote: "A one-page plan within one working day. No sales call, no obligation.",
   },
 };

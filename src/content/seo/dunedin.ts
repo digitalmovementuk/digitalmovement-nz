@@ -29,179 +29,177 @@ export const dunedin: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Dunedin businesses",
     h1: "SEO Dunedin trades use to get found first.",
-    sub: "We get Dunedin businesses — especially trades and local services — found by the customers already looking for them. Fewer businesses here compete properly for search than in the bigger centres, which means a well-built page can get in front of them faster than it would in Auckland.",
+    sub: "Fewer businesses down here compete properly on Google than in the big centres. That means a page built properly can get in front of your customers faster than the same page would in Auckland.",
     chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
-    formHeading: "Get your free Dunedin SEO audit",
+    formHeading: "Get your free Dunedin SEO plan",
     formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
     eyebrow: "Built for Ōtepoti",
-    headlineMain: "A city built",
-    headlineSub: "on the hill, not the flat.",
+    headlineMain: "Built on the hill,",
+    headlineSub: "not the flat.",
     paragraphs: [
-      "Dunedin is New Zealand's steepest city, and that shapes what a local business actually sells. Baldwin Street and the hill suburbs above the flat — Roslyn, Māori Hill, Belleknowes — mean retaining walls, drainage, foundation work and re-roofing are a bigger part of the trades economy here than in a flat city like Christchurch. A Dunedin builder or landscaper is quoting on slope as often as square metres.",
-      "The University of Otago and the attached health sciences campus put more than 20,000 students into the city for roughly eight months of the year, then empty a good chunk of North Dunedin out over summer. That's a real seasonal swing for anyone renting, cleaning, moving or fitting out student flats — the phone rings hard in January and February and goes quiet mid-year, and a site that doesn't account for that timing misses the window.",
-      "A lot of the city's housing stock is Victorian and Edwardian villa, especially through North East Valley, Kaikorai Valley and the central city fringe. That's specialist work — heritage-sensitive renovation, joinery repair, insulation retrofits on timber-frame houses built before double glazing existed — not the volume new-build trade you'd target in Selwyn or Rolleston. The suburbs a Dunedin business names on its site should reflect that: North East Valley, Roslyn, St Clair, Green Island and Mosgiel are all real, distinct markets a local customer types into Google.",
-      "Dunedin's harbour runs the length of the city out to Port Chalmers, and the port and its logistics, marine and light-industrial trade sit alongside the university and hospital as the city's steadiest employers. Health and education between them carry a large share of the local economy, and a lot of trades and services work builds off contracts and staff turnover in those two sectors rather than off tourism.",
-      "Dunedin is a small enough market that word of mouth still carries real weight — most people ask a neighbour or a Facebook group before they Google a tradesperson. That cuts both ways. Competition on Google here is genuinely light — far lighter than Auckland or Wellington — so a business that shows up properly picks up more than its share of the people word of mouth was never going to reach.",
+      "Dunedin is the steepest city in the country, and that changes what trades here actually sell. Retaining walls, drainage, foundations, re-roofing. If you're quoting in Roslyn or Māori Hill you're quoting on slope, not just square metres — and the searches reflect that.",
+      "The other thing that shapes the year is the university. Twenty thousand students arrive, then North Dunedin empties over summer. If you rent, clean, move or fit out flats, your phone runs hot in January and goes quiet mid-year. Your site should be ready before the window opens, not during it.",
+      "And the suburbs matter. North East Valley, Roslyn, St Clair, Green Island, Mosgiel — people type those, not \"Dunedin\". Competition on Google here is genuinely light, so a business that shows up properly picks up more than its share.",
     ],
   },
 
   outcomes: {
     eyebrow: "What you gain",
-    headlineMain: "What changes",
-    headlineSub: "when Dunedin SEO is done properly.",
+    headlineMain: "What light competition",
+    headlineSub: "actually buys you.",
     intro:
-      "\"SEO Dunedin\" is the least crowded of any city we work in. Here's what that low competition actually buys a Dunedin business once the page is live.",
+      "\"SEO Dunedin\" is the least crowded market we work in. Here's what that's worth once your page is live.",
     items: [
       {
         kicker: "Visibility",
-        title: "Rank where Dunedin customers already look",
-        body: "We build around the hill suburbs, the flat and the surrounding towns Dunedin customers actually search from — because \"plumber Mosgiel\" and \"plumber Dunedin\" are two different jobs, and both bring work.",
+        title: "Rank where Dunedin looks",
+        body: "We build around the hill suburbs, the flat and the towns nearby. \"Plumber Mosgiel\" and \"plumber Dunedin\" are two different jobs, and both bring work.",
       },
       {
         kicker: "Leads",
         value: "Real",
         unit: "enquiries",
-        title: "Capture demand word of mouth misses",
-        body: "Dunedin still runs a lot on word of mouth. SEO catches the customers outside that network — the renter new to North East Valley, the family moving into Mosgiel who don't know who to call yet.",
+        title: "Catch what word of mouth misses",
+        body: "Dunedin still runs on word of mouth. SEO picks up everyone outside that network — the renter new to North East Valley, the family moving to Mosgiel who don't know who to call.",
       },
       {
         kicker: "Trust",
         value: "5.0",
         unit: "rating",
-        title: "Borrow trust that's already proven",
-        body: "100+ verified reviews and a 5.0 Google rating back every page we build — the kind of signal a Dunedin customer checks before they pick up the phone.",
+        title: "Borrow trust that's already there",
+        body: "100+ verified reviews and a 5.0 Google rating sit behind every page we build. That's what people check before they ring.",
       },
     ],
   },
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included",
-    headlineSub: "fixed price, no surprises.",
+    headlineMain: "Everything included.",
+    headlineSub: "Fixed price, no surprises.",
     intro:
-      "One fixed monthly price. Everything below is included from day one — and every month after, for as long as you want to keep growing in Dunedin.",
+      "One price a month. Everything below starts on day one and runs every month after, for as long as you want to keep growing.",
     columns: [
       {
-        title: "Strategy",
+        title: "Getting started",
         items: [
-          "Technical SEO audit of your current site",
-          "Keyword mapping across Dunedin suburbs and services",
-          "Six-month content plan",
-          "Otago competitor analysis",
-          "Conversion-focused page structure",
+          "We check what's broken on your site",
+          "We work out which Dunedin searches are worth chasing",
+          "A six-month plan you can read in one sitting",
+          "A look at who's beating you in Otago, and why",
+          "Pages set up so visitors actually get in touch",
         ],
       },
       {
-        title: "Execution",
+        title: "The work",
         items: [
-          "Technical fixes (speed, crawling, indexing)",
+          "Fixing the slow pages and the ones Google can't read",
           "Suburb and service pages built properly, not templated",
-          "On-page optimisation",
-          "Authority building with genuine links",
-          "Schema.org structured data for local search",
+          "Rewriting your pages so Google can tell what you do",
+          "Earning links from real sites, no shortcuts",
+          "Code that tells Google your hours, area and phone number",
         ],
       },
       {
-        title: "Reporting",
+        title: "What you see",
         items: [
-          "Live dashboard — rankings, traffic, enquiries",
-          "Monthly plain-English report",
-          "Direct line to your specialist",
-          "No account-manager ping-pong",
-          "Clear wins, clear next steps",
+          "A live dashboard — rankings, visits, enquiries",
+          "A plain-English report every month",
+          "The person doing the work, on the phone",
+          "No account managers in between",
+          "What worked, and what's next",
         ],
       },
     ],
   },
 
   process: {
-    eyebrow: "The 90-day journey",
-    headlineMain: "Your first 90 days",
-    headlineSub: "mapped out, step by step.",
+    eyebrow: "How it runs",
+    headlineMain: "Your first",
+    headlineSub: "three months.",
     intro:
-      "What happens on day 1, 30, 60 and 90 for a Dunedin SEO client. We say it up front and stick to it.",
+      "Here's how a Dunedin job runs, start to finish. We say it up front and stick to it.",
     steps: [
-      { eta: "Day 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A 60-minute strategy call. You know exactly where you stand and what's next." },
-      { eta: "Day 30", title: "Foundation in place", body: "Technical SEO clean. First suburb and service pages live for Dunedin. Tracking running, data flowing." },
-      { eta: "Day 60", title: "Climbing the rankings", body: "First commercial Dunedin keywords reach the top of page 2 or bottom of page 1. Enquiries start coming in." },
-      { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
+      { eta: "Week 1", title: "Plan and kick-off", body: "Your free plan lands in your inbox, then an hour on the phone. You'll know where you stand and what we're doing first." },
+      { eta: "Month 1", title: "Foundations", body: "The broken things get fixed. First suburb and service pages live. Tracking on, so you can see what's happening." },
+      { eta: "Month 2", title: "It compounds", body: "More pages live, more services covered. You can watch each agreed search move." },
+      { eta: "Month 3", title: "First full review", body: "Every search we agreed, side by side: where you started, where you are, and what came in. From here it's month by month." },
     ],
   },
 
   proof: {
-    // Dunedin\'s copy names Loomframe by name, and Loomframe is the fifth
+    // Dunedin's copy names Loomframe by name, and Loomframe is the fifth
     // case study — at the default limit of 3 the page cited a client it
     // never showed. Raised so the named proof is actually on the page.
     limit: 5,
     eyebrow: "Client reviews",
     headlineMain: "Proof, including",
-    headlineSub: "one genuine Dunedin client.",
+    headlineSub: "one real Dunedin client.",
     intro:
-      "One of the case studies below, Loomframe, is a genuine Dunedin business — a B2B operations software company, not a trade, that grew organic traffic 18x with us over eight months. The rest are real Digital Movement clients from elsewhere in New Zealand, not Dunedin and not all trades. We'd rather show you honest results than dress up a local track record we don't fully have yet.",
+      "One of the case studies below, Loomframe, is a genuine Dunedin business — B2B operations software, not a trade — that grew organic traffic 18x with us over eight months. The rest are real clients from elsewhere in New Zealand, and not all trades. We'd rather show you honest results than dress up a local track record we don't have yet.",
   },
 
   nearby: {
     eyebrow: "Elsewhere in NZ",
-    headlineMain: "More NZ cities",
-    headlineSub: "we help businesses rank in.",
-    intro: "Same approach, different city. Have a look at how we think about SEO elsewhere in New Zealand.",
+    headlineMain: "Other cities",
+    headlineSub: "we work in.",
+    intro: "Same approach, different city.",
     links: [
-      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — our full approach to ranking NZ businesses on Google." },
-      { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "How we approach SEO for Canterbury businesses and trades." },
-      { label: "SEO Wellington", to: "/seo/wellington", blurb: "How we approach SEO for Wellington businesses and trades." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — how we get NZ businesses found." },
+      { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "Getting found in Canterbury." },
+      { label: "SEO Wellington", to: "/seo/wellington", blurb: "Getting found in the capital." },
     ],
   },
 
   faq: {
     eyebrow: "Common questions",
-    headlineMain: "Straight answers",
-    headlineSub: "to the Dunedin questions.",
-    intro: "What Dunedin business owners ask most often before they book their free plan.",
+    headlineMain: "The questions we",
+    headlineSub: "get asked most.",
+    intro: "What Dunedin owners ask before booking a free plan.",
     items: [
       {
         q: "How much do SEO services in Dunedin cost?",
-        a: "Digital Movement runs a fixed monthly price with no setup fee and no surprise add-ons for \"more content\" or \"more links.\" The exact number depends on your industry and competition, which is what the free plan tells you before you commit to anything.",
+        a: "One fixed price a month. No setup fee, no surprise add-ons for \"more content\" or \"more links\". What it comes to depends on your trade and your competition — the free plan tells you before you commit to anything.",
       },
       {
         q: "Is there an SEO company in Dunedin that works with small businesses?",
-        a: "Yes. Most of our Dunedin enquiries are trades and small local businesses — builders, roofers, electricians, landscapers, retaining-wall and drainage specialists — not big national brands. The packages are built for that size of business from the start.",
+        a: "Yes. Most of our Dunedin enquiries are trades and small local businesses — builders, roofers, sparkies, landscapers, drainage and retaining-wall specialists. Not national brands. It's built for that size from the start.",
       },
       {
         q: "What does an SEO agency in Dunedin actually do?",
-        a: "A proper SEO agency audits your site, fixes what's technically broken, builds pages around the Dunedin suburbs and services you actually work in, and tracks whether any of it turns into phone calls and enquiries — not just ranking positions.",
+        a: "Checks your site and fixes what's broken. Builds pages around the suburbs and services you actually work in. Then tracks whether any of it turns into phone calls — not just positions on a chart.",
       },
       {
-        q: "Why is \"seo dunedin\" easier to rank for than other NZ cities?",
-        a: "Less than most people expect. Dunedin is one of the least contested markets in the country — easier than Christchurch, easier than Hamilton — because the sites currently ranking here mostly aren't trying very hard. A page built properly can take the top of the results outright rather than slowly chipping away at it.",
+        q: "How competitive is \"seo dunedin\" compared to other NZ cities?",
+        a: "Less than you'd expect. Dunedin is one of the least contested markets in the country — easier than Christchurch, easier than Hamilton — because most of what ranks here isn't really trying. A page built properly can take the top outright rather than chip away at it.",
       },
       {
-        q: "Do you offer Otago SEO services outside Dunedin city, like Mosgiel or Port Chalmers?",
-        a: "Yes. A lot of Dunedin trades and service businesses also cover Mosgiel, Port Chalmers, Green Island and the wider Otago catchment, so we build pages around the suburbs and towns your actual customers search from, not just the city name.",
+        q: "Do you cover Otago outside Dunedin city, like Mosgiel or Port Chalmers?",
+        a: "Yes. Most Dunedin trades also cover Mosgiel, Port Chalmers, Green Island and the wider Otago patch, so we build around the towns your customers search from — not just the city name.",
       },
       {
         q: "How long before my Dunedin business ranks on Google?",
-        a: "Most clients see ranking movement in the first two to four weeks, because the early technical fixes are what Google picks up fastest. Enquiries follow once the new pages have been live a month or two. Given how few Dunedin businesses compete properly on search, movement here is usually faster than in a bigger city.",
+        a: "Some movement usually shows in the first few weeks, because the technical fixes land first. Enquiries follow once the new pages have been up a month or two. With so few Dunedin businesses competing properly, things tend to move faster here than in a bigger city.",
       },
       {
         q: "Do you work with trades and home service businesses in Dunedin?",
-        a: "Trades are who we build for. Builders, roofers, drainage and retaining-wall specialists, electricians and landscapers deal with exactly the kind of local, high-intent searches SEO is best at capturing, and we understand how that customer searches and books.",
+        a: "Trades are who we build for. Builders, roofers, drainage and retaining-wall specialists, sparkies and landscapers all deal with urgent local searches, which is exactly what SEO is best at catching.",
       },
       {
         q: "Is Digital Movement based in Dunedin?",
-        a: "We work with businesses across New Zealand, including Dunedin, and run every project remotely with the same reporting and access whether you're on the flat, up in Roslyn, or out in Mosgiel. Get in touch and we'll tell you straight whether we're the right fit.",
+        a: "No. We work with businesses right across New Zealand and run every job remotely, with the same reporting whether you're on the flat, up in Roslyn or out in Mosgiel. Get in touch and we'll tell you straight whether we're the right fit.",
       },
     ],
   },
 
   finalCta: {
     eyebrow: "Talk to us",
-    headlineMain: "Let's talk SEO",
-    headlineSub: "for your Dunedin business.",
-    body: "Get in touch and we'll show you exactly where your Dunedin business stands on Google, and what it would take to get to page 1 — free, no obligation, in plain English.",
-    formHeading: "Get your free Dunedin SEO audit",
-    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
+    headlineMain: "Let's talk about",
+    headlineSub: "your Dunedin business.",
+    body: "Send us your website and the parts of Otago you cover. We'll show you where you sit on Google now, who's ahead of you, and the three fixes worth doing first. One working day, no sales call.",
+    formHeading: "Get your free Dunedin SEO plan",
+    formNote: "A one-page plan within one working day. No sales call, no obligation.",
   },
 };

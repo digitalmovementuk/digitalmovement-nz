@@ -27,23 +27,20 @@ export const auckland: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Auckland businesses",
     h1: "SEO Auckland businesses use to win better jobs.",
-    sub: "This page is for Auckland trades and local service businesses deciding whether an SEO agency is worth the money. Auckland is the toughest SEO market in New Zealand — more competitors, more agencies, more noise — so we tell you straight what it takes and what it costs before you commit to anything.",
+    sub: "Auckland is the hardest SEO market in the country. More competitors, more agencies, more noise. So we'll tell you straight what it takes and what it costs before you commit to anything.",
     chips: ["5.0 Google rating", "100+ verified reviews", "Free plan, no obligation", "Month by month after 3"],
-    formHeading: "Get your free Auckland SEO audit",
+    formHeading: "Get your free Auckland SEO plan",
     formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
     eyebrow: "Built for Tāmaki Makaurau",
     headlineMain: "One city,",
-    headlineSub: "four different markets.",
+    headlineSub: "four markets.",
     paragraphs: [
-      "Auckland holds roughly a third of New Zealand's population and most of its commercial activity, and that scale changes what SEO has to do. A business here isn't competing with two or three rivals for a search term — it's competing with dozens, sometimes hundreds, all fighting for the same customer in the same suburb. No other city in the country puts this many competing agencies and competing trades in front of the same searcher.",
-      "The city is also long and narrow, squeezed onto an isthmus between two harbours, with the harbour bridge as the one real chokepoint between the North Shore and everywhere south of it. A plumber based in Albany and a plumber based in Manukau are not realistic options for the same customer, even though both sit inside \"Auckland\" — travel time and the bridge make that decision for the customer before Google does. A site that only targets \"Auckland\" as one block misses that reality completely.",
-      "Locals don't search Auckland as one place. They search North Shore, West Auckland, East Auckland, South Auckland, and the isthmus suburbs around the CBD and Wynyard Quarter as if they were separate cities, because for a same-day tradesperson, they effectively are. \"Near me\" searches in Auckland lean harder on this than anywhere else in New Zealand, simply because the sprawl from Papakura up to Albany is too wide for one generic service page to answer well.",
-      "That sprawl is exactly where a lot of Auckland SEO falls short. Plenty of local agencies build one page for \"Auckland\" and stop there, because building it properly — separate, genuine content for the North Shore, the west, the east, the south and the central isthmus — takes real work. It's also exactly where a business that does it properly pulls ahead, because most of the competition hasn't bothered.",
-      "Auckland is also the most contested SEO market in the country by a wide margin. The businesses already ranking on page one for competitive Auckland terms have spent years building the kind of authority — genuine referring links, established local citations, a long content history — that a new site can't manufacture overnight. That doesn't make Auckland unwinnable. It makes patience and a properly built site the difference between a business that eventually earns its way to page one and one that never gets past page three.",
-      "None of this is a reason to skip Auckland or wait. It's a reason to build the site right from day one — suburb by suburb, region by region — so the authority you accumulate over time actually compounds instead of getting diluted across pages that all say the same generic thing.",
+      "Nobody in Auckland searches \"Auckland\". They search North Shore, West, East, South, or the suburbs around the CBD — because for a same-day tradie those may as well be separate cities. A plumber in Albany and a plumber in Manukau aren't real options for the same customer, and the bridge decides that before Google does.",
+      "That's where most Auckland SEO falls over. Plenty of agencies build one page for \"Auckland\" and stop, because doing it properly — real content for the Shore, the west, the east, the south and the isthmus — is actual work. It's also where you pull ahead, because most of your competition hasn't bothered.",
+      "Be realistic about the timing, though. The businesses already on page one here have spent years earning it, and that doesn't happen overnight for anyone. Auckland is winnable. It's just slower than Hamilton, and we'd rather say so now than after you've paid us for three months.",
     ],
     stats: [
       { value: "4", label: "distinct sub-regions locals actually search by" },
@@ -54,70 +51,70 @@ export const auckland: SeoPageContent = {
 
   outcomes: {
     eyebrow: "What you gain",
-    headlineMain: "What changes",
-    headlineSub: "when Auckland SEO is done properly.",
+    headlineMain: "What changes when",
+    headlineSub: "it's done properly.",
     intro:
-      "Auckland is big enough that you don't need the whole city — you need your corner of it, and the jobs worth doing. Here is what a properly built Auckland campaign changes for a trades or local service business. It takes longer here than in a smaller centre, and we'll say so up front.",
+      "You don't need the whole city. You need your corner of it, and the jobs worth doing. It takes longer here than in a smaller centre, and we'll keep saying so.",
     items: [
       {
         kicker: "Visibility",
         value: "Suburb",
         unit: "by suburb",
-        title: "Get found where the customer is standing",
-        body: "Auckland is too big for one page. We build for the North Shore, West Auckland, East Auckland, South Auckland and the isthmus separately, so you show up for the searches that are actually local to the customer.",
+        title: "Get found where the customer is",
+        body: "Auckland is too big for one page. We build the Shore, the west, the east, the south and the isthmus separately, so you turn up for the searches that are actually local to them.",
       },
       {
         kicker: "Leads",
         value: "Right",
         unit: "customers",
-        title: "Attract people ready to book, not browse",
-        body: "Trades and local-service searches in Auckland convert fast when the page matches the suburb and the job. We build for the person who needs someone this week, not vague brand awareness across the whole region.",
+        title: "Reach people ready to book",
+        body: "Trade searches turn into jobs fast when the page matches the suburb and the job. We build for the person who needs someone this week.",
       },
       {
         kicker: "Trust",
         value: "5.0",
         unit: "rating",
-        title: "Borrow trust that's already proven",
-        body: "In a market as crowded with agencies as Auckland, 100+ verified reviews and a 5.0 Google rating are the trust signals that get a call answered before a competitor's does.",
+        title: "Borrow trust that's already there",
+        body: "In a market this crowded, 100+ verified reviews and a 5.0 Google rating are what gets your call answered before a competitor's.",
       },
     ],
   },
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included",
-    headlineSub: "fixed price, no surprises.",
+    headlineMain: "Everything included.",
+    headlineSub: "Fixed price, no surprises.",
     intro:
-      "One fixed monthly price. Everything below is included from day one — and every month after, for as long as you want to keep growing in Auckland.",
+      "One price a month. Everything below starts on day one and runs every month after, for as long as you want to keep growing.",
     columns: [
       {
-        title: "Strategy",
+        title: "Getting started",
         items: [
-          "Technical SEO audit of your current site",
-          "Keyword mapping across Auckland's sub-regions and services",
-          "Six-month content plan",
-          "Auckland competitor and link-gap analysis",
-          "Conversion-focused page structure",
+          "We check what's broken on your site",
+          "We work out which Auckland searches are worth chasing, region by region",
+          "A six-month plan you can read in one sitting",
+          "A look at who's beating you and what they've got that you haven't",
+          "Pages set up so visitors actually get in touch",
         ],
       },
       {
-        title: "Execution",
+        title: "The work",
         items: [
-          "Technical fixes (speed, crawling, indexing)",
-          "North Shore, West, East, South and isthmus pages built properly, not templated",
-          "On-page optimisation",
-          "Authority building with genuine, earned links",
-          "Schema.org structured data for local search",
+          "Fixing the slow pages and the ones Google can't read",
+          "Shore, west, east, south and isthmus pages built properly, not templated",
+          "Rewriting your pages so Google can tell what you do",
+          "Earning links from real sites, no shortcuts",
+          "Code that tells Google your hours, area and phone number",
         ],
       },
       {
-        title: "Reporting",
+        title: "What you see",
         items: [
-          "Live dashboard — rankings, traffic, enquiries",
-          "Monthly plain-English report",
-          "Direct line to your specialist",
-          "No account-manager ping-pong",
-          "Clear wins, clear next steps",
+          "A live dashboard — rankings, visits, enquiries",
+          "A plain-English report every month",
+          "The person doing the work, on the phone",
+          "No account managers in between",
+          "What worked, and what's next",
         ],
       },
     ],
@@ -125,85 +122,85 @@ export const auckland: SeoPageContent = {
 
   process: {
     eyebrow: "How we work",
-    headlineMain: "How Auckland",
-    headlineSub: "SEO actually gets built.",
+    headlineMain: "How it actually",
+    headlineSub: "gets built.",
     intro:
       "Auckland rewards patience over promises. Here's what happens at each stage, and why we won't tell you it moves faster than it does.",
     steps: [
-      { eta: "Week 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A call to walk through which Auckland sub-regions and services matter most for your business, and why." },
-      { eta: "Month 1", title: "Foundation in place", body: "Technical SEO cleaned up. First suburb and service pages live for the areas of Auckland you actually work in. Tracking running, data flowing." },
-      { eta: "Months 2–4", title: "Authority builds", body: "Genuine links and content accumulate. Lower-competition suburb and service terms start moving first, ahead of the harder city-wide keywords." },
-      { eta: "Ongoing", title: "Compounding gains", body: "Rankings and enquiries keep building month over month. No long lock-in — you stay because it's working, and we show you the numbers that prove it." },
+      { eta: "Week 1", title: "Plan and kick-off", body: "Your free plan lands in your inbox, then a call to work out which parts of Auckland and which services matter most, and why." },
+      { eta: "Month 1", title: "Foundations", body: "The broken things get fixed. First suburb and service pages live for the areas you actually work in. Tracking on." },
+      { eta: "Months 2–4", title: "It builds", body: "Links and content accumulate. The less contested suburb and service searches move first, ahead of the hard city-wide ones." },
+      { eta: "Ongoing", title: "It compounds", body: "Rankings and enquiries keep building month on month. No long lock-in — you stay because it's working, and we show you the numbers." },
     ],
   },
 
   proof: {
     eyebrow: "Client reviews",
-    headlineMain: "Proof from around NZ",
-    headlineSub: "not an Auckland case study we don't have.",
+    headlineMain: "Proof from around NZ.",
+    headlineSub: "No made-up local case study.",
     intro:
-      "These reviews are real Digital Movement clients from around New Zealand — not Auckland businesses, and not all in trades. We'd rather show you the standard we hold ourselves to everywhere than dress up a local case study we don't actually have yet.",
+      "These reviews are real Digital Movement clients from around New Zealand — not Auckland businesses, and not all trades. We'd rather show you the standard we hold ourselves to than dress up a local case study we don't have yet.",
   },
 
   nearby: {
     eyebrow: "Elsewhere in NZ",
-    headlineMain: "More NZ cities",
-    headlineSub: "we help businesses rank in.",
-    intro: "Same approach, different city. Have a look at how we think about SEO elsewhere in New Zealand.",
+    headlineMain: "Other cities",
+    headlineSub: "we work in.",
+    intro: "Same approach, different city.",
     links: [
-      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — our full approach to ranking NZ businesses on Google." },
-      { label: "SEO Hamilton", to: "/seo/hamilton", blurb: "How we approach SEO for Waikato businesses and trades." },
-      { label: "SEO Tauranga", to: "/seo/tauranga", blurb: "How we approach SEO for Bay of Plenty businesses and trades." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — how we get NZ businesses found." },
+      { label: "SEO Hamilton", to: "/seo/hamilton", blurb: "Getting found in the Waikato." },
+      { label: "SEO Tauranga", to: "/seo/tauranga", blurb: "Getting found in the Bay of Plenty." },
     ],
   },
 
   faq: {
     eyebrow: "Common questions",
-    headlineMain: "Straight answers",
-    headlineSub: "to the Auckland questions.",
-    intro: "What Auckland business owners ask most often before they book their free plan.",
+    headlineMain: "The questions we",
+    headlineSub: "get asked most.",
+    intro: "What Auckland owners ask before booking a free plan.",
     items: [
       {
         q: "How long does it take to rank for SEO in Auckland?",
-        a: "Auckland is the most competitive SEO market in New Zealand, so it's honest to say it takes longer here than in a smaller city. Suburb and service-specific terms in areas like the North Shore or West Auckland can move within weeks, while broad, high-competition terms take sustained work over months to build the authority needed to compete. Before you commit to anything we'll tell you which of your target searches are realistic in the first few months and which are a longer job.",
+        a: "Longer than a smaller city, and it's only fair to say so. Suburb and service searches on the Shore or out west can move within weeks. The broad, heavily contested terms take months of steady work. Before you commit we'll tell you which of your searches are realistic early and which are a longer job.",
       },
       {
         q: "How much does an SEO agency in Auckland cost?",
-        a: "Digital Movement runs a fixed monthly price with no setup fee and no surprise add-ons for \"more content\" or \"more links.\" Auckland's competition level means the right budget varies more by industry than in other cities, which is exactly what the free plan tells you before you sign anything.",
+        a: "One fixed price a month. No setup fee, no surprise add-ons for \"more content\" or \"more links\". Auckland's competition means the right budget varies more by trade than it does elsewhere — which is exactly what the free plan tells you before you sign.",
       },
       {
         q: "What does an SEO company in Auckland actually do?",
-        a: "A proper SEO company audits your site, fixes what's technically broken, builds pages around the specific Auckland sub-regions and services you work in, and tracks whether any of it turns into phone calls and enquiries — not just ranking positions on a report nobody reads.",
+        a: "Checks your site and fixes what's broken. Builds pages around the parts of Auckland and the services you actually work in. Then tracks whether any of it turns into phone calls — not just positions on a report nobody reads.",
       },
       {
         q: "Do you offer SEO services in Auckland for small businesses and trades?",
-        a: "Yes. Most of our Auckland enquiries come from trades and local service businesses — builders, plumbers, electricians, roofers, landscapers — not big national brands, and the packages are built for that size of business from the start.",
+        a: "Yes. Most of our Auckland enquiries are trades and local service businesses — builders, plumbers, sparkies, roofers, landscapers. Not national brands. It's built for that size from the start.",
       },
       {
         q: "What should I look for in an SEO consultant in Auckland?",
-        a: "Look for someone who talks about your specific suburbs and services, not just \"Auckland\" as one block, plus a fixed price in writing and reporting you can actually read. An SEO consultant who promises a top position for a term as competitive as \"SEO Auckland\" within weeks is telling you what you want to hear, not what's realistic.",
+        a: "Someone who talks about your suburbs and your services, not \"Auckland\" as one block. A fixed price in writing. Reporting you can actually read. Anyone promising you the top spot for a term as contested as \"SEO Auckland\" within weeks is telling you what you want to hear.",
       },
       {
         q: "Is there an SEO specialist in Auckland who understands the different regions?",
-        a: "That's the whole point of doing Auckland SEO properly. An Auckland SEO specialist has to treat the North Shore, West Auckland, East Auckland, South Auckland and the central isthmus as separate markets, because that's how locals actually search and how a tradesperson's travel time actually works.",
+        a: "That's the whole job. You have to treat the Shore, west, east, south and the central isthmus as separate markets, because that's how people search and that's how a tradie's travel time actually works.",
       },
       {
         q: "Can you guarantee page 1 rankings in Auckland?",
-        a: "No, and nobody honestly can — Google's results aren't ours to promise. What we do put in writing before you sign is the exact list of searches we're going after. In a market as competitive as Auckland that's usually a mix of suburb and service terms rather than the single hardest city-wide phrase, and we'll tell you plainly which is which and roughly how long each should take.",
+        a: "No, and nobody honestly can. Google's results aren't ours to promise. What we do put in writing is the exact list of searches we're chasing. In a market this competitive that's usually a mix of suburb and service terms rather than the single hardest city-wide phrase — and we'll tell you plainly which is which.",
       },
       {
         q: "Is Digital Movement based in Auckland?",
-        a: "We work with businesses across New Zealand, including Auckland, and run every project remotely with the same reporting and access whether you're on the North Shore, in South Auckland, or anywhere else in the region. Get in touch and we'll tell you straight whether we're the right fit.",
+        a: "No. We work with businesses right across New Zealand and run every job remotely, with the same reporting whether you're on the Shore, out south, or anywhere else. Get in touch and we'll tell you straight whether we're the right fit.",
       },
     ],
   },
 
   finalCta: {
     eyebrow: "Talk to us",
-    headlineMain: "Let's talk SEO",
-    headlineSub: "for your Auckland business.",
-    body: "Get in touch and we'll show you exactly where your Auckland business stands on Google, and what it would realistically take to move up — free, no obligation, in plain English.",
-    formHeading: "Get your free Auckland SEO audit",
-    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
+    headlineMain: "Let's talk about",
+    headlineSub: "your Auckland business.",
+    body: "Send us your website and the parts of Auckland you cover. We'll show you where you sit on Google now, who's ahead of you, and what it would realistically take to move up. One working day, no sales call.",
+    formHeading: "Get your free Auckland SEO plan",
+    formNote: "A one-page plan within one working day. No sales call, no obligation.",
   },
 };

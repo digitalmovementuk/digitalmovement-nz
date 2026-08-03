@@ -9,7 +9,7 @@ export const hamilton: SeoPageContent = {
   meta: {
     title: "SEO Hamilton Agency | Digital Movement",
     description:
-      "SEO Hamilton services built for trades and local businesses. Free plan, target searches agreed in writing, a plain-English report every month.",
+      "SEO for Hamilton trades and local businesses. Free plan, target searches agreed in writing, a plain-English report every month.",
   },
 
   keywords: {
@@ -25,51 +25,48 @@ export const hamilton: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Hamilton businesses",
     h1: "SEO Hamilton businesses use to win more jobs.",
-    sub: "We get Hamilton trades and local businesses in front of the customers already searching for them — and we write down which searches we're going after before we start, so you can hold us to it.",
+    sub: "We get you in front of the Hamilton customers who are already searching for what you do. Before we start, we write down which searches we're going after — so you can hold us to it.",
     chips: ["Searches agreed in writing", "5.0 rating, 100+ reviews", "Free plan, no obligation", "Month by month after 3"],
-    formHeading: "Get your free Hamilton SEO audit",
+    formHeading: "Get your free Hamilton SEO plan",
     formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
     eyebrow: "Why Hamilton is different",
-    headlineMain: "We know Hamilton",
-    headlineSub: "street by street.",
+    headlineMain: "Hamilton doesn't",
+    headlineSub: "search like Auckland.",
     paragraphs: [
-      "Hamilton is the service centre for the whole Waikato. A plumber, electrician or landscaper based here isn't just competing for jobs in the city — the same business fields calls from Cambridge, Te Awamutu and the farms and lifestyle blocks around them. SEO that only thinks about \"Hamilton\" as a postcode misses most of the actual customer base.",
-      "Te Rapa and Frankton do a lot of the heavy lifting for trades businesses here — trade suppliers, builders' merchants and light industrial yards cluster in both, and a huge share of local commercial searches originate from or near them. A generic template page written for any New Zealand city has no idea these areas exist, let alone that they matter for local ranking signals.",
-      "Suburb search behaviour matters more in Hamilton than most cities its size. People search \"electrician Rototuna,\" \"builder Chartwell\" or \"roofer Hillcrest\" rather than just \"Hamilton.\" Claudelands and Dinsdale behave the same way. Getting found for those searches takes a Google Business Profile and on-page structure that actually names the suburbs — not a page that only ever says \"Hamilton\" and hopes.",
-      "The Hamilton–Auckland corridor keeps growing, and the Te Huia rail link has made the commute realistic for more households each year. That's more roofs, more renovations, more new customers moving in who don't yet know which local trade to call — and more competition for the searches that decide who they pick.",
-      "The University of Waikato adds a steady flow of renters and first-home buyers cycling through Hillcrest and the central suburbs, on top of the agricultural and agritech economy that keeps the wider Waikato base of a Hamilton trades business busy. Both matter for how a Hamilton site should be structured — city-core service pages for the renter and reno market, region-wide pages for the rural and agri-business side.",
-      "None of this shows up in a page built once and reused with the city name swapped out. It's why the current results for \"seo hamilton\" and its variants are still winnable by a page that's actually about Hamilton.",
+      "Most Hamilton trades don't just work in Hamilton. The same van that's in Rototuna on Monday is in Cambridge on Wednesday and Te Awamutu on Friday. If your site only ever says \"Hamilton\", you're invisible for the other half of your work.",
+      "People here search by suburb. \"Electrician Rototuna\". \"Builder Chartwell\". \"Roofer Hillcrest\". A page that only mentions the city name doesn't turn up for any of them. Naming the suburbs you actually cover is most of the job.",
+      "The good news: the businesses ranking for these searches right now are mostly running a template with the city name swapped in. That's beatable without a big budget — you just need a page that's genuinely about Hamilton.",
     ],
   },
 
   outcomes: {
     eyebrow: "What you gain",
-    headlineMain: "Real leads,",
-    headlineSub: "not vanity rankings.",
+    headlineMain: "Work coming in.",
+    headlineSub: "Not just numbers going up.",
     intro:
-      "Hamilton's Hamilton's results are winnable on relevance alone — most of what ranks there now is a template with the city name changed. That means the work you're paying for goes straight into rankings and enquiries, not into out-competing a wall of backlinks.",
+      "Hamilton is winnable on relevance alone. Most of what ranks there now is a template. So the money you spend goes into getting found, not into out-muscling a wall of links.",
     items: [
       {
         kicker: "Visibility",
-        title: "Outrank the template pages",
-        body: "We build pages that are actually about Hamilton — Frankton, Rototuna, the industrial areas and the towns you also serve — because a page about \"the Waikato\" wins nothing and a page about your patch wins work.",
+        title: "Beat the template pages",
+        body: "We build pages that are actually about Hamilton — Frankton, Rototuna, the industrial patches, and the towns you drive to. A page about \"the Waikato\" wins nothing.",
       },
       {
         kicker: "Leads",
         value: "Real",
         unit: "enquiries",
         title: "Calls from Rototuna to Cambridge",
-        body: "We target the searches your actual customers type, from suburb-level trade searches inside Hamilton to the wider Waikato jobs that keep a trades business busy.",
+        body: "We go after the searches your customers actually type — suburb jobs inside the city, and the wider Waikato work that fills the week.",
       },
       {
         kicker: "Trust",
         value: "5.0",
         unit: "Google rating",
-        title: "A team that gets trades",
-        body: "Builders, plumbers, electricians, roofers and landscapers are who we build for. We speak your industry, not marketing jargon.",
+        title: "We work with tradies",
+        body: "Builders, plumbers, electricians, roofers and landscapers. You won't have to explain your job to us, and we won't explain ours in jargon.",
       },
     ],
   },
@@ -79,61 +76,61 @@ export const hamilton: SeoPageContent = {
     headlineMain: "One monthly fee.",
     headlineSub: "Nothing held back.",
     intro:
-      "Fixed monthly price, no setup surprise. Everything below is included from month one, and stays included for as long as you want to keep growing.",
+      "One fixed price a month. No setup fee, no add-ons later. Everything below starts in month one and stays included.",
     columns: [
       {
-        title: "Strategy",
+        title: "Getting started",
         items: [
-          "Technical SEO audit of your current site",
-          "Hamilton and Waikato keyword mapping",
-          "Suburb-level targeting (Rototuna, Chartwell, Hillcrest, Claudelands, Dinsdale)",
-          "Waikato competitor analysis",
-          "Six-month content plan",
+          "We check what's broken on your site",
+          "We work out which searches are worth chasing",
+          "Suburb targeting — Rototuna, Chartwell, Hillcrest, Claudelands, Dinsdale",
+          "A look at who's beating you now, and why",
+          "A six-month plan you can read in one sitting",
         ],
       },
       {
-        title: "Execution",
+        title: "The work",
         items: [
-          "Technical fixes (speed, crawler, indexation)",
-          "Google Business Profile optimisation",
-          "Trade-specific service pages, written for real jobs",
-          "On-page optimisation for city and regional terms",
-          "Schema.org and local structured data",
+          "Fixing the slow pages and the ones Google can't read",
+          "Getting your Google Business Profile in order",
+          "Pages written for the jobs you actually want",
+          "Rewriting your pages so Google can tell what you do",
+          "Code that tells Google your hours, your area and your phone number",
         ],
       },
       {
-        title: "Reporting",
+        title: "What you see",
         items: [
-          "Live dashboard (rankings, traffic, enquiries)",
-          "Monthly plain-English report",
-          "Direct line to your specialist",
-          "No account-manager ping-pong",
-          "Clear wins, clear next steps",
+          "A live dashboard — rankings, visits, enquiries",
+          "A plain-English report every month",
+          "The person doing the work, on the phone",
+          "No account managers in between",
+          "What worked, and what's next",
         ],
       },
     ],
   },
 
   process: {
-    eyebrow: "The 90-day journey",
+    eyebrow: "How it runs",
     headlineMain: "What happens,",
     headlineSub: "and when.",
     intro:
-      "What happens on day 1, 30, 60 and 90. We say it up front, we stick to it, and we show you the maths every month.",
+      "Here's the first three months, start to finish. We tell you up front, and we show you the numbers every month.",
     steps: [
-      { eta: "Day 1", title: "Audit & kick-off", body: "Free Hamilton SEO audit in your inbox. A short strategy call. You know exactly where you stand and what's next." },
-      { eta: "Day 30", title: "Foundation in place", body: "Technical SEO clean. Suburb and trade-specific pages live. Google Business Profile fully built out." },
-      { eta: "Day 60", title: "Climbing the rankings", body: "First commercial keywords reach the top of page 2 / bottom of page 1. Enquiries start coming in." },
-      { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
+      { eta: "Week 1", title: "Plan and kick-off", body: "Your free plan lands in your inbox. Then a short call. You'll know where you stand and what we're doing first." },
+      { eta: "Month 1", title: "Foundations", body: "The broken things get fixed. Your suburb and trade pages go live. Your Google Business Profile gets built out properly." },
+      { eta: "Month 2", title: "The work compounds", body: "More pages live, more of your services covered. We keep going after the searches we agreed, and you can see the movement on each one." },
+      { eta: "Month 3", title: "First full review", body: "Every search we agreed, side by side: where you started, where you are, and what came in. From here it's month by month." },
     ],
   },
 
   proof: {
     eyebrow: "Client reviews",
-    headlineMain: "Real reviews,",
-    headlineSub: "not local yet.",
+    headlineMain: "Reviews we've",
+    headlineSub: "actually earned.",
     intro:
-      "We don't have a named Hamilton client to show you — this is a new page for us in the region. What we can show you is real, verified feedback from NZ businesses we have worked with, most of them outside the trades. It's honest proof of how we work, not a claim about Hamilton results we haven't earned yet.",
+      "We don't have a Hamilton client to name yet — this is a new patch for us. What we can show you is real feedback from NZ businesses we've worked with, most of them outside the trades. It's honest proof of how we work, not a claim about Hamilton results we haven't earned.",
   },
 
   nearby: {
@@ -141,51 +138,51 @@ export const hamilton: SeoPageContent = {
     headlineMain: "Also serving",
     headlineSub: "the rest of NZ.",
     intro:
-      "We work with businesses right across the country. If you're growing beyond Hamilton and the Waikato, here's where else we're active.",
+      "We work with businesses right across the country. If you're growing past Hamilton and the Waikato, here's where else we're active.",
     links: [
-      { label: "SEO New Zealand", to: "/seo", blurb: "Our national SEO hub — every city and every service we cover." },
-      { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "Search visibility built for Canterbury businesses." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "Our national hub — every city and every service we cover." },
+      { label: "SEO Christchurch", to: "/seo/christchurch", blurb: "Getting found in Canterbury." },
       { label: "SEO Tauranga", to: "/seo/tauranga", blurb: "Local SEO for the Bay of Plenty." },
     ],
   },
 
   faq: {
     eyebrow: "Common questions",
-    headlineMain: "Hamilton SEO,",
-    headlineSub: "answered straight.",
-    intro: "What Hamilton business owners ask most before they book their free plan.",
+    headlineMain: "The questions we",
+    headlineSub: "get asked most.",
+    intro: "What Hamilton owners ask before they book a free plan.",
     items: [
       {
         q: "What does an SEO company in Hamilton charge?",
-        a: "Fixed monthly pricing, scoped to your goals — no setup fee and no surprise add-ons. We give you a concrete number after the free plan, once we know what your site actually needs.",
+        a: "One fixed price a month, scoped to what you want. No setup fee, no surprise add-ons. We give you a real number after the free plan, once we've seen what your site needs.",
       },
       {
         q: "Do you provide SEO services in Hamilton for small businesses?",
-        a: "Yes. Most of our Hamilton and Waikato work is with small trades and local businesses — one to twenty staff — not big corporates with in-house marketing teams.",
+        a: "Yes. Most of our Hamilton and Waikato work is with small trades and local businesses — one to twenty staff. Not corporates with their own marketing team.",
       },
       {
         q: "How is Digital Movement different from other Hamilton SEO companies?",
-        a: "We build pages that are genuinely about Hamilton — suburbs, industrial areas, the towns you also serve — instead of a generic template with the city name swapped in. That's what actually moves rankings on searches like this one.",
+        a: "We build pages that are genuinely about Hamilton — your suburbs, your industrial patches, the towns you drive to. Most of what ranks there now is a template with the city name swapped in. That's the whole gap.",
       },
       {
         q: "How long until my Hamilton business ranks on Google?",
-        a: "Many clients see ranking movement in the first few weeks, with enquiries following once the new pages have been live a month or two. We won't promise you a position — nobody controls Google's results — but we will write down the searches we're chasing and show you where you sit on each one every month.",
+        a: "Some searches move in the first few weeks. Others take months. We won't promise you a position — nobody controls Google's results. What we will do is write down the searches we're chasing and show you where you sit on each one, every month.",
       },
       {
         q: "Can you help me rank for suburbs like Rototuna or Chartwell, not just Hamilton?",
-        a: "Yes. Suburb-level targeting is part of every Hamilton SEO package, because that's how a lot of local customers actually search — by suburb, not by city name.",
+        a: "Yes, and you should. Suburb targeting is part of every Hamilton job we do, because that's how a lot of people here actually search.",
       },
       {
         q: "What's included in Digital Movement's Hamilton SEO services?",
-        a: "Technical SEO, suburb and trade-specific content, Google Business Profile management and a live reporting dashboard — one fixed monthly fee, with nothing added on top.",
+        a: "Fixing what's broken, writing the pages, running your Google Business Profile, and a dashboard you can check any time. One fixed monthly fee with nothing added on top.",
       },
       {
         q: "Is there a minimum contract for Hamilton SEO services?",
-        a: "We ask for three months to start, then work month by month. If we're not delivering, you can leave.",
+        a: "Three months to start, then month by month. If we're not delivering, you can go.",
       },
       {
-        q: "Do you work with trades businesses outside Hamilton city, like Cambridge or Te Awamutu?",
-        a: "Yes. Most Hamilton-based trades businesses also serve the wider Waikato, so we build for the city searches and the surrounding towns your customers actually search from.",
+        q: "Do you work with trades outside Hamilton city, like Cambridge or Te Awamutu?",
+        a: "Yes. Most Hamilton trades work the wider Waikato too, so we build for the city searches and the towns your customers are calling from.",
       },
     ],
   },
@@ -194,8 +191,8 @@ export const hamilton: SeoPageContent = {
     eyebrow: "Talk to us",
     headlineMain: "Ready to rank",
     headlineSub: "in Hamilton?",
-    body: "Send us your website and the parts of the Waikato you work in. You'll get back the searches your customers are already using, who's winning them instead of you, and the three fixes worth doing first. One working day, no sales call.",
-    formHeading: "Get your free Hamilton SEO audit",
+    body: "Send us your website and the parts of the Waikato you cover. You'll get back the searches your customers are already using, who's winning them instead of you, and the three fixes worth doing first. One working day, no sales call.",
+    formHeading: "Get your free Hamilton SEO plan",
     formNote: "No obligation. Straight answers, not a sales pitch.",
   },
 };

@@ -8,7 +8,7 @@ export const builders: SeoPageContent = {
   meta: {
     title: "SEO for Builders | Digital Movement NZ",
     description:
-      "Most NZ building leads still come from word of mouth. See how a stronger web presence gets your building company more enquiries. Free plan, no long lock-in.",
+      "Most NZ building work still comes from word of mouth. Here's how getting found on Google adds a second source. Free plan, no long lock-in.",
   },
 
   // This page is not a traffic asset. It is sales collateral and an outreach
@@ -29,96 +29,94 @@ export const builders: SeoPageContent = {
   },
 
   hero: {
-    eyebrow: "SEO · for building companies",
-    h1: "SEO for builders who want more than referrals",
-    sub: "Word of mouth got you here. The problem is it has a ceiling — you can only be recommended by people who already know you. Everyone else is typing your trade and your town into Google, and finding whoever shows up first. This page is for busy building companies who suspect that's costing them, and who want a straight answer before spending a dollar.",
+    eyebrow: "SEO · for builders",
+    h1: "SEO for builders who want more than referrals.",
+    sub: "Word of mouth got you this far. The catch is it only reaches people who already know you, and you can't turn it up when work goes quiet. Everyone else is typing your trade and their town into Google and ringing whoever comes up first.",
     chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
-    formHeading: "Get your free builder marketing audit",
+    formHeading: "Get your free builder SEO plan",
     formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
-    eyebrow: "How building companies get found",
-    headlineMain: "Built on word of mouth",
-    headlineSub: "and checked online before the call.",
+    eyebrow: "How builders get found",
+    headlineMain: "Referred first,",
+    headlineSub: "checked online second.",
     paragraphs: [
-      "Most building leads start with word of mouth — a past client, a mate, a recommendation from a subcontractor or supplier. That's true, and it isn't going to stop being true. But it caps how big a building company can get, because word of mouth only reaches as far as the people who already know you, and it can't be turned up on demand the moment work goes quiet.",
-      "Even a builder found through a referral gets checked online before the phone rings. A homeowner about to spend a large amount of money on a build or a renovation will search the company name, look at the website, and look for reviews before they commit to anything. A building company with no website, or one that hasn't been touched in years, loses jobs at exactly that moment — not because the work isn't good, but because nothing online backs up what the referral just said.",
-      "The Licensed Building Practitioner scheme exists because a homeowner can't easily tell a good builder from a risky one just by looking at a website. Displaying LBP status clearly, and being upfront about which parts of a project are licensed work, does real work for trust online — it's one of the few credentials a homeowner can actually verify before they've met you in person.",
-      "Building work is seasonal and weather-driven in a way office-based services aren't. Enquiries move with the building season, and a wet winter or a stretch of bad weather can empty a pipeline that looked full a month earlier. A building company that only has one lead source — referrals — has no way to smooth that out. A second, always-on source like search doesn't take a day off because it's raining.",
-      "A renovation search and a new-build search are different buyers with different timelines. Someone searching for a kitchen renovation is often ready to move within weeks; someone searching for a new home build is planning a project that might not start for a year. A building company's website that treats both enquiries the same way loses one of them.",
-      "None of this is really about out-marketing a slicker competitor. A building project also isn't a same-day callout: a homeowner might take months to choose a builder, and the job itself can run for months more once it starts, coordinating a Licensed Building Practitioner, several subcontractor trades, council inspections, and material lead times nobody fully controls. That's different economics to an emergency plumber or electrician, where the search and the job both happen today, and it means a building company's website has to build confidence over a long consideration window, not just answer the phone fastest. The good news is that search results for building services in most New Zealand towns are still dominated by directory listings and outdated sites — a building company doesn't need to out-market a strong competitor, just needs to show up properly where most of the market currently doesn't.",
+      "Even a referral gets looked up. Someone about to spend two hundred grand on a build will search your name, open your site and read your reviews before they ring. If there's nothing there, or the site hasn't been touched since 2019, you lose the job at that exact moment — not because the work isn't good, but because nothing backs up what their mate just told them.",
+      "Your LBP number does more work online than most builders realise. It's one of the few things a homeowner can actually check before they've met you. Put it where they'll see it, and be clear about which parts of a job are licensed work.",
+      "A kitchen reno and a new build are two different customers. One might sign in a fortnight, the other is planning something that starts next spring. One page trying to speak to both loses one of them — so we build separately for each.",
     ],
     stats: [
-      { value: "Word of mouth", label: "still the main lead source for most NZ building companies" },
-      { value: "LBP", label: "the licensing scheme homeowners check before they hire" },
-      { value: "Seasonal", label: "building enquiries move with weather and the build season" },
+      { value: "Word of mouth", label: "still where most NZ building work comes from" },
+      { value: "LBP", label: "the one credential a homeowner can check before ringing" },
+      { value: "Seasonal", label: "building enquiries move with the weather and the season" },
     ],
   },
 
   outcomes: {
     eyebrow: "What you gain",
-    headlineMain: "What you can expect",
-    headlineSub: "when the work actually lands.",
+    headlineMain: "What changes when",
+    headlineSub: "the work actually lands.",
     intro:
-      "Building is a competitive market in most parts of New Zealand, but the search results for it are often thin — plenty of building companies still have no real web presence at all. Here's what changes when a building company's page is built properly instead of guessed at.",
+      "Building is competitive on the ground, but the search results for it usually aren't. Plenty of good builders still have nothing online worth finding.",
     items: [
       {
         kicker: "Visibility",
         title: "Show up when homeowners check",
-        body: "Two things happen when you rank. The homeowner who was referred to you looks you up and finds something solid instead of nothing. And the homeowner who was never referred to you finds you at all.",
+        body: "Two things happen. The homeowner who was referred to you looks you up and finds something solid instead of nothing. And the homeowner who was never referred to you finds you at all.",
       },
       {
         kicker: "Leads",
         value: "Second",
         unit: "lead source",
         title: "Stop relying on referrals alone",
-        body: "Search gives your building company a lead source that doesn't depend on who your last client happened to know. It runs alongside word of mouth instead of replacing it, so a quiet season on the tools doesn't have to mean a quiet season for enquiries.",
+        body: "Search doesn't depend on who your last client happened to know. It runs alongside word of mouth rather than replacing it, so a quiet stretch on the tools doesn't have to mean a quiet phone.",
       },
       {
         kicker: "Trust",
         value: "5.0",
         unit: "rating",
         title: "Back up the referral with proof",
-        body: "100+ verified reviews and a 5.0 Google rating give a homeowner the reassurance they're looking for before they ring a building company they've only heard about secondhand.",
+        body: "100+ verified reviews and a 5.0 Google rating sit behind every page we build. That's what a homeowner checks before they ring someone they've only heard about secondhand.",
       },
     ],
   },
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included",
-    headlineSub: "fixed price, no surprises.",
+    headlineMain: "Everything included.",
+    headlineSub: "Fixed price, no surprises.",
     intro:
-      "One fixed monthly price. Everything below is included from day one, and every month after, for as long as your building company wants to keep growing enquiries.",
+      "One price a month. Everything below starts on day one and runs every month after, for as long as you want to keep growing.",
     columns: [
       {
-        title: "Strategy",
+        title: "Getting started",
         items: [
-          "Technical audit of your current website",
-          "Keyword mapping across renovation and new-build searches",
-          "Check on other building companies competing in your area",
-          "Six-month content plan built around the projects you want more of",
-          "Conversion-focused page structure for long consideration windows",
+          "We check what's broken on your site",
+          "We split reno searches from new-build searches and go after both",
+          "A look at who's beating you locally, and why",
+          "A six-month plan you can read in one sitting",
+          "Pages set up for people who take months to decide",
         ],
       },
       {
-        title: "Execution",
+        title: "The work",
         items: [
-          "Technical fixes so your site loads properly and gets indexed",
-          "Project and service pages that show the work your building company actually does",
-          "LBP status and licensing details displayed where homeowners look for them",
-          "Genuine reviews and credentials brought onto the site, not buried in Google",
-          "Schema.org structured data so Google understands what you offer",
+          "Fixing the slow pages and the ones Google can't read",
+          "Project pages that show the jobs you actually do",
+          "Your LBP number and licensing where homeowners look for them",
+          "Your real reviews on your own site, not buried in Google",
+          "Code that tells Google your hours, your area and your phone number",
         ],
       },
       {
-        title: "Reporting",
+        title: "What you see",
         items: [
-          "Live dashboard — rankings, traffic, enquiries",
-          "Monthly report in plain English, not jargon",
-          "Direct line to your specialist",
-          "No account-manager ping-pong",
+          "A live dashboard — rankings, visits, enquiries",
+          "A plain-English report every month",
+          "The person doing the work, on the phone",
+          "No account managers in between",
+          "What worked, and what's next",
         ],
       },
     ],
@@ -126,83 +124,83 @@ export const builders: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "What happens,",
-    headlineSub: "mapped out, step by step.",
+    headlineMain: "Your first",
+    headlineSub: "three months.",
     intro:
-      "What happens on day 1, 30, 60 and 90 when a building company works with us. We say it up front and stick to it.",
+      "Here's how a job runs, start to finish. We say it up front and stick to it.",
     steps: [
-      { eta: "Day 1", title: "Your plan & kick-off", body: "A free plan for your website and online presence lands in your inbox. A short call to understand the kind of building work you want more of." },
-      { eta: "Day 30", title: "Foundation in place", body: "Technical issues fixed, project pages live, tracking running. Your building company's site actually represents the work you do." },
-      { eta: "Day 60", title: "Enquiries start landing", body: "Rankings for your core building services and areas start moving. Enquiries begin coming in alongside your referrals, not instead of them." },
-      { eta: "Day 90", title: "The first full review", body: "A quarter of real data on the table: where you rank on every search we agreed, what came in, and what we do next. From here it's month by month, and you keep it only as long as it keeps working for you." },
+      { eta: "Week 1", title: "Plan and kick-off", body: "Your free plan lands in your inbox, then a short call about the kind of work you want more of." },
+      { eta: "Month 1", title: "Foundations", body: "The broken things get fixed. Project and service pages live. Tracking on, so you can see what's happening." },
+      { eta: "Month 2", title: "It compounds", body: "More pages live, more of your services covered. You can watch each agreed search move." },
+      { eta: "Month 3", title: "First full review", body: "Every search we agreed, side by side: where you started, where you are, and what came in. From here it's month by month." },
     ],
   },
 
   proof: {
     eyebrow: "Client reviews",
-    headlineMain: "Proof from around NZ",
-    headlineSub: "not a builder case study we don't have.",
+    headlineMain: "Proof from around NZ.",
+    headlineSub: "No made-up builder case study.",
     intro:
-      "These are real Digital Movement clients from around New Zealand — not building companies, and we won't pretend otherwise. We don't have a named builder client yet, so instead of dressing up a case study we don't have, here's the standard of work and communication we hold ourselves to with every client, in every industry.",
+      "These are real Digital Movement clients from around New Zealand — none of them builders, and we won't pretend otherwise. We'd rather show you the standard we hold ourselves to than dress up a case study we don't have yet.",
     limit: 3,
   },
 
   nearby: {
     eyebrow: "Other trades",
-    headlineMain: "More NZ trades",
-    headlineSub: "we help get found online.",
+    headlineMain: "Other trades",
+    headlineSub: "we get found.",
     intro:
-      "Same approach, different trade. If you're a building company weighing us up, here's how we think about SEO for other trades and services across New Zealand.",
+      "Same approach, different trade.",
     links: [
-      { label: "SEO for Plumbers", to: "/industries/plumbers", blurb: "How we approach SEO for plumbing businesses across New Zealand." },
-      { label: "SEO for Electricians", to: "/industries/electricians", blurb: "How we approach SEO for electrical contractors across New Zealand." },
-      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — our full approach to ranking NZ businesses on Google." },
+      { label: "SEO for Plumbers", to: "/industries/plumbers", blurb: "Built around the burst-pipe search." },
+      { label: "SEO for Electricians", to: "/industries/electricians", blurb: "The same approach, built for sparkies." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — how we get NZ businesses found." },
     ],
   },
 
   faq: {
     eyebrow: "Common questions",
-    headlineMain: "Straight answers",
-    headlineSub: "to the questions builders ask.",
-    intro: "What building company owners ask most often before they book their free plan.",
+    headlineMain: "The questions we",
+    headlineSub: "get asked most.",
+    intro: "What builders ask before booking a free plan.",
     items: [
       {
-        q: "We already get enough work through referrals — why would a building company need SEO?",
-        a: "Referrals cap how big your building company can get, because they only reach people who already know you. SEO gives you a second lead source that keeps working even when your network goes quiet, so a slow season doesn't have to mean an empty pipeline.",
+        q: "We get enough work through referrals. Why would we need this?",
+        a: "Referrals only reach people who already know you, and you can't turn them up when the diary thins out. This gives you a second source that keeps running when your network goes quiet.",
       },
       {
-        q: "How much does SEO cost for a building company?",
-        a: "Digital Movement runs a fixed monthly price with no setup fee and no surprise charges for extra content or links. The exact number depends on your area and the competition for your services, which is what the free plan tells you before you commit to anything.",
+        q: "How much does it cost?",
+        a: "One fixed price a month. No setup fee, nothing extra later for more pages or links. What it comes to depends on your area and how hard your searches are to win — the free plan gives you the number before you commit to anything.",
       },
       {
-        q: "How long before a building company sees results?",
-        a: "Most clients see ranking movement within the first few weeks. Specific searches — your trade plus your town, or a particular kind of job — move a lot faster than broad ones like \"builder\", which is why we go after those first. Enquiries follow the rankings, so expect a few months before the phone genuinely changes.",
+        q: "How long before we see anything?",
+        a: "Some movement usually shows in the first few weeks, because the technical fixes land first. Your trade plus your town moves a lot faster than a broad term like \"builder\", which is why we go after those first. Expect a few months before the phone genuinely changes.",
       },
       {
         q: "Are we locked into a long contract?",
-        a: "No, Digital Movement works three months to start, then month by month to get the foundations in place properly. If the work isn't landing enquiries for your building company, you can leave — we'd rather earn the next month than trap you in one.",
+        a: "Three months to start, because that's what it takes to build the pages properly. After that it's month by month and you can stop whenever you want.",
       },
       {
-        q: "Do you actually understand how building companies get work?",
-        a: "We understand that most building leads come from word of mouth and repeat clients, that projects run for months rather than days, and that a homeowner choosing a builder is making one of the biggest purchases of their life. That's the business SEO for builders is built around, not a generic template.",
+        q: "Do you actually understand how builders get work?",
+        a: "We understand that most of it comes from word of mouth and repeat clients, that a job runs for months rather than days, and that a homeowner picking a builder is making one of the biggest calls of their life. That's what we build around.",
       },
       {
-        q: "Does SEO work for renovation jobs as well as new builds?",
-        a: "Yes, but they're treated as different searches. Someone searching for a renovation is often ready to move within weeks; someone searching for a new build is planning a longer project. We build separate pages for each so your building company shows up for both kinds of buyer.",
+        q: "Does this work for renos as well as new builds?",
+        a: "Yes, but they're treated as different searches. Someone after a reno is often ready to move in weeks; someone planning a new build is a year out. We build separate pages so you turn up for both.",
       },
       {
-        q: "What if our website already looks fine?",
-        a: "Looking fine and being found are different problems. A lot of building company websites are visually okay but technically invisible to Google, or missing the licensing and review content that actually builds trust. The free plan tells you which problem, if either, your building company has.",
+        q: "Our website already looks fine. Isn't that enough?",
+        a: "Looking fine and being found are two different problems. Plenty of builders' sites look good and are invisible to Google, or leave out the licensing and reviews that actually win trust. The free plan tells you which problem you've got, if either.",
       },
     ],
   },
 
   finalCta: {
     eyebrow: "Talk to us",
-    headlineMain: "Let's talk SEO",
-    headlineSub: "for your building company.",
-    body: "Get in touch and we'll show you exactly where your building company stands online right now, and what it would take to turn more of those homeowner searches into enquiries — free, no obligation, in plain English.",
-    formHeading: "Get your free builder marketing audit",
-    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
+    headlineMain: "Let's talk about",
+    headlineSub: "your building business.",
+    body: "Send us your website and the areas you work in. We'll show you where you sit on Google now, who's ahead of you, and the three fixes worth doing first. One working day, no sales call.",
+    formHeading: "Get your free builder SEO plan",
+    formNote: "A one-page plan within one working day. No sales call, no obligation.",
   },
 };

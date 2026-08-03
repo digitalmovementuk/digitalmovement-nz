@@ -29,21 +29,20 @@ export const christchurch: SeoPageContent = {
   hero: {
     eyebrow: "SEO · for Christchurch businesses",
     h1: "SEO Christchurch trades use to fill the week.",
-    sub: "We help Christchurch businesses — especially trades and local services — get found by the customers already searching for them. The searches we're going after are agreed in writing before we start, and you see exactly where you sit on each one every month.",
+    sub: "We get Christchurch trades and local businesses found by the customers already looking for them. The searches we're chasing are agreed in writing before we start, and every month you see where you sit on each one.",
     chips: ["5.0 Google rating", "100+ verified reviews", "Searches agreed in writing", "Free plan, no obligation"],
-    formHeading: "Get your free Christchurch SEO audit",
+    formHeading: "Get your free Christchurch SEO plan",
     formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
   },
 
   local: {
     eyebrow: "Built for Ōtautahi",
     headlineMain: "A city that rebuilt",
-    headlineSub: "itself outward, block by block.",
+    headlineSub: "itself outward.",
     paragraphs: [
-      "Christchurch rebuilt itself after 2011, and the rebuild moved the city. Businesses that used to sit inside the four avenues shifted out to Riccarton, Addington and Sydenham, and plenty never moved back. The result is a city with several real commercial centres instead of one downtown. Google reads \"near me\" searches off exactly that spread.",
-      "Christchurch is flat and wide. It covers more ground per person than almost any other New Zealand city, with no hills or harbours to box it in. So the spread kept going: north through Papanui and Merivale, west through Hornby, and out into fast-growing Rolleston and the Selwyn corridor. A customer in Halswell and a customer in Papanui are both genuinely local to the same business. Those suburb names are what people type into Google before they ever type \"Christchurch\".",
-      "The rebuild economy runs wider than the trades. Canterbury Tech's member companies and Lincoln University's agritech research sit a few kilometres from the roofers and landscapers working the same suburbs. That mix raises the bar — Cantabrians are used to seeing well-built local sites, so a thin one stands out for the wrong reason. Christchurch Airport adds a second audience on top: South Island visitors who search the city by name and never the suburb.",
-      "That's the map we build a Christchurch site around. Pages for the suburbs the rebuild put your customers in, service pages for how they actually search, and tracking that shows which of them turn into enquiries.",
+      "The rebuild moved the city. Businesses that used to sit inside the four avenues went out to Riccarton, Addington and Sydenham, and plenty never came back. Christchurch now has several real commercial centres instead of one. Google reads \"near me\" off exactly that spread.",
+      "It's also flat and wide, with no hills or harbour to box it in — so the spread kept going. North through Papanui, west through Hornby, out to Rolleston and the Selwyn corridor. A customer in Halswell and one in Papanui are both local to the same business, and both type the suburb before they ever type \"Christchurch\".",
+      "That's the map we build your site around. Pages for the suburbs your customers are actually in, service pages matching how they search, and tracking that shows which ones turn into enquiries.",
     ],
     stats: [
       { value: "9", label: "ways Cantabrians phrase the same search" },
@@ -54,116 +53,116 @@ export const christchurch: SeoPageContent = {
 
   outcomes: {
     eyebrow: "What you gain",
-    headlineMain: "What you can expect",
-    headlineSub: "when the work actually lands.",
+    headlineMain: "What changes when",
+    headlineSub: "the work actually lands.",
     intro:
-      "Christchurch is competitive but genuinely winnable — several of the sites currently ranking for these terms have no backlinks at all. Here's what changes when a page is built properly instead of templated.",
+      "Christchurch is competitive but winnable. Several of the sites ranking for these searches right now have no links pointing at them at all.",
     items: [
       {
         kicker: "Visibility",
-        title: "Rank where Cantabrians are already looking",
-        body: "We build around the suburb and service searches Christchurch customers actually type — \"electrician Riccarton\", not \"electrical services\" — because those are the ones that end in a phone call.",
+        title: "Rank where Cantabrians look",
+        body: "We build around what people actually type — \"electrician Riccarton\", not \"electrical services\". Those are the searches that end in a phone call.",
       },
       {
         kicker: "Leads",
         value: "Right",
         unit: "customers",
-        title: "Attract people ready to book",
-        body: "Trades and local-service searches convert fast when the intent is right. We build for the person calling about a leaking roof today, not vague brand awareness.",
+        title: "Reach people ready to book",
+        body: "Trade searches turn into jobs fast when the intent is right. We build for the person ringing about a leaking roof today, not for brand awareness.",
       },
       {
         kicker: "Trust",
         value: "5.0",
         unit: "rating",
-        title: "Borrow trust that's already proven",
-        body: "100+ verified reviews and a 5.0 Google rating back every page we build — the trust signals Christchurch customers check before they pick up the phone.",
+        title: "Borrow trust that's already there",
+        body: "100+ verified reviews and a 5.0 Google rating sit behind every page we build. That's what people check before they ring.",
       },
     ],
   },
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included",
-    headlineSub: "fixed price, no surprises.",
+    headlineMain: "Everything included.",
+    headlineSub: "Fixed price, no surprises.",
     intro:
-      "One fixed monthly price. Everything below is included from day one — and every month after, for as long as you want to keep growing in Christchurch.",
+      "One price a month. Everything below starts on day one and runs every month after, for as long as you want to keep growing.",
     columns: [
       {
-        title: "Strategy",
+        title: "Getting started",
         items: [
-          "Technical SEO audit of your current site",
-          "Keyword mapping across Christchurch suburbs and services",
-          "Six-month content plan",
-          "Canterbury competitor analysis",
-          "Conversion-focused page structure",
+          "We check what's broken on your site",
+          "We work out which suburb and service searches are worth chasing",
+          "A six-month plan you can read in one sitting",
+          "A look at who's beating you in Canterbury, and why",
+          "Pages set up so visitors actually get in touch",
         ],
       },
       {
-        title: "Execution",
+        title: "The work",
         items: [
-          "Technical fixes (speed, crawling, indexing)",
+          "Fixing the slow pages and the ones Google can't read",
           "Suburb and service pages built properly, not templated",
-          "On-page optimisation",
-          "Authority building with genuine links",
-          "Schema.org structured data for local search",
+          "Rewriting your pages so Google can tell what you do",
+          "Earning links from real sites, no shortcuts",
+          "Code that tells Google your hours, area and phone number",
         ],
       },
       {
-        title: "Reporting",
+        title: "What you see",
         items: [
-          "Live dashboard — rankings, traffic, enquiries",
-          "Monthly plain-English report",
-          "Direct line to your specialist",
-          "No account-manager ping-pong",
-          "Clear wins, clear next steps",
+          "A live dashboard — rankings, visits, enquiries",
+          "A plain-English report every month",
+          "The person doing the work, on the phone",
+          "No account managers in between",
+          "What worked, and what's next",
         ],
       },
     ],
   },
 
   process: {
-    eyebrow: "The 90-day journey",
-    headlineMain: "Your first 90 days",
-    headlineSub: "mapped out, step by step.",
+    eyebrow: "How it runs",
+    headlineMain: "Your first",
+    headlineSub: "three months.",
     intro:
-      "What happens on day 1, 30, 60 and 90 for a Christchurch SEO client. We say it up front and stick to it.",
+      "Here's how a Christchurch job runs, start to finish. We say it up front and stick to it.",
     steps: [
-      { eta: "Day 1", title: "Audit & kick-off", body: "Free SEO audit in your inbox. A 60-minute strategy call. You know exactly where you stand and what's next." },
-      { eta: "Day 30", title: "Foundation in place", body: "Technical SEO clean. First suburb and service pages live. Tracking running, data flowing." },
-      { eta: "Day 60", title: "Climbing the rankings", body: "First commercial Christchurch keywords reach the top of page 2 or bottom of page 1. Enquiries start coming in." },
-      { eta: "Day 90", title: "The first full review", body: "Every search we agreed, side by side: where you started, where you are now, and what came in. From here it runs month by month." },
+      { eta: "Week 1", title: "Plan and kick-off", body: "Your free plan lands in your inbox, then an hour on the phone. You'll know where you stand and what we're doing first." },
+      { eta: "Month 1", title: "Foundations", body: "The broken things get fixed. First suburb and service pages live. Tracking on, so you can see what's happening." },
+      { eta: "Month 2", title: "It compounds", body: "More pages live, more services covered. You can watch each agreed search move." },
+      { eta: "Month 3", title: "First full review", body: "Every search we agreed, side by side: where you started, where you are, and what came in. From here it's month by month." },
     ],
   },
 
   proof: {
     eyebrow: "Client reviews",
-    headlineMain: "Proof from around NZ",
-    headlineSub: "not a Christchurch case study we don't have.",
+    headlineMain: "Proof from around NZ.",
+    headlineSub: "No made-up local case study.",
     intro:
-      "These reviews are real Digital Movement clients from around New Zealand — not Christchurch businesses, and not all in trades. We'd rather show you the standard we hold ourselves to everywhere than dress up a local case study we don't actually have yet.",
+      "These reviews are real Digital Movement clients from around New Zealand — not Christchurch businesses, and not all trades. We'd rather show you the standard we hold ourselves to than dress up a local case study we don't have yet.",
   },
 
   nearby: {
     eyebrow: "Elsewhere in NZ",
-    headlineMain: "More NZ cities",
-    headlineSub: "we help businesses rank in.",
-    intro: "Same approach, different city. Have a look at how we think about SEO elsewhere in New Zealand.",
+    headlineMain: "Other cities",
+    headlineSub: "we work in.",
+    intro: "Same approach, different city.",
     links: [
-      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — our full approach to ranking NZ businesses on Google." },
-      { label: "SEO Hamilton", to: "/seo/hamilton", blurb: "How we approach SEO for Waikato businesses and trades." },
-      { label: "SEO Tauranga", to: "/seo/tauranga", blurb: "How we approach SEO for Bay of Plenty businesses and trades." },
+      { label: "SEO New Zealand", to: "/seo", blurb: "The national hub — how we get NZ businesses found." },
+      { label: "SEO Hamilton", to: "/seo/hamilton", blurb: "Getting found in the Waikato." },
+      { label: "SEO Tauranga", to: "/seo/tauranga", blurb: "Getting found in the Bay of Plenty." },
     ],
   },
 
   faq: {
     eyebrow: "Common questions",
-    headlineMain: "Straight answers",
-    headlineSub: "to the Christchurch questions.",
-    intro: "What Christchurch business owners ask most often before they book their free plan.",
+    headlineMain: "The questions we",
+    headlineSub: "get asked most.",
+    intro: "What Christchurch owners ask before booking a free plan.",
     items: [
       {
         q: "We moved out of the central city after the earthquakes and never went back. Does that hurt our rankings?",
-        a: "No. Google weighs local results by how close you are to the searcher, not by whether you have a CBD address. Much of commercial Christchurch now sits outside the four avenues — Riccarton, Addington, Sydenham. We build your pages around where your customers are now, not where the centre used to be.",
+        a: "No. Google ranks local results by how close you are to the person searching, not by whether you've got a CBD address. Most of commercial Christchurch sits outside the four avenues now. We build your pages around where your customers are, not where the centre used to be.",
       },
       {
         q: "We take jobs from Hornby to Papanui. Does that mean a page for every suburb?",
@@ -171,37 +170,37 @@ export const christchurch: SeoPageContent = {
       },
       {
         q: "What will SEO cost us each month?",
-        a: "One set fee a month, and that's the whole cost. No setup charge, nothing extra for more pages or links. What you pay depends on your trade and how hard your keywords are to win. You get that number from the free plan, before you commit to anything.",
+        a: "One set fee a month, and that's the lot. No setup charge, nothing extra for more pages or links. What you pay depends on your trade and how hard your searches are to win. You get that number from the free plan, before you commit to anything.",
       },
       {
         q: "Can you get us found in Rolleston and Selwyn, not just Christchurch?",
-        a: "Yes. The Rolleston and Selwyn corridor is growing fast, and plenty of Christchurch trades work out there every week. We treat it as part of your patch, with its own pages and its own search terms.",
+        a: "Yes. The Rolleston and Selwyn corridor is growing fast, and plenty of Christchurch trades are out there every week. We treat it as part of your patch, with its own pages and its own searches.",
       },
       {
-        q: "What happens if the rankings aren't moving after 90 days?",
-        a: "You'll have known long before day 90, because the monthly report shows every agreed search side by side — the ones going backwards as well as the ones going up. If it isn't working we tell you why and what we'd change. Three months to start, then month by month, so if the answer doesn't satisfy you, you leave. We'd rather earn the next month than argue about the last one.",
+        q: "What happens if the rankings aren't moving after three months?",
+        a: "You'll have known long before then, because the monthly report shows every agreed search side by side — the ones going backwards as well as the ones going up. If it isn't working we tell you why and what we'd change. Three months to start, then month by month. If the answer doesn't satisfy you, you go. We'd rather earn the next month than argue about the last one.",
       },
       {
         q: "Christchurch has more SEO agencies than most NZ cities. Can we get ahead of them?",
-        a: "Yes — the current results are softer than they look. Several of the sites ranking for Christchurch SEO terms have no links pointing at them at all. You win that field on relevance: pages genuinely about your suburbs and your services.",
+        a: "Yes, and the field is softer than it looks. Several of the sites ranking for Christchurch SEO terms have no links pointing at them at all. You win that on relevance — pages genuinely about your suburbs and your services.",
       },
       {
         q: "We're a Canterbury tech firm, not a trade. Is this only for tradies?",
-        a: "Most of what we do is trades and local services, but the method transfers. Christchurch's tech and agritech buyers search the same way — a specific problem, then a specific supplier. Our clients run one to twenty staff, whatever the industry.",
+        a: "Most of what we do is trades and local services, but it transfers. Christchurch tech and agritech buyers search the same way: a specific problem, then a specific supplier. Our clients run one to twenty staff, whatever the industry.",
       },
       {
         q: "You're not a Christchurch company. Why hire you over a local agency?",
-        a: "Because the address doesn't rank you — the pages do. We're not in Christchurch and won't pretend to be. What you get is a page that knows Riccarton from Rolleston, and a specialist you ring directly. If a local agency suits you better, we'll say so.",
+        a: "Because the address doesn't rank you, the pages do. We're not in Christchurch and won't pretend to be. What you get is a page that knows Riccarton from Rolleston, and a specialist you ring directly. If a local agency suits you better, we'll tell you.",
       },
     ],
   },
 
   finalCta: {
     eyebrow: "Talk to us",
-    headlineMain: "Let's talk SEO",
-    headlineSub: "for your Christchurch business.",
-    body: "Get in touch and we'll show you exactly where your Christchurch business stands on Google, and what it would take to get to page 1 — free, no obligation, in plain English.",
-    formHeading: "Get your free Christchurch SEO audit",
-    formNote: "A one-page plan in your inbox within one working day. No sales call, no obligation.",
+    headlineMain: "Let's talk about",
+    headlineSub: "your Christchurch business.",
+    body: "Send us your website and the parts of Canterbury you cover. We'll show you where you sit on Google now, who's ahead of you, and the three fixes worth doing first. One working day, no sales call.",
+    formHeading: "Get your free Christchurch SEO plan",
+    formNote: "A one-page plan within one working day. No sales call, no obligation.",
   },
 };
