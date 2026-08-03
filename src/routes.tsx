@@ -176,10 +176,14 @@ export const routes: RouteRecord[] = [
         lazy: () =>
           import("./pages/industries/roofers").then((m) => ({ Component: m.IndustryRoofers })),
       },
-      {
-        path: "results",
-        lazy: () => import("./pages/results").then((m) => ({ Component: m.Results })),
-      },
+      /* /results removed 2026-08-03 on Raoul's instruction. The proof it
+         carried lives on in the `proof` block every SeoPageShell page already
+         renders from the same review data, so nothing was lost but the
+         standalone URL. postbuild.mjs builds sitemap.xml by walking dist
+         rather than from a list, so the URL drops out of the sitemap on its
+         own — there is no exclusion list to update. Do not re-add a route
+         here without also restoring src/content/results.ts, which held the
+         locked client-reported figures and their do-not-restate notice. */
       {
         /* The human sitemap. /sitemap.xml is a build artefact and is served
            straight from dist by the host, so the two never collide. */
@@ -187,8 +191,8 @@ export const routes: RouteRecord[] = [
         lazy: () => import("./pages/sitemap").then((m) => ({ Component: m.Sitemap })),
       },
       {
-        /* Built and reviewable, but noindexed until real figures replace
-           PRICE_TBC — see the notice atop src/content/pricing.ts. */
+        /* Live but noindexed, permanently. The page states no price by
+           design — see the notice atop src/content/pricing.ts. */
         path: "pricing",
         lazy: () => import("./pages/pricing").then((m) => ({ Component: m.Pricing })),
       },

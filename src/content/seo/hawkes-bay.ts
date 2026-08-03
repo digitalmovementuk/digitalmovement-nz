@@ -156,7 +156,7 @@ export const hawkesBay: SeoPageContent = {
     items: [
       {
         q: "What does SEO in Hawke's Bay cost?",
-        a: "One fixed price a month, not per hour and not per link. What it comes to depends on your trade and how hard your searches are. Ask for the free plan and you'll get a real number, not a range that hides the cost.",
+        a: "One fixed price a month, not per hour and not per link. Three things decide what it comes to: your industry, whether you're chasing Napier, Hastings or the whole Bay, and what you want the work to do. Ask for the free plan and you'll get a real number on the first call, not a range that hides the cost.",
       },
       {
         q: "Do you offer SEO in Napier specifically?",

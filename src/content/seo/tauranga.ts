@@ -154,7 +154,7 @@ export const tauranga: SeoPageContent = {
     items: [
       {
         q: "What does SEO in Tauranga cost?",
-        a: "One price a month, agreed before we start. Not per hour, not per link. What it costs depends on how hard your searches are to win. Ask for the free plan and you'll get a real number, not a range.",
+        a: "One price a month, agreed before we start. Not per hour, not per link. What it comes to depends on your industry, your patch of the Bay, and what you want the work to do. Ask for the free plan and you'll get a real number on the first call, not a range.",
       },
       {
         q: "Do you offer SEO services in Tauranga specifically, or just nationwide SEO?",

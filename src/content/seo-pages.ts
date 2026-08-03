@@ -193,8 +193,9 @@ export type SeoPageContent = {
     intro: string;
     /**
      * How many real case studies to render. Defaults to 3, which is the right
-     * amount of supporting evidence on a page selling something else. /results
-     * exists to show the work, so it sets this higher.
+     * amount of supporting evidence on a page selling something else. Raise it
+     * where the proof is the point of the section rather than a footnote.
+     * (/results used to be the one page that did; it was removed 2026-08-03.)
      */
     limit?: number;
   };

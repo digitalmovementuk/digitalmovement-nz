@@ -279,20 +279,6 @@
       "live": true
     },
     {
-      "title": "Results",
-      "slug": "results",
-      "cluster": "Case studies · conversion asset",
-      "tier": "Support",
-      "volume": null,
-      "cluster_volume": null,
-      "cum_volume": 8130,
-      "kd": null,
-      "eys": null,
-      "enquiries_12mo": 0,
-      "wave": "Supporting",
-      "live": true
-    },
-    {
       "title": "Industries — Builders",
       "slug": "industries/builders",
       "cluster": "n/a — not a traffic asset",

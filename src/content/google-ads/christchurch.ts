@@ -174,7 +174,7 @@ export const googleAdsChristchurch: SeoPageContent = {
       },
       {
         q: "How much ad budget do we need?",
-        a: "It depends on your trade and what a customer is worth to you. Most Christchurch businesses start somewhere between NZ$2,000 and NZ$8,000 a month. The free plan gives you a real figure based on what people in your market are actually paying per click.",
+        a: "It depends on your industry, your patch of Christchurch, and what you're trying to get out of it. What a customer is worth to a roofer is nothing like what one is worth to a café, and the two need very different budgets to reach. We won't quote you a bracket that turns out to be wrong — you'll get a real figure on the first call.",
       },
       {
         q: "Do you take a cut of our ad spend?",

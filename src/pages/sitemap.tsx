@@ -59,7 +59,6 @@ const GROUPS: { heading: string; blurb: string; links: { label: string; to: stri
     blurb: "Who we are and what we can actually prove.",
     links: [
       { label: "Home", to: "/", note: "The starting point." },
-      { label: "Results", to: "/results", note: "Real client reviews, and an honest account of the gaps." },
       { label: "About", to: "/about", note: "Who does the work." },
       { label: "Contact", to: "/#contact", note: "One form, and a founder replies to it." },
     ],

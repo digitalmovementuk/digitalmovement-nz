@@ -162,7 +162,7 @@ export const roofers: SeoPageContent = {
     items: [
       {
         q: "What does it cost?",
-        a: "One fixed price a month, not per hour and not per link. What it comes to depends on your area and how hard your searches are to win. Ask for the free plan and you'll get a real number, not a range.",
+        a: "One fixed price a month, not per hour and not per link. What it comes to depends on the area you cover, how hard those searches are to win, and what you want out of it — repairs booked, or re-roof quotes. Ask for the free plan and you'll get a real number on the first call, not a range.",
       },
       {
         q: "Have you done this for other roofers?",

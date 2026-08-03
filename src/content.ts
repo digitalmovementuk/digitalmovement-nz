@@ -314,7 +314,7 @@ export const faqs = [
   },
   {
     q: "How is pricing structured?",
-    a: "Fixed monthly fees with no surprise costs. We scope the work to your goals and budget. We're not the cheapest, but we are honest about what each dollar buys.",
+    a: "One fixed price a month, agreed before we start, with no surprise costs. What it comes to depends on your industry, your region and what you want the work to do — those three move it more than anything else, so you'll get a real figure on the first call rather than a range off a web page.",
   },
   {
     q: "Do you guarantee I'll rank number one?",

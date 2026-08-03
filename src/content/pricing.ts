@@ -3,38 +3,40 @@ import type { SeoPageContent } from "./seo-pages";
 /**
  * /pricing — the comparison-shopper page.
  *
- * ⚠️ THIS PAGE IS NOT READY TO GO LIVE. Read this before publishing it.
+ * ⚠️ NO PRICE FIGURES ON THIS PAGE. EVER. Read this before editing it.
  *
- * The strategy (§09) asks for real numbers or at minimum real ranges, on the
- * reasoning that most NZ agencies hide them and publishing them wins the
- * comparison shopper and earns links from people citing the figures. That
- * reasoning is sound. The problem is that Digital Movement NZ's actual
- * retainer figures exist nowhere in this repo — not in the strategy, not in
- * content.ts, not in the whitepaper — and a pricing page is the single worst
- * place on a website to guess.
+ * Standing instruction from Raoul, 2026-08-03: no pricing is published
+ * anywhere on this site — not a number, not a range, not a "from". Price
+ * always depends on the industry, the region and the business goals, and it
+ * is given on the first call. That is a commercial decision, not a gap
+ * waiting to be filled.
  *
- * So this page ships everything that is true — how the fee is structured,
- * what moves it up and down, what is included, what is not, and what a buyer
- * should ask any agency — and marks the three numbers with PRICE_TBC.
+ * This supersedes the earlier state of this file, which carried three
+ * PRICE_TBC sentinel tiles awaiting real figures. Those tiles are now
+ * figure-less by design (outcome `value`/`unit` are optional in
+ * SeoPageContent precisely so a card can carry no number), and the FAQ no
+ * longer quotes "a few hundred to a few thousand" or anchors against "a day
+ * of skilled work a month".
  *
- * TO PUBLISH: replace the three PRICE_TBC values with real monthly figures,
- * delete PRICE_TBC and this notice, and re-run the QA gate. Until then the
- * page is deliberately excluded from the sitemap and carries noindex (see
- * src/pages/pricing.tsx) — a pricing page that does not state prices fails
- * gate item C1.3, which is a blocker, and would be worse than no page.
+ * So the page ships everything that is true and nothing that is a number:
+ * how the fee is structured, what moves it up and down, what is included,
+ * what is not, and what a buyer should ask any agency.
+ *
+ * It stays `noindex` and out of the sitemap (see src/pages/pricing.tsx). The
+ * page targets price-led intent and answers it honestly — "here is how it is
+ * set, and you get your number on the call" — but a pricing page that states
+ * no price does not fully resolve its query facet (gate item C1.3), so it is
+ * not offered to search. Do not index it in an attempt to "win" that query.
  */
-
-/** Sentinel for a figure nobody has given us. Never replace with a guess. */
-const PRICE_TBC = "TBC";
 
 export const pricing: SeoPageContent = {
   slug: "pricing",
   path: "/pricing",
   serviceName: "SEO Pricing",
 
-  // Built, reviewable, and deliberately not indexed until PRICE_TBC is gone.
-  // A pricing page that shows "TBC" where a number belongs would fail gate
-  // item C1.3 (fully resolves its query facet) and mislead a buyer.
+  // Deliberately not indexed. The page answers price-led intent honestly, but
+  // it states no figure, so it does not fully resolve its query facet (gate
+  // item C1.3). Offering it to search would win the click and lose the visit.
   noindex: true,
 
   // Price-led intent is real and under-served: `affordable local seo services`
@@ -52,32 +54,32 @@ export const pricing: SeoPageContent = {
   },
 
   meta: {
-    title: "SEO Pricing NZ — What It Costs | Digital Movement",
+    title: "SEO Pricing NZ — How Our Fee Works | Digital Movement",
     description:
-      "What SEO actually costs in New Zealand, how our fee is set, and what moves it. Three months to start, then month by month. No surprise invoices.",
+      "How SEO pricing works in New Zealand, how our fee is set, and what moves it. One fixed price a month, agreed before work starts. No surprise invoices.",
   },
 
   hero: {
     eyebrow: "Pricing",
-    // Not "written down" — the tiers still read TBC, and an H1 that promises
-    // published figures the page does not show is the first thing a sceptical
-    // buyer catches. What this page genuinely delivers is the reasoning.
-    h1: "What it costs, and what moves the price.",
-    sub: "One fixed price a month. Three months to start, then month by month. This page explains how that number gets set, what pushes it up or down, and what you get for it.",
+    // The H1 promises exactly what the page delivers: the reasoning, not a
+    // figure. Do not change it to imply published prices — see the file
+    // header. The number comes on the call, and the page says so.
+    h1: "How our pricing works, and what moves it.",
+    sub: "One fixed price a month. Three months to start, then month by month. What that price comes to depends on your industry, your region and what you want the work to do — so you get the real figure on the first call, once we know all three.",
     chips: ["One fixed price a month", "Month by month after three", "Free plan first"],
-    formHeading: "Get a number for your business",
-    formNote: "Send us your website. You'll get a price and the plan behind it, back within one working day.",
+    formHeading: "Ask what it would cost you",
+    formNote: "Send us your website. You'll get a plan back within one working day, and a real figure on the call.",
   },
 
   local: {
     eyebrow: "How agency pricing works",
-    headlineMain: "Why nobody",
-    headlineSub: "publishes prices.",
+    headlineMain: "Three things set",
+    headlineSub: "your price.",
     paragraphs: [
-      "Most New Zealand agencies won't put a number on a page. The reason they give is that every business is different. The real reason is usually that the number gets negotiated, and publishing it takes away the room to negotiate.",
-      "There is a genuine problem underneath it, though. Ranking a plumber in Dunedin against four competitors is a completely different job from ranking an online store in Auckland against forty, and one price that covered both honestly would be wrong for both.",
-      "What we can publish is how it works. One fixed price a month, agreed before anything starts, that doesn't move unless the scope moves and you've agreed to it. No hourly billing, no markup on anything, no invoice you didn't see coming. Four things move the number: how hard your searches are to win, how much repair the site needs first, how many pages the plan calls for, and whether we write the words or you do. The free plan prices all four before you commit to anything.",
-      "One thing worth knowing whoever you hire: a fee cheaper than about a day of skilled work a month isn't buying you a day of skilled work a month. Ask any agency how many hours their price represents and what happens in them. If they can't answer quickly, they're not tracking it.",
+      "Your industry, your region, and what you want the work to do. Those three decide the number, and until we know all three, anything printed on a page would be a guess dressed up as a quote.",
+      "It isn't a dodge. Ranking a plumber in Dunedin against four competitors is a completely different job from ranking an online store in Auckland against forty, and one price that covered both honestly would be wrong for both. A range wide enough to be true is too wide to be useful.",
+      "What we can tell you now is how it's structured. One fixed price a month, agreed before anything starts, that doesn't move unless the scope moves and you've agreed to it. No hourly billing, no markup on anything, no invoice you didn't see coming.",
+      "Then the specifics move it up or down: how hard your searches are to win, how much repair the site needs first, how many pages the plan calls for, and whether we write the words or you do. The free plan works all of that out, and you get your figure on the first call. A real one, for your business.",
     ],
     stats: [
       { value: "Fixed", label: "one price a month, agreed up front" },
@@ -91,26 +93,24 @@ export const pricing: SeoPageContent = {
     headlineMain: "Three levels,",
     headlineSub: "by scope not by seniority.",
     intro:
-      "The difference is how much ground the plan covers, not how good the person doing the work is. Same people either way.",
+      "The difference is how much ground the plan covers, not how good the person doing the work is. Same people either way. Which one you need is usually obvious within a few minutes of looking at your market — and that's the conversation the free plan sets up.",
+    // No `value`/`unit` on these three by design. They are scope descriptions,
+    // not price tiers, and the moment one carries a figure the page breaks the
+    // standing no-pricing rule in the file header. `value` is optional on
+    // SeoPageContent outcomes; the card renders with the title at display size.
     items: [
       {
         kicker: "Local",
-        value: PRICE_TBC,
-        unit: "/mo",
         title: "One city, one patch",
         body: "A single trade or service business competing in one centre. Your Google listing, the pages that matter for your city, and the repairs needed to make them rank.",
       },
       {
         kicker: "Regional",
-        value: PRICE_TBC,
-        unit: "/mo",
         title: "Several towns or several services",
         body: "A business working across more than one centre, or one centre with several services that each need their own page and their own searches.",
       },
       {
         kicker: "Competitive",
-        value: PRICE_TBC,
-        unit: "/mo",
         title: "Auckland, online stores, or a hard market",
         body: "Where page one is held by established names. More pages, sustained link work, and a longer wait before the numbers move.",
       },
@@ -176,8 +176,8 @@ export const pricing: SeoPageContent = {
       },
       {
         eta: "Day 5",
-        title: "You get a scope and a price",
-        body: "What we'd do, in what order, for what price a month. Written down, with the reasoning attached.",
+        title: "You get the plan, then the number",
+        body: "What we'd do and in what order, written down with the reasoning attached. Then a call, and on it your fixed monthly price for exactly that scope.",
       },
       {
         eta: "You decide",
@@ -192,7 +192,7 @@ export const pricing: SeoPageContent = {
     headlineMain: "What clients",
     headlineSub: "have said.",
     intro:
-      "Verified Google reviews from real New Zealand clients, with the figures those clients reported themselves. They're not audited case studies and they're not trades businesses — the results page says exactly what we can and can't prove.",
+      "Verified Google reviews from real New Zealand clients, with the figures those clients reported themselves. They're not audited case studies and they're not trades businesses, and we'd rather say so here than let you assume otherwise.",
     limit: 3,
   },
 
@@ -213,9 +213,9 @@ export const pricing: SeoPageContent = {
         blurb: "The clearest example of a market where a modest budget still competes.",
       },
       {
-        label: "Results",
-        to: "/results",
-        blurb: "What we can and can't yet prove, without the padding.",
+        label: "SEO Auckland",
+        to: "/seo/auckland",
+        blurb: "The other end of it — where page one costs the most work to reach.",
       },
     ],
   },
@@ -228,11 +228,11 @@ export const pricing: SeoPageContent = {
     items: [
       {
         q: "How much does SEO cost in New Zealand?",
-        a: "Most retainers for small and mid-sized businesses here sit somewhere between a few hundred and a few thousand dollars a month, depending on how hard the market is and how much repair the site needs. We charge one fixed price agreed before work starts — send us your site and we'll price it against a real plan rather than a guess.",
+        a: "It depends on your industry, your region and what you want the work to do. Those three move it more than anything else, and they're also the three we can't know from a web page. What we can tell you is that it's one fixed price a month, agreed before work starts. Send us your site and you'll get the real figure on the first call.",
       },
       {
-        q: "Why isn't there a price list on this page yet?",
-        a: "Because a published price we can't stand behind is worse than none. The levels are scoped and the structure is fixed, but the figures are still being finalised, and we'd rather show a gap than a number we'd have to walk back. Ask and you'll get a real one within a few days.",
+        q: "Why isn't there a price list on this page?",
+        a: "Because any number we could print here would be wrong for most of the people reading it. A range wide enough to cover a Dunedin plumber and an Auckland online store tells you nothing, and a narrow one would be a bait price we'd have to walk back on the call. So we do it the other way round: look at your market first, then give you a real number.",
       },
       {
         q: "Is there a contract?",
@@ -248,7 +248,7 @@ export const pricing: SeoPageContent = {
       },
       {
         q: "Is cheap SEO worth it?",
-        a: "Usually not, and it's just arithmetic. A fee below about a day of skilled work a month can't buy a day of skilled work a month, so something is being automated, sent offshore or skipped. Ask any agency how many hours their price represents and what happens in them.",
+        a: "Usually not, and it's just arithmetic. A fee has to cover the hours the work actually takes, and when it clearly doesn't, something is being automated, sent offshore or skipped. Ask any agency how many hours their price represents and what happens in them. If they can't answer quickly, they're not tracking it.",
       },
       {
         q: "What if it doesn't work?",
@@ -265,8 +265,8 @@ export const pricing: SeoPageContent = {
     eyebrow: "Talk to us",
     headlineMain: "Ask what it",
     headlineSub: "would cost you.",
-    body: "Send us your website and the towns you want work from. You'll get a free plan and one fixed monthly price scoped to what your market actually demands — not a bracket, and not a call to discuss brackets.",
-    formHeading: "Get your price and your plan",
+    body: "Send us your website and the towns you want work from. You'll get a free plan back, and on the call that follows, one fixed monthly price scoped to what your market actually demands. A real number, not a bracket.",
+    formHeading: "Get your free plan",
     formNote: "Back within one working day, from the person who'd do the work.",
   },
 };

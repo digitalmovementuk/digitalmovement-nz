@@ -196,7 +196,7 @@ export const seoHub: SeoPageContent = {
     items: [
       {
         q: "How much does SEO cost in New Zealand?",
-        a: "Usually one fixed price a month, not an hourly rate or a per-job quote. You get the number before you commit, with nothing added later for more pages or more links.",
+        a: "Usually one fixed price a month, not an hourly rate or a per-job quote. What it comes to depends on your industry, your region and what you want the work to do, so we give you the number on the first call rather than a range here. You get it before you commit, with nothing added later for more pages or more links.",
       },
       {
         q: "What does an SEO agency in NZ actually do?",

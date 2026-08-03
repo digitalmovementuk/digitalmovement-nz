@@ -539,7 +539,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       headlineSub: "we get before the budget goes out.",
       intro: "What Kiwi business owners ask most often before they release Ads budget.",
       items: [
-        { q: "How much ad spend do I need?", a: "It depends on your trade and on what one enquiry costs to win in your town — in some markets that's $20, in others it's $200. We usually suggest starting between NZ$2,000 and NZ$8,000 a month. Your free plan gives you a real number for your market rather than a bracket." },
+        { q: "How much ad spend do I need?", a: "It depends on three things: your industry, your region, and what you're trying to get out of it. What a customer is worth in one trade is nothing like another, and what it costs to reach them in Auckland is nothing like Invercargill. We won't quote you a bracket that turns out to be wrong — you'll get a real figure on the first call, once we know what you're working towards." },
         { q: "Does Digital Movement earn on my ad budget?", a: "No. All budgets run directly through your Google Ads account. We earn a fixed monthly fee — whether your budget is small or large. Incentive: results, not volume." },
         { q: "How fast will I see enquiries?", a: "With a clean setup, often inside the first fortnight — ads start the day they're switched on. Getting the cost per enquiry down to something steady usually takes 60 to 90 days." },
         { q: "What if it isn't paying for itself?", a: "We meet weekly and adjust. If after 60 days it's clear there isn't enough demand in your market to make the numbers work, we'll tell you straight and stop — rather than keep spending your budget to keep a client." },
@@ -762,7 +762,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       items: [
         { q: "Do I need to be present on every platform?", a: "No. We recommend 1–2 platforms where your audience actually spends time. Better deep than wide." },
         { q: "What if I don't want to be on camera?", a: "Works. We build UGC-style content with creators or product-led visuals. But personal founder content typically performs best." },
-        { q: "How much ad budget do I need?", a: "For paid social we recommend at least NZ$2,000 / month to start. Organic works without it — just takes longer." },
+        { q: "How much ad budget do I need?", a: "It depends on your industry, your region and what you want the work to do — those three things move it more than anything else. You'll get a real figure on the first call. Posting without a budget behind it works too, it just takes longer." },
         { q: "Who produces the videos?", a: "We do. Including scripts, storyboard, edit, hooks. You approve, we publish. For founder content we need ~2 h per month from you." },
         { q: "How fast will I see enquiries?", a: "Paid social often produces the first tracked enquiries within two to three weeks, because you're buying reach from day one. Posting without a budget behind it takes longer — usually 60 to 90 days before it shows up as work." },
         { q: "What about creators and influencer marketing?", a: "When relevant, yes — but as an add-on, not default. NZ founder-led brands typically build best on their own founder content. Creators come when volume justifies it." },
@@ -990,7 +990,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
         { q: "What happens to my old site?", a: "We do a 301-redirect mapping so no SEO trust is lost. Plus a backup, in case you want to roll back." },
         { q: "What if I want changes after launch?", a: "30 days bug-fix support are included in the fixed price. After that: monthly care packages or hourly — you decide." },
         { q: "What about SEO — will the new site rank?", a: "It's built so it can. That means it loads fast, works properly on a phone, has a sensible page structure, and tells Google what your business is and where it operates. That gets you a site Google can rank — actually climbing the results is ongoing work, and that's our SEO service." },
-        { q: "What's the cost difference between custom and Webflow?", a: "Fixed-price range starts at NZ$22,000 (Webflow marketing site) and can go to NZ$90,000+ (custom React/e-commerce). We give you a concrete number in the consult." },
+        { q: "What's the cost difference between custom and Webflow?", a: "A custom build costs more than Webflow, and how much more depends on how much of the site has to be built from scratch rather than assembled. What actually sets the number is your industry, your region and what the site has to do for the business. You'll get a real figure on the first call." },
       ],
     },
     form: {

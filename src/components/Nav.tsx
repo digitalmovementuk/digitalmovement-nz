@@ -10,7 +10,6 @@ type Surface = "dark" | "light";
 // routes (`/about`, `/services/*`) — Link to="/#hash" jumps home and
 // Layout's hash-scroll effect handles the rest.
 const subpageLinks = [
-  { label: "Results", to: "/results" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/#contact" },
 ];
