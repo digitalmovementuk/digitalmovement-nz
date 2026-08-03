@@ -33,13 +33,19 @@ export function LegalPage({
   children: React.ReactNode;
 }) {
   return (
-    /* data-surface is not decoration. Nav.tsx defaults to its dark treatment
-       and only switches to the light one when it finds a [data-surface]
-       section under the header — so a light page that omits the attribute
-       renders white nav text on a white background, which is exactly what
-       these three pages did on first deploy. Every full-page light surface on
-       this site carries it; so does this one. */
-    <main data-surface="light" className="surface-light">
+    /* <section>, not <main>. Layout already wraps every route in
+       <main id="main">, so a second <main> here nests one landmark inside
+       another — invalid HTML and two "main" landmarks for a screen reader to
+       choose between. The old unrouted privacy.tsx had this bug; it never
+       shipped because nothing rendered it. Every other page on the site uses
+       <section> for exactly this reason.
+
+       data-surface is not decoration either. Nav.tsx defaults to its dark
+       treatment and only switches to light when it finds a [data-surface]
+       element spanning the nav band — so a light page that omits the
+       attribute renders white nav text on a white background, which is what
+       these three pages did on first deploy. */
+    <section data-surface="light" className="surface-light">
       <div className="container-v3 max-w-[720px] pt-32 pb-24 sm:pt-40 sm:pb-32">
         <h1 className="text-[34px] sm:text-[44px] font-bold tracking-[-0.03em] text-ink leading-[1.08]">
           {title}
@@ -77,7 +83,7 @@ export function LegalPage({
           </p>
         </section>
       </div>
-    </main>
+    </section>
   );
 }
 
