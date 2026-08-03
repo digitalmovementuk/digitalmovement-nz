@@ -141,7 +141,7 @@ export const builders: SeoPageContent = {
     headlineMain: "Proof from around NZ.",
     headlineSub: "No made-up builder case study.",
     intro:
-      "These are real Digital Movement clients from around New Zealand — none of them builders, and we won't pretend otherwise. We'd rather show you the standard we hold ourselves to than dress up a case study we don't have yet.",
+      "These are real Digital Movement reviews, earned by the wider business rather than by the New Zealand company — and none of them builders. We won't pretend otherwise. We'd rather show you the standard we hold ourselves to than dress up a case study we don't have yet.",
     limit: 3,
   },
 

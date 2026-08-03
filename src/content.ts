@@ -38,10 +38,21 @@ export const heroStats = [
   { value: 1, suffix: "", label: "Working day to your free plan" },
 ];
 
+/**
+ * The 5.0 rating and the 100+ reviews were earned by the parent business, not
+ * by the New Zealand company — confirmed by Raoul 2026-08-03. That is why the
+ * link points where the reviews actually are. Searching "digital movement new
+ * zealand" returned a profile that has not earned them, which turned a
+ * verification link into an unverifiable claim: exactly the shape the Fair
+ * Trading Act s 12A catches, whether or not the rating itself is true.
+ *
+ * Do not "correct" this back to a New Zealand query. A proof link that fails
+ * to prove is worse than no proof link.
+ */
 export const googleRating = {
   rating: 5.0,
   count: 100,
-  reviewsUrl: "https://www.google.com/search?q=digital+movement+new+zealand",
+  reviewsUrl: "https://www.google.com/search?q=digital+movement+melbourne",
 };
 
 export const services = [
@@ -53,6 +64,8 @@ export const services = [
       "Technical SEO, local SEO, national SEO and content writing — all under one roof. Your customers are already searching. We make sure the business they find is yours, with pages built for the searches that end in a phone call, not the ones that end in a browse.",
     bullets: ["Technical SEO", "Local SEO", "National SEO", "Content writing"],
     video: "video/seo-logo.mp4",
+    to: "/services/seo",
+    ctaLabel: "View SEO",
   },
   {
     key: "google-ads",
@@ -67,6 +80,8 @@ export const services = [
       "Landing page creation & tuning",
     ],
     video: "video/google-ads-logo.mp4",
+    to: "/services/google-ads",
+    ctaLabel: "View Google Ads",
   },
   {
     key: "social",
@@ -76,6 +91,8 @@ export const services = [
       "Paid social ads, content creation and a posting plan, aimed at the people close to buying. Likes don't pay wages — what comes back is booked jobs and filled diaries, not a bigger follower count.",
     bullets: ["Paid social ads", "Content creation", "Posting plan", "Founder content"],
     video: "video/socials-logo.mp4",
+    to: "/services/social-media",
+    ctaLabel: "View Social Media",
   },
   {
     key: "websites",
@@ -85,6 +102,10 @@ export const services = [
       "High-performing websites that don't just look exceptional but actively help you outperform competitors online. Built to deliver paying customers, not just traffic.",
     bullets: ["Mobile-first design", "Conversion architecture", "SEO-ready from day one", "You can edit it"],
     video: "video/website-logo.mp4",
+    /* /services/websites exists but only redirects here, so link the real
+       page rather than bouncing the visitor through a client-side hop. */
+    to: "/services/web-design",
+    ctaLabel: "View Websites",
   },
 ];
 
@@ -145,14 +166,23 @@ export const processSteps = [
 ];
 
 /**
- * Case studies — five NZ clients, each paired with a stock video that
- * reflects the business. Videos live in /public/video/cases/*.mp4.
+ * Case studies, each paired with a stock video that reflects the business.
+ * Videos live in /public/video/cases/*.mp4.
+ *
+ * `location` is optional on purpose. Four of these are verified Google
+ * reviews earned by the wider Digital Movement business, not by the New
+ * Zealand company (confirmed 2026-08-03), and until 2026-08-03 every one of
+ * them carried location: "New Zealand" — a detail nobody could source. An
+ * invented origin on a real review is still an invented claim, and Fair
+ * Trading Act s 12A does not care that the review itself is genuine. Leave
+ * the field off unless you can point to where the location came from.
  */
 export type CaseStudy = {
   slug: string;
   client: string;
   industry: string;
-  location: string;
+  /** Only set this where the origin is documented. See the note above. */
+  location?: string;
   services: string[];
   timeline: string;
   headline: string;
@@ -171,7 +201,6 @@ export const caseStudies: CaseStudy[] = [
     slug: "andrew-schultz",
     client: "Andrew Schultz",
     industry: "Online store owner",
-    location: "New Zealand",
     services: ["SEO", "Web Design"],
     timeline: "Verified review",
     headline: "1125% more web conversions",
@@ -189,7 +218,6 @@ export const caseStudies: CaseStudy[] = [
     slug: "beth-sorenson",
     client: "Beth Sorenson",
     industry: "Small business owner",
-    location: "New Zealand",
     services: ["Web Design", "SEO", "Google Ads"],
     timeline: "Verified review",
     headline: "1312% more monthly leads",
@@ -207,7 +235,6 @@ export const caseStudies: CaseStudy[] = [
     slug: "matthew-peard",
     client: "Matthew Peard",
     industry: "First-time website",
-    location: "New Zealand",
     services: ["Web Design"],
     timeline: "Verified review",
     headline: "1050% more monthly sales",
@@ -225,7 +252,6 @@ export const caseStudies: CaseStudy[] = [
     slug: "fabienne-m",
     client: "Fabienne M.",
     industry: "Established business",
-    location: "New Zealand",
     services: ["Digital Marketing"],
     timeline: "Verified review",
     headline: "1796% more organic traffic",

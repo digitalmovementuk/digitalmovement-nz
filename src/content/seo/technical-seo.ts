@@ -143,9 +143,9 @@ export const technicalSeo: SeoPageContent = {
   proof: {
     eyebrow: "Client reviews",
     headlineMain: "Real reviews",
-    headlineSub: "from real NZ clients.",
+    headlineSub: "from real clients.",
     intro:
-      "The technical side is one part of the work we do for New Zealand businesses. These are real Digital Movement clients from around the country, shown honestly rather than dressed up as a technical portfolio we don't have.",
+      "The technical side is one part of the work we do for New Zealand businesses. These reviews were earned by the wider Digital Movement business rather than by the New Zealand company, and they're shown honestly rather than dressed up as a technical portfolio we don't have.",
   },
 
   nearby: {

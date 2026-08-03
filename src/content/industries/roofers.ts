@@ -138,7 +138,7 @@ export const roofers: SeoPageContent = {
     eyebrow: "Client reviews",
     headlineMain: "Proof from around NZ.",
     headlineSub: "No made-up roofing case study.",
-    intro: "These are real Digital Movement clients from around New Zealand — none of them roofers, and we won't pretend otherwise. We'd rather show you the standard we hold ourselves to than dress up a case study we don't have yet.",
+    intro: "These are real Digital Movement reviews, earned by the wider business rather than by the New Zealand company — and none of them roofers. We won't pretend otherwise. We'd rather show you the standard we hold ourselves to than dress up a case study we don't have yet.",
     limit: 3,
   },
 
@@ -166,7 +166,7 @@ export const roofers: SeoPageContent = {
       },
       {
         q: "Have you done this for other roofers?",
-        a: "Not yet, and we're upfront about that. Our results are from New Zealand clients in other trades and industries. What you can rely on is the same approach, written down before you pay us anything, and a 5.0 rating across 100+ reviews.",
+        a: "Not yet, and we're upfront about that. Our published reviews were earned by the wider Digital Movement business, in other trades and industries. What you can rely on is the same approach, written down before you pay us anything, and a 5.0 rating across 100+ reviews.",
       },
       {
         q: "Can this actually handle the rush after a storm?",

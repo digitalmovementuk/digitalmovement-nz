@@ -138,7 +138,7 @@ export const plumbers: SeoPageContent = {
     eyebrow: "Client reviews",
     headlineMain: "Proof from around NZ.",
     headlineSub: "No made-up plumber case study.",
-    intro: "These are real Digital Movement clients from around New Zealand — none of them plumbers, and we're not going to pretend otherwise. We'd rather show you the standard we hold ourselves to than dress up a case study we don't have yet.",
+    intro: "These are real Digital Movement reviews, earned by the wider business rather than by the New Zealand company — and none of them plumbers. We're not going to pretend otherwise. We'd rather show you the standard we hold ourselves to than dress up a case study we don't have yet.",
     limit: 3,
   },
 
@@ -170,7 +170,7 @@ export const plumbers: SeoPageContent = {
       },
       {
         q: "Have you done this for other plumbers?",
-        a: "Not yet, and we're not going to pretend otherwise. Our results are from New Zealand clients in other trades and industries. What you can rely on is the same approach, written down before you pay us anything, and a 5.0 rating across 100+ reviews.",
+        a: "Not yet, and we're not going to pretend otherwise. Our published reviews were earned by the wider Digital Movement business, in other trades and industries. What you can rely on is the same approach, written down before you pay us anything, and a 5.0 rating across 100+ reviews.",
       },
       {
         q: "How fast will I see something?",

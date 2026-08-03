@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { googleRating } from "../content";
 
 /**
  * Floating, sticky Google Rating widget.
@@ -45,7 +46,10 @@ export function StickyGoogleRatingBadge() {
 export function GoogleRatingCard() {
   return (
     <a
-      href="https://www.google.com/search?q=digital+movement+new+zealand+reviews"
+      // Points at the profile that actually holds these reviews. See the note
+      // on `googleRating` in content.ts — a verification link that lands on a
+      // profile without the reviews is worse than no link at all.
+      href={googleRating.reviewsUrl}
       target="_blank"
       rel="noopener noreferrer"
       // Match the visible text in the card so screen-reader output and the

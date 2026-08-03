@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { services } from "../content";
 import { Reveal } from "../lib/Reveal";
 
@@ -239,6 +240,33 @@ const ServiceSlide = ({
           >
             {service.promise}
           </h3>
+
+          {/* The way into the service page. A card that looks clickable but
+              isn't is worse than a plain card, and a card that IS the link
+              still leaves nothing on screen saying so — hence a real button
+              with a real label rather than a whole-card <Link>. The label
+              names its destination ("View SEO"), so each one is distinct for
+              a screen-reader user pulling up a list of links, and no
+              aria-label is needed to disambiguate them. */}
+          <Link
+            to={service.to}
+            className="mt-5 sm:mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 sm:px-6 sm:py-3.5 text-[14px] sm:text-[15px] font-semibold text-ink shadow-[0_14px_34px_-14px_rgba(0,0,0,0.65)] transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-white"
+          >
+            {service.ctaLabel}
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <path d="M5 12h13M12 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
     </article>

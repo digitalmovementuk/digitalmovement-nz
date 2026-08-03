@@ -184,7 +184,7 @@ export const hawkesBay: SeoPageContent = {
       },
       {
         q: "Do you have Hawke's Bay client case studies?",
-        a: "Not yet, and we'll say so. Our published results are from clients elsewhere in New Zealand. What you can rely on is the same process, the searches written down before you start, and a 5.0 Google rating across 100+ reviews.",
+        a: "Not yet, and we'll say so. Our published reviews were earned by the wider Digital Movement business, not in Hawke's Bay. What you can rely on is the same process, the searches written down before you start, and a 5.0 Google rating across 100+ reviews.",
       },
     ],
   },

@@ -192,7 +192,7 @@ export const pricing: SeoPageContent = {
     headlineMain: "What clients",
     headlineSub: "have said.",
     intro:
-      "Verified Google reviews from real New Zealand clients, with the figures those clients reported themselves. They're not audited case studies and they're not trades businesses, and we'd rather say so here than let you assume otherwise.",
+      "Verified Google reviews of Digital Movement, with the figures those clients reported themselves. They were earned by the wider business rather than by the New Zealand company, they're not audited case studies, and we'd rather say so here than let you assume otherwise.",
     limit: 3,
   },
 

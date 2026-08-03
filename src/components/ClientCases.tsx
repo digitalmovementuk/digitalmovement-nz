@@ -502,8 +502,12 @@ function CaseRow({
               <span className="tabular-nums">{String(index + 1).padStart(2, "0")}</span>
               <span className="h-px w-6 bg-ink/15" />
               <span>{study.industry}</span>
-              <span className="h-px w-6 bg-ink/15" />
-              <span>{study.location}</span>
+              {study.location && (
+                <>
+                  <span className="h-px w-6 bg-ink/15" />
+                  <span>{study.location}</span>
+                </>
+              )}
             </div>
 
             <p className="mt-7 text-[14.5px] font-semibold text-ink tracking-[0.01em]">

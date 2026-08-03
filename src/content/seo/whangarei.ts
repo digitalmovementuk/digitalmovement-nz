@@ -93,7 +93,7 @@ export const whangarei: SeoPageContent = {
     eyebrow: "Client reviews",
     headlineMain: "Proof from around NZ.",
     headlineSub: "No made-up local case study.",
-    intro: "These reviews are real Digital Movement clients from around New Zealand — not Whangārei businesses, and not all trades. We'd rather show you the standard we hold ourselves to than dress up a local case study we don't have yet.",
+    intro: "These are real Digital Movement reviews, earned by the wider business rather than by the New Zealand company — so not Whangārei businesses, and not all trades. We'd rather show you the standard we hold ourselves to than dress up a local case study we don't have yet.",
   },
 
   nearby: {

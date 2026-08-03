@@ -64,11 +64,13 @@ export function Metrics() {
         {/* Hero stat */}
         <FeaturedStat />
 
-        {/* Three supporting stats */}
-        <div className="mt-5 sm:mt-6 grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-3">
-          <DaysStat />
+        {/* Two supporting stats. Was three until the revenue card came out —
+            see the note further down. grid-cols-2, not 3: a two-card row in a
+            three-column grid leaves a hole on the right that reads as a
+            failed render rather than a design. */}
+        <div className="mt-5 sm:mt-6 grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2">
           <ReviewsStat />
-          <HeritageStat />
+          <DaysStat />
         </div>
       </div>
     </section>
@@ -119,7 +121,7 @@ function FeaturedStat() {
             Businesses grown with our help
           </p>
           <p className="mt-3 max-w-[440px] text-[14px] sm:text-[15px] text-ink-soft leading-relaxed">
-            500+ Kiwi businesses have grown with us — from small online stores
+            500+ businesses have grown with us — from small online stores
             to large national companies.
           </p>
         </div>
@@ -250,7 +252,7 @@ function DaysStat() {
 
       <p className="text-[14.5px] sm:text-[15.5px] text-ink-soft leading-relaxed">
         3,500+ pages ranked on page 1 of Google — across consultancies, trades,
-        e-commerce and local services right across New Zealand.
+        e-commerce and local services.
       </p>
     </motion.div>
   );
@@ -328,94 +330,20 @@ function Star({ delay, active }: { delay: number; active: boolean }) {
 }
 
 /* ────────────────────────────────────────────────────────────── */
-/*  Supporting: Since 2018                                         */
+/*  Removed 2026-08-03: the "$10M+ generating revenue" card         */
+/*                                                                  */
+/*  HeritageStat rendered a $10M+ figure, a $0 → $10M+ chart axis   */
+/*  and the line "Over $10M in revenue generated for businesses".   */
+/*  Three statements of one number nobody could produce working     */
+/*  for. Fair Trading Act s 12A makes an unsubstantiated            */
+/*  representation an offence whether or not it is true, so the     */
+/*  card came out rather than the figure being softened — a hedged  */
+/*  version of an unsupportable number is still the number.         */
+/*                                                                  */
+/*  The supporting grid dropped from three cards to two and its     */
+/*  md:grid-cols-3 became md:grid-cols-2, so the row still fills    */
+/*  the width instead of leaving an orphaned gap.                   */
+/*                                                                  */
+/*  If the revenue figure is ever wanted back, it needs a document  */
+/*  behind it first. Recover the component from git history.        */
 /* ────────────────────────────────────────────────────────────── */
-
-function HeritageStat() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { amount: 0.4, once: true });
-  const [tick, setTick] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    let i = 0;
-    const id = window.setInterval(() => {
-      i++;
-      setTick(i);
-      if (i >= 8) window.clearInterval(id);
-    }, 220);
-    return () => window.clearInterval(id);
-  }, [inView]);
-
-  // Eight tick marks across the revenue arc.
-  const ticks = Array.from({ length: 9 });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-      className="relative bg-white rounded-[28px] sm:rounded-[36px] border border-ink/8 overflow-hidden p-6 sm:p-8 flex flex-col justify-between min-h-[240px] sm:min-h-[300px] text-center"
-    >
-      <div className="inline-flex self-center items-center gap-2 text-[10.5px] font-bold uppercase tracking-[0.18em] text-ink-muted">
-        <span>04</span>
-        <span className="h-px w-6 bg-ink/15" />
-        <span>Generating revenue</span>
-      </div>
-
-      <div className="my-6">
-        <span
-          className="block text-ink"
-          style={{
-            fontSize: "clamp(44px, 7vw, 80px)",
-            lineHeight: "0.9",
-            letterSpacing: "-0.045em",
-            fontWeight: 700,
-          }}
-        >
-          $10M<span className="text-ink/55">+</span>
-        </span>
-      </div>
-
-      {/* Revenue arc visual */}
-      <div className="mb-6">
-        <div className="relative h-px bg-ink/10">
-          <motion.div
-            initial={{ width: "0%" }}
-            animate={inView ? { width: "100%" } : { width: "0%" }}
-            transition={{ duration: 1.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-y-0 left-0 h-px"
-            style={{
-              background: "linear-gradient(90deg, #FFB23D 0%, #EC178D 100%)",
-            }}
-          />
-          <div className="absolute inset-x-0 -top-1 flex justify-between">
-            {ticks.map((_, i) => {
-              const lit = tick > i;
-              return (
-                <span
-                  key={i}
-                  className={`block h-2 w-2 rounded-full transition-colors duration-300 ${
-                    lit ? "bg-ink" : "bg-ink/15"
-                  }`}
-                />
-              );
-            })}
-          </div>
-        </div>
-        <div className="mt-3 flex justify-between text-[10.5px] font-bold uppercase tracking-[0.16em] text-ink-faint tabular-nums">
-          <span>$0</span>
-          <span className="hidden sm:inline">$2.5M</span>
-          <span className="hidden sm:inline">$5M</span>
-          <span className="hidden sm:inline">$7.5M</span>
-          <span>$10M+</span>
-        </div>
-      </div>
-
-      <p className="text-[14.5px] sm:text-[15.5px] text-ink-soft leading-relaxed">
-        Over $10M in revenue generated for businesses through SEO, Google Ads,
-        social media and high-performing web design.
-      </p>
-    </motion.div>
-  );
-}

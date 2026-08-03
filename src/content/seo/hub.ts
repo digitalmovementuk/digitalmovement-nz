@@ -158,9 +158,9 @@ export const seoHub: SeoPageContent = {
   proof: {
     eyebrow: "Client reviews",
     headlineMain: "Reviews from",
-    headlineSub: "real NZ clients.",
+    headlineSub: "real clients.",
     intro:
-      "The same verified Google reviews as on our homepage, from real New Zealand businesses we've worked with around the country — not written for this page.",
+      "The same verified Google reviews as on our homepage. They were earned by the wider Digital Movement business rather than by the New Zealand company, and they weren't written for this page.",
   },
 
   nearby: {

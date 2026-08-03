@@ -65,7 +65,11 @@ export const about = {
       { year: "100+", entry: "Five-star Google reviews from clients" },
       { year: "500+", entry: "Businesses we've worked with" },
       { year: "3,500+", entry: "Pages we've got onto page 1" },
-      { year: "$10M+", entry: "Revenue our clients have put through" },
+      /* "$10M+ — Revenue our clients have put through" was removed 2026-08-03.
+         Nobody could produce the working the figure came from, and under Fair
+         Trading Act s 12A making a representation you cannot substantiate on
+         request is an offence whether or not the number happens to be right.
+         Do not put it back without a document behind it. */
     ],
   },
   studio: {

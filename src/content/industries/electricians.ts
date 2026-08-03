@@ -140,10 +140,10 @@ export const electricians: SeoPageContent = {
 
   proof: {
     eyebrow: "Client reviews",
-    headlineMain: "Proof from around NZ.",
+    headlineMain: "Real reviews.",
     headlineSub: "No made-up sparky case study.",
     intro:
-      "We haven't got a named electrical client to point you to — you'd be one of our first in the trade. What we can show you is honest, verified feedback from other New Zealand businesses. It's proof of how we work, not a claim about results we haven't earned yet.",
+      "We haven't got a named electrical client to point you to — you'd be one of our first in the trade. What we can show you is honest, verified feedback earned by the wider Digital Movement business. It's proof of how we work, not a claim about results we haven't earned yet.",
     limit: 3,
   },
 

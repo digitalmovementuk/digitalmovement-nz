@@ -151,9 +151,9 @@ export const ecommerce: SeoPageContent = {
   proof: {
     eyebrow: "Client reviews",
     headlineMain: "Reviews from",
-    headlineSub: "real NZ clients.",
+    headlineSub: "real clients.",
     intro:
-      "These are the same verified Google reviews as on our homepage. One is Andrew Schultz, who owns a small online store and saw web conversions rise 1125%. The rest are real clients from other industries, shown honestly rather than dressed up as an ecommerce portfolio we don't have.",
+      "These are the same verified Google reviews as on our homepage. One is Andrew Schultz, who owns a small online store and saw web conversions rise 1125%. They were earned by the wider Digital Movement business rather than by the New Zealand company, and the rest are from other industries — shown honestly rather than dressed up as an ecommerce portfolio we don't have.",
   },
 
   nearby: {
