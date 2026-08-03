@@ -236,23 +236,37 @@ export function Hero() {
                 </span>
               </p>
 
+              {/*
+                Keyword H1, restored 2026-08-03. "SEO" and "digital marketing"
+                belong in the homepage H1 — they match the page title ("SEO &
+                Digital Marketing Agency New Zealand") and they are the two terms
+                this site is trying to win. 38f55aa replaced this with "Win the
+                customers already looking for you", which reads better and ranks
+                for nothing. Do not remove the two keywords again without
+                replacing them with equivalents.
+
+                The type scale had to move with it, and the reason is arithmetic,
+                not taste. This column is 780px at desktop; at the old 92px cap
+                only ~19 characters fit on a line, and "SEO and digital
+                marketing." is 26. The <br /> was being ignored and the heading
+                broke into four ragged lines that ran to the bottom of the hero.
+                No two-line break can hold this phrase at 92px, so it is set as
+                three deliberate lines at an 80px cap, where all three fit:
+                21 / 15 / 10 characters.
+
+                If you change these words, re-measure. The constraint is the
+                780px column, not the max-w below.
+              */}
               <h1
-                className="mt-3 sm:mt-4 max-w-[16ch] mx-auto md:mx-0 balance text-white"
+                className="mt-3 sm:mt-4 max-w-[22ch] mx-auto md:mx-0 balance text-white"
                 style={{
-                  fontSize: "clamp(36px, 6.4vw, 92px)",
+                  fontSize: "clamp(34px, 5.6vw, 80px)",
                   lineHeight: "1.04",
                   letterSpacing: "-0.035em",
                   fontWeight: 600,
                 }}
               >
-                {/* Keyword H1, restored 2026-08-03. "SEO" and "digital marketing"
-                    belong in the homepage H1 — they match the page title
-                    ("SEO & Digital Marketing Agency New Zealand") and they are the
-                    two terms this site is trying to win. 38f55aa replaced this with
-                    "Win the customers already looking for you", which reads better
-                    and ranks for nothing. Do not remove the two keywords again
-                    without replacing them with equivalents. */}
-                Get real results from<br />SEO and digital marketing.
+                Get real results from<br />SEO and digital<br />marketing.
               </h1>
             </div>
 
