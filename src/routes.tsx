@@ -184,6 +184,25 @@ export const routes: RouteRecord[] = [
          own — there is no exclusion list to update. Do not re-add a route
          here without also restoring src/content/results.ts, which held the
          locked client-reported figures and their do-not-restate notice. */
+      /* Legal pages. Routed 2026-08-03 — until then src/pages/privacy.tsx
+         existed but nothing rendered it, and the footer's Privacy, Cookies and
+         Terms links all pointed at href="#". A site collecting names, emails
+         and phone numbers with no reachable privacy policy is a Privacy Act
+         problem, not a broken-link problem. All three are indexable on
+         purpose: a findable policy is the point of having one. */
+      {
+        path: "privacy",
+        lazy: () => import("./pages/privacy").then((m) => ({ Component: m.Privacy })),
+      },
+      {
+        path: "terms",
+        lazy: () => import("./pages/terms").then((m) => ({ Component: m.Terms })),
+      },
+      {
+        path: "copyright",
+        lazy: () =>
+          import("./pages/copyright").then((m) => ({ Component: m.CopyrightDisclaimer })),
+      },
       {
         /* The human sitemap. /sitemap.xml is a build artefact and is served
            straight from dist by the host, so the two never collide. */

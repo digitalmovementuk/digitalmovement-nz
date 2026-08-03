@@ -1,6 +1,7 @@
 import { Mail, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { business } from "../content";
+import { LEGAL_ENTITY, NZBN } from "../seo";
 
 // Footer sitemap — services link to their dedicated subpages, company links
 // span the About route and the in-page anchors.
@@ -200,16 +201,32 @@ export function Footer() {
           </Column>
         </div>
 
-        {/* Legal strip */}
-        <div className="mt-14 sm:mt-16 pt-6 border-t border-ink/10 flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-ink-muted text-center sm:text-left">
-          <p>
-            © {new Date().getFullYear()} {business.name}. All rights reserved.
-          </p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+        {/* Legal strip.
+            Fixed 2026-08-03. Privacy, Cookies and Terms had been href="#" on
+            every page since launch — three dead links sitting under a
+            copyright assertion, on a site whose forms collect names, emails
+            and phone numbers. Cookies points at the anchor inside the privacy
+            policy rather than a separate page, because we set one set of
+            analytics cookies and a standalone page for that would be thinner
+            than the section it duplicated.
+
+            The company name and NZBN are stated here rather than only on the
+            legal pages so that whoever we are is identifiable from any page on
+            the site, which is what an identity check by a regulator or a
+            cautious buyer actually looks for. */}
+        <div className="mt-14 sm:mt-16 pt-6 border-t border-ink/10 flex flex-col items-center sm:flex-row sm:items-start sm:justify-between gap-4 text-[12px] text-ink-muted text-center sm:text-left">
+          <div className="space-y-1">
+            <p>
+              © {new Date().getFullYear()} {LEGAL_ENTITY}. All rights reserved.
+            </p>
+            <p className="text-ink-faint">NZBN {NZBN}</p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-6 gap-y-2">
             <Link to="/sitemap" className="hover:text-ink">Sitemap</Link>
-            <a href="#" className="hover:text-ink">Privacy</a>
-            <a href="#" className="hover:text-ink">Cookies</a>
-            <a href="#" className="hover:text-ink">Terms</a>
+            <Link to="/privacy" className="hover:text-ink">Privacy</Link>
+            <Link to="/privacy#cookies" className="hover:text-ink">Cookies</Link>
+            <Link to="/terms" className="hover:text-ink">Terms</Link>
+            <Link to="/copyright" className="hover:text-ink">Copyright</Link>
             <span className="text-ink-faint">·</span>
             <span>New Zealand</span>
           </div>

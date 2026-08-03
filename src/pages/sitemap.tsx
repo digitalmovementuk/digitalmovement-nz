@@ -63,6 +63,27 @@ const GROUPS: { heading: string; blurb: string; links: { label: string; to: stri
       { label: "Contact", to: "/#contact", note: "One form, and a founder replies to it." },
     ],
   },
+  {
+    heading: "Legal",
+    blurb: "What we do with your information, and what you can do with ours.",
+    links: [
+      {
+        label: "Privacy policy",
+        to: "/privacy",
+        note: "What we collect, where it is stored, and how to have it deleted.",
+      },
+      {
+        label: "Terms of use",
+        to: "/terms",
+        note: "The terms for using this site, and your rights under NZ consumer law.",
+      },
+      {
+        label: "Copyright and disclaimer",
+        to: "/copyright",
+        note: "Who owns what is published here, and what it can be relied on for.",
+      },
+    ],
+  },
 ];
 
 export function Sitemap() {

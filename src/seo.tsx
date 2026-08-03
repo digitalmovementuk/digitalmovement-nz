@@ -48,6 +48,18 @@ export const TELEPHONE = "";
 export const NZBN = "9429053714732";
 
 /**
+ * The registered company name, as it appears on the Companies Register.
+ *
+ * The site brands itself "Digital Movement" everywhere, and that is correct
+ * for marketing. It is not correct on a legal page: the party bound by the
+ * terms, the party that holds your personal information, and the party a
+ * regulator or a customer would name in a complaint is the registered
+ * company. The legal pages state both, so a reader can tell that the brand
+ * they contacted and the entity on the register are the same business.
+ */
+export const LEGAL_ENTITY = "Digital Movement New Zealand Limited";
+
+/**
  * Ratings belong to the group, not to the New Zealand entity. The reviews
  * were earned by the parent business, so the rating is attached to the
  * parent Organization and the NZ node carries no rating of its own. That
@@ -71,10 +83,26 @@ export const REVIEW_COUNT = "100";
    expected; only the markup is prohibited. REVIEW_RATING / REVIEW_COUNT are
    therefore still exported and still drive the on-page copy — they simply no
    longer appear in any JSON-LD. */
+/* Named "Digital Movement Melbourne" until 2026-08-03, and it shipped in the
+   JSON-LD of every live page. Two problems with that, both real.
+
+   The hard content rule for this site is that it never says Australia, and
+   Melbourne is Australia — a New Zealand agency page carrying an Australian
+   parent in its machine-readable markup undercuts the whole positioning, and
+   structured data is read by more things than people realise.
+
+   The second is that it was not the right entity. The group infrastructure
+   this site actually depends on is in the United Kingdom — the enquiry
+   endpoint every form posts to is leads.digitalmovement.uk.
+
+   Named plainly as "Digital Movement" until the correct registered parent is
+   confirmed. Do not put a city back on it without checking the register: a
+   parentOrganization is a factual claim about corporate structure, and a wrong
+   one is worse than an unspecific one. */
 const PARENT_ORG = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#parent-organization`,
-  name: "Digital Movement Melbourne",
+  name: "Digital Movement",
 };
 
 export const ORGANIZATION = {

@@ -72,8 +72,17 @@ export function GoogleRatingCard() {
             ))}
           </div>
         </div>
+        {/* "Based on +100 reviews" until 2026-08-03, which quietly claimed the
+            reviews for the New Zealand company. They were not earned by it —
+            seo.tsx has said so in a comment since launch, which is why no
+            aggregateRating is emitted for the NZ entity. A rating displayed on
+            a .co.nz page with no attribution reads as that business's rating,
+            and under the Fair Trading Act a representation you cannot
+            substantiate is a problem whether or not you meant it that way.
+            Naming the brand rather than the local entity is accurate and costs
+            the badge nothing. Do not shorten this back. */}
         <p className="mt-0.5 text-[10px] sm:text-[10.5px] text-ink-muted">
-          Based on +100 reviews
+          100+ reviews of Digital Movement
         </p>
       </div>
     </a>
