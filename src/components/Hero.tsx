@@ -245,20 +245,29 @@ export function Hero() {
                 for nothing. Do not remove the two keywords again without
                 replacing them with equivalents.
 
-                The type scale had to move with it, and the reason is arithmetic,
-                not taste. This column is 780px at desktop; at the old 92px cap
-                only ~19 characters fit on a line, and "SEO and digital
-                marketing." is 26. The <br /> was being ignored and the heading
-                broke into four ragged lines that ran to the bottom of the hero.
-                No two-line break can hold this phrase at 92px, so it is set as
-                three deliberate lines at an 80px cap, where all three fit:
-                21 / 15 / 10 characters.
+                The type scale and the line breaks had to move with it, and the
+                reason is measurement, not taste. This column is ~711px at
+                desktop. At the old 92px cap only ~19 characters fit on a line
+                and "SEO and digital marketing." is 26, so the <br /> was
+                overrun and the heading broke into four ragged lines running to
+                the bottom of the hero.
 
-                If you change these words, re-measure. The constraint is the
-                780px column, not the max-w below.
+                Two things fix it. The cap drops to 80px, and the `balance`
+                class comes OFF. Do not put it back: `text-wrap: balance`
+                redistributes lines on its own, so with authored <br /> breaks
+                it fights them — it was splitting "Get real results from"
+                (measured 706px) inside a 711px column because 5px of headroom
+                was not enough for it.
+
+                Lines are now cut so the keyword phrase stays whole on one line
+                and the longest line has real headroom: 16 / 12 / 18 characters,
+                widest ~634px in 711px.
+
+                If you change these words, re-measure in the browser. The
+                constraint is the column width, not the max-w below.
               */}
               <h1
-                className="mt-3 sm:mt-4 max-w-[22ch] mx-auto md:mx-0 balance text-white"
+                className="mt-3 sm:mt-4 max-w-[22ch] mx-auto md:mx-0 text-white"
                 style={{
                   fontSize: "clamp(34px, 5.6vw, 80px)",
                   lineHeight: "1.04",
@@ -266,7 +275,7 @@ export function Hero() {
                   fontWeight: 600,
                 }}
               >
-                Get real results from<br />SEO and digital<br />marketing.
+                Get real results<br />from SEO and<br />digital marketing.
               </h1>
             </div>
 
