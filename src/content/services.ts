@@ -141,7 +141,13 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       // an H1 that did not contain the words "SEO" or "NZ" — it read well and
       // matched nothing. The old H1 was "Page 1 SEO / in just 90 days"; the
       // keyword comes back, the page-1-by-date promise does not.
-      headlineTop: "SEO services in NZ",
+      //
+      // "SEO services NZ", not "SEO services in NZ": the shell uppercases this
+      // line, and at mobile the longer version measures 354px in a 350px
+      // column, which orphans "NZ" onto a line of its own. Dropping "in" takes
+      // it to 312px and matches the page title's term exactly. Re-measure if
+      // you reword it.
+      headlineTop: "SEO services NZ",
       headlineBottom: "that bring in customers.",
       sub: "An SEO agency in New Zealand for businesses that want customers, not impressions. We agree the searches we're chasing before we start, then show you every month exactly where you sit on each one.",
       primaryCta: "Get my free plan",
@@ -579,9 +585,11 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       eyebrow: "Social media · for NZ businesses",
       // "Social media", not "Social" — restored 2026-08-03. The shortened
       // version scanned better and dropped the page's own search term out of
-      // its H1.
-      headlineTop: "Social media that",
-      headlineBottom: "books jobs, not just likes.",
+      // its H1. The break falls straight after the keyword so it stays whole on
+      // line one: "Social media that" measures ~355px in the 350px mobile
+      // column and orphans "that". Re-measure if you reword it.
+      headlineTop: "Social media",
+      headlineBottom: "that books jobs, not just likes.",
       sub: "Likes don't pay wages. We run social media marketing for New Zealand businesses that need the phone to ring — aimed at the people already close to buying, and measured on enquiries rather than follower counts.",
       primaryCta: "Get my free plan",
       secondaryCta: "Talk it through first",
