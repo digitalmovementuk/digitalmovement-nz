@@ -1,0 +1,1032 @@
+/* Hero contact demo — the stage and the real button bar.
+   Brand tokens from the site: plum #1B0E2E, pink #F13C64, magenta #EC178D,
+   violet #9A2FC6, WhatsApp green #25D366.
+
+   IMPORTANT: no `transition` and no `animation` on any element that
+   renderAt(ms) writes to. Time comes from the timeline and from nowhere else;
+   a second source of time makes the scene drift against itself.
+
+   Every measurement inside the stage hangs off --s rather than fixed pixels.
+   In a wide container --s is 1cqw; in a narrow one --s is raised and the stage
+   flips to portrait. Without that, the buttons and the type shrink with the
+   container on a phone and end up unusably small. */
+
+/* The card holds both: the demonstration on top, the real bar underneath.
+   Its own measurements are in fixed pixels, not --s — it takes its size from
+   what surrounds it, not from itself. */
+.ctademo {
+  /* ── Stage colours ────────────────────────────────────────────────
+     Every surface and text colour in the demonstration hangs off these few
+     values, so changing the base tone is one decision rather than a
+     search-and-replace across the file. */
+  --grund: #f3eff7; /* stage surface, middle */
+  --grund-tief: #eee8f4; /* top */
+  --grund-fuss: #e8e1f0; /* bottom */
+  --grund-licht: rgba(255, 255, 255, 0.9); /* light cone at the top */
+  --text: #1b0e2e;
+  --text-leise: #6e6478; /* 5.1:1 on --grund, checked */
+  --panel: #fff;
+  --panel-rand: #e6e0ec;
+  --panel-schatten: rgba(27, 14, 46, 0.16);
+  --ring: transparent; /* outline on the plum button */
+  --aktiv-ring: rgba(27, 14, 46, 0.16);
+  --puls-ring: rgba(27, 14, 46, 0.5);
+  --zeiger-schatten: rgba(27, 14, 46, 0.28);
+  --gruen-text: #17915b; /* "Connected", 4.6:1 on --panel */
+  --marke: linear-gradient(90deg, #f13c64 0%, #e6359b 50%, #dc2ec9 100%);
+
+  /* Both button rows share their size and spacing, so the demonstrated row
+     never drifts out of line with the real one below it. Demonstrated smaller
+     than real: the grid keeps the centres aligned, the size says which row is
+     the one you operate. */
+  --knopf-demo: 46px;
+  --knopf-echt: 56px;
+  /* One column per route, wide enough for the longest label. */
+  --knopf-spalte: 76px;
+  --knopf-abstand: 24px;
+
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(27, 14, 46, 0.08);
+  box-shadow: 0 24px 60px rgba(16, 6, 32, 0.45);
+  font-family: "SF Pro Display", "SF Pro Text", "Manrope", -apple-system,
+    BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+  letter-spacing: -0.003em;
+}
+
+/* Accent bar in the brand gradient, matching the lead card. */
+.ctademo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--marke);
+  z-index: 6;
+}
+
+/* Own query container for the stage. Needed because the bar sits BESIDE the
+   stage in landscape: --s: 1cqw would otherwise measure the full card width
+   while the stage only gets part of it, and everything inside would come out
+   too big by the width of the bar. An element cannot be its own container,
+   hence this wrapper rather than container-type on .ctademo-buehne itself. */
+.ctademo-buehnenhuelle {
+  container: ctademo-buehne / inline-size;
+  min-width: 0;
+}
+
+.ctademo-buehne {
+  --s: 1cqw;
+  position: relative;
+  aspect-ratio: 1200 / 470;
+  width: 100%;
+  overflow: hidden;
+  border-radius: calc(1.4 * var(--s));
+  background:
+    radial-gradient(ellipse at 50% 12%, var(--grund-licht), transparent 64%),
+    linear-gradient(165deg, var(--grund-tief) 0%, var(--grund) 58%, var(--grund-fuss) 100%);
+  color: var(--text);
+  user-select: none;
+}
+
+/* Phones and narrow columns: portrait, larger base unit. */
+@container ctademo-buehne (max-width: 620px) {
+  /* Only the stage: it measures its own wrapper. --s is only ever used inside
+     the stage; the bar works in fixed pixels. */
+  .ctademo-buehne {
+    --s: 2.75cqw;
+    /* Taller, because the form panel needs more room in the narrow format.
+       The position of the panels and buttons is set at the end of the file so
+       it overrides the base rules above. */
+    aspect-ratio: 3 / 2.86;
+  }
+}
+
+/* ── The mark: the same circle in every role, so all four scenes read as
+      one sender ─────────────────────────────────────────────────────
+   Johnny's original carries the owner's face here. Digital Movement NZ
+   publishes no single face on the homepage, and a stock team photo cropped to
+   a 28px circle reads as nobody at all — so the brand mark takes the slot.
+   `contain` on white, not `cover`: the logo must not be cropped. */
+.ctademo-mark {
+  /* The original put a face here. Ours is the DM mark, so it must not be
+     cropped to a circle: contain, on white, never cover.
+     No percentage padding. A percentage padding resolves against the
+     CONTAINING BLOCK's width, not the element's — inside a 300px panel a 70px
+     avatar was given 34px of padding on every side and the mark was squeezed
+     into the 3px left over. The artwork already carries its own margin inside
+     the PNG, so it needs none added. */
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  padding: 0;
+  border: calc(0.25 * var(--s)) solid rgba(236, 23, 141, 0.5);
+  box-shadow: 0 calc(0.5 * var(--s)) calc(1.6 * var(--s)) rgba(27, 14, 46, 0.28);
+  display: block;
+}
+
+/* ── Chip: carries the mark in the phases with no panel ─────────────
+   It sits where the panels otherwise stand, so the resting state says
+   something instead of being an empty area. That matters for
+   prefers-reduced-motion: there this exact frame is all anyone sees. */
+.ctademo-chip {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: calc(1.4 * var(--s));
+  white-space: nowrap;
+  z-index: 1;
+}
+.ctademo-chip img {
+  width: calc(7 * var(--s));
+  height: calc(7 * var(--s));
+}
+.ctademo-chip span {
+  font-size: calc(1.35 * var(--s));
+  color: var(--text-leise);
+  line-height: 1.45;
+}
+.ctademo-chip b {
+  display: block;
+  font-size: calc(2 * var(--s));
+  color: var(--text);
+  font-weight: 700;
+}
+@container ctademo-buehne (max-width: 620px) {
+  .ctademo-chip {
+    flex-direction: column;
+    text-align: center;
+    gap: calc(0.9 * var(--s));
+    white-space: normal;
+  }
+}
+
+/* ── Panels ─────────────────────────────────────────────────────── */
+.ctademo-panel {
+  position: absolute;
+  left: 50%;
+  top: 38%; /* centred over the button row */
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  border-radius: calc(1.5 * var(--s));
+  box-shadow: 0 calc(2 * var(--s)) calc(5 * var(--s)) var(--panel-schatten);
+  z-index: 3;
+}
+
+/* Call */
+.ctademo-call {
+  width: calc(30 * var(--s));
+  padding: calc(1.8 * var(--s)) calc(1.6 * var(--s)) calc(1.6 * var(--s));
+  text-align: center;
+  background: var(--panel);
+  border: calc(0.09 * var(--s)) solid var(--panel-rand);
+}
+.ctademo-call img {
+  width: calc(8 * var(--s));
+  height: calc(8 * var(--s));
+  margin: 0 auto calc(0.9 * var(--s));
+}
+.ctademo-call b {
+  display: block;
+  font-size: calc(1.9 * var(--s));
+}
+.ctademo-status {
+  display: block;
+  margin-top: calc(0.5 * var(--s));
+  font-size: calc(1.25 * var(--s));
+  color: var(--text-leise);
+}
+.ctademo-call.ist-verbunden .ctademo-status {
+  color: var(--gruen-text);
+}
+.ctademo-calltasten {
+  display: flex;
+  justify-content: center;
+  gap: calc(2.4 * var(--s));
+  margin-top: calc(1.2 * var(--s));
+}
+.ctademo-calltasten i {
+  width: calc(4.6 * var(--s));
+  height: calc(4.6 * var(--s));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ctademo-calltasten .gruen {
+  background: #25d366;
+}
+.ctademo-calltasten i svg {
+  width: calc(2.6 * var(--s));
+  height: calc(2.6 * var(--s));
+  stroke: #fff;
+  fill: none;
+}
+.ctademo-call.ist-verbunden .ctademo-calltasten .gruen {
+  opacity: 0;
+}
+
+/* WhatsApp */
+.ctademo-chat {
+  width: calc(34 * var(--s));
+  background: #ece5dd;
+  overflow: hidden;
+  color: #1b0e2e;
+}
+.ctademo-chat-kopf {
+  display: flex;
+  align-items: center;
+  gap: calc(0.9 * var(--s));
+  padding: calc(0.9 * var(--s)) calc(1.2 * var(--s));
+  background: #075e54;
+  color: #fff;
+}
+.ctademo-chat-kopf img {
+  width: calc(2.9 * var(--s));
+  height: calc(2.9 * var(--s));
+  border-width: calc(0.17 * var(--s));
+}
+.ctademo-chat-kopf b {
+  font-size: calc(1.35 * var(--s));
+}
+.ctademo-online {
+  font-size: calc(1 * var(--s));
+  color: #a8d5cf;
+  margin-left: auto;
+}
+.ctademo-verlauf {
+  padding: calc(1.1 * var(--s));
+  min-height: calc(8 * var(--s));
+}
+.ctademo-blase {
+  max-width: 78%;
+  padding: calc(0.8 * var(--s)) calc(1 * var(--s));
+  border-radius: calc(1 * var(--s));
+  font-size: calc(1.2 * var(--s));
+  line-height: 1.45;
+  opacity: 0;
+}
+.ctademo-blase-ich {
+  margin-left: auto;
+  background: #dcf8c6;
+}
+.ctademo-blase-er {
+  background: #fff;
+}
+.ctademo-antwort {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: calc(0.7 * var(--s));
+  margin-top: calc(0.9 * var(--s));
+}
+.ctademo-antwort img {
+  width: calc(2.4 * var(--s));
+  height: calc(2.4 * var(--s));
+  border-width: calc(0.17 * var(--s));
+  flex: 0 0 auto;
+}
+/* Sits over the still-invisible reply bubble, in exactly its place. */
+.ctademo-tippt {
+  position: absolute;
+  left: calc(3.1 * var(--s));
+  bottom: 0;
+  display: flex;
+  gap: calc(0.3 * var(--s));
+  padding: calc(0.9 * var(--s)) calc(1 * var(--s));
+  background: #fff;
+  border-radius: calc(1 * var(--s));
+  opacity: 0;
+}
+.ctademo-tippt i {
+  width: calc(0.6 * var(--s));
+  height: calc(0.6 * var(--s));
+  border-radius: 50%;
+  background: #9aa7b5;
+}
+
+/* Chat input line: the visitor's own message is written here character by
+   character before it lands in the thread as a bubble. */
+.ctademo-eingabe {
+  margin: 0 calc(1.2 * var(--s)) calc(1.2 * var(--s));
+  padding: calc(0.7 * var(--s)) calc(1.1 * var(--s));
+  background: #fff;
+  border-radius: 999px;
+  font-size: calc(1.15 * var(--s));
+  line-height: 1.4;
+  color: #1b0e2e;
+  min-height: calc(2.8 * var(--s));
+  box-sizing: border-box;
+}
+.ctademo-eingabe.ist-leer::before {
+  content: "Message";
+  color: #9aa7b5;
+}
+
+/* Call-back form */
+.ctademo-form {
+  width: calc(30 * var(--s));
+  padding: calc(1.3 * var(--s));
+  background: #fff;
+  color: #1b0e2e;
+  text-align: left;
+}
+.ctademo-owner {
+  display: flex;
+  align-items: center;
+  gap: calc(0.9 * var(--s));
+  margin-bottom: calc(0.9 * var(--s));
+}
+.ctademo-owner img {
+  width: calc(4.2 * var(--s));
+  height: calc(4.2 * var(--s));
+}
+.ctademo-owner span {
+  font-size: calc(1 * var(--s));
+  color: #6e6478;
+  line-height: 1.4;
+}
+.ctademo-owner b {
+  display: block;
+  font-size: calc(1.3 * var(--s));
+  color: #1b0e2e;
+}
+.ctademo-form label {
+  display: block;
+  font-size: calc(0.95 * var(--s));
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6e6478;
+  margin-bottom: calc(0.45 * var(--s));
+}
+.ctademo-feld {
+  display: block;
+  margin-top: calc(0.3 * var(--s));
+  min-height: calc(2.3 * var(--s));
+  padding: calc(0.45 * var(--s)) calc(1 * var(--s));
+  background: #f7f5fa;
+  border: calc(0.09 * var(--s)) solid #e6e0ec;
+  border-radius: calc(1 * var(--s));
+  font-size: calc(1.25 * var(--s));
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #1b0e2e;
+}
+/* Static caret, not blinking: a blink would be time from a second source and
+   would make the scene unreproducible. */
+.ctademo-feld.hat-caret::after,
+.ctademo-eingabe.hat-caret::after,
+.ctademo-mail-zeile span.hat-caret::after,
+.ctademo-mail-text.hat-caret::after {
+  content: "";
+  display: inline-block;
+  width: calc(0.13 * var(--s));
+  height: calc(1.5 * var(--s));
+  margin-left: calc(0.15 * var(--s));
+  background: #ec178d;
+  vertical-align: calc(-0.25 * var(--s));
+}
+.ctademo-submit {
+  display: block;
+  margin-top: calc(0.3 * var(--s));
+  padding: calc(0.8 * var(--s));
+  border-radius: 99px;
+  background: var(--marke);
+  color: #fff;
+  font-weight: 700;
+  font-size: calc(1.3 * var(--s));
+  text-align: center;
+  box-shadow: 0 calc(0.8 * var(--s)) calc(2.2 * var(--s)) rgba(236, 23, 141, 0.4);
+}
+.ctademo-submit.ist-gedrueckt {
+  filter: brightness(0.9);
+  box-shadow: 0 calc(0.3 * var(--s)) calc(1 * var(--s)) rgba(236, 23, 141, 0.3);
+}
+/* The sent confirmation is only up for the last seconds. In the flow it would
+   permanently cost height that the panel needs elsewhere. */
+.ctademo-ok {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(0.5 * var(--s));
+  text-align: center;
+  font-size: calc(1.1 * var(--s));
+  font-weight: 700;
+  color: #17915b;
+  opacity: 0;
+}
+.ctademo-form,
+.ctademo-mail {
+  padding-bottom: calc(3 * var(--s));
+}
+
+/* Email window */
+.ctademo-mail {
+  width: calc(32 * var(--s));
+  padding: calc(1.4 * var(--s));
+  background: #fff;
+  color: #1b0e2e;
+  text-align: left;
+}
+.ctademo-mail-kopf {
+  display: flex;
+  align-items: center;
+  gap: calc(0.7 * var(--s));
+  padding-bottom: calc(0.9 * var(--s));
+  border-bottom: 1px solid #e6e0ec;
+}
+.ctademo-mail-an {
+  font-size: calc(1 * var(--s));
+  color: #a39cb2;
+}
+.ctademo-mail-kopf img {
+  width: calc(2.4 * var(--s));
+  height: calc(2.4 * var(--s));
+  border-width: calc(0.17 * var(--s));
+}
+.ctademo-mail-kopf b {
+  font-size: calc(1.2 * var(--s));
+}
+.ctademo-mail-zeile {
+  display: flex;
+  align-items: baseline;
+  gap: calc(0.7 * var(--s));
+  padding: calc(0.8 * var(--s)) 0;
+  border-bottom: 1px solid #e6e0ec;
+  font-size: calc(1.2 * var(--s));
+  min-height: calc(2.6 * var(--s));
+}
+.ctademo-mail-zeile i {
+  font-style: normal;
+  font-size: calc(0.95 * var(--s));
+  color: #a39cb2;
+  flex: 0 0 auto;
+}
+.ctademo-mail-text {
+  min-height: calc(5 * var(--s));
+  padding: calc(0.9 * var(--s)) 0 calc(1.1 * var(--s));
+  font-size: calc(1.15 * var(--s));
+  line-height: 1.5;
+  color: #1b0e2e;
+}
+
+/* ── Confirmation after the form ─────────────────────────────────────
+   Covers the fields completely rather than sitting under them as a small
+   line. The moment the enquiry has landed is the most important one in the
+   whole demonstration and should fill the frame. */
+.ctademo-danke {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(1.6 * var(--s));
+  opacity: 0;
+}
+.ctademo-haken {
+  width: calc(7.6 * var(--s));
+  height: calc(7.6 * var(--s));
+  border-radius: 50%;
+  background: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 calc(0.9 * var(--s)) rgba(34, 197, 94, 0.16);
+  margin-bottom: calc(1.4 * var(--s));
+}
+.ctademo-haken svg {
+  width: calc(4 * var(--s));
+  height: calc(4 * var(--s));
+}
+.ctademo-danke b {
+  font-size: calc(2.2 * var(--s));
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #1b0e2e;
+}
+.ctademo-danke span {
+  margin-top: calc(0.7 * var(--s));
+  font-size: calc(1.2 * var(--s));
+  line-height: 1.5;
+  color: #6e6478;
+}
+
+/* ── Demonstrated buttons ON the stage ───────────────────────────────
+   Props. They step forward, get clicked, and give way to the panel. Their
+   clickable counterparts are in the bar below. */
+.ctademo-btns {
+  position: absolute;
+  /* Inset via left/right, not padding: the bar below carries its padding on
+     the PARENT and its button row has none. Padding here would have indented
+     the stage row twice, its columns would be narrower, and the props would
+     miss the real buttons underneath by a few pixels. */
+  left: 14px;
+  right: 14px;
+  bottom: calc(4.4 * var(--s));
+  z-index: 4;
+  pointer-events: none;
+}
+/* Equal columns rather than fixed widths, so the row fits any card width and
+   the centres of both rows stay aligned. */
+.ctademo-btns,
+.ctademo-leiste-btns {
+  display: grid;
+  grid-template-columns: repeat(var(--knopf-spalten, 4), minmax(0, 1fr));
+  gap: var(--knopf-abstand);
+  max-width: calc(
+    var(--knopf-spalten, 4) * var(--knopf-spalte) + (var(--knopf-spalten, 4) - 1) *
+      var(--knopf-abstand)
+  );
+  margin-inline: auto;
+}
+.ctademo-btn {
+  position: relative;
+  width: 100%;
+  height: var(--knopf-demo);
+}
+.ctademo-btn .ctademo-knopf {
+  width: var(--knopf-demo);
+  height: var(--knopf-demo);
+  margin: 0 auto;
+}
+.ctademo-knopf {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.ctademo-btn-tel .ctademo-knopf {
+  background: #1b0e2e;
+  box-shadow: 0 calc(0.35 * var(--s)) calc(1.7 * var(--s)) rgba(27, 14, 46, 0.4),
+    0 0 0 calc(0.17 * var(--s)) var(--ring);
+}
+.ctademo-btn-tel .ctademo-knopf svg {
+  width: 21px;
+  height: 21px;
+  stroke: #fff;
+  fill: none;
+}
+.ctademo-btn-wa .ctademo-knopf {
+  background: #25d366;
+  box-shadow: 0 calc(0.35 * var(--s)) calc(1.7 * var(--s)) rgba(37, 211, 102, 0.5);
+}
+.ctademo-btn-wa .ctademo-knopf svg {
+  width: 23px;
+  height: 23px;
+  fill: #fff;
+}
+.ctademo-btn-form .ctademo-knopf {
+  background: #f13c64;
+  box-shadow: 0 calc(0.35 * var(--s)) calc(1.7 * var(--s)) rgba(241, 60, 100, 0.5);
+}
+.ctademo-btn-form .ctademo-knopf svg {
+  width: 21px;
+  height: 21px;
+  stroke: #fff;
+  fill: none;
+}
+.ctademo-btn-mail .ctademo-knopf {
+  background: #9a2fc6;
+  box-shadow: 0 calc(0.35 * var(--s)) calc(1.7 * var(--s)) rgba(154, 47, 198, 0.45);
+}
+.ctademo-btn-mail .ctademo-knopf svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  fill: none;
+}
+.ctademo-btn.ist-aktiv .ctademo-knopf {
+  box-shadow: 0 0 0 calc(0.45 * var(--s)) var(--aktiv-ring);
+}
+.ctademo-label {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 7px);
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ── Pointer ────────────────────────────────────────────────────── */
+.ctademo-cursor {
+  position: absolute;
+  /* Three base units rather than two. The pointer is the figure you follow;
+     any smaller and it nearly disappears against the light stage. */
+  width: calc(3 * var(--s));
+  height: calc(3 * var(--s));
+  pointer-events: none;
+  z-index: 5;
+  background: no-repeat center/contain
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 2l14 11-6 .7 3.2 6.4-2.7 1.3L10.4 15 5 19z' fill='white' stroke='%231B0E2E' stroke-width='2' stroke-linejoin='round'/></svg>");
+  /* Two shadows: a soft one for depth, a tight one for the edge. On the light
+     stage the edge carries more than the depth. */
+  filter: drop-shadow(0 calc(0.3 * var(--s)) calc(0.7 * var(--s)) var(--zeiger-schatten))
+    drop-shadow(0 0 calc(0.15 * var(--s)) rgba(27, 14, 46, 0.35));
+}
+.ctademo-puls {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--knopf-demo) / 2);
+  width: var(--knopf-demo);
+  height: var(--knopf-demo);
+  margin: 0;
+  border-radius: 50%;
+  border: calc(0.25 * var(--s)) solid var(--puls-ring);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/* ── Card heading ─────────────────────────────────────────────────
+   The heading sits INSIDE the card on its own brand strip, so it carries its
+   own legibility rather than depending on whatever the section behind it
+   happens to be — which here is a moving video. */
+.ctademo-titel,
+.dm-contactdemo .ctademo-titel {
+  margin: 0;
+  padding: 15px 18px 14px;
+  background: var(--marke);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-align: center;
+  font-family: inherit;
+}
+
+/* ── The bar: the real buttons ───────────────────────────────────────
+   Light ground and no movement. The break from the moving stage above is the
+   actual message: nothing is demonstrated here, here you click. These buttons
+   are NEVER under renderAt's control. */
+/* Fixed pixels, not --s: a button you can actually hit is 56px, no matter how
+   large the film above it is being drawn. */
+.ctademo-leiste {
+  padding: 16px 14px;
+  background: #fff;
+  border-top: 1px solid #ece8f1;
+  text-align: center;
+}
+/* Says what to do, directly above the real buttons. */
+.ctademo-leiste-kopf {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #1b0e2e;
+  text-align: center;
+}
+.ctademo-echt {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+.ctademo-echt .ctademo-knopf {
+  position: relative;
+  width: var(--knopf-echt);
+  height: var(--knopf-echt);
+  margin: 0 auto;
+  background: var(--farbe);
+  box-shadow: 0 4px 20px var(--schatten);
+  transition: transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.22s ease;
+}
+/* The pulse runs on its own ring, not on the button itself. Putting both on
+   box-shadow does not work: a running animation beats any normal declaration
+   in the cascade, and the hover shadow would never arrive. */
+.ctademo-echt .ctademo-knopf::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ctademoPuls 2.4s ease-in-out infinite;
+}
+.ctademo-echt:hover .ctademo-knopf {
+  transform: translateY(-4px) scale(1.18);
+  box-shadow: 0 10px 26px var(--schatten), 0 0 0 6px var(--puls);
+}
+.ctademo-echt:hover .ctademo-echt-label {
+  color: #ec178d;
+}
+.ctademo-echt:active .ctademo-knopf {
+  transform: translateY(-1px) scale(1.08);
+}
+.ctademo-echt:focus-visible {
+  outline: 2px solid #ec178d;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+.ctademo-echt-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1b0e2e;
+  white-space: nowrap;
+  transition: color 0.22s ease;
+}
+.ctademo-echt-tel {
+  --farbe: #1b0e2e;
+  --schatten: rgba(27, 14, 46, 0.35);
+  --puls: rgba(27, 14, 46, 0.4);
+}
+.ctademo-echt-wa {
+  --farbe: #25d366;
+  --schatten: rgba(37, 211, 102, 0.5);
+  --puls: rgba(37, 211, 102, 0.45);
+}
+.ctademo-echt-mail {
+  --farbe: #9a2fc6;
+  --schatten: rgba(154, 47, 198, 0.45);
+  --puls: rgba(154, 47, 198, 0.45);
+}
+.ctademo-echt-form {
+  --farbe: #f13c64;
+  --schatten: rgba(241, 60, 100, 0.5);
+  --puls: rgba(241, 60, 100, 0.45);
+}
+.ctademo-echt-tel .ctademo-knopf svg {
+  width: 25px;
+  height: 25px;
+  stroke: #fff;
+  fill: none;
+}
+.ctademo-echt-wa .ctademo-knopf svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+.ctademo-echt-mail .ctademo-knopf svg {
+  width: 26px;
+  height: 26px;
+  stroke: #fff;
+  fill: none;
+}
+.ctademo-echt-form .ctademo-knopf svg {
+  width: 25px;
+  height: 25px;
+  stroke: #fff;
+  fill: none;
+}
+/* One pulse for all buttons: same duration, same phase. Per-button keyframes
+   drifted visibly apart. The colour comes from --puls. */
+@keyframes ctademoPuls {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--puls);
+  }
+  55% {
+    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ctademo-echt .ctademo-knopf::after {
+    animation: none;
+  }
+}
+/* Both rows hang off the card, not the stage: they have to stay aligned, and
+   one is in the stage while the other is below it. */
+@container ctademo-karte (max-width: 620px) {
+  .ctademo-btns,
+  .ctademo-leiste-btns {
+    --knopf-abstand: 16px;
+    --knopf-spalte: 74px;
+  }
+}
+
+/* ── Portrait: position of the moving parts ──────────────────────────
+   Must sit at the end of the file: at equal specificity the later rule wins,
+   and the base values for .ctademo-panel and .ctademo-btn are further up. */
+@container ctademo-buehne (max-width: 620px) {
+  .ctademo-btns {
+    bottom: calc(4.2 * var(--s));
+  }
+}
+
+/* The card waits in the hero until the visitor has been further down once.
+   The space stays reserved so nothing jumps when it appears. This transition
+   hangs off the visitor's scrolling, not the timeline, so it does not disturb
+   the scene. */
+.ctademo-traeger.ctademo-wartet {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+.ctademo-traeger {
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Query container for the card. An element cannot be its own container, so
+     a rule for .ctademo would measure the next container ABOVE — and without
+     this one there would be none.
+     Both containers are NAMED. Unnamed, the nearest one always wins, and that
+     is a different element for the bar than for anything on the stage. */
+  container: ctademo-karte / inline-size;
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ctademo-traeger {
+    transition: none;
+  }
+}
+
+/* ── Landscape: the bar becomes a column on the right ────────────────
+   From this width the demonstration sits left and the controls right. The
+   threshold is 720px and the section card is 900px, which leaves the stage
+   680px — comfortably above the 620px at which it flips to portrait. The hero
+   card stays below it at 360px and therefore stays portrait. */
+@container ctademo-karte (min-width: 720px) {
+  .ctademo {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    grid-template-rows: auto 1fr;
+    align-items: stretch;
+  }
+  .ctademo-titel {
+    grid-column: 1 / -1;
+  }
+  /* The stage loses the width of the bar, and --s hangs off that width: with
+     no correction the panels and type would shrink by a quarter although the
+     card stayed the same width. */
+  .ctademo-buehne {
+    --s: 2.06cqw;
+    aspect-ratio: 1200 / 680;
+    /* The bar butts up on the right, so no rounding there: otherwise a seam
+       opens and the section behind shows through. */
+    border-radius: calc(1.4 * var(--s)) 0 0 calc(1.4 * var(--s));
+  }
+  .ctademo-leiste {
+    border-top: 0;
+    border-left: 1px solid #ece8f1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px 18px;
+    text-align: left;
+  }
+  /* The heading sits at the top of the column and NOT in the flow: in the flow
+     it would push the button block down by half its height, and that block
+     would no longer line up with the row on the stage. */
+  .ctademo-leiste-kopf {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: 20px;
+    margin-bottom: 0;
+  }
+  .ctademo-leiste-btns {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-auto-rows: var(--knopf-echt);
+    gap: 12px;
+    align-items: center;
+    max-width: none;
+  }
+  .ctademo-echt {
+    display: grid;
+    grid-template-columns: var(--knopf-echt) 1fr;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+    text-align: left;
+  }
+  .ctademo-echt .ctademo-knopf {
+    margin: 0;
+  }
+  .ctademo-echt-label {
+    margin-top: 0;
+  }
+  /* The props stand as a column at the right edge of the stage, row for row
+     next to their real counterpart. */
+  .ctademo-btns {
+    left: auto;
+    right: calc(1.4 * var(--s));
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: var(--knopf-echt);
+    grid-template-columns: 1fr;
+    grid-auto-rows: var(--knopf-echt);
+    gap: 12px;
+    max-width: none;
+    margin-inline: 0;
+    align-items: center;
+  }
+  .ctademo-btn {
+    height: var(--knopf-echt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* No label: it stands a finger's width to the right on the real button.
+     The same four words twice over would be repetition. */
+  .ctademo-btns .ctademo-label {
+    display: none;
+  }
+  /* The panels sit in the middle of the area LEFT of the button column, not
+     in the middle of the stage — otherwise they lie half under the buttons. */
+  .ctademo-panel,
+  .ctademo-chip {
+    left: calc(50% - (var(--knopf-echt) + 1.4 * var(--s)) / 2);
+    top: 50%;
+  }
+}
+
+/* ── Where the card sits on the page ──────────────────────────────── */
+
+/* One card, two possible homes: inside the hero, or in a band directly under
+   it. Which one is used is a question of ROOM, and room is height as much as
+   width — so the switch lives here rather than on a Tailwind breakpoint, which
+   only knows about width.
+   The sum that sets 780px: navigation 104 + card 541 + gap 20 + the promise
+   line 46 + the hero's bottom padding 64 = 775. Below that the card slides up
+   under the navigation, so it moves out of the hero instead. */
+.dm-contactdemo-hero-slot {
+  display: none;
+}
+.dm-contactdemo-band {
+  display: block;
+}
+@media (min-width: 1024px) and (min-height: 780px) {
+  .dm-contactdemo-hero-slot {
+    display: block;
+  }
+  .dm-contactdemo-band {
+    display: none;
+  }
+}
+
+.dm-contactdemo {
+  max-width: 420px;
+  margin: 0 auto;
+}
+/* In the hero the card is narrow and stays portrait.
+   The width is stated, not left to the content. In the hero the card sits in a
+   flex row, so an auto width would be shrink-to-fit — and the scene inside is
+   sized as a percentage of the card, so there is nothing to fit to. The card
+   collapses to zero and the animation runs in a 0px box. */
+.dm-contactdemo-hero {
+  width: 360px;
+  max-width: 100%;
+  margin: 0;
+}
+@media (max-width: 1023px) {
+  .dm-contactdemo,
+  .dm-contactdemo-hero {
+    width: auto;
+    max-width: 460px;
+    margin-inline: auto;
+  }
+}
+
+/* Space is reserved before the scene mounts, so nothing under the card jumps
+   when hydration fills it. :empty stops matching the moment the markup is
+   written, so the reservation costs nothing afterwards. The figure is the
+   card's real height in portrait: heading 47px + bar 132px + a stage of
+   3 : 2.86. */
+.dm-contactdemo:empty {
+  min-height: calc(179px + 0.953 * min(460px, 100vw - 40px));
+}
+.dm-contactdemo-hero:empty {
+  min-height: calc(179px + 0.953 * 360px);
+}
+@media (max-width: 1023px) {
+  .dm-contactdemo-hero:empty {
+    min-height: calc(179px + 0.953 * min(460px, 100vw - 40px));
+  }
+}
+
+/* The contact section gets a brief ring when a "Call back" click jumps to it,
+   so the landing is visible rather than silent. */
+#contact.ist-angesprungen {
+  animation: ctademoLanded 1.4s ease-out 1;
+}
+@keyframes ctademoLanded {
+  0% {
+    box-shadow: inset 0 0 0 3px rgba(236, 23, 141, 0.55);
+  }
+  100% {
+    box-shadow: inset 0 0 0 3px rgba(236, 23, 141, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #contact.ist-angesprungen {
+    animation: none;
+  }
+}

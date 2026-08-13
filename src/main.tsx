@@ -1,6 +1,9 @@
 import { ViteReactSSG } from "vite-react-ssg";
 import { routes } from "./routes";
 import "./index.css";
+/* Loaded here rather than from the component so the order against Tailwind is
+   deterministic: the card's own rules must land after the utility layer. */
+import "./styles/contact-demo.css";
 
 /**
  * GA4, loaded only when VITE_GA4_ID is set, and only in the browser — the

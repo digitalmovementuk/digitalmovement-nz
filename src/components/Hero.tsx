@@ -2,6 +2,26 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import { GoogleRatingCard } from "./GoogleRatingBadge";
+import { ContactDemo } from "./ContactDemo";
+
+/** The hero's own promise line and primary CTA. Rendered once per breakpoint:
+ *  from lg it sits under the headline so the contact card can take the
+ *  right-hand column, below lg it stays where it was, beside the headline. */
+function HeroPromise({ className = "" }: { className?: string }) {
+  return (
+    <div className={className}>
+      <p className="text-white/80 text-[13px] sm:text-[14px] font-medium leading-tight text-center md:text-left">
+        Back in one working day. <span className="text-white/65">No sales call.</span>
+      </p>
+      <a
+        href="#contact"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[15px] px-7 py-3 transition-colors"
+      >
+        Get my free plan
+      </a>
+    </div>
+  );
+}
 
 const HERO_SLIDES = [
   {
@@ -105,6 +125,7 @@ export function Hero() {
   };
 
   return (
+    <>
     <section
       id="top"
       ref={sectionRef}
@@ -211,7 +232,11 @@ export function Hero() {
       <div className="absolute inset-x-0 bottom-0 z-10">
         <div className="container-v3 pb-10 sm:pb-12 md:pb-14 lg:pb-16">
           <div className="flex flex-col items-center text-center gap-6 md:flex-row md:items-end md:justify-between md:text-left md:gap-8">
-            <div className="max-w-[920px] md:max-w-[920px]">
+            {/* lg caps this column at 760px because the contact card takes
+                340px of the row from that breakpoint. The authored line breaks
+                in the H1 below were measured against a ~711px column, so 760
+                keeps them intact — see the note on the H1. */}
+            <div className="max-w-[920px] md:max-w-[920px] lg:max-w-[760px]">
               {/* Mobile-only Google rating badge (inline). Desktop renders
                   the sticky variant globally from App.tsx. The Hero block
                   used to fade everything in with staggered opacity 0→1
@@ -277,24 +302,51 @@ export function Hero() {
               >
                 Get real results<br />from SEO and<br />digital marketing.
               </h1>
+
             </div>
 
-            <div className="flex flex-col items-center md:flex-row md:items-center gap-3 md:gap-4">
-              <p className="text-white/80 text-[13px] sm:text-[14px] font-medium leading-tight text-center md:text-left">
-                Back in one working day.{" "}
-                <span className="text-white/65">No sales call.</span>
-              </p>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[15px] px-7 py-3 transition-colors"
-              >
-                Get my free plan
-              </a>
+            {/* The right-hand column: from lg the contact card sits above the
+                promise line, and the promise line stays exactly where it has
+                always been. It deliberately does NOT move under the headline —
+                down there it collides with the sticky Google rating card that
+                App.tsx pins to the bottom left on desktop. */}
+            <div className="flex flex-col items-center md:items-end gap-5 shrink-0">
+              {/* The card is there on first paint. The original hides it until
+                  the visitor scrolls away and comes back; we don't, because the
+                  whole point is that someone who wants to ring or message can
+                  do it without hunting. scene.ts still supports the delayed
+                  reveal — pass revealAfterLeaving to turn it on.
+
+                  Shown or hidden from contact-demo.css, not from a Tailwind
+                  breakpoint: whether it fits here depends on the window's
+                  HEIGHT as much as its width, and Tailwind has no height
+                  breakpoints. See .dm-contactdemo-hero-slot. */}
+              <div className="dm-contactdemo-hero-slot">
+                <ContactDemo
+                  className="dm-contactdemo dm-contactdemo-hero"
+                  titleTag="div"
+                />
+              </div>
+              <HeroPromise className="flex flex-col items-center md:flex-row md:items-center gap-3 md:gap-4" />
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    {/* Anywhere the hero has no room for it, the same card gets a band directly
+        under the hero instead. The hero is a full-height video and the card is
+        around 540px tall — inside a short window it would slide up under the
+        navigation. Both instances stay mounted; only one is ever visible, and
+        the hidden one never animates because its observer never fires. */}
+    <section
+      aria-label="Ways to contact us"
+      data-surface="dark"
+      className="surface-dark dm-contactdemo-band px-5 pt-8 pb-14"
+    >
+      <ContactDemo titleTag="h2" />
+    </section>
+    </>
   );
 }
 
