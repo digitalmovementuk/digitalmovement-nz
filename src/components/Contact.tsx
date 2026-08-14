@@ -115,20 +115,20 @@ export function Contact() {
                   <input type="text" name="name" required autoComplete="name" className={inputCls} />
                 </Field>
                 <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
-                  <Field label="Email" name="email" required>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      autoComplete="email"
-                      className={inputCls}
-                    />
-                  </Field>
-                  <Field label="Phone (optional)" name="phone">
+                  <Field label="Phone" name="phone" required>
                     <input
                       type="tel"
                       name="phone"
+                      required
                       autoComplete="tel"
+                      className={inputCls}
+                    />
+                  </Field>
+                  <Field label="Email (optional)" name="email">
+                    <input
+                      type="email"
+                      name="email"
+                      autoComplete="email"
                       className={inputCls}
                     />
                   </Field>
@@ -151,11 +151,18 @@ export function Contact() {
                   />
                 </Field>
 
-                {/* Honeypot — hidden field bots love to fill in. */}
+                {/* Honeypot — hidden field bots love to fill in.
+                    Named `_honey` so it also works in the WordPress render,
+                    where React never runs and only a named field reaches the
+                    server. Never name it "website": the shared endpoint reads
+                    that as the enquirer's real URL, so a genuine lead whose
+                    "website" field got autofilled would be silently dropped.
+                    Same reasoning in LeadForm.tsx. */}
                 <label className="absolute -left-[9999px] opacity-0" aria-hidden>
                   Leave this empty
                   <input
                     type="text"
+                    name="_honey"
                     tabIndex={-1}
                     value={hp}
                     onChange={(e) => setHp(e.target.value)}

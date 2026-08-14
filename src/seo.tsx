@@ -40,12 +40,41 @@ export const TELEPHONE = "";
  * Companies Office register (company number 9433725, registered 16 Jun 2026).
  * An identifier is a matter of public record, not a claim about the page, so
  * it is safe to mark up even though it isn't displayed.
- *
- * The registered office on that record is in Auckland. It is deliberately NOT
- * marked up as `address`: a postal address in schema is a claim about where
- * the business operates, and the site shows no address at all.
  */
 export const NZBN = "9429053714732";
+
+/**
+ * Registered office and address for service, as filed on that same register.
+ *
+ * This used to be deliberately absent, on the correct reasoning that marking
+ * up an address the page never displays breaks the same Google policy that
+ * killed the aggregateRating: never mark up a fact the page doesn't show.
+ *
+ * The fix is not to inject invisible markup — it is to show the address. It
+ * now appears in the footer legal strip on every page, next to the company
+ * name and NZBN that were already there, so the markup is a restatement of
+ * visible page content rather than a claim only a crawler can see. Rule 1 is
+ * satisfied by publishing the fact, not by hiding it better.
+ *
+ * Keep `areaServed` alongside it. The address says where the company is
+ * registered; areaServed says where it works, which is the whole country.
+ * Dropping the latter would shrink a nationwide agency to one Auckland floor.
+ *
+ * ADDRESS_LINE is the human-readable form the footer renders. The two must
+ * stay in step — if one changes, change both, or the markup stops matching
+ * what the page says.
+ */
+export const POSTAL_ADDRESS = {
+  "@type": "PostalAddress",
+  streetAddress: "Level 8, 139 Quay Street",
+  addressLocality: "Auckland Central",
+  addressRegion: "Auckland",
+  postalCode: "1010",
+  addressCountry: "NZ",
+};
+
+export const ADDRESS_LINE =
+  "Level 8, 139 Quay Street, Auckland Central, Auckland 1010, New Zealand";
 
 /**
  * The registered company name, as it appears on the Companies Register.
@@ -114,6 +143,7 @@ export const ORGANIZATION = {
   logo: `${SITE_URL}/brand/motif-positive.png`,
   image: OG_IMAGE,
   email: "office@digitalmovement.co.nz",
+  address: POSTAL_ADDRESS,
   parentOrganization: PARENT_ORG,
   sameAs: [
     "https://www.facebook.com/digitalmovementnz",
@@ -132,6 +162,7 @@ export const LOCAL_BUSINESS = {
   url: `${SITE_URL}/`,
   image: OG_IMAGE,
   email: "office@digitalmovement.co.nz",
+  address: POSTAL_ADDRESS,
   parentOrganization: { "@id": `${SITE_URL}/#parent-organization` },
   areaServed: { "@type": "Country", name: "New Zealand" },
   ...(TELEPHONE ? { telephone: TELEPHONE } : {}),
@@ -198,11 +229,12 @@ export function serviceSchema(opts: { name: string; description: string; path: s
  * serves all of New Zealand tells a search engine nothing the homepage
  * doesn't already say.
  *
- * `address` is still deliberately absent. The registered office is a serviced
- * floor in Auckland, the site shows no address anywhere, and marking up a
- * postal address the page never displays is the same policy breach as a
- * phantom rating. areaServed is a statement about where we work; address
- * would be a statement about where we are.
+ * No `address` on THIS node, deliberately, and that is not the same decision
+ * as the one on LOCAL_BUSINESS. A Service is not a place. Putting the
+ * Auckland registered office on a Christchurch service page would contradict
+ * the areaServed the page just narrowed. The company's address lives on the
+ * ProfessionalService node in the same graph, where it belongs, and is
+ * reachable from here by @id.
  */
 export function seoPageSchema(opts: {
   name: string;
@@ -300,12 +332,21 @@ export function Seo({ title, description, path, noindex, metaRefresh, schema }: 
    * points at WEBSITE, and serviceSchema/seoPageSchema's `provider` already
    * points at ORGANIZATION too.
    *
-   * LOCAL_BUSINESS is included because, as written, it carries no address
-   * and no telephone (TELEPHONE is "" while the site has no real NZ number).
-   * A LocalBusiness node with neither is weak but not dishonest — omitting
-   * either fabricated fact was the whole point of how that constant is
-   * built. If it ever gains a street address or a telephone, it must be
-   * dropped from here rather than shipped.
+   * LOCAL_BUSINESS now carries the filed registered office (see
+   * POSTAL_ADDRESS). An earlier note here said that if it ever gained a
+   * street address it should be dropped from the graph instead of shipped.
+   * That was written when the address would have been invisible markup;
+   * it is now printed in the footer of every page, so the reason is spent.
+   * Dropping the node would also forfeit local rich results outright —
+   * Google gives no partial credit for a LocalBusiness missing `address`.
+   *
+   * What keeps it honest is `areaServed: New Zealand` sitting next to the
+   * address: one says where the company is registered, the other says where
+   * it works. A service-area business is supposed to state both.
+   *
+   * `telephone` is still absent — TELEPHONE is "" because there is no real
+   * NZ number to publish. That omission is still the right call and must
+   * stay one until a genuine number exists.
    */
   const graph = JSON.stringify({
     "@context": "https://schema.org",

@@ -84,8 +84,8 @@ export const plumbers: SeoPageContent = {
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "One price a month.",
-    headlineSub: "Nothing hidden.",
+    headlineMain: "What's included?",
+    headlineSub: "One price a month. Nothing hidden.",
     intro: "No setup fee, no surprise add-ons. Everything below starts on day one and runs every month after, for as long as you want the jobs coming in.",
     columns: [
       {
@@ -123,8 +123,8 @@ export const plumbers: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "Your first",
-    headlineSub: "three months.",
+    headlineMain: "What happens in your first",
+    headlineSub: "three months?",
     intro: "Here's how a job runs, start to finish. We say it up front and stick to it.",
     steps: [
       { eta: "Week 1", title: "Plan and kick-off", body: "Your free plan lands in your inbox, then a short call to agree which searches — emergency, maintenance, reno — come first." },

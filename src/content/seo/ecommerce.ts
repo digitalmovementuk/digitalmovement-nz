@@ -80,8 +80,8 @@ export const ecommerce: SeoPageContent = {
 
   included: {
     eyebrow: "What's included",
-    headlineMain: "Everything it takes",
-    headlineSub: "to rank a store.",
+    headlineMain: "What does it take",
+    headlineSub: "to rank a store?",
     intro:
       "One price a month. No setup fee, no upsells for \"more pages\" once you've signed. All of it, every month, for as long as you stay.",
     columns: [
@@ -120,8 +120,8 @@ export const ecommerce: SeoPageContent = {
 
   process: {
     eyebrow: "How it works",
-    headlineMain: "The first",
-    headlineSub: "three months.",
+    headlineMain: "What happens in the first",
+    headlineSub: "three months?",
     intro:
       "What happens in week 1, month 2 and month 3 — on record, so you can hold us to it.",
     steps: [

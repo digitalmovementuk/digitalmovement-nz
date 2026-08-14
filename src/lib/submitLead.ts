@@ -68,8 +68,14 @@ const DM_ENDPOINT =
 
 export type LeadPayload = {
   name: string;
-  email: string;
-  phone?: string;
+  /**
+   * The required contact field on every form. These are enquiries we ring
+   * back, and an address that is well-formed but wrong is a dead lead we
+   * cannot tell from a live one. Typed as required, like consent, so a new
+   * form cannot quietly omit it.
+   */
+  phone: string;
+  email?: string;
   service?: string;
   message?: string;
   /**
@@ -123,10 +129,13 @@ export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
         subject: `New enquiry from digitalmovement.co.nz (${payload.source})`,
         from_name: "Digital Movement NZ website",
         // Replying to the notification replies to the enquirer, not to us.
-        replyto: payload.email,
+        // Email is optional, so when it is absent these envelope fields fall
+        // back to our own address: Web3Forms requires them, and the reply
+        // route for such an enquiry is the phone number in the body anyway.
+        replyto: payload.email || FALLBACK_EMAIL,
         name: payload.name,
-        email: payload.email,
-        phone: payload.phone || "—",
+        email: payload.email || FALLBACK_EMAIL,
+        phone: payload.phone,
         service: payload.service || "—",
         message: payload.message || "—",
         page_url: pageUrl,
@@ -141,8 +150,8 @@ export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
       ? [
           postDm(DM_ENDPOINT, {
             name: payload.name,
-            email: payload.email,
-            phone: payload.phone || "",
+            email: payload.email || "",
+            phone: payload.phone,
             service: payload.service || "",
             message: payload.message || "",
             // The handler's honeypot. Real submissions always send it empty;

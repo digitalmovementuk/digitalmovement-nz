@@ -82,7 +82,7 @@ export const christchurch: SeoPageContent = {
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included.",
+    headlineMain: "What's included?",
     headlineSub: "Fixed price, no surprises.",
     intro:
       "One price a month. Everything below starts on day one and runs every month after, for as long as you want to keep growing.",
@@ -122,8 +122,8 @@ export const christchurch: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "Your first",
-    headlineSub: "three months.",
+    headlineMain: "What happens in your first",
+    headlineSub: "three months?",
     intro:
       "Here's how a Christchurch job runs, start to finish. We say it up front and stick to it.",
     steps: [

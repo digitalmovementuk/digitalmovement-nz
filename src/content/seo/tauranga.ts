@@ -77,7 +77,7 @@ export const tauranga: SeoPageContent = {
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included.",
+    headlineMain: "What's included?",
     headlineSub: "One fixed monthly price.",
     intro: "No setup fee, no add-ons later. It all starts in month one and none of it stops while you're with us.",
     columns: [
@@ -116,7 +116,7 @@ export const tauranga: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "Four milestones.",
+    headlineMain: "What are the four milestones?",
     headlineSub: "Nothing hidden.",
     intro: "Here's the first three months. We tell you up front, and we show you the numbers every month.",
     steps: [

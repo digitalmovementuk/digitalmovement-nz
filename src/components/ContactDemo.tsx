@@ -1,7 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { business, contactChannels } from "../content";
-import { startLive, type RouteDef } from "../lib/contactDemo/scene";
-import type { RouteKey } from "../lib/contactDemo/timeline";
+import type { RouteDef } from "../lib/contactDemo/scene";
+import {
+  mountConfigured,
+  type StandaloneConfig,
+} from "../lib/contactDemo/standalone";
 
 /**
  * The four ways to reach us, demonstrated and then offered for real.
@@ -17,8 +20,8 @@ import type { RouteKey } from "../lib/contactDemo/timeline";
  */
 
 /** The heading counts the routes, so it can never claim four when two shipped.
- *  Only 2–4 are reachable: the form and email routes are always present, and
- *  the phone routes arrive together. */
+ *  Only 2–4 are reachable: the form and email routes are always there, and the
+ *  two phone routes each depend on their own number in src/content.ts. */
 const COUNT_WORD: Record<number, string> = { 2: "Two", 3: "Three", 4: "Four" };
 
 type Props = {
@@ -33,6 +36,8 @@ type Props = {
   barHeading?: string;
   /** Selector the card waits behind before appearing. Desktop only. */
   revealAfterLeaving?: string | null;
+  /** Sent with the click event so hero and in-page cards can be told apart. */
+  placement?: string;
   className?: string;
 };
 
@@ -62,6 +67,7 @@ function mailHref(service: string): string {
  */
 function buildRoutes(service: string): RouteDef[] {
   const phone = contactChannels.phoneE164;
+  const whatsapp = contactChannels.whatsappE164;
   const routes: RouteDef[] = [
     {
       key: "form",
@@ -71,11 +77,11 @@ function buildRoutes(service: string): RouteDef[] {
     },
   ];
 
-  if (phone) {
+  if (whatsapp) {
     routes.push({
       key: "wa",
       label: "WhatsApp",
-      href: `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+      href: `https://wa.me/${whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
         `Hi, I'd like to ask about ${service}.`,
       )}`,
       newTab: true,
@@ -98,8 +104,9 @@ function buildRoutes(service: string): RouteDef[] {
       key: "tel",
       label: "Call",
       href: `tel:${phone.replace(/[^0-9+]/g, "")}`,
-      // Deliberately no number in the label. Until the NZ line is confirmed,
-      // nothing on this page states a phone number as fact.
+      // Deliberately no number in the label or the aria text. The card offers
+      // the action, not the digits — which is what lets the number change
+      // without a single line of copy changing with it.
       aria: `Call ${business.name}`,
     });
   }
@@ -113,20 +120,24 @@ export function ContactDemo({
   titleTag = "h2",
   barHeading = "Pick one — we reply in one working day",
   revealAfterLeaving = null,
+  placement = "page",
   className = "dm-contactdemo",
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const root = ref.current;
-    if (!root) return;
-
+  /**
+   * Everything the scene needs, in one serialisable object.
+   *
+   * It is also written onto the element as `data-contactdemo`, and that is not
+   * belt and braces. The WordPress twin at nz.digitalmovement.uk is built from
+   * this site's static output with React stripped out, so over there the div
+   * arrives with no component behind it. The attribute is what lets the plain
+   * JS build (src/lib/contactDemo/standalone.ts) mount the identical scene from
+   * the identical settings, instead of the two drifting apart in two places.
+   */
+  const config = useMemo((): StandaloneConfig => {
     const routes = buildRoutes(service);
-    // Grid columns come from the number of routes, so a two-route card is not
-    // two buttons floating in a four-column grid.
-    root.style.setProperty("--knopf-spalten", String(routes.length));
-
-    return startLive(root, {
+    return {
       routes,
       avatarSrc: `${import.meta.env.BASE_URL}brand/motif-positive.png`,
       brandName: business.name,
@@ -141,20 +152,28 @@ export function ContactDemo({
       titleTag,
       barHeading,
       revealAfterLeaving,
-      onRouteClick: (key: RouteKey) => {
-        // Johnny's build logs these through a WordPress plugin. This site is
-        // static, so they go to the GA4 property that is already loaded — no
-        // new endpoint, no new consent surface. gtag is defined in main.tsx
-        // and buffers into dataLayer, so a call before consent is granted is
-        // held rather than lost.
-        const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-        w.gtag?.("event", "contact_route_click", {
-          method: key,
-          placement: revealAfterLeaving ? "hero" : "page",
-        });
-      },
-    });
-  }, [service, title, titleTag, barHeading, revealAfterLeaving]);
+      placement,
+    };
+  }, [service, title, titleTag, barHeading, revealAfterLeaving, placement]);
 
-  return <div ref={ref} className={className} />;
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+    return mountConfigured(root, config);
+  }, [config]);
+
+  /* Percent-encoded, not plain JSON.
+     The WordPress twin's build reads this page's markup, decodes HTML entities
+     and writes it back out — which turns the &quot; around every JSON key into
+     a real double quote and ends the attribute at the first one. The value
+     arrived over there as literally "{". encodeURIComponent leaves nothing an
+     HTML parser reacts to, so the object survives any pipeline that rewrites
+     the page between here and the browser. */
+  return (
+    <div
+      ref={ref}
+      className={className}
+      data-contactdemo={encodeURIComponent(JSON.stringify(config))}
+    />
+  );
 }

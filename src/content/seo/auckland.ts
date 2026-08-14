@@ -82,7 +82,7 @@ export const auckland: SeoPageContent = {
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included.",
+    headlineMain: "What's included?",
     headlineSub: "Fixed price, no surprises.",
     intro:
       "One price a month. Everything below starts on day one and runs every month after, for as long as you want to keep growing.",

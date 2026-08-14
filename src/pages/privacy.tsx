@@ -1,4 +1,4 @@
-import { Seo, breadcrumbs } from "../seo";
+import { Seo, breadcrumbs, ADDRESS_LINE, NZBN } from "../seo";
 import { business } from "../content";
 import { RETENTION } from "../components/Consent";
 import { LegalPage, LegalSection, LegalList, MailLink } from "../components/LegalShell";
@@ -75,6 +75,10 @@ export function Privacy() {
             anything about your information, email <MailLink /> — that address reaches the person
             who can act on it, not a queue.
           </p>
+          <p>
+            If you would rather write to us, our registered office and address for service is{" "}
+            {ADDRESS_LINE}. Our NZBN is {NZBN}.
+          </p>
         </LegalSection>
 
         <LegalSection id="what-we-collect" title="What we collect">
@@ -82,8 +86,8 @@ export function Privacy() {
           <LegalList
             items={[
               "Your name.",
-              "Your email address.",
-              "Your phone number, if you choose to give one — that field is optional.",
+              "Your phone number.",
+              "Your email address, if you choose to give one — that field is optional.",
               "Which service you're interested in.",
               "Whatever you write in the message field, including your website address.",
             ]}
@@ -109,8 +113,10 @@ export function Privacy() {
           </p>
           <p>
             Giving us your details is voluntary. You do not have to use the form at all — you can
-            email us instead. But if you leave out your name or your email address we cannot reply,
-            because those two are what a reply is made of.
+            email us instead. But if you leave out your name or your phone number we cannot reply,
+            because those two are what a reply is made of. We ask for a number rather than an
+            address because we answer these by ringing you back, and a mistyped email address is
+            a reply that never arrives and never tells us it didn't.
           </p>
         </LegalSection>
 

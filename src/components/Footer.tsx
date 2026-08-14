@@ -1,7 +1,7 @@
 import { Mail, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { business } from "../content";
-import { LEGAL_ENTITY, NZBN } from "../seo";
+import { ADDRESS_LINE, LEGAL_ENTITY, NZBN } from "../seo";
 
 // Footer sitemap — services link to their dedicated subpages, company links
 // span the About route and the in-page anchors.
@@ -210,16 +210,26 @@ export function Footer() {
             analytics cookies and a standalone page for that would be thinner
             than the section it duplicated.
 
-            The company name and NZBN are stated here rather than only on the
-            legal pages so that whoever we are is identifiable from any page on
-            the site, which is what an identity check by a regulator or a
-            cautious buyer actually looks for. */}
+            The company name, NZBN and registered office are stated here
+            rather than only on the legal pages so that whoever we are is
+            identifiable from any page on the site, which is what an identity
+            check by a regulator or a cautious buyer actually looks for.
+
+            The address earns its place twice. It is the registered office and
+            address for service on the Companies Register, so it is the
+            address a complaint or a notice is properly sent to. And it is
+            what the ProfessionalService schema marks up as `address` — which
+            it is only allowed to do because the page shows it. Markup may
+            restate what a page says; it may not say things the page doesn't.
+            If this line changes, change ADDRESS_LINE's twin POSTAL_ADDRESS in
+            src/seo.tsx with it. */}
         <div className="mt-14 sm:mt-16 pt-6 border-t border-ink/10 flex flex-col items-center sm:flex-row sm:items-start sm:justify-between gap-4 text-[12px] text-ink-muted text-center sm:text-left">
           <div className="space-y-1">
             <p>
               © {new Date().getFullYear()} {LEGAL_ENTITY}. All rights reserved.
             </p>
             <p className="text-ink-faint">NZBN {NZBN}</p>
+            <p className="text-ink-faint">{ADDRESS_LINE}</p>
           </div>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-6 gap-y-2">
             <Link to="/sitemap" className="hover:text-ink">Sitemap</Link>

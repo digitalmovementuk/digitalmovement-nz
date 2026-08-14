@@ -30,23 +30,27 @@ export const business = {
 /**
  * The contact routes the hero card offers. See src/components/ContactDemo.tsx.
  *
- * `phoneE164` is the switch for two of the four routes. Set it and Call and
- * WhatsApp appear; leave it null and they are left out of the card entirely
- * rather than shipped as buttons that ring nobody — the same reasoning that
- * removed `business.phone` above.
+ * Each number is its own switch. Set one and its button appears; leave it null
+ * and that route is left out of the card entirely rather than shipped as a
+ * button that reaches nobody — the same reasoning that removed
+ * `business.phone` above. The heading counts whatever survives, so nothing has
+ * to be kept in step by hand.
  *
- * Currently null, and it has to stay null until a real New Zealand line
- * exists. It was briefly set to a placeholder so the four-route card could be
- * reviewed locally; that placeholder must never reach a public build, because
- * a tel: link that rings nobody and a wa.me link to an unclaimed number are
- * worse than no button at all. Checked 2026-08-13: neither the React site nor
- * the WordPress twin publishes a number anywhere.
+ * They are deliberately two fields, not one. The numbers given on 13 August
+ * 2026 are different lines: one is answered as a phone, the other is the
+ * WhatsApp account. Driving both routes from a single value would have sent
+ * WhatsApp messages to a number with no WhatsApp on it.
  *
- * Set it and the card becomes four routes with no other change — the heading
- * counts the routes itself.
+ * Both are German mobiles, on a New Zealand site. That is the client's own
+ * instruction and these are the numbers supplied — but it is worth knowing,
+ * because an NZ visitor sees +49 in their dialler and an international call is
+ * a real reason not to press. No number is written out anywhere in the card:
+ * the buttons read "Call" and "WhatsApp", so replacing these with New Zealand
+ * lines later is a one-line change here and nothing else.
  */
 export const contactChannels = {
-  phoneE164: null as string | null,
+  phoneE164: "+4917623296439" as string | null,
+  whatsappE164: "+4917682360647" as string | null,
   /** Where the "Call back" route scrolls to. */
   formTarget: "#contact",
 };

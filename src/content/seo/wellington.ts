@@ -77,7 +77,7 @@ export const wellington: SeoPageContent = {
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included.",
+    headlineMain: "What's included?",
     headlineSub: "One fixed price.",
     intro:
       "One price a month, everything in it, built for Wellington from day one — and every month after, for as long as you want to keep growing.",
@@ -117,8 +117,8 @@ export const wellington: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "The first",
-    headlineSub: "three months.",
+    headlineMain: "What happens in the first",
+    headlineSub: "three months?",
     intro:
       "Here's how a Wellington job runs, start to finish. We say it up front and we stick to it.",
     steps: [

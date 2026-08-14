@@ -66,6 +66,67 @@ export type RouteDef = {
   aria: string;
 };
 
+/**
+ * Every word the card says that is not already a setting.
+ *
+ * It exists because the same card runs on more than one site, and the second
+ * one is German. Without this the strings sit inline in the markup below and
+ * the only way to translate them is to fork the file — at which point the two
+ * copies start drifting the first time anyone fixes a timing bug in one of
+ * them. The pack travels in the same serialised config as everything else, so
+ * a translation is data rather than a second build.
+ *
+ * The five `demo*` entries are props: what the imaginary visitor types. They
+ * default to text built from the page's own service name; a translation gives
+ * them literally, because a German sentence is not an English sentence with a
+ * noun swapped in.
+ */
+export type CardStrings = {
+  /** Beside the sender's name in the chat header. */
+  online: string;
+  /** Call status while it rings. */
+  calling: string;
+  /** Call status once answered. `{time}` is replaced with the elapsed time. */
+  connected: string;
+  /** What the other side writes back in the chat. */
+  reply: string;
+  mailTo: string;
+  mailSubjectLabel: string;
+  mailSend: string;
+  mailSent: string;
+  fieldName: string;
+  fieldPhone: string;
+  formSubmit: string;
+  thanksTitle: string;
+  demoName: string;
+  demoPhone: string;
+  demoChat: string;
+  demoMailSubject: string;
+  demoMailBody: string;
+};
+
+/** The original wording. Anything a caller leaves out falls back to here, so
+ *  the sites that never pass a pack keep the exact markup they had. */
+export const DEFAULT_STRINGS: Omit<CardStrings, "demoName" | "demoPhone" | "demoChat" | "demoMailSubject" | "demoMailBody"> = {
+  online: "online",
+  calling: "Calling …",
+  connected: "Connected {time}",
+  reply: "Send us your website and we’ll tell you what’s worth fixing first.",
+  mailTo: "To",
+  mailSubjectLabel: "Subject",
+  mailSend: "Send",
+  mailSent: "Email sent",
+  fieldName: "Name",
+  fieldPhone: "Phone",
+  formSubmit: "Request a call back",
+  thanksTitle: "Thanks — that’s with us",
+};
+
+/** The time shown once the call connects. Fixed, not a running clock: the
+ *  scene is a demonstration and the whole of it is a function of one elapsed
+ *  millisecond — a second, real clock would drift against the first. */
+const CONNECTED_TIME = "00:03";
+
 export type MountOptions = {
   /** Ordered left to right. The demonstration follows the same order. */
   routes: RouteDef[];
@@ -82,6 +143,8 @@ export type MountOptions = {
   /** 'div' in the hero, where the page H1 already sits alongside. */
   titleTag: string;
   barHeading: string;
+  /** Overrides for the wording. Left out, the card speaks English. */
+  strings?: Partial<CardStrings>;
   /** Fired when a REAL button is used, for analytics. Never for the props. */
   onRouteClick?: (key: RouteKey) => void;
 };
@@ -90,7 +153,7 @@ function esc(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function markup(o: MountOptions): string {
+function markup(o: MountOptions, s: CardStrings): string {
   const button = (r: RouteDef, real: boolean) => {
     const cls = real ? `ctademo-echt ctademo-echt-${r.key}` : `ctademo-btn ctademo-btn-${r.key}`;
     const labelCls = real ? "ctademo-echt-label" : "ctademo-label";
@@ -117,21 +180,21 @@ ${o.title ? `<${o.titleTag} class="ctademo-titel">${esc(o.title)}</${o.titleTag}
   <div class="ctademo-panel ctademo-call" data-panel="tel">
     <img class="ctademo-mark" src="${esc(o.avatarSrc)}" alt="" width="128" height="128">
     <b>${esc(o.brandName)}</b>
-    <span class="ctademo-status" data-status>Calling &hellip;</span>
+    <span class="ctademo-status" data-status>${esc(s.calling)}</span>
     <div class="ctademo-calltasten"><i class="gruen" data-handset>${SVG_TEL}</i></div>
   </div>
 
   <div class="ctademo-panel ctademo-chat" data-panel="wa">
     <div class="ctademo-chat-kopf">
       <img class="ctademo-mark" src="${esc(o.avatarSrc)}" alt="" width="34" height="34">
-      <b>${esc(o.brandName)}</b><span class="ctademo-online">online</span>
+      <b>${esc(o.brandName)}</b><span class="ctademo-online">${esc(s.online)}</span>
     </div>
     <div class="ctademo-verlauf">
       <div class="ctademo-blase ctademo-blase-ich" data-msg="1" data-chatbubble></div>
       <div class="ctademo-antwort">
         <img class="ctademo-mark" src="${esc(o.avatarSrc)}" alt="" width="28" height="28" data-reply-avatar>
         <div class="ctademo-tippt" data-typing><i></i><i></i><i></i></div>
-        <div class="ctademo-blase ctademo-blase-er" data-msg="2">Send us your website and we&rsquo;ll tell you what&rsquo;s worth fixing first.</div>
+        <div class="ctademo-blase ctademo-blase-er" data-msg="2">${esc(s.reply)}</div>
       </div>
     </div>
     <div class="ctademo-eingabe" data-input><span data-chattext></span></div>
@@ -139,14 +202,14 @@ ${o.title ? `<${o.titleTag} class="ctademo-titel">${esc(o.title)}</${o.titleTag}
 
   <div class="ctademo-panel ctademo-mail" data-panel="mail">
     <div class="ctademo-mail-kopf">
-      <span class="ctademo-mail-an">To</span>
+      <span class="ctademo-mail-an">${esc(s.mailTo)}</span>
       <img class="ctademo-mark" src="${esc(o.avatarSrc)}" alt="" width="26" height="26">
       <b>${esc(o.emailAddress)}</b>
     </div>
-    <div class="ctademo-mail-zeile"><i>Subject</i><span data-mailsubject></span></div>
+    <div class="ctademo-mail-zeile"><i>${esc(s.mailSubjectLabel)}</i><span data-mailsubject></span></div>
     <div class="ctademo-mail-text" data-mailbody></div>
-    <span class="ctademo-submit" data-mailsend>Send</span>
-    <div class="ctademo-ok" data-mailok>&#10003; Email sent</div>
+    <span class="ctademo-submit" data-mailsend>${esc(s.mailSend)}</span>
+    <div class="ctademo-ok" data-mailok>&#10003; ${esc(s.mailSent)}</div>
   </div>
 
   <div class="ctademo-panel ctademo-form" data-panel="form">
@@ -155,9 +218,9 @@ ${o.title ? `<${o.titleTag} class="ctademo-titel">${esc(o.title)}</${o.titleTag}
         <img class="ctademo-mark" src="${esc(o.avatarSrc)}" alt="" width="64" height="64">
         <span><b>${esc(o.brandName)}</b>${esc(o.replyPromise)}</span>
       </div>
-      <label>Name<span class="ctademo-feld" data-field="name"></span></label>
-      <label>Phone<span class="ctademo-feld" data-field="phone"></span></label>
-      <span class="ctademo-submit" data-submit>Request a call back</span>
+      <label>${esc(s.fieldName)}<span class="ctademo-feld" data-field="name"></span></label>
+      <label>${esc(s.fieldPhone)}<span class="ctademo-feld" data-field="phone"></span></label>
+      <span class="ctademo-submit" data-submit>${esc(s.formSubmit)}</span>
     </div>
 
     <div class="ctademo-danke" data-thanks>
@@ -165,7 +228,7 @@ ${o.title ? `<${o.titleTag} class="ctademo-titel">${esc(o.title)}</${o.titleTag}
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"
              stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 7"/></svg>
       </span>
-      <b>Thanks &mdash; that&rsquo;s with us</b>
+      <b>${esc(s.thanksTitle)}</b>
       <span>${esc(o.replyPromise)}<br>${esc(o.brandName)}</span>
     </div>
   </div>
@@ -219,9 +282,27 @@ export type Scene = { renderAt: (ms: number) => void; duration: number; destroy:
 export function mount(root: HTMLElement, o: MountOptions): Scene {
   const routes = o.routes.map((r) => r.key);
   const phases = buildPhases(routes);
-  const copy = copyFor(o.service);
+  // The service-derived props first, then anything the caller overrides. A
+  // translation therefore only has to name the strings it actually changes.
+  const base = copyFor(o.service);
+  const s: CardStrings = {
+    ...DEFAULT_STRINGS,
+    demoName: base.name,
+    demoPhone: base.phone,
+    demoChat: base.chat,
+    demoMailSubject: base.mailSubject,
+    demoMailBody: base.mailBody,
+    ...(o.strings ?? {}),
+  };
+  const copy: DemoCopy = {
+    name: s.demoName,
+    phone: s.demoPhone,
+    chat: s.demoChat,
+    mailSubject: s.demoMailSubject,
+    mailBody: s.demoMailBody,
+  };
 
-  root.innerHTML = markup(o);
+  root.innerHTML = markup(o, s);
   // Carries the transition and the waiting state. Its own class rather than
   // the root's, because the root's class is set by whoever places the card.
   root.classList.add("ctademo-traeger");
@@ -263,7 +344,7 @@ export function mount(root: HTMLElement, o: MountOptions): Scene {
   const cleanup = wireLinks(root, o);
 
   return {
-    renderAt: (ms: number) => renderAt(el, ms, phases, routes, copy),
+    renderAt: (ms: number) => renderAt(el, ms, phases, routes, copy, s),
     duration: phases[phases.length - 1].to,
     destroy: cleanup,
   };
@@ -336,7 +417,7 @@ function targetPoints(el: Els, routes: RouteKey[]): Partial<Record<CursorTarget,
 /** Safety margin so the row really disappears behind the edge. */
 const SINK_PADDING = 14;
 
-function renderAt(el: Els, ms: number, phases: Phase[], routes: RouteKey[], copy: DemoCopy) {
+function renderAt(el: Els, ms: number, phases: Phase[], routes: RouteKey[], copy: DemoCopy, s: CardStrings) {
   const z = stateAt(ms, phases, routes, copy);
 
   // How far the row has to travel to vanish past the edge. Measured from the
@@ -403,7 +484,9 @@ function renderAt(el: Els, ms: number, phases: Phase[], routes: RouteKey[], copy
   // prefers-reduced-motion, where this exact frame is all anyone sees.
   el.chip.style.opacity = String(Math.max(0, 1 - z.panel.opacity * 2.5));
 
-  el.status.textContent = z.call.connected ? "Connected 00:03" : "Calling …";
+  el.status.textContent = z.call.connected
+    ? s.connected.replace("{time}", CONNECTED_TIME)
+    : s.calling;
   el.panels.tel?.classList.toggle("ist-verbunden", z.call.connected);
   el.handset.style.transform = `rotate(${z.call.ringing * 26}deg) scale(${1 + Math.abs(z.call.ringing) * 0.12})`;
 

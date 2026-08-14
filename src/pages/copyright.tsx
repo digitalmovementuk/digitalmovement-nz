@@ -87,7 +87,7 @@ export function CopyrightDisclaimer() {
           </p>
         </LegalSection>
 
-        <LegalSection id="trade-marks" title="Names and logos">
+        <LegalSection id="trade-marks" title="Can you use our name or logo?">
           <p>
             The {business.name} name and logo are ours. Other companies' names, logos and product
             names that appear on this site — Google and its products among them — belong to their
@@ -173,7 +173,7 @@ export function CopyrightDisclaimer() {
           </p>
         </LegalSection>
 
-        <LegalSection id="corrections" title="Telling us something is wrong">
+        <LegalSection id="corrections" title="How do you tell us something is wrong?">
           <p>
             If you find something on this site that is inaccurate, out of date, or that you believe
             infringes your copyright, email <MailLink /> with the page address and what the problem

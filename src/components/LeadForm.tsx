@@ -105,7 +105,10 @@ export function LeadForm({ source, heading, note, defaultService = "SEO", varian
               <p className="mt-1.5 text-[13px] text-ink-muted leading-relaxed">{note}</p>
             </div>
 
-            {/* Name, phone, email — the order people expect to be asked. */}
+            {/* Name, phone, email — the order people expect to be asked.
+                Phone is the required contact field and email is optional: these
+                are enquiries we ring back, and a wrong-but-valid email address
+                is a dead lead we cannot tell from a live one. */}
             <Field label="Your name" htmlFor={`${uid}-name`} required>
               <input
                 id={`${uid}-name`}
@@ -118,21 +121,21 @@ export function LeadForm({ source, heading, note, defaultService = "SEO", varian
             </Field>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              <Field label="Phone" htmlFor={`${uid}-phone`}>
+              <Field label="Phone" htmlFor={`${uid}-phone`} required>
                 <input
                   id={`${uid}-phone`}
                   type="tel"
                   name="phone"
+                  required
                   autoComplete="tel"
                   className={inputCls}
                 />
               </Field>
-              <Field label="Email" htmlFor={`${uid}-email`} required>
+              <Field label="Email" htmlFor={`${uid}-email`}>
                 <input
                   id={`${uid}-email`}
                   type="email"
                   name="email"
-                  required
                   autoComplete="email"
                   className={inputCls}
                 />
@@ -164,11 +167,28 @@ export function LeadForm({ source, heading, note, defaultService = "SEO", varian
               />
             </Field>
 
-            {/* Honeypot instead of a challenge — no third-party script, no friction. */}
+            {/* Honeypot instead of a challenge — no third-party script, no friction.
+
+                name="_honey" is not decoration. This form is also rendered as
+                plain HTML by the WordPress build, where React never runs and
+                the `hp` state below is therefore dead — the only thing that
+                can catch a bot there is a NAMED field arriving in the POST.
+                `_honey` is one of the names both the WordPress proxy and the
+                shared leads endpoint already test, so the same markup is
+                protected on every path.
+
+                It must not be called "website". The shared endpoint treats
+                `website` as a real data field (the enquirer's URL, printed in
+                the notification email), so a honeypot by that name is both
+                inert there and actively dangerous here: anything that fills a
+                field called "website" — a password manager ignoring
+                autocomplete="off", say — makes the proxy answer "thanks, got
+                it" and quietly bin a genuine enquiry. */}
             <label className="absolute -left-[9999px] opacity-0" aria-hidden>
               Leave this empty
               <input
                 type="text"
+                name="_honey"
                 tabIndex={-1}
                 value={hp}
                 onChange={(e) => setHp(e.target.value)}

@@ -6,6 +6,7 @@ import { Reveal } from "../lib/Reveal";
 import type { ServiceContent } from "../content/services";
 import { Seo, serviceSchema, faqSchema, breadcrumbs, SERVICE_NAMES } from "../seo";
 import { LeadForm } from "./LeadForm";
+import { Photo } from "./Photo";
 
 /* Pre-selects the enquiry form's service dropdown to the page the visitor is
    on. Keyed by slug so a new service page fails visibly (falls back to "Not
@@ -135,14 +136,15 @@ function Hero({ content }: { content: ServiceContent }) {
             ever mounts, and as the LCP element it should not wait on a <video>
             element's own loading rules. Dimensions are set so it reserves its
             box and contributes no layout shift. */}
-        <img
-          src={`${base}brand/og-cover.jpg`}
-          alt=""
-          aria-hidden
+        <Photo
+          name="og-cover"
+          widths={[600, 900, 1200]}
           width={1200}
           height={675}
-          fetchPriority="high"
+          alt=""
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover scale-105"
+          eager
         />
         {!reduce && showVideo && content.hero.video && (
           <video
@@ -298,6 +300,9 @@ function WhatItIs({ content }: { content: ServiceContent }) {
           </div>
           <WhatItIsBody content={content} />
         </div>
+        {content.whatItIs.visual && (
+          <EditorialVisual visual={content.whatItIs.visual} className="mt-12 sm:mt-16" />
+        )}
       </div>
     </section>
   );
@@ -407,7 +412,13 @@ function Outcomes({ content }: { content: ServiceContent }) {
           </Reveal>
         </div>
 
-        <ul className="mt-12 sm:mt-16 grid gap-5 sm:gap-6 md:grid-cols-3">
+        {content.outcomes.visual && (
+          <EditorialVisual visual={content.outcomes.visual} className="mt-12 sm:mt-16" />
+        )}
+
+        <ul
+          className={`${content.outcomes.visual ? "mt-8 sm:mt-10" : "mt-12 sm:mt-16"} grid gap-5 sm:gap-6 md:grid-cols-3`}
+        >
           {content.outcomes.items.map((item, i) => (
             <motion.li
               key={item.title}
@@ -465,6 +476,43 @@ function Outcomes({ content }: { content: ServiceContent }) {
         </ul>
       </div>
     </section>
+  );
+}
+
+function EditorialVisual({
+  visual,
+  className = "",
+}: {
+  visual: NonNullable<ServiceContent["whatItIs"]["visual"]>;
+  className?: string;
+}) {
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.75, ease: EASE_OUT }}
+      className={`relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-ink ${className}`}
+    >
+      <div className="aspect-[3/2] sm:aspect-[16/9] lg:aspect-[16/7]">
+        <Photo
+          name={visual.name}
+          widths={[720, 1200, 1536]}
+          width={1536}
+          height={1024}
+          alt={visual.alt}
+          sizes="(min-width: 1280px) 1200px, calc(100vw - 48px)"
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#100620]/90 via-[#100620]/30 to-transparent pointer-events-none"
+      />
+      <figcaption className="absolute inset-x-0 bottom-0 max-w-[58ch] p-6 sm:p-8 md:p-10 text-[14px] sm:text-[16px] leading-relaxed text-white/90">
+        {visual.caption}
+      </figcaption>
+    </motion.figure>
   );
 }
 
@@ -803,13 +851,22 @@ function Stack({ content }: { content: ServiceContent }) {
                     className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white border border-ink/10"
                     aria-hidden
                   >
-                    <img
-                      src={`https://cdn.simpleicons.org/${item.logo}`}
-                      alt=""
-                      width="22"
-                      height="22"
-                      loading="lazy"
-                      className="h-[22px] w-[22px] object-contain"
+                    {/* Self-hosted, not cdn.simpleicons.org. Hot-linking put
+                        up to nine third-party requests on a service page
+                        before the visitor had agreed to anything, and it made
+                        the icons only as reliable as a free CDN's slug list:
+                        three of them (linkedin, adobepremierepro, schema)
+                        answered 404 and rendered as broken images on live
+                        pages, because Simple Icons had dropped two of the
+                        marks and never carried the third. These marks are
+                        decorative, so a CSS background keeps them out of the
+                        page's image alternatives and out of Yoast's content-
+                        image count. */}
+                    <span
+                      className="h-[22px] w-[22px] bg-center bg-contain bg-no-repeat"
+                      style={{
+                        backgroundImage: `url(${import.meta.env.BASE_URL}brand/icons/${item.logo}.svg)`,
+                      }}
                     />
                   </span>
                 ) : (

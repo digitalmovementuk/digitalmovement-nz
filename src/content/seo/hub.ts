@@ -127,8 +127,8 @@ export const seoHub: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "Your first",
-    headlineSub: "three months.",
+    headlineMain: "What happens in your first",
+    headlineSub: "three months?",
     intro:
       "What happens in week 1, month 2 and month 3 — on record, so you can hold us to it.",
     steps: [

@@ -79,7 +79,7 @@ export const hawkesBay: SeoPageContent = {
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included.",
+    headlineMain: "What's included?",
     headlineSub: "One fixed monthly price.",
     intro: "No setup fee, no add-ons later. It all runs from month one and keeps running for as long as you want to keep growing.",
     columns: [
@@ -118,7 +118,7 @@ export const hawkesBay: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "Four milestones.",
+    headlineMain: "What are the four milestones?",
     headlineSub: "Nothing hidden.",
     intro: "Here's the first three months. We tell you up front, and we show you the numbers every month.",
     steps: [

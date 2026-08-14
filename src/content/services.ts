@@ -37,12 +37,22 @@ export type ServiceContent = {
     headlineSub: string;
     paragraphs: string[];
     audience: string;
+    visual?: {
+      name: string;
+      alt: string;
+      caption: string;
+    };
   };
   outcomes: {
     eyebrow: string;
     headlineMain: string;
     headlineSub: string;
     intro: string;
+    visual?: {
+      name: string;
+      alt: string;
+      caption: string;
+    };
     /**
      * `value`/`unit` are OPTIONAL and must stay that way — same rule as
      * SeoPageContent. When they were required, every outcome card had to
@@ -167,6 +177,12 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       ],
       audience:
         "Built for Kiwi business owners who want measurable growth — not vanity rankings or 30-page reports.",
+      visual: {
+        name: "seo-services-nz-planning-openai",
+        alt: "SEO services planning session for a New Zealand small business",
+        caption:
+          "First we agree the searches worth winning. Every month’s work and reporting comes back to that same list.",
+      },
     },
     outcomes: {
       eyebrow: "What you gain",
@@ -174,6 +190,12 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       headlineSub: "asking what you charge.",
       intro:
         "Someone in your town is typing what you sell into Google right now. The only question is whose name comes back. Here is what changes when it's yours.",
+      visual: {
+        name: "seo-services-nz-enquiry-openai",
+        alt: "SEO services outcome: a New Zealand electrical business owner taking a customer enquiry by phone",
+        caption:
+          "We track the enquiry: the call, form or booking that shows the work is earning its keep.",
+      },
       items: [
         {
           kicker: "Visibility",
@@ -308,7 +330,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
         { name: "GA4 + Tag Manager", body: "Conversion tracking set up cleanly — server-side where it matters.", logo: "googleanalytics" },
         { name: "Semrush", body: "Backlink monitoring, competitor analysis, keyword research.", logo: "semrush" },
         { name: "Screaming Frog", body: "Technical audits, crawler diagnostics, site-structure mapping." },
-        { name: "Schema.org", body: "Structured data — LocalBusiness, Service, FAQ, Organization.", logo: "schema" },
+        { name: "Schema.org", body: "Structured data — LocalBusiness, Service, FAQ, Organization." },
         { name: "PageSpeed Insights / Lighthouse", body: "Core Web Vitals, speed optimisation, mobile-first audits.", logo: "lighthouse" },
       ],
     },
@@ -748,10 +770,10 @@ export const services: Record<ServiceSlug, ServiceContent> = {
       items: [
         { name: "Meta Business Suite", body: "Instagram + Facebook organic and paid, pixel tracking clean.", logo: "meta" },
         { name: "TikTok Ads Manager", body: "Short-form video for younger audiences or volume plays.", logo: "tiktok" },
-        { name: "LinkedIn Campaign Manager", body: "B2B lead-gen with tightly scoped audiences.", logo: "linkedin" },
+        { name: "LinkedIn Campaign Manager", body: "B2B lead-gen with tightly scoped audiences." },
         { name: "YouTube Studio + YouTube Ads", body: "Long-form authority and pre-roll targeting.", logo: "youtube" },
         { name: "GA4 + Tag Manager", body: "Cross-platform conversion tracking, cleanly attributed.", logo: "googleanalytics" },
-        { name: "CapCut + Premiere", body: "Production stack for short-form video — fast, polished, scalable.", logo: "adobepremierepro" },
+        { name: "CapCut + Premiere", body: "Production stack for short-form video — fast, polished, scalable." },
       ],
     },
     faq: {
@@ -952,7 +974,7 @@ export const services: Record<ServiceSlug, ServiceContent> = {
     },
     process: {
       eyebrow: "The 6-week sprint",
-      headlineMain: "Four milestones.",
+      headlineMain: "What are the four milestones?",
       headlineSub: "Fast, clean, documented.",
       intro:
         "Standard sprint takes 6 weeks. What happens each week is below — no black box.",

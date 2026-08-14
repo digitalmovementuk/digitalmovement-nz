@@ -59,6 +59,7 @@ export function LeadCaptureModal() {
 
     const result = await submitLead({
       name: String(data.get("name") ?? ""),
+      phone: String(data.get("phone") ?? ""),
       email: String(data.get("email") ?? ""),
       consent: data.get("consent") != null,
       source: "lead-capture-modal",
@@ -131,8 +132,8 @@ export function LeadCaptureModal() {
                     Want one for your business?
                   </h3>
                   <p className="mt-2 text-[14.5px] text-ink-soft leading-relaxed">
-                    Drop your email — a founder sends back a tailored plan
-                    within one working day. No sales call required.
+                    Leave your number — a founder sends back a tailored plan
+                    within one working day.
                   </p>
 
                   <form onSubmit={onSubmit} className="mt-5 space-y-3">
@@ -144,12 +145,21 @@ export function LeadCaptureModal() {
                       placeholder="Your name"
                       className={inputCls}
                     />
+                    {/* Phone is the required contact field on every form; email
+                        is optional. We ring these back. */}
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      autoComplete="tel"
+                      placeholder="Phone"
+                      className={inputCls}
+                    />
                     <input
                       type="email"
                       name="email"
-                      required
                       autoComplete="email"
-                      placeholder="Email"
+                      placeholder="Email (optional)"
                       className={inputCls}
                     />
 

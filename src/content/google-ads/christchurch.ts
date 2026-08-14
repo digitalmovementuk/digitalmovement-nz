@@ -90,7 +90,7 @@ export const googleAdsChristchurch: SeoPageContent = {
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included.",
+    headlineMain: "What's included?",
     headlineSub: "Fixed price, no surprises.",
     intro:
       "One fixed fee a month, separate from your ad budget. Every dollar of that budget runs through your own Google account — we don't take a cut of your spend.",
@@ -130,8 +130,8 @@ export const googleAdsChristchurch: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "Your first",
-    headlineSub: "three months.",
+    headlineMain: "What happens in your first",
+    headlineSub: "three months?",
     intro:
       "Here's how a Christchurch account runs, start to finish. We say it up front and show you the numbers every month.",
     steps: [

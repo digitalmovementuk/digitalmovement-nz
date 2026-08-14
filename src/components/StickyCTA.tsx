@@ -61,8 +61,11 @@ export function StickyCTA() {
           No obligations,{" "}
           <span className="hidden sm:inline text-ink-muted font-medium">so no worries</span>
         </p>
+        {/* Root-relative, not a bare "#contact": this bar rides every page,
+            and the contact section only exists on the homepage. A bare hash
+            was a dead jump on all 46 other pages. */}
         <a
-          href="#contact"
+          href="/#contact"
           tabIndex={show ? 0 : -1}
           className="relative inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[13.5px] sm:text-[15px] px-5 sm:px-7 py-2.5 sm:py-3.5 transition-colors animate-pulse-plum whitespace-nowrap"
         >

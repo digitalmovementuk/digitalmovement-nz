@@ -84,7 +84,7 @@ export const roofers: SeoPageContent = {
 
   included: {
     eyebrow: "What you get",
-    headlineMain: "Everything included.",
+    headlineMain: "What's included?",
     headlineSub: "Fixed price, no surprises.",
     intro: "One price a month. Everything below starts on day one and runs every month after, for as long as you want to keep growing.",
     columns: [
@@ -123,8 +123,8 @@ export const roofers: SeoPageContent = {
 
   process: {
     eyebrow: "How it runs",
-    headlineMain: "Your first",
-    headlineSub: "three months.",
+    headlineMain: "What happens in your first",
+    headlineSub: "three months?",
     intro: "Here's how a job runs, start to finish. We say it up front and stick to it.",
     steps: [
       { eta: "Week 1", title: "Plan and kick-off", body: "Your free plan lands in your inbox, then a short call to agree which searches — emergency, maintenance, re-roof — come first." },

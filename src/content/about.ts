@@ -73,9 +73,9 @@ export const about = {
     ],
   },
   studio: {
-    eyebrow: "Where we work",
-    headlinePre: "Auckland-led.",
-    headlineSoft: "Working right across the country.",
+    eyebrow: "Coverage",
+    headlinePre: "Where do we work?",
+    headlineSoft: "Auckland-led, right across the country.",
     body: "We're based in Auckland and work with businesses everywhere from Whangārei to Dunedin — Wellington, Christchurch, Hamilton, Tauranga and plenty of smaller towns in between. Every job runs remotely, with the same reporting and the same direct line wherever you are.",
     bullets: [
       "One-van trades through to national companies",
@@ -99,7 +99,8 @@ export const about = {
   },
 };
 
-export const STUDIO_IMAGE =
-  "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2400&q=82";
-export const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=2400&q=82";
+/* The two Unsplash URLs that used to live here are gone. Both photographs are
+   now self-hosted at three widths in WebP and JPEG under public/brand/photos
+   and rendered through <Photo>, which is where the naming lives. Hot-linking
+   them cost a third-party request on every load, ruled out any srcset, and
+   put a page's largest image on someone else's CDN. */

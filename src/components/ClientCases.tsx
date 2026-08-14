@@ -12,11 +12,6 @@ const ACCENT_TINT: Record<CaseStudy["accent"], string> = {
   violet: "linear-gradient(135deg, rgba(154,47,198,0.32) 0%, rgba(74,30,140,0.30) 100%)",
 };
 
-// Metropolitan urban skyline at night — sized tall (2:3) so the user scrolls
-// THROUGH the city as they pass the 200vh section.
-const BG_IMAGE =
-  "https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=2000&h=3000&q=80";
-
 /**
  * ClientCases — Apple "feature story" editorial stack with a parallax bg.
  *
