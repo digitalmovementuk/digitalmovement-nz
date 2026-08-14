@@ -2,7 +2,26 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import { GoogleRatingCard } from "./GoogleRatingBadge";
-import { ContactDemo } from "./ContactDemo";
+import { LeadForm } from "./LeadForm";
+
+/** The hero's own promise line and primary CTA. Rendered once per breakpoint:
+ *  from lg it sits under the headline so the contact card can take the
+ *  right-hand column, below lg it stays where it was, beside the headline. */
+function HeroPromise({ className = "" }: { className?: string }) {
+  return (
+    <div className={className}>
+      <p className="text-white/80 text-[13px] sm:text-[14px] font-medium leading-tight text-center md:text-left">
+        Back in one working day. <span className="text-white/65">No sales call.</span>
+      </p>
+      <a
+        href="#contact"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-[15px] px-7 py-3 transition-colors"
+      >
+        Get my free plan
+      </a>
+    </div>
+  );
+}
 
 const HERO_SLIDES = [
   {
@@ -107,18 +126,11 @@ export function Hero() {
 
   return (
     <>
-    {/* Two thirds of the viewport, not all of it. A full-height hero puts
-        everything else below the fold, and the one thing that has to be on
-        screen without scrolling is the way to make contact — the card in the
-        band underneath. At 66vh the headline still owns the opening and the top
-        of that card is already visible. The 460px floor is for short landscape
-        windows, where 66% of the height is not enough room for a three-line
-        headline. */}
     <section
       id="top"
       ref={sectionRef}
       data-surface="dark"
-      className="surface-dark relative isolate overflow-hidden w-screen min-h-[max(66svh,460px)] h-[max(66dvh,460px)]"
+      className="surface-dark relative isolate overflow-hidden w-screen min-h-[100svh] flex flex-col justify-end pt-[104px]"
     >
       {/* Full-bleed background video. Always rendered so iOS users with
           reduced motion still see the poster frame instead of a flat black
@@ -215,19 +227,28 @@ export function Hero() {
         {paused ? <Play size={14} fill="white" /> : <Pause size={13} fill="white" />}
       </button>
 
-      {/* Bottom block — badge, eyebrow and headline, and nothing else.
-          A contact card used to sit opposite it on md+. It was removed on the
-          client's own reading of the page: "I ignored the text and went
-          straight to the right side". The card now follows the headline
-          instead of competing with it. */}
-      <div className="absolute inset-x-0 bottom-0 z-10">
+      {/* Bottom block — center-stacked on mobile; chip+headline left + CTA
+          right on md+. */}
+      {/* In normal flow, bottom-aligned by the section's justify-end — not
+          absolutely positioned any more.
+
+          It was `absolute inset-x-0 bottom-0` while the hero held a headline and
+          a 541px card. The enquiry form that replaced the card is 631px, and an
+          absolute block anchored to the bottom grows UPWARDS: on a 818px window
+          the top of the form ran 14px under the fixed 104px navigation, which is
+          the same collision the card's old min-height:780px rule existed to
+          avoid. In flow, with pt-[104px] holding the navigation's height and the
+          section on min-h rather than a fixed h, the form can never reach the
+          navigation — on a window too short for both, the hero grows past the
+          fold and the page scrolls instead of hiding the top of the form. */}
+      <div className="relative z-10 w-full">
         <div className="container-v3 pb-10 sm:pb-12 md:pb-14 lg:pb-16">
-          {/* Centred at every width, including desktop. It was left-aligned
-              while a card sat opposite it; with the card gone, a headline
-              pinned to the left of a 1280px container is not the start of a
-              column any more, it is just off to one side. */}
-          <div className="flex flex-col items-center text-center gap-6">
-            <div>
+          <div className="flex flex-col items-center text-center gap-6 md:flex-row md:items-end md:justify-between md:text-left md:gap-8">
+            {/* lg caps this column at 760px because the contact card takes
+                340px of the row from that breakpoint. The authored line breaks
+                in the H1 below were measured against a ~711px column, so 760
+                keeps them intact — see the note on the H1. */}
+            <div className="max-w-[920px] md:max-w-[920px] lg:max-w-[760px]">
               {/* Mobile-only Google rating badge (inline). Desktop renders
                   the sticky variant globally from App.tsx. The Hero block
                   used to fade everything in with staggered opacity 0→1
@@ -238,7 +259,7 @@ export function Hero() {
                 <GoogleRatingCard />
               </div>
 
-              <p className="inline-flex items-center justify-center gap-2 text-white/85">
+              <p className="inline-flex items-center justify-center md:justify-start gap-2 text-white/85">
                 <img
                   src={`${import.meta.env.BASE_URL}brand/logo-color-negative.svg`}
                   alt=""
@@ -261,26 +282,28 @@ export function Hero() {
                 for nothing. Do not remove the two keywords again without
                 replacing them with equivalents.
 
-                Two lines, and the type scale that keeps them two lines, are a
-                measurement rather than a taste. Full container width is
-                min(viewport, 1280) minus two gutters of clamp(20px, 4vw, 56px)
-                — so 1168px from 1400px up, and 942px at 1024px.
+                The heading itself is left exactly as 442a649 left it — same
+                words, same single authored break, same 74px cap. The brief on
+                14 August was "restore the previous hero, keep the H1 as-is", so
+                only the layout around it came back: the contact card returns to
+                the right-hand column and the hero to full height.
 
-                The line that has to fit is not the one below. This page is also
-                built into the WordPress twin at nz.digitalmovement.uk, where
-                content-patches/intent-separation.json swaps the heading for
-                "Get Real Results and New Clients" — 32 characters, measured at
-                14.81× the font size. At the old 80px cap that is 1185px inside
-                1168px, so it broke to three lines there while reading as two
-                here. The cap is 74px because 14.81 × 74 = 1096px, which leaves
-                6% of the column spare at every width from 1024px up.
+                That does change the space the heading has. It stood alone in
+                the full 1168px container while the card was below it; back in
+                this two-column row the column is capped at 760px from lg. The
+                authored <br /> is therefore no longer the only break — see the
+                measured line count in the note at the top of this file.
 
                 The `balance` class stays OFF. `text-wrap: balance` redistributes
-                lines on its own, so with authored <br /> breaks it fights them.
+                lines on its own, so with an authored <br /> it fights it.
 
-                The break is placed so the keyword phrase stays whole on one
-                line. If you change these words — here or in the patch — measure
-                the longest line in the browser again.
+                max-w-[22ch] stays off with it. It was sized for the three-line
+                wording; with these words it would force an extra line.
+
+                If you change these words — here, or in the WordPress twin's
+                content-patches/intent-separation.json, which swaps this heading
+                for "Get Real Results and New Clients" — measure the longest line
+                in the browser again.
               */}
               <h1
                 className="mt-3 sm:mt-4 mx-auto text-white"
@@ -293,23 +316,43 @@ export function Hero() {
               >
                 Get real results from<br />SEO and digital marketing.
               </h1>
+
+            </div>
+
+            {/* The right-hand column. The animated contact card used to live
+                here; from 14 August 2026 it is the real enquiry form instead —
+                the same one that stands above the footer, and the same one
+                every service page puts beside its H1. Same component, same
+                fields, same submitLead route, so there is one form on this site
+                and not two that drift apart. The card moved to the About hero,
+                which is now its only home.
+
+                Plain Tailwind, not the height-aware .dm-contactdemo-hero-slot
+                the card used: that class ships inside dmnz-contactdemo.css, and
+                the WordPress build only attaches that stylesheet to pages that
+                carry a data-contactdemo attribute. With the card gone from this
+                page the class would be dead on the twin, and the form would
+                have no rule to show it. */}
+            <div className="flex flex-col items-center md:items-end gap-5 shrink-0">
+              <div className="hidden md:block w-full md:w-[380px] lg:w-[400px]">
+                <LeadForm
+                  source="home-hero"
+                  heading="Get your free plan"
+                  note="A one-page plan in your inbox within one working day. No sales call, no obligation."
+                  defaultService="Not sure yet"
+                />
+              </div>
+              {/* Below md the form is not in the hero — a 500px form under the
+                  headline would push the whole page down on a phone. The promise
+                  line and its button stay for exactly that case, and they are the
+                  route to the form above the footer. From md the form is right
+                  there, so a button pointing at a second copy of it would be a
+                  second ask for the same thing. */}
+              <HeroPromise className="md:hidden flex flex-col items-center gap-3" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    {/* The four ways to make contact, directly under the hero and centred.
-        This is the only instance on the page now, and the hero is two thirds of
-        the viewport so its heading and the top of the card are on screen before
-        anyone scrolls. It only starts animating once it is actually in view —
-        see the observer in src/lib/contactDemo/scene.ts. */}
-    <section
-      aria-label="Ways to contact us"
-      data-surface="dark"
-      className="surface-dark dm-contactdemo-band px-5 pt-8 pb-14"
-    >
-      <ContactDemo titleTag="h2" />
     </section>
     </>
   );

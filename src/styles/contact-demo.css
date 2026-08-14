@@ -325,8 +325,11 @@
   min-height: calc(2.8 * var(--s));
   box-sizing: border-box;
 }
+/* The one word in the demonstration that lives in CSS rather than in the
+   strings pack, because it is a ::before. A theme layer in another language
+   sets --ctademo-platzhalter; English is the fallback, so nothing changes here. */
 .ctademo-eingabe.ist-leer::before {
-  content: "Message";
+  content: var(--ctademo-platzhalter, "Message");
   color: #9aa7b5;
 }
 
@@ -950,26 +953,34 @@
 
 /* ── Where the card sits on the page ──────────────────────────────── */
 
-/* The card has one home: a band directly under the hero, centred.
-   It used to have two — a slot beside the headline on wide screens, and this
-   band everywhere else. The client read the two-column hero and said "I ignored
-   the text and went straight to the right side": a 540px animated card next to
-   a headline wins that contest every time, and the headline is what the page is
-   for. So the hero is the headline alone and the card follows it, which also
-   makes the reading order one direction instead of two.
-   The hero was shortened to two thirds of the viewport at the same time, so the
-   top of this band is on screen at first paint — the card still has to be
-   visible without scrolling. */
-.dm-contactdemo-band {
-  display: block;
-}
+/* One card, one home: the About hero, from 14 August 2026.
+   It had two homes on the homepage — a slot beside the headline where there
+   was room for it, and a band underneath where there wasn't — and the switch
+   between them lived here rather than on a Tailwind breakpoint because room is
+   a question of HEIGHT as much as width. Both are gone: the homepage hero
+   carries the real enquiry form now, and the card is on About only, where it
+   stacks under the intro below lg instead of switching places.
+   .dm-contactdemo-hero-slot and .dm-contactdemo-band went with them. If the
+   card ever needs a second home again, the sum that set the old 780px cut was
+   navigation 104 + card 541 + gap 20 + promise line 46 + hero padding 64. */
 
 .dm-contactdemo {
   max-width: 420px;
   margin: 0 auto;
 }
+/* In the hero the card is narrow and stays portrait.
+   The width is stated, not left to the content. In the hero the card sits in a
+   flex row, so an auto width would be shrink-to-fit — and the scene inside is
+   sized as a percentage of the card, so there is nothing to fit to. The card
+   collapses to zero and the animation runs in a 0px box. */
+.dm-contactdemo-hero {
+  width: 360px;
+  max-width: 100%;
+  margin: 0;
+}
 @media (max-width: 1023px) {
-  .dm-contactdemo {
+  .dm-contactdemo,
+  .dm-contactdemo-hero {
     width: auto;
     max-width: 460px;
     margin-inline: auto;
@@ -983,6 +994,14 @@
    3 : 2.86. */
 .dm-contactdemo:empty {
   min-height: calc(179px + 0.953 * min(460px, 100vw - 40px));
+}
+.dm-contactdemo-hero:empty {
+  min-height: calc(179px + 0.953 * 360px);
+}
+@media (max-width: 1023px) {
+  .dm-contactdemo-hero:empty {
+    min-height: calc(179px + 0.953 * min(460px, 100vw - 40px));
+  }
 }
 
 /* The contact section gets a brief ring when a "Call back" click jumps to it,

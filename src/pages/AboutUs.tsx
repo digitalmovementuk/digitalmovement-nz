@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Compass, Heart, MapPin, Sparkles, Target } from "lucide-react";
 import { Reveal } from "../lib/Reveal";
-import { about, HERO_IMAGE, STUDIO_IMAGE } from "../content/about";
+import { about } from "../content/about";
+import { Photo } from "../components/Photo";
+import { ContactDemo } from "../components/ContactDemo";
 import { DM_ACCENT } from "../components/ServicePageShell";
 import { Seo, breadcrumbs } from "../seo";
 
@@ -55,14 +57,17 @@ function AboutHero() {
         style={{ y: imgY, scale: imgScale }}
         className="absolute inset-0 -z-10 h-[120%]"
       >
-        <img
-          src={HERO_IMAGE}
-          alt=""
+        <Photo
+          name="about-hero"
+          widths={[1200, 1800, 2400]}
           width={2400}
           height={1600}
+          alt=""
+          /* Full-bleed behind the hero, so the rendered width is the viewport
+             width at every breakpoint. */
+          sizes="100vw"
           className="h-full w-full object-cover"
-          loading="eager"
-          decoding="async"
+          eager
         />
       </motion.div>
       <motion.div
@@ -103,37 +108,60 @@ function AboutHero() {
         style={{ y: textY }}
         className="relative mx-auto flex min-h-[78svh] w-full max-w-[var(--container-max)] flex-col justify-end px-[var(--gutter)] pb-20 pt-[max(140px,18vh)] sm:pb-24 md:pb-20"
       >
-        <Reveal>
-          <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.26em] text-white/80 sm:text-[12px]">
-            <span className="h-px w-7 bg-white/45" aria-hidden />
-            {about.hero.eyebrow}
-          </p>
-        </Reveal>
-        <Reveal delay={0.06}>
-          <h1
-            className="mt-5 max-w-[20ch] balance text-white"
-            style={{
-              fontSize: "clamp(40px, 6.6vw, 92px)",
-              lineHeight: "1.0",
-              letterSpacing: "-0.038em",
-              fontWeight: 700,
-            }}
-          >
-            {about.hero.headlinePre}
-            <span className="block text-white/55">{about.hero.headlineSoft}</span>
-          </h1>
-        </Reveal>
-        <Reveal delay={0.14}>
-          <p className="mt-7 max-w-[58ch] text-[15.5px] leading-relaxed text-white/72 sm:text-[17px] md:text-[18px]">
-            {about.hero.sub}
-          </p>
-        </Reveal>
-        <Reveal delay={0.22}>
-          <p className="mt-7 inline-flex items-center gap-2 text-[11.5px] font-bold uppercase tracking-[0.22em] text-white/60 sm:text-[12px]">
-            <MapPin size={14} strokeWidth={2} style={{ color: DM_ACCENT }} />
-            {about.hero.locations}
-          </p>
-        </Reveal>
+        {/* Two columns from lg: the intro keeps the left, and the animated
+            contact card takes the right. From 14 August 2026 this hero is the
+            card's only home on the site — it used to sit in the homepage hero
+            and in a band under it, where it out-pulled the headline. Here it has
+            nothing to compete with, and "the four ways to reach us" is a fair
+            thing to show on the page about who we are. Below lg it stacks under
+            the intro at its own width; see .dm-contactdemo in contact-demo.css. */}
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_auto] lg:items-end lg:gap-16">
+          <div>
+            <Reveal>
+              <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.26em] text-white/80 sm:text-[12px]">
+                <span className="h-px w-7 bg-white/45" aria-hidden />
+                {about.hero.eyebrow}
+              </p>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <h1
+                className="mt-5 max-w-[20ch] balance text-white"
+                style={{
+                  fontSize: "clamp(40px, 6.6vw, 92px)",
+                  lineHeight: "1.0",
+                  letterSpacing: "-0.038em",
+                  fontWeight: 700,
+                }}
+              >
+                {about.hero.headlinePre}
+                <span className="block text-white/55">{about.hero.headlineSoft}</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <p className="mt-7 max-w-[58ch] text-[15.5px] leading-relaxed text-white/72 sm:text-[17px] md:text-[18px]">
+                {about.hero.sub}
+              </p>
+            </Reveal>
+            <Reveal delay={0.22}>
+              <p className="mt-7 inline-flex items-center gap-2 text-[11.5px] font-bold uppercase tracking-[0.22em] text-white/60 sm:text-[12px]">
+                <MapPin size={14} strokeWidth={2} style={{ color: DM_ACCENT }} />
+                {about.hero.locations}
+              </p>
+            </Reveal>
+          </div>
+
+          {/* titleTag stays a div: this hero already has its h1, and the card's
+              own "Four ways to reach us" is a label on a widget rather than a
+              section of the page. */}
+          <Reveal delay={0.3}>
+            <div className="w-full lg:w-[360px]">
+              <ContactDemo
+                className="dm-contactdemo dm-contactdemo-hero"
+                titleTag="div"
+              />
+            </div>
+          </Reveal>
+        </div>
       </motion.div>
     </section>
   );
@@ -395,12 +423,23 @@ function TeamNote() {
           <Reveal>
             <div className="relative mx-auto w-full max-w-[460px] lg:mx-0 lg:max-w-none">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-surface-2 shadow-[0_36px_90px_-36px_rgba(27,14,46,0.32)] sm:rounded-[36px]">
-                <img
-                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+                {/* Dimensions match the 4/5 box above. The parent already
+                    reserves the space, so this is for the checkers that read
+                    the <img> alone rather than the container.
+
+                    The declared 1600x2000 used to be a fiction — the source
+                    URL asked Unsplash for w=1600 with no height, so the file
+                    that actually arrived was 1600x1050 and object-cover hid
+                    the mismatch. The self-hosted files are cropped to 4:5, so
+                    the numbers below are now the real ones. */}
+                <Photo
+                  name="about-team"
+                  widths={[800, 1200, 1600]}
+                  width={1600}
+                  height={2000}
                   alt="Digital Movement team"
+                  sizes="(min-width: 1024px) 40vw, min(100vw, 460px)"
                   className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
                 />
                 <div
                   aria-hidden
@@ -506,14 +545,14 @@ function Studio() {
         style={{ y: imgY, scale: imgScale }}
         className="absolute inset-0 -z-10 h-[120%]"
       >
-        <img
-          src={STUDIO_IMAGE}
+        <Photo
+          name="about-studio"
+          widths={[1200, 1800, 2400]}
           width={2400}
-          height={1600}
+          height={1602}
           alt=""
+          sizes="100vw"
           className="h-full w-full object-cover"
-          loading="lazy"
-          decoding="async"
         />
       </motion.div>
       <div aria-hidden className="absolute inset-0 -z-10 bg-[#100620]/55" />
