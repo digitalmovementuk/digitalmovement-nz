@@ -1,4 +1,5 @@
 import { Head } from "vite-react-ssg";
+import { socialProfiles } from "./content";
 
 /**
  * Single source of truth for per-route metadata and structured data.
@@ -98,6 +99,8 @@ export const LEGAL_ENTITY = "Digital Movement New Zealand Limited";
 export const REVIEW_RATING = "5.0";
 export const REVIEW_COUNT = "100";
 
+const SOCIAL_PROFILE_URLS = socialProfiles.map(({ href }) => href);
+
 /* The parent entity is still declared — the relationship is a real fact and
    worth expressing — but WITHOUT aggregateRating.
 
@@ -145,10 +148,7 @@ export const ORGANIZATION = {
   email: "office@digitalmovement.co.nz",
   address: POSTAL_ADDRESS,
   parentOrganization: PARENT_ORG,
-  sameAs: [
-    "https://www.facebook.com/digitalmovementnz",
-    "https://www.instagram.com/digitalmovementnz",
-  ],
+  sameAs: SOCIAL_PROFILE_URLS,
   ...(TELEPHONE ? { telephone: TELEPHONE } : {}),
   ...(NZBN ? { identifier: { "@type": "PropertyValue", propertyID: "NZBN", value: NZBN } } : {}),
 };
@@ -164,6 +164,7 @@ export const LOCAL_BUSINESS = {
   email: "office@digitalmovement.co.nz",
   address: POSTAL_ADDRESS,
   parentOrganization: { "@id": `${SITE_URL}/#parent-organization` },
+  sameAs: SOCIAL_PROFILE_URLS,
   areaServed: { "@type": "Country", name: "New Zealand" },
   ...(TELEPHONE ? { telephone: TELEPHONE } : {}),
   ...(NZBN ? { identifier: { "@type": "PropertyValue", propertyID: "NZBN", value: NZBN } } : {}),

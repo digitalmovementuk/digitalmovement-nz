@@ -2,6 +2,7 @@ import { Mail, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { business } from "../content";
 import { ADDRESS_LINE, LEGAL_ENTITY, NZBN } from "../seo";
+import { SocialIcon } from "./SocialIcon";
 
 // Footer sitemap — services link to their dedicated subpages, company links
 // span the About route and the in-page anchors.
@@ -50,33 +51,6 @@ const footerCompany = [
   { label: "Numbers", to: "/#metrics" },
   { label: "Contact", to: "/#contact" },
 ];
-
-function IGIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
-    </svg>
-  );
-}
-function FBIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M13.5 22v-7.5h2.6l.4-3h-3V9.6c0-.87.27-1.46 1.52-1.46H17V5.4c-.3-.04-1.27-.13-2.4-.13-2.37 0-4 1.45-4 4.1V11.5H8v3h2.6V22h2.9z" />
-    </svg>
-  );
-}
 
 export function Footer() {
   return (
@@ -191,10 +165,10 @@ export function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={s.label}
+                  aria-label={`Visit Digital Movement on ${s.label}`}
                   className="grid h-9 w-9 place-items-center rounded-full border border-ink/15 text-ink-soft hover:text-ink hover:border-ink/45 transition"
                 >
-                  {s.label === "Instagram" ? <IGIcon size={15} /> : <FBIcon size={15} />}
+                  <SocialIcon label={s.label} size={15} />
                 </a>
               ))}
             </div>

@@ -1,5 +1,10 @@
 // All real, brand-specific copy lives here so it's easy to scan and edit.
 
+export const socialProfiles = [
+  { label: "Instagram", href: "https://www.instagram.com/digitalmovementnz" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61582384685712" },
+] as const;
+
 export const business = {
   name: "Digital Movement",
   /*
@@ -21,10 +26,7 @@ export const business = {
      both fields together once a real NZ line exists. */
   email: "office@digitalmovement.co.nz",
   emailHref: "mailto:office@digitalmovement.co.nz",
-  socials: [
-    { label: "Instagram", href: "https://www.instagram.com/digitalmovementnz" },
-    { label: "Facebook", href: "https://www.facebook.com/digitalmovementnz" },
-  ],
+  socials: socialProfiles,
 };
 
 /**

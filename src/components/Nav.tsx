@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { business } from "../content";
+import { SocialIcon } from "./SocialIcon";
 
 type Surface = "dark" | "light";
 
@@ -194,6 +195,27 @@ export function Nav() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2" aria-label="Social media">
+              {business.socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit Digital Movement on ${social.label}`}
+                  className={`grid place-items-center rounded-full border transition-all duration-300 ${
+                    compact ? "h-8 w-8" : "h-10 w-10"
+                  } ${
+                    onDark
+                      ? "border-white/25 text-white/80 hover:border-white/60 hover:text-white"
+                      : "border-ink/15 text-ink-soft hover:border-ink/45 hover:text-ink"
+                  }`}
+                >
+                  <SocialIcon label={social.label} size={compact ? 14 : 16} />
+                </a>
+              ))}
+            </div>
+
             <Link to="/#contact" className={`hidden md:inline-flex ${ctaCls}`}>
               Get my free plan <ArrowRight size={13} />
             </Link>
@@ -317,8 +339,22 @@ export function Nav() {
 
               {/* Email only — the phone number was a placeholder and is gone
                   from content.ts until a real one exists (strategy N009). */}
-              <div className="mt-10 text-[13px] text-white/65 space-y-1.5">
+              <div className="mt-10 text-center text-[13px] text-white/65 space-y-1.5">
                 <p>{business.email}</p>
+                <div className="flex items-center justify-center gap-3 pt-4" aria-label="Social media">
+                  {business.socials.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit Digital Movement on ${social.label}`}
+                      className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white/80 transition-colors hover:border-white/60 hover:text-white"
+                    >
+                      <SocialIcon label={social.label} size={17} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </motion.aside>
           </>
