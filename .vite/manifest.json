@@ -1,14 +1,14 @@
 {
-  "_LegalShell-CuMyUyv3.js": {
-    "file": "assets/LegalShell-CuMyUyv3.js",
+  "_LegalShell-CicfzJxf.js": {
+    "file": "assets/LegalShell-CicfzJxf.js",
     "name": "LegalShell",
     "imports": [
       "index.html",
       "_react-core-BhYNTXex.js"
     ]
   },
-  "_SeoPageShell-B7Wo4-GW.js": {
-    "file": "assets/SeoPageShell-B7Wo4-GW.js",
+  "_SeoPageShell-BrWZ0ojl.js": {
+    "file": "assets/SeoPageShell-BrWZ0ojl.js",
     "name": "SeoPageShell",
     "imports": [
       "index.html",
@@ -17,8 +17,8 @@
       "_icons-CeATFcpB.js"
     ]
   },
-  "_ServicePageShell-KfHyoYNJ.js": {
-    "file": "assets/ServicePageShell-KfHyoYNJ.js",
+  "_ServicePageShell-RXbtYfqj.js": {
+    "file": "assets/ServicePageShell-RXbtYfqj.js",
     "name": "ServicePageShell",
     "imports": [
       "index.html",
@@ -62,7 +62,7 @@
     "name": "services"
   },
   "index.html": {
-    "file": "assets/app-cGOUyY0H.js",
+    "file": "assets/app-ChePIT25.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
@@ -114,7 +114,7 @@
     ]
   },
   "src/components/Contact.tsx": {
-    "file": "assets/Contact-BOfwKytS.js",
+    "file": "assets/Contact-CNfTdDOb.js",
     "name": "Contact",
     "src": "src/components/Contact.tsx",
     "isDynamicEntry": true,
@@ -127,7 +127,7 @@
     ]
   },
   "src/components/Metrics.tsx": {
-    "file": "assets/Metrics-KflrzrGy.js",
+    "file": "assets/Metrics-rqMF9aKM.js",
     "name": "Metrics",
     "src": "src/components/Metrics.tsx",
     "isDynamicEntry": true,
@@ -140,7 +140,7 @@
     ]
   },
   "src/components/Reviews.tsx": {
-    "file": "assets/Reviews-BtvqbFl7.js",
+    "file": "assets/Reviews-Cobp5z6e.js",
     "name": "Reviews",
     "src": "src/components/Reviews.tsx",
     "isDynamicEntry": true,
@@ -153,21 +153,21 @@
     ]
   },
   "src/pages/AboutUs.tsx": {
-    "file": "assets/AboutUs-tYYKwhKa.js",
+    "file": "assets/AboutUs-DK6Wv0Au.js",
     "name": "AboutUs",
     "src": "src/pages/AboutUs.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
       "_react-core-BhYNTXex.js",
-      "_ServicePageShell-KfHyoYNJ.js",
+      "_ServicePageShell-RXbtYfqj.js",
       "_motion-Ds8joG3Y.js",
       "_icons-CeATFcpB.js",
       "_lenis-CZHgqTAH.js"
     ]
   },
   "src/pages/NotFound.tsx": {
-    "file": "assets/NotFound-3UzI936p.js",
+    "file": "assets/NotFound-DWTyrxGZ.js",
     "name": "NotFound",
     "src": "src/pages/NotFound.tsx",
     "isDynamicEntry": true,
@@ -180,13 +180,13 @@
     ]
   },
   "src/pages/copyright.tsx": {
-    "file": "assets/copyright-Npp4mLO8.js",
+    "file": "assets/copyright-BG-loHL0.js",
     "name": "copyright",
     "src": "src/pages/copyright.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_LegalShell-CuMyUyv3.js",
+      "_LegalShell-CicfzJxf.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -194,13 +194,13 @@
     ]
   },
   "src/pages/google-ads/christchurch.tsx": {
-    "file": "assets/christchurch-CAzXqY0N.js",
+    "file": "assets/christchurch-Bn3NFPjY.js",
     "name": "christchurch",
     "src": "src/pages/google-ads/christchurch.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -208,13 +208,13 @@
     ]
   },
   "src/pages/industries/builders.tsx": {
-    "file": "assets/builders-C5bzF3gj.js",
+    "file": "assets/builders-BobOvyrj.js",
     "name": "builders",
     "src": "src/pages/industries/builders.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -222,13 +222,13 @@
     ]
   },
   "src/pages/industries/electricians.tsx": {
-    "file": "assets/electricians-CvF4bndW.js",
+    "file": "assets/electricians-CRPgerhv.js",
     "name": "electricians",
     "src": "src/pages/industries/electricians.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -236,13 +236,13 @@
     ]
   },
   "src/pages/industries/plumbers.tsx": {
-    "file": "assets/plumbers-C-vTCpk7.js",
+    "file": "assets/plumbers-lcUdqoYi.js",
     "name": "plumbers",
     "src": "src/pages/industries/plumbers.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -250,13 +250,13 @@
     ]
   },
   "src/pages/industries/roofers.tsx": {
-    "file": "assets/roofers-Bz3VxrXk.js",
+    "file": "assets/roofers-Dgei7AWS.js",
     "name": "roofers",
     "src": "src/pages/industries/roofers.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -264,13 +264,13 @@
     ]
   },
   "src/pages/pricing.tsx": {
-    "file": "assets/pricing-CcnSutDO.js",
+    "file": "assets/pricing-DNZTkrRF.js",
     "name": "pricing",
     "src": "src/pages/pricing.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -278,13 +278,13 @@
     ]
   },
   "src/pages/privacy.tsx": {
-    "file": "assets/privacy-rce6X_63.js",
+    "file": "assets/privacy-js3pv0OK.js",
     "name": "privacy",
     "src": "src/pages/privacy.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_LegalShell-CuMyUyv3.js",
+      "_LegalShell-CicfzJxf.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -292,13 +292,13 @@
     ]
   },
   "src/pages/seo/auckland.tsx": {
-    "file": "assets/auckland-DhU4Canq.js",
+    "file": "assets/auckland-B1GmX1ET.js",
     "name": "auckland",
     "src": "src/pages/seo/auckland.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -306,13 +306,13 @@
     ]
   },
   "src/pages/seo/christchurch.tsx": {
-    "file": "assets/christchurch-CXAApGsp.js",
+    "file": "assets/christchurch-DzrKUADA.js",
     "name": "christchurch",
     "src": "src/pages/seo/christchurch.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -320,13 +320,13 @@
     ]
   },
   "src/pages/seo/dunedin.tsx": {
-    "file": "assets/dunedin-BB-QdBvV.js",
+    "file": "assets/dunedin-Dv8l7-wS.js",
     "name": "dunedin",
     "src": "src/pages/seo/dunedin.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -334,13 +334,13 @@
     ]
   },
   "src/pages/seo/ecommerce.tsx": {
-    "file": "assets/ecommerce-C10Xlb8t.js",
+    "file": "assets/ecommerce-s2UAMwPk.js",
     "name": "ecommerce",
     "src": "src/pages/seo/ecommerce.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -348,13 +348,13 @@
     ]
   },
   "src/pages/seo/hamilton.tsx": {
-    "file": "assets/hamilton-2ufy6F_P.js",
+    "file": "assets/hamilton-fq3yN1rE.js",
     "name": "hamilton",
     "src": "src/pages/seo/hamilton.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -362,13 +362,13 @@
     ]
   },
   "src/pages/seo/hawkes-bay.tsx": {
-    "file": "assets/hawkes-bay-Bdyv4E2h.js",
+    "file": "assets/hawkes-bay-Oo6cc8ak.js",
     "name": "hawkes-bay",
     "src": "src/pages/seo/hawkes-bay.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -376,13 +376,13 @@
     ]
   },
   "src/pages/seo/index.tsx": {
-    "file": "assets/index-BWk1mUGP.js",
+    "file": "assets/index-ojCj8FX1.js",
     "name": "index",
     "src": "src/pages/seo/index.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -390,13 +390,13 @@
     ]
   },
   "src/pages/seo/tauranga.tsx": {
-    "file": "assets/tauranga-D-aU3-AE.js",
+    "file": "assets/tauranga-BiZrNzJl.js",
     "name": "tauranga",
     "src": "src/pages/seo/tauranga.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -404,13 +404,13 @@
     ]
   },
   "src/pages/seo/technical-seo.tsx": {
-    "file": "assets/technical-seo-BmZ5U1hL.js",
+    "file": "assets/technical-seo-DYWXQVx-.js",
     "name": "technical-seo",
     "src": "src/pages/seo/technical-seo.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -418,13 +418,13 @@
     ]
   },
   "src/pages/seo/wellington.tsx": {
-    "file": "assets/wellington-DIYex6eQ.js",
+    "file": "assets/wellington-N1krD8IL.js",
     "name": "wellington",
     "src": "src/pages/seo/wellington.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -432,13 +432,13 @@
     ]
   },
   "src/pages/seo/whangarei.tsx": {
-    "file": "assets/whangarei-B_BBOLou.js",
+    "file": "assets/whangarei-CLmI_Oqk.js",
     "name": "whangarei",
     "src": "src/pages/seo/whangarei.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -446,13 +446,13 @@
     ]
   },
   "src/pages/services/google-ads.tsx": {
-    "file": "assets/google-ads-D-8DEO5B.js",
+    "file": "assets/google-ads-DkrRG1jU.js",
     "name": "google-ads",
     "src": "src/pages/services/google-ads.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_ServicePageShell-KfHyoYNJ.js",
+      "_ServicePageShell-RXbtYfqj.js",
       "_services-vYBTSSo5.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
@@ -461,13 +461,13 @@
     ]
   },
   "src/pages/services/seo.tsx": {
-    "file": "assets/seo-CwJaTW3U.js",
+    "file": "assets/seo-CRgXjQsJ.js",
     "name": "seo",
     "src": "src/pages/services/seo.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_ServicePageShell-KfHyoYNJ.js",
+      "_ServicePageShell-RXbtYfqj.js",
       "_services-vYBTSSo5.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
@@ -476,13 +476,13 @@
     ]
   },
   "src/pages/services/social-media.tsx": {
-    "file": "assets/social-media-D3FDa6tm.js",
+    "file": "assets/social-media-DTTdZH-9.js",
     "name": "social-media",
     "src": "src/pages/services/social-media.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_ServicePageShell-KfHyoYNJ.js",
+      "_ServicePageShell-RXbtYfqj.js",
       "_services-vYBTSSo5.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
@@ -491,7 +491,7 @@
     ]
   },
   "src/pages/services/websites-redirect.tsx": {
-    "file": "assets/websites-redirect-lBLsNzpx.js",
+    "file": "assets/websites-redirect-BLZTWWjo.js",
     "name": "websites-redirect",
     "src": "src/pages/services/websites-redirect.tsx",
     "isDynamicEntry": true,
@@ -504,13 +504,13 @@
     ]
   },
   "src/pages/services/websites.tsx": {
-    "file": "assets/websites-BWPCuq65.js",
+    "file": "assets/websites-C9W7UY5s.js",
     "name": "websites",
     "src": "src/pages/services/websites.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_ServicePageShell-KfHyoYNJ.js",
+      "_ServicePageShell-RXbtYfqj.js",
       "_services-vYBTSSo5.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
@@ -519,7 +519,7 @@
     ]
   },
   "src/pages/sitemap.tsx": {
-    "file": "assets/sitemap-XQT1mxvv.js",
+    "file": "assets/sitemap-ZC3c-6Ex.js",
     "name": "sitemap",
     "src": "src/pages/sitemap.tsx",
     "isDynamicEntry": true,
@@ -532,13 +532,13 @@
     ]
   },
   "src/pages/terms.tsx": {
-    "file": "assets/terms-BYsBz_hV.js",
+    "file": "assets/terms-2MfVnXU7.js",
     "name": "terms",
     "src": "src/pages/terms.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_LegalShell-CuMyUyv3.js",
+      "_LegalShell-CicfzJxf.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",
@@ -546,13 +546,13 @@
     ]
   },
   "src/pages/what-is-seo.tsx": {
-    "file": "assets/what-is-seo-CSyOj5Kp.js",
+    "file": "assets/what-is-seo-DHvn7Xau.js",
     "name": "what-is-seo",
     "src": "src/pages/what-is-seo.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_SeoPageShell-B7Wo4-GW.js",
+      "_SeoPageShell-BrWZ0ojl.js",
       "_motion-Ds8joG3Y.js",
       "_react-core-BhYNTXex.js",
       "_lenis-CZHgqTAH.js",

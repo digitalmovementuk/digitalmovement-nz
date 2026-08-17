@@ -5955,10 +5955,10 @@
   "node_modules/vite-react-ssg/node_modules/react-helmet-async/lib/index.module.js": [],
   "src/components/Consent.tsx": [],
   "src/components/Contact.tsx": [
-    "/assets/Contact-BOfwKytS.js"
+    "/assets/Contact-CNfTdDOb.js"
   ],
   "src/components/ContactDemo.tsx": [
-    "/assets/AboutUs-tYYKwhKa.js"
+    "/assets/AboutUs-DK6Wv0Au.js"
   ],
   "src/components/Footer.tsx": [],
   "src/components/GoogleRatingBadge.tsx": [],
@@ -5967,192 +5967,192 @@
   "src/components/LeadCaptureModal.tsx": [],
   "src/components/LeadForm.tsx": [],
   "src/components/LegalShell.tsx": [
-    "/assets/LegalShell-CuMyUyv3.js"
+    "/assets/LegalShell-CicfzJxf.js"
   ],
   "src/components/Metrics.tsx": [
-    "/assets/Metrics-KflrzrGy.js"
+    "/assets/Metrics-rqMF9aKM.js"
   ],
   "src/components/Nav.tsx": [],
   "src/components/Photo.tsx": [
-    "/assets/ServicePageShell-KfHyoYNJ.js"
+    "/assets/ServicePageShell-RXbtYfqj.js"
   ],
   "src/components/Reviews.tsx": [
-    "/assets/Reviews-BtvqbFl7.js"
+    "/assets/Reviews-Cobp5z6e.js"
   ],
   "src/components/SeoPageShell.tsx": [
-    "/assets/SeoPageShell-B7Wo4-GW.js"
+    "/assets/SeoPageShell-BrWZ0ojl.js"
   ],
   "src/components/ServicePageShell.tsx": [
-    "/assets/ServicePageShell-KfHyoYNJ.js"
+    "/assets/ServicePageShell-RXbtYfqj.js"
   ],
   "src/components/ServicesCarousel.tsx": [],
   "src/components/SocialIcon.tsx": [],
   "src/components/StickyCTA.tsx": [],
   "src/content.ts": [],
   "src/content/about.ts": [
-    "/assets/AboutUs-tYYKwhKa.js"
+    "/assets/AboutUs-DK6Wv0Au.js"
   ],
   "src/content/google-ads/christchurch.ts": [
-    "/assets/christchurch-CAzXqY0N.js"
+    "/assets/christchurch-Bn3NFPjY.js"
   ],
   "src/content/industries/builders.ts": [
-    "/assets/builders-C5bzF3gj.js"
+    "/assets/builders-BobOvyrj.js"
   ],
   "src/content/industries/electricians.ts": [
-    "/assets/electricians-CvF4bndW.js"
+    "/assets/electricians-CRPgerhv.js"
   ],
   "src/content/industries/plumbers.ts": [
-    "/assets/plumbers-C-vTCpk7.js"
+    "/assets/plumbers-lcUdqoYi.js"
   ],
   "src/content/industries/roofers.ts": [
-    "/assets/roofers-Bz3VxrXk.js"
+    "/assets/roofers-Dgei7AWS.js"
   ],
   "src/content/pricing.ts": [
-    "/assets/pricing-CcnSutDO.js"
+    "/assets/pricing-DNZTkrRF.js"
   ],
   "src/content/seo/auckland.ts": [
-    "/assets/auckland-DhU4Canq.js"
+    "/assets/auckland-B1GmX1ET.js"
   ],
   "src/content/seo/christchurch.ts": [
-    "/assets/christchurch-CXAApGsp.js"
+    "/assets/christchurch-DzrKUADA.js"
   ],
   "src/content/seo/dunedin.ts": [
-    "/assets/dunedin-BB-QdBvV.js"
+    "/assets/dunedin-Dv8l7-wS.js"
   ],
   "src/content/seo/ecommerce.ts": [
-    "/assets/ecommerce-C10Xlb8t.js"
+    "/assets/ecommerce-s2UAMwPk.js"
   ],
   "src/content/seo/hamilton.ts": [
-    "/assets/hamilton-2ufy6F_P.js"
+    "/assets/hamilton-fq3yN1rE.js"
   ],
   "src/content/seo/hawkes-bay.ts": [
-    "/assets/hawkes-bay-Bdyv4E2h.js"
+    "/assets/hawkes-bay-Oo6cc8ak.js"
   ],
   "src/content/seo/hub.ts": [
-    "/assets/index-BWk1mUGP.js"
+    "/assets/index-ojCj8FX1.js"
   ],
   "src/content/seo/tauranga.ts": [
-    "/assets/tauranga-D-aU3-AE.js"
+    "/assets/tauranga-BiZrNzJl.js"
   ],
   "src/content/seo/technical-seo.ts": [
-    "/assets/technical-seo-BmZ5U1hL.js"
+    "/assets/technical-seo-DYWXQVx-.js"
   ],
   "src/content/seo/wellington.ts": [
-    "/assets/wellington-DIYex6eQ.js"
+    "/assets/wellington-N1krD8IL.js"
   ],
   "src/content/seo/whangarei.ts": [
-    "/assets/whangarei-B_BBOLou.js"
+    "/assets/whangarei-CLmI_Oqk.js"
   ],
   "src/content/services.ts": [
     "/assets/services-vYBTSSo5.js"
   ],
   "src/content/what-is-seo.ts": [
-    "/assets/what-is-seo-CSyOj5Kp.js"
+    "/assets/what-is-seo-DHvn7Xau.js"
   ],
   "src/index.css": [],
   "src/lib/Reveal.tsx": [],
   "src/lib/contactDemo/scene.ts": [
-    "/assets/AboutUs-tYYKwhKa.js"
+    "/assets/AboutUs-DK6Wv0Au.js"
   ],
   "src/lib/contactDemo/standalone.ts": [
-    "/assets/AboutUs-tYYKwhKa.js"
+    "/assets/AboutUs-DK6Wv0Au.js"
   ],
   "src/lib/contactDemo/timeline.ts": [
-    "/assets/AboutUs-tYYKwhKa.js"
+    "/assets/AboutUs-DK6Wv0Au.js"
   ],
   "src/lib/submitLead.ts": [],
   "src/lib/useCountUp.ts": [
-    "/assets/Metrics-KflrzrGy.js"
+    "/assets/Metrics-rqMF9aKM.js"
   ],
   "src/lib/useLenis.ts": [],
   "src/main.tsx": [],
   "src/pages/AboutUs.tsx": [
-    "/assets/AboutUs-tYYKwhKa.js"
+    "/assets/AboutUs-DK6Wv0Au.js"
   ],
   "src/pages/HomePage.tsx": [],
   "src/pages/NotFound.tsx": [
-    "/assets/NotFound-3UzI936p.js"
+    "/assets/NotFound-DWTyrxGZ.js"
   ],
   "src/pages/copyright.tsx": [
-    "/assets/copyright-Npp4mLO8.js"
+    "/assets/copyright-BG-loHL0.js"
   ],
   "src/pages/google-ads/christchurch.tsx": [
-    "/assets/christchurch-CAzXqY0N.js"
+    "/assets/christchurch-Bn3NFPjY.js"
   ],
   "src/pages/industries/builders.tsx": [
-    "/assets/builders-C5bzF3gj.js"
+    "/assets/builders-BobOvyrj.js"
   ],
   "src/pages/industries/electricians.tsx": [
-    "/assets/electricians-CvF4bndW.js"
+    "/assets/electricians-CRPgerhv.js"
   ],
   "src/pages/industries/plumbers.tsx": [
-    "/assets/plumbers-C-vTCpk7.js"
+    "/assets/plumbers-lcUdqoYi.js"
   ],
   "src/pages/industries/roofers.tsx": [
-    "/assets/roofers-Bz3VxrXk.js"
+    "/assets/roofers-Dgei7AWS.js"
   ],
   "src/pages/pricing.tsx": [
-    "/assets/pricing-CcnSutDO.js"
+    "/assets/pricing-DNZTkrRF.js"
   ],
   "src/pages/privacy.tsx": [
-    "/assets/privacy-rce6X_63.js"
+    "/assets/privacy-js3pv0OK.js"
   ],
   "src/pages/seo/auckland.tsx": [
-    "/assets/auckland-DhU4Canq.js"
+    "/assets/auckland-B1GmX1ET.js"
   ],
   "src/pages/seo/christchurch.tsx": [
-    "/assets/christchurch-CXAApGsp.js"
+    "/assets/christchurch-DzrKUADA.js"
   ],
   "src/pages/seo/dunedin.tsx": [
-    "/assets/dunedin-BB-QdBvV.js"
+    "/assets/dunedin-Dv8l7-wS.js"
   ],
   "src/pages/seo/ecommerce.tsx": [
-    "/assets/ecommerce-C10Xlb8t.js"
+    "/assets/ecommerce-s2UAMwPk.js"
   ],
   "src/pages/seo/hamilton.tsx": [
-    "/assets/hamilton-2ufy6F_P.js"
+    "/assets/hamilton-fq3yN1rE.js"
   ],
   "src/pages/seo/hawkes-bay.tsx": [
-    "/assets/hawkes-bay-Bdyv4E2h.js"
+    "/assets/hawkes-bay-Oo6cc8ak.js"
   ],
   "src/pages/seo/index.tsx": [
-    "/assets/index-BWk1mUGP.js"
+    "/assets/index-ojCj8FX1.js"
   ],
   "src/pages/seo/tauranga.tsx": [
-    "/assets/tauranga-D-aU3-AE.js"
+    "/assets/tauranga-BiZrNzJl.js"
   ],
   "src/pages/seo/technical-seo.tsx": [
-    "/assets/technical-seo-BmZ5U1hL.js"
+    "/assets/technical-seo-DYWXQVx-.js"
   ],
   "src/pages/seo/wellington.tsx": [
-    "/assets/wellington-DIYex6eQ.js"
+    "/assets/wellington-N1krD8IL.js"
   ],
   "src/pages/seo/whangarei.tsx": [
-    "/assets/whangarei-B_BBOLou.js"
+    "/assets/whangarei-CLmI_Oqk.js"
   ],
   "src/pages/services/google-ads.tsx": [
-    "/assets/google-ads-D-8DEO5B.js"
+    "/assets/google-ads-DkrRG1jU.js"
   ],
   "src/pages/services/seo.tsx": [
-    "/assets/seo-CwJaTW3U.js"
+    "/assets/seo-CRgXjQsJ.js"
   ],
   "src/pages/services/social-media.tsx": [
-    "/assets/social-media-D3FDa6tm.js"
+    "/assets/social-media-DTTdZH-9.js"
   ],
   "src/pages/services/websites-redirect.tsx": [
-    "/assets/websites-redirect-lBLsNzpx.js"
+    "/assets/websites-redirect-BLZTWWjo.js"
   ],
   "src/pages/services/websites.tsx": [
-    "/assets/websites-BWPCuq65.js"
+    "/assets/websites-C9W7UY5s.js"
   ],
   "src/pages/sitemap.tsx": [
-    "/assets/sitemap-XQT1mxvv.js"
+    "/assets/sitemap-ZC3c-6Ex.js"
   ],
   "src/pages/terms.tsx": [
-    "/assets/terms-BYsBz_hV.js"
+    "/assets/terms-2MfVnXU7.js"
   ],
   "src/pages/what-is-seo.tsx": [
-    "/assets/what-is-seo-CSyOj5Kp.js"
+    "/assets/what-is-seo-DHvn7Xau.js"
   ],
   "src/routes.tsx": [],
   "src/seo.tsx": [],
