@@ -3,6 +3,7 @@
 export const socialProfiles = [
   { label: "Instagram", href: "https://www.instagram.com/digitalmovementnz" },
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61582384685712" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/digitalmovementnz/" },
 ] as const;
 
 export const business = {
