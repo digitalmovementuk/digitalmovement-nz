@@ -1,0 +1,1 @@
+import{j as r}from"./motion-vi78TJPm.js";import{S as t}from"./ServicePageShell-DzJwd10m.js";import{s as e}from"./services-vYBTSSo5.js";import"./react-core-ClpxCdO-.js";import"./Reveal-CSk_4J6v.js";import"./app-C3xyBVpX.js";import"./icons-D-6AI12t.js";import"./LeadForm-C03ihXT2.js";function f(){return r.jsx(t,{content:e.websites})}export{f as ServiceWebsites};
