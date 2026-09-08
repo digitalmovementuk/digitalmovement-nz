@@ -149,6 +149,7 @@ export function ServicesCarousel() {
             }}
             service={s}
             index={i}
+            prime={primed(i, activeIdx)}
           />
         ))}
       </div>
@@ -180,14 +181,37 @@ export function ServicesCarousel() {
   );
 }
 
+/**
+ * Which slides should have their video mounted while `active` is on screen.
+ *
+ * The slides are viewport-wide, so slides 3 and 4 sit 2,800 px and 4,200 px
+ * to the right — far outside the 800 px margin ServiceVideo watches. They
+ * only mounted once they were already on screen, and then had 6–8 MB to
+ * fetch before a frame could paint. On the live site that read as "the
+ * Social Media and Websites cards have no video": a flat purple card for
+ * several seconds on broadband, for the whole visit on a phone.
+ *
+ * Priming the active slide and the one after it (wrapping) means the next
+ * file is fetched a full autoplay step (8 s) or a swipe ahead of when it is
+ * needed, while the initial load stays at two videos rather than four. Once
+ * mounted a slide stays mounted, so swiping back never re-fetches.
+ */
+function primed(index: number, active: number) {
+  const n = services.length;
+  const ahead = (index - active + n) % n;
+  return ahead <= 1;
+}
+
 const ServiceSlide = ({
   ref,
   service,
   index,
+  prime,
 }: {
   ref: (el: HTMLElement | null) => void;
   service: (typeof services)[number];
   index: number;
+  prime: boolean;
 }) => {
   return (
     <article
@@ -207,7 +231,7 @@ const ServiceSlide = ({
     >
       <div className="relative h-full min-h-[460px] w-full rounded-[24px] sm:rounded-[32px] overflow-hidden bg-ink shadow-card">
         {/* Full-bleed brand video covers the whole card */}
-        <ServiceVideo file={service.video} />
+        <ServiceVideo file={service.video} prime={prime} />
         {/* Bottom darken — keeps the two-line overlay legible without
             heavy-handed full-card tinting */}
         <div
@@ -273,15 +297,18 @@ const ServiceSlide = ({
   );
 };
 
-function ServiceVideo({ file }: { file: string }) {
-  // Mount the <video> element only once the card is within 800 px of the
-  // viewport — generous enough that on any normal scroll speed the buffer
-  // is ready before the card is seen, but small enough that we never load
-  // all four (~25 MB) on initial paint. Once mounted we stay mounted; the
-  // inner IO only controls play / pause.
+function ServiceVideo({ file, prime }: { file: string; prime: boolean }) {
+  // Mount the <video> element once the card is within 800 px of the
+  // viewport OR the carousel has primed it (see `primed` above) — never all
+  // four (~25 MB) on initial paint. Once mounted we stay mounted; the inner
+  // IO only controls play / pause.
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldMount, setShouldMount] = useState(false);
+
+  useEffect(() => {
+    if (prime) setShouldMount(true);
+  }, [prime]);
 
   useEffect(() => {
     const el = wrapRef.current;
