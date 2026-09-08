@@ -53,6 +53,29 @@ export const business = {
  * the buttons read "Call" and "WhatsApp", so replacing these with New Zealand
  * lines later is a one-line change here and nothing else.
  */
+/*
+   The person on the contact section. A name and a face next to the form is
+   the difference between "send it into a queue" and "send it to Martey" —
+   and a role that says "customer success" tells the reader what happens
+   after they send it.
+
+   `phone` is null until the NZ line exists (Raoul, 2026-09-08: "will send
+   through shortly"). The tile renders the phone row only when the value is
+   set — same rule as `business.email` above: nothing is published that
+   cannot be rung. When the number arrives, set both forms here, e.g.
+   { e164: "+6491234567", display: "+64 9 123 4567" }, and nothing else
+   needs touching.
+*/
+export const contactPerson = {
+  name: "Martey Quaye",
+  role: "Head of Customer Success",
+  email: "martey@digitalmovement.co.nz",
+  emailHref: "mailto:martey@digitalmovement.co.nz",
+  phone: null as { e164: string; display: string } | null,
+  /** Basename in /brand/photos, 340×340, jpg + webp. */
+  photo: "martey-quaye-340",
+};
+
 export const contactChannels = {
   phoneE164: "+4917623296439" as string | null,
   whatsappE164: "+4917682360647" as string | null,

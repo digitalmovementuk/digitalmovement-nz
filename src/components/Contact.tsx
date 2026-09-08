@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Check, Phone, MessageCircle, Mail, Clock } from "lucide-react";
-import { business } from "../content";
+import { business, contactPerson } from "../content";
 import { Reveal } from "../lib/Reveal";
 import { submitLead, trackLead, FALLBACK_EMAIL } from "../lib/submitLead";
 import { ConsentCheckbox, ConsentNotice } from "./Consent";
@@ -79,6 +79,7 @@ export function Contact() {
           </Reveal>
 
           <ul className="mt-10 space-y-3">
+            <PersonTile />
             <ContactTile
               icon={<Mail size={18} />}
               label="Email"
@@ -209,7 +210,7 @@ export function Contact() {
 
                 <div className="mt-7 rounded-2xl border border-ink/10 bg-surface-2 p-5 text-left space-y-3">
                   <div className="flex items-start gap-3">
-                    <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ink/8 text-ink">
+                    <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ink/[0.08] text-ink">
                       <Clock size={15} strokeWidth={2.4} />
                     </span>
                     <div className="text-[13px] text-ink-soft leading-relaxed">
@@ -218,7 +219,7 @@ export function Contact() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ink/8 text-ink">
+                    <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ink/[0.08] text-ink">
                       <Phone size={14} strokeWidth={2.4} />
                     </span>
                     <div className="text-[13px] text-ink-soft leading-relaxed">
@@ -279,6 +280,60 @@ function Field({
   );
 }
 
+/**
+ * The person behind the form. Sits first in the list so the face is what
+ * the eye lands on before the generic office inbox below it.
+ *
+ * The photo is the same crop that goes on proposals (340 px square), served
+ * as WebP with a JPEG fallback; at 64 px it is a 10 KB file. The phone row
+ * appears only once contactPerson.phone is set — see the note in content.ts.
+ */
+function PersonTile() {
+  const base = import.meta.env.BASE_URL;
+  const { name, role, email, emailHref, phone, photo } = contactPerson;
+  const rowCls =
+    "inline-flex items-center gap-2 text-[14.5px] font-semibold text-ink transition hover:text-ink-soft";
+  return (
+    <li>
+      <div className="flex flex-col items-center text-center gap-4 sm:flex-row sm:items-start sm:text-left sm:gap-5 rounded-2xl border border-ink/10 bg-white p-5 shadow-card">
+        <picture className="contents">
+          <source type="image/webp" srcSet={`${base}brand/photos/${photo}.webp`} />
+          <img
+            src={`${base}brand/photos/${photo}.jpg`}
+            alt={name}
+            width="340"
+            height="340"
+            loading="lazy"
+            decoding="async"
+            className="h-16 w-16 shrink-0 rounded-full object-cover ring-4 ring-surface-2"
+          />
+        </picture>
+        <div className="sm:flex-1 sm:min-w-0">
+          <p className="text-[10.5px] font-bold uppercase tracking-[0.18em] text-ink-muted">{role}</p>
+          <p className="text-[16px] sm:text-[17px] font-bold text-ink mt-0.5">{name}</p>
+          <ul className="mt-2.5 flex flex-col items-center sm:items-start gap-1.5">
+            <li>
+              <a href={emailHref} className={`${rowCls} break-all`}>
+                <Mail size={14} className="shrink-0 text-ink-muted" />
+                {email}
+              </a>
+            </li>
+            {phone && (
+              <li>
+                <a href={`tel:${phone.e164}`} className={rowCls}>
+                  <Phone size={14} className="shrink-0 text-ink-muted" />
+                  {phone.display}
+                </a>
+              </li>
+            )}
+          </ul>
+          <p className="text-[11.5px] text-ink-muted mt-2">Replies personally within one working day</p>
+        </div>
+      </div>
+    </li>
+  );
+}
+
 function ContactTile({
   icon,
   label,
@@ -307,7 +362,7 @@ function ContactTile({
       >
         <span
           className={`grid h-12 w-12 shrink-0 place-items-center rounded-full ${
-            tone === "whatsapp" ? "bg-dm-whatsapp/15 text-dm-whatsapp" : "bg-ink/8 text-ink"
+            tone === "whatsapp" ? "bg-dm-whatsapp/15 text-dm-whatsapp" : "bg-ink/[0.08] text-ink"
           }`}
         >
           {icon}
