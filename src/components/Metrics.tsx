@@ -145,8 +145,17 @@ function BarChartVisual({ inView }: { inView: boolean }) {
         {bars.map((b) => {
           const heightPct = (b.value / maxValue) * 100;
           return (
-            <div key={b.label} className="flex-1 flex flex-col items-center gap-3">
-              <div className="relative w-full flex items-end" style={{ height: "100%" }}>
+            <div key={b.label} className="flex-1 h-full flex flex-col items-center gap-3">
+              {/* The track must have a definite height or the bar inside it
+                  resolves to nothing. The row is items-end, so its columns are
+                  NOT stretched and take their height from their content; a track
+                  asking for height:100% of that got `auto`, and a bar asking for
+                  12.5% of `auto` got zero. Both bars measured 0px at every width
+                  and the section shipped as two labels with nothing drawn between
+                  them. h-full pins the column to the row's h-[160px]/220/260, and
+                  flex-1 min-h-0 hands the track the space the two labels below it
+                  do not use — the first definite height in the chain. */}
+              <div className="relative w-full flex-1 min-h-0 flex items-end">
                 <motion.div
                   initial={{ height: "0%" }}
                   animate={inView ? { height: `${heightPct}%` } : { height: "0%" }}
@@ -156,7 +165,7 @@ function BarChartVisual({ inView }: { inView: boolean }) {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   className={`w-full rounded-t-[12px] ${
-                    b.mute ? "bg-ink/12" : ""
+                    b.mute ? "bg-ink/[0.12]" : ""
                   }`}
                   style={
                     b.mute
@@ -188,7 +197,7 @@ function BarChartVisual({ inView }: { inView: boolean }) {
         })}
       </div>
       {/* Baseline */}
-      <div className="mt-2 h-px bg-ink/12" />
+      <div className="mt-2 h-px bg-ink/[0.12]" />
     </div>
   );
 }
