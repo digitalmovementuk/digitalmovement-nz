@@ -1,0 +1,1 @@
+import{j as r}from"./motion-B0xEvnQY.js";import{S as o}from"./ServicePageShell-BjPST7iy.js";import{s as t}from"./services-vYBTSSo5.js";import"./react-core-PYbz5UbW.js";import"./app-Dt6w2KAa.js";import"./lenis-CZHgqTAH.js";import"./icons-71T5tSFH.js";function S(){return r.jsx(o,{content:t.seo})}export{S as ServiceSEO};
