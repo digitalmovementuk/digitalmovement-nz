@@ -52,7 +52,7 @@ export function Privacy() {
 
       <LegalPage
         title="Privacy policy"
-        updated="3 August 2026"
+        updated="8 September 2026"
         intro={
           <>
             <p>
@@ -197,6 +197,13 @@ export function Privacy() {
             from another. You can block or delete them in your browser settings, and nothing on this
             site stops working if you do. We do not use advertising cookies, and we do not run
             third-party trackers here.
+          </p>
+          <p>
+            The map at the foot of each page is a still image stored on our own server, so showing
+            it sends nothing to anyone. Google Maps loads only if you click "Load Google Maps"; at
+            that point your browser connects to Google and your IP address reaches them. We keep
+            that choice in your browser for the rest of the visit so you are not asked on every
+            page, and it is gone when you close the tab.
           </p>
         </LegalSection>
 

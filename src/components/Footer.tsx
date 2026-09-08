@@ -2,6 +2,7 @@ import { Mail, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { business } from "../content";
 import { ADDRESS_LINE, LEGAL_ENTITY, NZBN } from "../seo";
+import { FooterMap } from "./FooterMap";
 import { SocialIcon } from "./SocialIcon";
 
 // Footer sitemap — services link to their dedicated subpages, company links
@@ -174,6 +175,10 @@ export function Footer() {
             </div>
           </Column>
         </div>
+
+        {/* Map — where the registered office is. See FooterMap.tsx for why
+            Google only loads on a click. */}
+        <FooterMap />
 
         {/* Legal strip.
             Fixed 2026-08-03. Privacy, Cookies and Terms had been href="#" on
