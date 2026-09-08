@@ -44,13 +44,6 @@ const branches: Branch[] = [
       { label: 'ABN', value: '96 690 059 959', href: 'https://abr.business.gov.au/ABN/View?abn=96690059959' },
     ],
   },
-  {
-    country: 'Germany',
-    businessName: 'Digital Movement Germany',
-    address: ['Kolonnenstraße 8', '10827', 'Germany'],
-    email: 'office@digitalmovement.eu',
-    soleTrader: 'Raoul Müller',
-  },
 ];
 
 export function FooterBranches() {

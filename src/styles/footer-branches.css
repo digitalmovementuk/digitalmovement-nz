@@ -1,6 +1,6 @@
 .dm-footer-branches { padding: 8px 0 36px; }
 .dm-footer-branches > h2 { margin: 0 0 22px; font-size: 24px; font-weight: 600; line-height: 1.25; letter-spacing: -.035em; color: var(--dm-ink); }
-.dm-footer-branches__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.dm-footer-branches__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .dm-branch-card { display: flex; flex-direction: column; min-width: 0; padding: 24px 20px; border: 1px solid var(--dm-line); border-radius: 20px; background: #fff; }
 .dm-branch-card .dm-branch-card__country { margin: 0 0 6px; font-size: 13px; line-height: 1.5; font-weight: 600; color: #765c78; }
 .dm-branch-card__heading { display: flex; flex-direction: column; justify-content: flex-end; min-height: 56px; }
