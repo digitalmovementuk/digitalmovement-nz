@@ -28,7 +28,7 @@ const founders = [
     name: 'Raoul Müller',
     key: 'raoul',
     responsibility: 'Head of Customer Care',
-    experience: 'Experience in Big Four consulting, with specialist expertise in AI and customer excellence. Raoul is there when you need him, keeps you updated and makes sure you know what’s happening with your project.',
+    experience: 'Coming from one of the global top four consultancies, Raoul brings AI and customer excellence expertise. He’s available when you need him, keeps you updated and explains your project’s progress at every stage.',
     image: 'raoul-mueller',
     fullWidth: 570,
     heroSizes: '(max-width: 359px) 44px, (max-width: 389px) 53px, (max-width: 767px) 61px, (max-width: 1000px) 70px, 87px',
