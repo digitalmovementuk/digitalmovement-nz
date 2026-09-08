@@ -1,0 +1,1 @@
+import{j as r}from"./motion-vi78TJPm.js";import{S as i}from"./ServicePageShell-jsH_xdhi.js";import{s as o}from"./services-vYBTSSo5.js";import"./react-core-ClpxCdO-.js";import"./Reveal-CSk_4J6v.js";import"./app-B0pOutw6.js";import"./icons-D-6AI12t.js";import"./LeadForm-0SWPpzdG.js";function S(){return r.jsx(i,{content:o.socialMedia})}export{S as ServiceSocialMedia};
