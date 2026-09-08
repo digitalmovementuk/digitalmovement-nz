@@ -16,7 +16,7 @@ const founders = [
   {
     name: 'Dean Bosilkovski',
     key: 'dean',
-    responsibility: 'Head of Operations',
+    responsibility: 'Head of Operational Excellence',
     experience: 'Dean has helped more than 300 businesses grow through successful projects. His focus is on keeping your project moving, bringing the right people together and making sure the work supports your business goals.',
     image: 'dean-bosilkovski',
     fullWidth: 640,
