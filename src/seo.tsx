@@ -12,7 +12,9 @@ import { socialProfiles } from "./content";
  */
 
 export const SITE_URL = "https://www.digitalmovement.co.nz";
-export const OG_IMAGE = `${import.meta.env.VITE_PREVIEW_SITE_URL || (import.meta.env.VITE_DRAFT === "1" ? "https://update.digitalmovement.co.nz" : SITE_URL)}/brand/og-homepage-draft.jpg`;
+const SHARE_SITE_URL = (import.meta.env.VITE_PREVIEW_SITE_URL || (import.meta.env.VITE_DRAFT === "1" ? "https://update.digitalmovement.co.nz" : SITE_URL)).replace(/\/$/, "");
+export const OG_IMAGE = `${SHARE_SITE_URL}/brand/digital-movement-nz-share-20260908.jpg`;
+export const OG_IMAGE_ALT = 'Digital Movement logo and “Let’s make your marketing spend count.” over a mountain landscape, with portraits of Martey, Raoul and Dean.';
 
 export function absoluteUrl(path: string): string {
   return path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
@@ -373,12 +375,17 @@ export function Seo({ title, description, path, noindex, metaRefresh, schema }: 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={OG_IMAGE} />
-      <meta property="og:image:alt" content="Digital Movement — The People's Agency" />
+      <meta property="og:image:secure_url" content={OG_IMAGE} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={OG_IMAGE_ALT} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={OG_IMAGE} />
+      <meta name="twitter:image:alt" content={OG_IMAGE_ALT} />
 
       <script type="application/ld+json">{graph}</script>
     </Head>

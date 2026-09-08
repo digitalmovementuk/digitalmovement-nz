@@ -18,20 +18,17 @@
          duplicate-metadata problem pre-rendering was added to fix. Only
          genuinely site-wide tags belong below. -->
 
-    <!-- SVG favicon ships in ~6 KB instead of the 252 KB raster. Modern
-         browsers prefer SVG; older ones fall back to the .png. -->
-    <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/brand/motif-positive.png" />
-    <link rel="apple-touch-icon" href="/brand/motif-positive.png" />
+    <!-- Original Digital Movement monogram in coral on the homepage purple. -->
+    <link rel="icon" type="image/svg+xml" href="/brand/favicon-coral-20260908.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/brand/favicon-coral-20260908-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-coral-20260908-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/brand/favicon-coral-20260908-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/brand/favicon-coral-20260908-180.png" />
     <meta name="apple-mobile-web-app-title" content="Digital Movement" />
     <meta name="application-name" content="Digital Movement" />
 
-    <!-- Image dimensions are the same asset on every route, so they stay
-         here rather than being repeated per page. -->
-    <meta property="og:image:secure_url" content="https://www.digitalmovement.co.nz/brand/og-homepage-draft.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <!-- The complete sharing-image block, including dimensions and alt text,
+         comes from Seo so each image has one coherent set of properties. -->
 
     <!-- No hero preloads here. They previously applied to the homepage only
          but shipped on every page: an unused 27KB high-priority poster fetch,

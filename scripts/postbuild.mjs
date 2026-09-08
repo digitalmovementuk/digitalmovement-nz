@@ -27,10 +27,18 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = join(ROOT, "dist");
 const SITE_URL = "https://www.digitalmovement.co.nz";
 const SKIP_DIRS = new Set(["assets", "brand", "video"]);
+const SHARE_ROUTE = "share/marketing-spend";
+
+function isShareEntry(file) {
+  const path = relative(DIST, file).split(sep).join("/");
+  return path === `${SHARE_ROUTE}.html` || path === SHARE_ROUTE || path.startsWith(`${SHARE_ROUTE}/`);
+}
 
 async function findHtml(dir, found = []) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
+    // This generated homepage alias is deliberately outside the route/sitemap inventory.
+    if (isShareEntry(full)) continue;
     if (entry.isDirectory()) {
       if (SKIP_DIRS.has(entry.name)) continue;
       await findHtml(full, found);
@@ -51,6 +59,50 @@ function toRoutePath(absFile) {
 function fail(message) {
   console.error(`postbuild: ${message}`);
   process.exit(1);
+}
+
+async function writeShareEntry(homeHtml) {
+  const ogUrls = homeHtml.match(/<meta\b(?=[^>]*\bproperty=["']og:url["'])[^>]*>/gi) ?? [];
+  const ogImages = homeHtml.match(/<meta\b(?=[^>]*\bproperty=["']og:image["'])[^>]*>/gi) ?? [];
+  const canonicals = homeHtml.match(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/gi) ?? [];
+  if (ogUrls.length !== 1 || ogImages.length !== 1 || canonicals.length !== 1) {
+    fail("share entry needs exactly one homepage og:url, og:image and canonical.");
+  }
+  const imageValue = ogImages[0].match(/\bcontent=["']([^"']+)["']/i)?.[1];
+  const canonicalValue = canonicals[0].match(/\bhref=["']([^"']+)["']/i)?.[1];
+  if (canonicalValue !== `${SITE_URL}/`) fail("the share entry must keep the production homepage canonical.");
+  if (!imageValue?.endsWith("/brand/digital-movement-nz-share-20260908.jpg")) {
+    fail("the homepage sharing image is missing or outdated.");
+  }
+  const imageUrl = new URL(imageValue);
+  if (imageUrl.protocol !== "https:") fail("the sharing image must use an absolute HTTPS URL.");
+  if (!existsSync(join(DIST, "brand/digital-movement-nz-share-20260908.jpg"))) {
+    fail("the new sharing image was not included in dist/brand/.");
+  }
+
+  // Derive the public origin/base from the built image URL, so production and
+  // preview builds agree even when Vite loaded their settings from an env file.
+  const publishedRoot = new URL("../", imageUrl);
+  const shareUrl = new URL(`${SHARE_ROUTE}/`, publishedRoot);
+  const rootPath = publishedRoot.pathname;
+  const sharePath = shareUrl.pathname;
+  const enterHome = `<script data-share-entry>(()=>{const root=${JSON.stringify(rootPath)},share=${JSON.stringify(sharePath)};if([share,share.slice(0,-1),share.slice(0,-1)+".html"].includes(location.pathname)){history.replaceState(history.state,"",root+location.search+location.hash);}})();</script>`;
+
+  // The response remains the full homepage with fresh social metadata. Humans
+  // see that same homepage; normalize its URL before the client router boots.
+  // No HTTP redirect, extra screen or user-agent-specific content is involved.
+  let shareHtml = homeHtml
+    .replace(ogUrls[0], ogUrls[0].replace(/\bcontent=["'][^"']*["']/i, `content="${shareUrl.href}"`))
+    .replace(/<meta\b(?=[^>]*\bname=["']robots["'])[^>]*>\s*/gi, "")
+    .replace("</head>", '<meta data-rh="true" name="robots" content="noindex,follow">\n</head>');
+  const charset = shareHtml.match(/<meta\b[^>]*\bcharset=["']?utf-8["']?[^>]*>/i)?.[0];
+  if (!charset) fail("the share entry needs an early UTF-8 declaration.");
+  shareHtml = shareHtml.replace(charset, `${charset}${enterHome}`);
+  const shareDir = join(DIST, SHARE_ROUTE);
+  await mkdir(shareDir, { recursive: true });
+  await writeFile(join(shareDir, "index.html"), shareHtml, "utf8");
+  await writeFile(join(DIST, `${SHARE_ROUTE}.html`), shareHtml, "utf8");
+  console.log(`postbuild: wrote ${shareUrl.href} (homepage share alias, noindex)`);
 }
 
 async function main() {
@@ -89,6 +141,8 @@ async function main() {
   // applies. Both copies carry the same canonical (/about), so the duplicate
   // is declared rather than competing.
   for (const file of await findHtml(DIST)) {
+    // Directory twins already exist on a repeated postbuild invocation.
+    if (file.endsWith(`${sep}index.html`) && file !== join(DIST, "index.html")) continue;
     const path = toRoutePath(file);
     if (path === "/" || path === "/404") continue;
     const dir = join(DIST, path.slice(1));
@@ -216,6 +270,10 @@ async function main() {
       console.warn("postbuild: WARNING — no GA4 measurement ID in the bundle (VITE_GA4_ID unset).");
     }
   }
+
+  // Generated last and excluded from findHtml: it must not add a duplicate
+  // homepage title or a noindex URL to the existing route/sitemap inventory.
+  await writeShareEntry(homeHtml);
 
   console.log(`postbuild: ${routePaths.length} pages, each with a unique title and canonical`);
   for (const p of routePaths) console.log(`  ${p}`);
