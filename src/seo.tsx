@@ -12,7 +12,7 @@ import { socialProfiles } from "./content";
  */
 
 export const SITE_URL = "https://www.digitalmovement.co.nz";
-export const OG_IMAGE = `${SITE_URL}/brand/og-cover.jpg`;
+export const OG_IMAGE = `${import.meta.env.VITE_PREVIEW_SITE_URL || (import.meta.env.VITE_DRAFT === "1" ? "https://update.digitalmovement.co.nz" : SITE_URL)}/brand/og-homepage-draft.jpg`;
 
 export function absoluteUrl(path: string): string {
   return path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
@@ -34,7 +34,7 @@ export function absoluteUrl(path: string): string {
  * ------------------------------------------------------------------ */
 
 /** Set once the real value exists — omitted from schema while empty. */
-export const TELEPHONE = "";
+export const TELEPHONE = "+64272894423";
 
 /**
  * NZBN of DIGITAL MOVEMENT NEW ZEALAND LIMITED, verified against the NZ
@@ -305,6 +305,7 @@ type SeoProps = {
 
 export function Seo({ title, description, path, noindex, metaRefresh, schema }: SeoProps) {
   const url = absoluteUrl(path);
+  noindex = noindex || import.meta.env.VITE_DRAFT === "1";
 
   /**
    * WebPage node for this route, carrying `dateModified`.

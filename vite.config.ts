@@ -35,7 +35,7 @@ function inlineCss(): Plugin {
         // <style> in just before </head>.
         return html
           .replace(
-            /<link\s+rel="stylesheet"[^>]*href="\/assets\/[^"]+\.css"[^>]*>\s*/g,
+            /<link\s+rel="stylesheet"[^>]*href="[^" ]*\/assets\/[^"]+\.css"[^>]*>\s*/g,
             "",
           )
           .replace("</head>", `${styleTag}\n  </head>`);
@@ -73,6 +73,8 @@ function internalOverview(): Plugin {
     transformIndexHtml: {
       order: "post",
       handler(html) {
+        const shareDomain = process.env.VITE_PREVIEW_SITE_URL || (process.env.VITE_DRAFT === '1' ? 'https://update.digitalmovement.co.nz' : 'https://www.digitalmovement.co.nz');
+        html = html.replaceAll('https://www.digitalmovement.co.nz/brand/og-homepage-draft.jpg', `${shareDomain}/brand/og-homepage-draft.jpg`);
         if (!INTERNAL) return html;
         return html
           .replace(

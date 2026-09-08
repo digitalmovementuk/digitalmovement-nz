@@ -219,3 +219,12 @@
   transition: transform 0.2s ease;
 }
 .skip-link:focus { transform: translateY(0); }
+
+/* The homepage hero shares its desktop row with the enquiry card. Keep the
+   authored break as the only desktop break at every width where that row is
+   active. The inline fallback preserves the original mobile/tablet scale. */
+@media (min-width: 1024px) {
+  .dm-home-hero-title {
+    --dm-home-hero-size: clamp(44px, calc(5vw - 7.2px), 64px);
+  }
+}

@@ -17,7 +17,9 @@ import "./styles/contact-demo.css";
  * gtag.js ignores it silently — the event simply never arrives, and the
  * property reports zero key events while looking correctly installed.
  */
-const GA4_ID = import.meta.env.VITE_GA4_ID as string | undefined;
+const GA4_ID = import.meta.env.PROD && import.meta.env.VITE_DRAFT !== "1"
+  ? import.meta.env.VITE_GA4_ID as string | undefined
+  : undefined;
 if (typeof window !== "undefined" && GA4_ID) {
   const w = window as unknown as {
     dataLayer: unknown[];

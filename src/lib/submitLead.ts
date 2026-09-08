@@ -91,7 +91,7 @@ export type LeadPayload = {
 
 export type LeadResult =
   | { ok: true }
-  | { ok: false; reason: "unconfigured" | "network" | "rejected"; detail?: string };
+  | { ok: false; reason: "unconfigured" | "network" | "rejected" | "manual"; detail?: string };
 
 /** Where to tell the user to go when we genuinely cannot take the lead. */
 export const FALLBACK_EMAIL = business.email;
@@ -103,6 +103,12 @@ export async function submitLead(payload: LeadPayload): Promise<LeadResult> {
   if (!payload.consent) {
     console.error("[lead] Refusing to send: consent was not given.");
     return { ok: false, reason: "rejected", detail: "consent missing" };
+  }
+
+  if (import.meta.env.VITE_PREVIEW_EMAIL_ONLY === "1") {
+    const body = `Hi Martey,\n\nName: ${payload.name}\nEmail: ${payload.email || "Not supplied"}\nPhone: ${payload.phone || "Not supplied"}\nService: ${payload.service || "Marketing plan"}\n\n${payload.message || "I'd like to talk about growing my business."}\n`;
+    window.location.href = `mailto:martey@digitalmovement.co.nz?subject=${encodeURIComponent("My Digital Movement enquiry")}&body=${encodeURIComponent(body)}`;
+    return { ok: false, reason: "manual", detail: "Email draft opened; visitor must send it." };
   }
 
   const destinations = WEB3FORMS_KEYS.length + (WEBHOOK ? 1 : 0) + (DM_ENDPOINT ? 1 : 0);

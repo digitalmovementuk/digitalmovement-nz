@@ -283,7 +283,7 @@ export function Hero() {
                 replacing them with equivalents.
 
                 The heading itself is left exactly as 442a649 left it — same
-                words, same single authored break, same 74px cap. The brief on
+                words and same single authored break. The brief on
                 14 August was "restore the previous hero, keep the H1 as-is", so
                 only the layout around it came back: the contact card returns to
                 the right-hand column and the hero to full height.
@@ -302,13 +302,16 @@ export function Hero() {
 
                 If you change these words — here, or in the WordPress twin's
                 content-patches/intent-separation.json, which swaps this heading
-                for "Get Real Results and New Clients" — measure the longest line
-                in the browser again.
+                for "Get Real Results From Digital Marketing." without a forced
+                break — measure the longest line
+                in the browser again. From lg upwards the responsive size is
+                deliberately capped against the two-column width, so the two
+                homepage phrases remain exactly two visual lines.
               */}
               <h1
-                className="mt-3 sm:mt-4 mx-auto text-white"
+                className="dm-home-hero-title mt-3 sm:mt-4 mx-auto text-white"
                 style={{
-                  fontSize: "clamp(34px, 5.6vw, 74px)",
+                  fontSize: "var(--dm-home-hero-size, clamp(34px, 5.6vw, 74px))",
                   lineHeight: "1.04",
                   letterSpacing: "-0.035em",
                   fontWeight: 600,
@@ -357,4 +360,3 @@ export function Hero() {
     </>
   );
 }
-

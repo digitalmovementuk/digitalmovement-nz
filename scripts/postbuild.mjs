@@ -56,6 +56,17 @@ function fail(message) {
 async function main() {
   if (!existsSync(DIST)) fail("dist/ not found — run the build first.");
 
+  if (process.env.VITE_DRAFT === "1") {
+    await writeFile(join(DIST, "robots.txt"), "User-agent: *\nDisallow: /\n");
+    await writeFile(join(DIST, "CNAME"), "update.digitalmovement.co.nz\n");
+  }
+
+  // Keep the encoding declaration inside the first 1024 bytes, even after SSG injects metadata.
+  for (const file of await findHtml(DIST)) {
+    const html = (await readFile(file, 'utf8')).replace(/<meta[^>]+charset=[^>]+>\s*/gi, '');
+    await writeFile(file, html.replace(/<head([^>]*)>/i, '<head$1><meta charset="utf-8">'));
+  }
+
   // ---- 1. The GitHub Pages not-found page must exist and must NOT be a
   //         copy of the homepage. That copy is the original defect.
   const notFound = join(DIST, "404.html");
@@ -97,7 +108,7 @@ async function main() {
   // filter below would strip the lot and trip the "no HTML pages" guard. There
   // the sitemap is an inventory for the overview widget, not a crawl
   // instruction, so it lists everything. The public build keeps the real rule.
-  const internal = process.env.VITE_INTERNAL_OVERVIEW === "1";
+  const internal = process.env.VITE_INTERNAL_OVERVIEW === "1" || process.env.VITE_DRAFT === "1";
 
   const indexable = [];
   for (const f of files) {
@@ -174,7 +185,9 @@ async function main() {
     const hasDmEndpoint = /leads\.digitalmovement\.uk/.test(bundle);
     const hasWeb3FormsKey = /"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"/.test(bundle);
     const hasWeb3Forms = /api\.web3forms\.com/.test(bundle) && hasWeb3FormsKey;
-    const hasDestination = hasDmEndpoint || hasWeb3Forms;
+    const emailPreview = process.env.VITE_PREVIEW_EMAIL_ONLY === "1";
+    const hasManualEmail = emailPreview && /mailto:martey@digitalmovement\.co\.nz/.test(bundle) && /Continue by email/.test(bundle);
+    const hasDestination = hasDmEndpoint || hasWeb3Forms || hasManualEmail;
 
     // Consent is not optional: the handler rejects a payload without it, and a
     // lead collected without recorded consent must not be transmitted at all.

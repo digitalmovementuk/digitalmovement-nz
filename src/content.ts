@@ -71,7 +71,7 @@ export const contactPerson = {
   role: "Head of Customer Success",
   email: "martey@digitalmovement.co.nz",
   emailHref: "mailto:martey@digitalmovement.co.nz",
-  phone: null as { e164: string; display: string } | null,
+  phone: { e164: "+64272894423", display: "027 289 4423" } as { e164: string; display: string } | null,
   /** Basename in /brand/photos, 340×340, jpg + webp. */
   photo: "martey-quaye-340",
 };

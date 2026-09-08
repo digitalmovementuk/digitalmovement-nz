@@ -10,6 +10,8 @@ const SERVICES = ["SEO", "Google Ads", "Social Media", "Website", "Not sure yet"
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [emailReady, setEmailReady] = useState(false);
+  const emailOnly = import.meta.env.VITE_PREVIEW_EMAIL_ONLY === "1";
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hp, setHp] = useState(""); // honeypot
@@ -40,6 +42,8 @@ export function Contact() {
     if (result.ok) {
       trackLead("contact-section");
       setSubmitted(true);
+    } else if (result.reason === "manual") {
+      setEmailReady(true);
     } else {
       setError(
         `We couldn't send that from here. Please email us directly at ${FALLBACK_EMAIL} and we'll pick it up straight away.`,
@@ -178,10 +182,11 @@ export function Contact() {
                   disabled={sending}
                   className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium text-[15px] py-3 transition-colors"
                 >
-                  {sending ? "Sending…" : <>Get my free plan <ArrowRight size={15} /></>}
+                  {sending ? "Sending…" : <>{emailOnly ? "Continue by email" : "Get my free plan"} <ArrowRight size={15} /></>}
                 </button>
 
-                {error ? (
+                {emailOnly && <p className="text-[13px] text-ink-soft" role="status">{emailReady ? "Your email draft is ready. Send it from your email app to reach Martey." : "Opens an email to Martey with these details. Send it from your email app."}</p>}
+            {error ? (
                   <p role="alert" className="text-[13px] leading-relaxed text-[#B3261E]">
                     {error}
                   </p>
