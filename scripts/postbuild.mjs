@@ -72,7 +72,8 @@ async function main() {
   // Keep the encoding declaration inside the first 1024 bytes, even after SSG injects metadata.
   for (const file of await findHtml(DIST)) {
     const html = (await readFile(file, 'utf8')).replace(/<meta[^>]+charset=[^>]+>\s*/gi, '');
-    await writeFile(file, html.replace(/<head([^>]*)>/i, '<head$1><meta charset="utf-8">'));
+    const encoded = html.replace(/<head([^>]*)>/i, '<head$1><meta charset="utf-8">');
+    await writeFile(file, isShareEntry(file) ? encoded.replace(/[ \t]+$/gm, '') : encoded);
   }
 
   // ---- 1. The GitHub Pages not-found page must exist and must NOT be a
