@@ -13,7 +13,7 @@ import { socialProfiles } from "./content";
 
 export const SITE_URL = "https://www.digitalmovement.co.nz";
 const SHARE_SITE_URL = (import.meta.env.VITE_PREVIEW_SITE_URL || (import.meta.env.VITE_DRAFT === "1" ? "https://update.digitalmovement.co.nz" : SITE_URL)).replace(/\/$/, "");
-export const OG_IMAGE = `${SHARE_SITE_URL}/brand/digital-movement-nz-share-20260908.jpg`;
+export const OG_IMAGE = `${SHARE_SITE_URL}/brand/digital-movement-founders-whatsapp-20260908-v2.jpg`;
 export const OG_IMAGE_ALT = 'Digital Movement logo and “Let’s make your marketing spend count.” over a mountain landscape, with portraits of Martey, Raoul and Dean.';
 
 export function absoluteUrl(path: string): string {

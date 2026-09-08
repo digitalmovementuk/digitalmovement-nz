@@ -14,17 +14,6 @@ const founders = [
     linkedin: 'https://www.linkedin.com/in/martey-quaye-64a05017b/',
   },
   {
-    name: 'Raoul Müller',
-    key: 'raoul',
-    responsibility: 'Head of Customer Care',
-    experience: 'Experience in Big Four consulting, with specialist expertise in AI and customer excellence. Raoul is there when you need him, keeps you updated and makes sure you know what’s happening with your project.',
-    image: 'raoul-mueller',
-    fullWidth: 570,
-    heroSizes: '(max-width: 359px) 44px, (max-width: 389px) 53px, (max-width: 767px) 61px, (max-width: 1000px) 70px, 87px',
-    portraitSizes: '(max-width: 767px) 238px, (max-width: 1100px) 215px, 261px',
-    linkedin: 'https://www.linkedin.com/in/raoulschaller/',
-  },
-  {
     name: 'Dean Bosilkovski',
     key: 'dean',
     responsibility: 'Head of Operations',
@@ -34,6 +23,17 @@ const founders = [
     heroSizes: '(max-width: 359px) 32px, (max-width: 389px) 38px, (max-width: 767px) 45px, (max-width: 1000px) 51px, 63px',
     portraitSizes: '(max-width: 767px) 173px, (max-width: 1100px) 156px, 189px',
     linkedin: 'https://www.linkedin.com/in/deanbosilkovski/',
+  },
+  {
+    name: 'Raoul Müller',
+    key: 'raoul',
+    responsibility: 'Head of Customer Care',
+    experience: 'Experience in Big Four consulting, with specialist expertise in AI and customer excellence. Raoul is there when you need him, keeps you updated and makes sure you know what’s happening with your project.',
+    image: 'raoul-mueller',
+    fullWidth: 570,
+    heroSizes: '(max-width: 359px) 44px, (max-width: 389px) 53px, (max-width: 767px) 61px, (max-width: 1000px) 70px, 87px',
+    portraitSizes: '(max-width: 767px) 238px, (max-width: 1100px) 215px, 261px',
+    linkedin: 'https://www.linkedin.com/in/raoulschaller/',
   },
 ];
 
@@ -93,7 +93,7 @@ export function HomeFounderTrust() {
           </span>
         ))}
       </span>
-      <span className="dm-hero-founder-caption"><strong>Martey, Raoul &amp; Dean</strong><span>Meet the founders <ArrowUpRight size={13} aria-hidden="true"/></span></span>
+      <span className="dm-hero-founder-caption"><strong>Martey, Dean &amp; Raoul</strong><span>Meet the founders <ArrowUpRight size={13} aria-hidden="true"/></span></span>
     </Link>
   );
 }

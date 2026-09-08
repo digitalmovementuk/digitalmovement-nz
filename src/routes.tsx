@@ -1,6 +1,7 @@
 import type { RouteRecord } from "vite-react-ssg";
 import { Layout } from "./components/Layout";
 import { HomePage } from "./pages/HomePage";
+import { HOME_SHARE_PATHS } from "./lib/homeRoutes";
 
 /**
  * Route table for vite-react-ssg.
@@ -31,6 +32,11 @@ export const routes: RouteRecord[] = [
         element: <HomePage />,
         entry: "src/pages/HomePage.tsx",
       },
+      ...HOME_SHARE_PATHS.map((sharePath) => ({
+        path: sharePath.slice(1, -1),
+        element: <HomePage sharePath={sharePath} />,
+        entry: "src/pages/HomePage.tsx",
+      })),
       {
         path: "about",
         lazy: () => import("./pages/AboutUs").then((m) => ({ Component: m.AboutUs })),
