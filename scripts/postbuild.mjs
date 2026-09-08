@@ -97,7 +97,7 @@ async function writeShareEntry(homeHtml) {
     .replace("</head>", '<meta data-rh="true" name="robots" content="noindex,follow">\n</head>');
   const charset = shareHtml.match(/<meta\b[^>]*\bcharset=["']?utf-8["']?[^>]*>/i)?.[0];
   if (!charset) fail("the share entry needs an early UTF-8 declaration.");
-  shareHtml = shareHtml.replace(charset, `${charset}${enterHome}`);
+  shareHtml = shareHtml.replace(charset, `${charset}${enterHome}`).replace(/[ \t]+$/gm, "");
   const shareDir = join(DIST, SHARE_ROUTE);
   await mkdir(shareDir, { recursive: true });
   await writeFile(join(shareDir, "index.html"), shareHtml, "utf8");
